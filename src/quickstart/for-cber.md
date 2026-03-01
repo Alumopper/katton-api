@@ -6,7 +6,7 @@ Katton provides a series of functions that wrap all the functionalities of the v
 
 ## Commands
 
-All command functions are located in the `top.katton.api.dpcaller` package. You can find the documentation for these functions in the [API documentation](../kdoc/kts4mc-template-1.21.11/top.katton.api.dpcaller/index.html). These functions are designed to be as close to the original commands as possible. For example, you may use `scoreboard players set test myscore 1` in datapack, and in Katton you can achieve the same effect with the following code:
+All command functions are located in the `top.katton.api.dpcaller` package. You can find the documentation for these functions in the [API documentation](/kdoc/kts4mc-template-1.21.11/top.katton.api.dpcaller/index.html). These functions are designed to be as close to the original commands as possible. For example, you may use `scoreboard players set test myscore 1` in datapack, and in Katton you can achieve the same effect with the following code:
 
 ```kotlin
 import top.katton.api.getObjective
@@ -24,7 +24,7 @@ val scoreboardExampleMain = scoreboardExampleMain()
 
 ## Entity Access
 
-In datapacks, we always need to use target selectors to specify the entities we want to operate on. In Katton, you can also use target selectors to get the corresponding entities. We provide [`EntitySelectorBuilder`](../kdoc/kts4mc-template-1.21.11/top.katton.util/-entity-selector-builder/index.html?query=class%20EntitySelectorBuilder) class to help you build target selectors. 
+In datapacks, we always need to use target selectors to specify the entities we want to operate on. In Katton, you can also use target selectors to get the corresponding entities. We provide [`EntitySelectorBuilder`](/kdoc/kts4mc-template-1.21.11/top.katton.util/-entity-selector-builder/index.html) class to help you build target selectors. 
 
 ```kotlin
 import net.minecraft.world.effect.MobEffects

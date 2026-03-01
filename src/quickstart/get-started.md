@@ -44,4 +44,14 @@ Change the message in `hello.kt` to something else, save the file, and use `relo
 
 ## Debugging
 
-Debugging kotlin scripts is similar to debugging a normal mod. You can set breakpoints in your script files and use the debug configuration in your IDE to launch the game. When the breakpoint is hit, you can inspect variables and step through the code just like you would with a normal mod.
+Katton supports debugging datapack Kotlin scripts through standard JVM remote debugging.
+
+1. Start Minecraft (or the dedicated server) with a debug agent, for example:
+
+   ```text
+   -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+   ```
+
+2. In IntelliJ IDEA, create an **Attach to remote JVM** run configuration and connect to the same host and port.
+3. Set breakpoints in the actual datapack script file (for example, `data/<namespace>/scripts/*.kt`).
+4. Enjoy debugging your scripts with the IDE's standard debugging tools.
