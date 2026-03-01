@@ -5,16 +5,18 @@ import baseConfig from 'vitepress-carbon/config'
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "Katton",
+  description: "Modding your world with hot-reloadable Kotlin scripts",
   srcDir: 'src',
+  cleanUrls: false,
   //base: '/vitepress-carbon-template/', if running on github-pages, set repository name here
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Quick Start', link: '/quickstart/getting-started' },
+      { text: 'API', link: '/kdoc/index.html' }
     ],
 
     search: {
@@ -23,16 +25,19 @@ export default defineConfigWithTheme<ThemeConfig>({
     
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Quick Start',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Getting Started', link: '/quickstart/get-started' },
+          { text: 'Event', link: '/quickstart/event' },
+          { text: 'Registry', link: '/quickstart/registry' },
+          { text: 'Code Injection', link: '/quickstart/inject' },
+          { text: 'For Datapack Developers', link: '/quickstart/for-cber' }
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/brenoepics/vitepress-carbon' }
+      { icon: 'github', link: 'https://github.com/Alumopper/Katton' }
     ]
   }
 })

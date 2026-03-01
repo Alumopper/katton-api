@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>EntitySleep</title>
+    <link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<link href="../../../../images/logo.png">
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../../index.html" tabindex="1">
+                    kts4mc-template-1.21.11
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.0.0        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":/main"
+                                       data-filter=":/main"/>
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    kts4mc-template-1.21.11
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="kts4mc-template-1.21.11::top.katton.api.event/KattonEvents.EntitySleep///PointingToDeclaration//-251573632">
+  <div class="breadcrumbs"><a href="../../../../index.html">kts4mc-template-1.21.11</a><span class="delimiter">/</span><a href="../../index.html">top.katton.api.event</a><span class="delimiter">/</span><a href="../index.html">KattonEvents</a><span class="delimiter">/</span><span class="current">EntitySleep</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Entity</span><wbr></wbr><span><span>Sleep</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">EntitySleep</a></div><p class="paragraph">Entity sleeping related events (allow/start/stop/bed/nearby monsters etc.).</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="640780548%2FClasslikes%2F-251573632" anchor-label="AllowBedArg" id="640780548%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-allow-bed-arg/index.html"><span>Allow</span><wbr></wbr><span>Bed</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="640780548%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-allow-bed-arg/index.html">AllowBedArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>entity<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity/LivingEntity///PointingToDeclaration/">LivingEntity</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/BlockPos///PointingToDeclaration/">BlockPos</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>state<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.level.block.state/BlockState///PointingToDeclaration/">BlockState</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>vanillaResult<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1406788587%2FClasslikes%2F-251573632" anchor-label="AllowNearbyMonstersArg" id="1406788587%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-allow-nearby-monsters-arg/index.html"><span>Allow</span><wbr></wbr><span>Nearby</span><wbr></wbr><span>Monsters</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1406788587%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-allow-nearby-monsters-arg/index.html">AllowNearbyMonstersArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>entity<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity.player/Player///PointingToDeclaration/">Player</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/BlockPos///PointingToDeclaration/">BlockPos</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>vanillaResult<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1017201619%2FClasslikes%2F-251573632" anchor-label="AllowResettingTimeArg" id="-1017201619%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-allow-resetting-time-arg/index.html"><span>Allow</span><wbr></wbr><span>Resetting</span><wbr></wbr><span>Time</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1017201619%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-allow-resetting-time-arg/index.html">AllowResettingTimeArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>player<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity.player/Player///PointingToDeclaration/">Player</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1885054366%2FClasslikes%2F-251573632" anchor-label="AllowSleepingArg" id="1885054366%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-allow-sleeping-arg/index.html"><span>Allow</span><wbr></wbr><span>Sleeping</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1885054366%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-allow-sleeping-arg/index.html">AllowSleepingArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>entity<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity/LivingEntity///PointingToDeclaration/">LivingEntity</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/BlockPos///PointingToDeclaration/">BlockPos</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-449467836%2FClasslikes%2F-251573632" anchor-label="ModifySleepingDirectionArg" id="-449467836%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-modify-sleeping-direction-arg/index.html"><span>Modify</span><wbr></wbr><span>Sleeping</span><wbr></wbr><span>Direction</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-449467836%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-modify-sleeping-direction-arg/index.html">ModifySleepingDirectionArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>entity<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity/LivingEntity///PointingToDeclaration/">LivingEntity</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/BlockPos///PointingToDeclaration/">BlockPos</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>direction<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/Direction///PointingToDeclaration/">Direction</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1586283250%2FClasslikes%2F-251573632" anchor-label="ModifyWakeUpPositionArg" id="-1586283250%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-modify-wake-up-position-arg/index.html"><span>Modify</span><wbr></wbr><span>Wake</span><wbr></wbr><span>Up</span><wbr></wbr><span>Position</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1586283250%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-modify-wake-up-position-arg/index.html">ModifyWakeUpPositionArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>entity<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity/LivingEntity///PointingToDeclaration/">LivingEntity</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>sleepingPos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/BlockPos///PointingToDeclaration/">BlockPos</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>bedState<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.level.block.state/BlockState///PointingToDeclaration/">BlockState</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>wakeUpPos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.phys/Vec3///PointingToDeclaration/">Vec3</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1797801809%2FClasslikes%2F-251573632" anchor-label="SetBedOccupationStateArg" id="1797801809%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-set-bed-occupation-state-arg/index.html"><span>Set</span><wbr></wbr><span>Bed</span><wbr></wbr><span>Occupation</span><wbr></wbr><span>State</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1797801809%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-set-bed-occupation-state-arg/index.html">SetBedOccupationStateArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>entity<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity/LivingEntity///PointingToDeclaration/">LivingEntity</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/BlockPos///PointingToDeclaration/">BlockPos</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>state<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.level.block.state/BlockState///PointingToDeclaration/">BlockState</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>occupied<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-944757609%2FClasslikes%2F-251573632" anchor-label="SettingSpawnArg" id="-944757609%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-setting-spawn-arg/index.html"><span>Setting</span><wbr></wbr><span>Spawn</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-944757609%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-setting-spawn-arg/index.html">SettingSpawnArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>entity<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity/LivingEntity///PointingToDeclaration/">LivingEntity</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/BlockPos///PointingToDeclaration/">BlockPos</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1266793545%2FClasslikes%2F-251573632" anchor-label="SleepingArg" id="-1266793545%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sleeping-arg/index.html"><span>Sleeping</span><wbr></wbr><span><span>Arg</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1266793545%2FClasslikes%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-sleeping-arg/index.html">SleepingArg</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>entity<span class="token operator">: </span><span data-unresolved-link="net.minecraft.world.entity/LivingEntity///PointingToDeclaration/">LivingEntity</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pos<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/BlockPos///PointingToDeclaration/">BlockPos</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="858957492%2FProperties%2F-251573632" anchor-label="onAllowBed" id="858957492%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-allow-bed.html"><span>on</span><wbr></wbr><span>Allow</span><wbr></wbr><span><span>Bed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="858957492%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-allow-bed.html">onAllowBed</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-allow-bed-arg/index.html">KattonEvents.EntitySleep.AllowBedArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="net.fabricmc.fabric.api.util/EventResult///PointingToDeclaration/">EventResult</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="122807277%2FProperties%2F-251573632" anchor-label="onAllowNearbyMonsters" id="122807277%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-allow-nearby-monsters.html"><span>on</span><wbr></wbr><span>Allow</span><wbr></wbr><span>Nearby</span><wbr></wbr><span><span>Monsters</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="122807277%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-allow-nearby-monsters.html">onAllowNearbyMonsters</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-allow-nearby-monsters-arg/index.html">KattonEvents.EntitySleep.AllowNearbyMonstersArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="net.fabricmc.fabric.api.util/EventResult///PointingToDeclaration/">EventResult</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1283021781%2FProperties%2F-251573632" anchor-label="onAllowResettingTime" id="-1283021781%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-allow-resetting-time.html"><span>on</span><wbr></wbr><span>Allow</span><wbr></wbr><span>Resetting</span><wbr></wbr><span><span>Time</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1283021781%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-allow-resetting-time.html">onAllowResettingTime</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-allow-resetting-time-arg/index.html">KattonEvents.EntitySleep.AllowResettingTimeArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="549778874%2FProperties%2F-251573632" anchor-label="onAllowSettingSpawn" id="549778874%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-allow-setting-spawn.html"><span>on</span><wbr></wbr><span>Allow</span><wbr></wbr><span>Setting</span><wbr></wbr><span><span>Spawn</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="549778874%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-allow-setting-spawn.html">onAllowSettingSpawn</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-setting-spawn-arg/index.html">KattonEvents.EntitySleep.SettingSpawnArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-433176806%2FProperties%2F-251573632" anchor-label="onAllowSleeping" id="-433176806%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-allow-sleeping.html"><span>on</span><wbr></wbr><span>Allow</span><wbr></wbr><span><span>Sleeping</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-433176806%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-allow-sleeping.html">onAllowSleeping</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-allow-sleeping-arg/index.html">KattonEvents.EntitySleep.AllowSleepingArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="net.minecraft.world.entity.player/Player.BedSleepingProblem///PointingToDeclaration/">Player.BedSleepingProblem</span><span class="token operator">?</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1169509324%2FProperties%2F-251573632" anchor-label="onModifySleepingDirection" id="-1169509324%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-modify-sleeping-direction.html"><span>on</span><wbr></wbr><span>Modify</span><wbr></wbr><span>Sleeping</span><wbr></wbr><span><span>Direction</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1169509324%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-modify-sleeping-direction.html">onModifySleepingDirection</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-modify-sleeping-direction-arg/index.html">KattonEvents.EntitySleep.ModifySleepingDirectionArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="net.minecraft.core/Direction///PointingToDeclaration/">Direction</span><span class="token operator">?</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1057255702%2FProperties%2F-251573632" anchor-label="onModifyWakeUpPosition" id="-1057255702%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-modify-wake-up-position.html"><span>on</span><wbr></wbr><span>Modify</span><wbr></wbr><span>Wake</span><wbr></wbr><span>Up</span><wbr></wbr><span><span>Position</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1057255702%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-modify-wake-up-position.html">onModifyWakeUpPosition</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-modify-wake-up-position-arg/index.html">KattonEvents.EntitySleep.ModifyWakeUpPositionArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="net.minecraft.world.phys/Vec3///PointingToDeclaration/">Vec3</span><span class="token operator">?</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1333407161%2FProperties%2F-251573632" anchor-label="onSetBedOccupationState" id="-1333407161%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-set-bed-occupation-state.html"><span>on</span><wbr></wbr><span>Set</span><wbr></wbr><span>Bed</span><wbr></wbr><span>Occupation</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1333407161%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-set-bed-occupation-state.html">onSetBedOccupationState</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-set-bed-occupation-state-arg/index.html">KattonEvents.EntitySleep.SetBedOccupationStateArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-642816735%2FProperties%2F-251573632" anchor-label="onStartSleeping" id="-642816735%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-start-sleeping.html"><span>on</span><wbr></wbr><span>Start</span><wbr></wbr><span><span>Sleeping</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-642816735%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-start-sleeping.html">onStartSleeping</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-sleeping-arg/index.html">KattonEvents.EntitySleep.SleepingArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1960750721%2FProperties%2F-251573632" anchor-label="onStopSleeping" id="-1960750721%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/main" data-filterable-set=":/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-stop-sleeping.html"><span>on</span><wbr></wbr><span>Stop</span><wbr></wbr><span><span>Sleeping</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1960750721%2FProperties%2F-251573632"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="on-stop-sleeping.html">onStopSleeping</a><span class="token operator">: </span><a href="../../../top.katton.util/-event/index.html">Event</a><span class="token operator">&lt;</span><span class="token punctuation">(</span><a href="-sleeping-arg/index.html">KattonEvents.EntitySleep.SleepingArg</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>(c) Alumopper</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
