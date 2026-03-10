@@ -6,6 +6,8 @@ Welcome to Katton. This wiki contains documentation and guides for using the Kat
 
 Katton is a powerful modding framework for Minecraft that allows you to use Kotlin scripts to create and modify game content. With hot-reloadable scripts, you can see your changes in real-time without needing to restart the game.
 
+Katton supports both Fabric and NeoForge. We are trying to keep the API as consistent as possible between the two platforms, but there may be some differences in available events and features.
+
 ## Why Katton?
 
 - **Ease of Use**: Katton's intuitive API and hot-reload feature make it easy for modders of all skill levels to create and test their mods quickly.

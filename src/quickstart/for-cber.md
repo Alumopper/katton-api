@@ -9,12 +9,13 @@ Katton provides a series of functions that wrap all the functionalities of the v
 All command functions are located in the `top.katton.api.dpcaller` package. You can find the documentation for these functions in the [API documentation](/kdoc/kts4mc-template-1.21.11/top.katton.api.dpcaller/index.html). These functions are designed to be as close to the original commands as possible. For example, you may use `scoreboard players set test myscore 1` in datapack, and in Katton you can achieve the same effect with the following code:
 
 ```kotlin
-import top.katton.api.getObjective
-import top.katton.api.setScore
+import top.katton.api.dpcaller.getObjective
+import top.katton.api.dpcaller.getOrCreateObjective
+import top.katton.api.dpcaller.setScore
 
 fun scoreboardExampleMain(){
     //get the scoreboard objective
-    val obj = getObjective("myscore")!!
+    val obj = getOrCreateObjective("myscore")
     //set the score of "test" to 100
     setScore("test", obj, 100)
 }
@@ -31,7 +32,7 @@ import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.phys.Vec3
-import top.katton.api.addEffect
+import top.katton.api.dpcaller.addEffect
 import top.katton.api.requireServer
 import top.katton.util.EntitySelectorBuilder
 
@@ -39,23 +40,21 @@ fun targetSelectorExample(){
 
     // Build a target selector
     val selector = EntitySelectorBuilder.allEntities()  //@e
-        .type(EntityType.CREEPER)       //type = creeper
-        .tag("qwq", false)              //tag = qwq
-        .distanceBelow(16.0)            //distance = ..16
+        .type(EntityType.CREEPER)   //type = creeper
+        .tag("qwq", false)  //tag = qwq
+        .distanceBelow(16.0)    //distance = ..16
         .create()
     // So we get a target selector like this: @e[type=creeper,tag=qwq,distance=..16]
 
-    // And then we need to build a command execution source, which is required 
-    // by the selector to get the world and the position for distance calculation
+    // And then we need to build a command execution source, which is required by the selector to get the world and the position for distance calculation
     val source = requireServer().createCommandSourceStack()
-        .withLevel(requireServer().overworld())     // Set the dimension
-        .withPosition(Vec3(50.0, 70.0, 50.0))       // Set the position
+        .withLevel(requireServer().overworld()) // Set the dimension for the command source
+        .withPosition(Vec3(50.0, 70.0, 50.0)) // Set the position for distance calculation
 
     // Get entities selected by the selector
     val entities = selector.findEntities(source)
 
-    // Once you get the references of the entities, you access those entities
-    // at anywhere in your code, and do whatever you want with them
+    // Once you get the references of the entities, you access those entities at anywhere in your code, and do whatever you want with them
     for (entity in entities) {
         if(entity is LivingEntity){
             // add some effect to the entity
@@ -89,7 +88,7 @@ In datapacks, we will use functions with `#load` tag to execute some code when t
 ```kotlin
 fun main() {
     // Executed when an entity is loaded
-    onEntityLoad += load@
+    ServerEntityEvent.onAfterEntityLoad += load@
     fun(arg: EntityLoadArg) {
         val (entity, _) = arg
         if (entity !is Arrow) return

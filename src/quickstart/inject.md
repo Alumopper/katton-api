@@ -14,13 +14,10 @@ Use `replace` function to replace the target method with your own implementation
 
 ```kotlin
 import net.minecraft.network.chat.Component
-import top.katton.api.tell
-import top.katton.api.unsafe.injectAfter
-import top.katton.api.unsafe.injectBefore
-import top.katton.api.unsafe.injectRedirect
-import top.katton.api.unsafe.injectReplace
-import top.katton.api.unsafe.rollbackUnsafe
+import top.katton.api.dpcaller.tell
+import top.katton.api.inject.*
 import top.katton.registry.registerCommand
+import kotlin.jvm.java
 
 // The target test class we want to inject into
 private class UnsafeDemoTarget {
