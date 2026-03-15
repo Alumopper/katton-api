@@ -71,11 +71,14 @@ defineProps<{
     background: rgba(110, 118, 129, 0.08);
   color: var(--api-muted);
   font-size: 0.82rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
 .api-doc-page__body {
   margin-top: 1rem;
   color: var(--api-text);
+    overflow-wrap: anywhere;
 }
 
 .api-doc-page :deep(p),
@@ -93,6 +96,38 @@ defineProps<{
   .api-doc-page {
     padding: 1.1rem;
         border-radius: 10px;
+        margin-bottom: 1.25rem;
+  }
+
+  .api-doc-page__header {
+    padding-bottom: 0;
+  }
+
+  .api-doc-page__eyebrow {
+    margin-bottom: 0.45rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+  }
+
+  .api-doc-page__title {
+    font-size: clamp(1.55rem, 8vw, 2rem);
+    line-height: 1.2;
+  }
+
+  .api-doc-page__meta {
+    gap: 0.45rem;
+    margin-top: 0.85rem;
+  }
+
+  .api-doc-page__chip {
+    width: 100%;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .api-doc-page__body {
+    margin-top: 0.9rem;
   }
 }
 </style>

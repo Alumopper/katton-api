@@ -44,6 +44,7 @@ const parsedItems = computed<Item[]>(() => {
     border: 1px solid #30363d;
     border-radius: 12px;
     background: #161b22;
+    overflow: hidden;
 }
 
 .api-members-list__header {
@@ -80,7 +81,7 @@ const parsedItems = computed<Item[]>(() => {
     display: flex;
     justify-content: space-between;
     gap: 0.8rem;
-    align-items: center;
+    align-items: flex-start;
     padding: 0.75rem 0.9rem;
     border: 1px solid #30363d;
     border-radius: 10px;
@@ -98,6 +99,7 @@ const parsedItems = computed<Item[]>(() => {
 .api-members-list__label {
     font-weight: 500;
     word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .api-members-list__kind {
@@ -106,5 +108,43 @@ const parsedItems = computed<Item[]>(() => {
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    text-align: right;
+}
+
+@media (max-width: 640px) {
+    .api-members-list {
+        margin: 1rem 0 1.25rem;
+        padding: 0.9rem;
+        border-radius: 10px;
+    }
+
+    .api-members-list__header {
+        margin-bottom: 0.8rem;
+    }
+
+    .api-members-list__title {
+        font-size: 0.98rem;
+    }
+
+    .api-members-list__subtitle {
+        font-size: 0.82rem;
+        line-height: 1.45;
+    }
+
+    .api-members-list__grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+
+    .api-members-list__link {
+        flex-direction: column;
+        gap: 0.35rem;
+        padding: 0.8rem;
+    }
+
+    .api-members-list__kind {
+        text-align: left;
+        font-size: 0.74rem;
+    }
 }
 </style>
