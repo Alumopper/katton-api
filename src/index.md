@@ -16,7 +16,7 @@ hero:
       link: /quickstart
     - theme: alt
       text: API Docs
-      link: /kdoc/index.html
+      link: /api/index.html
 
 features:
   - title: Easy

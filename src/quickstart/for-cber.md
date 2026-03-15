@@ -6,7 +6,7 @@ Katton provides a series of functions that wrap all the functionalities of the v
 
 ## Commands
 
-All command functions are located in the `top.katton.api.dpcaller` package. You can find the documentation for these functions in the [API documentation](/kdoc/kts4mc-template-1.21.11/top.katton.api.dpcaller/index.html). These functions are designed to be as close to the original commands as possible. For example, you may use `scoreboard players set test myscore 1` in datapack, and in Katton you can achieve the same effect with the following code:
+All command functions are located in the `top.katton.api.dpcaller` package. You can find the documentation for these functions in the [API documentation](../api/common/). These functions are designed to be as close to the original commands as possible. For example, you may use `scoreboard players set test myscore 1` in datapack, and in Katton you can achieve the same effect with the following code:
 
 ```kotlin
 import top.katton.api.dpcaller.getObjective
@@ -25,7 +25,7 @@ val scoreboardExampleMain = scoreboardExampleMain()
 
 ## Entity Access
 
-In datapacks, we always need to use target selectors to specify the entities we want to operate on. In Katton, you can also use target selectors to get the corresponding entities. We provide [`EntitySelectorBuilder`](/kdoc/kts4mc-template-1.21.11/top.katton.util/-entity-selector-builder/index.html) class to help you build target selectors. 
+In datapacks, we always need to use target selectors to specify the entities we want to operate on. In Katton, you can also use target selectors to get the corresponding entities. We provide `EntitySelectorBuilder` class to help you build target selectors. 
 
 ```kotlin
 import net.minecraft.world.effect.MobEffects
@@ -75,15 +75,15 @@ val targetSelectorExample = targetSelectorExample()
 
 ## NBT
 
-NBT is another important part of datapacks. In Katton, you can use `getEntityNbt`, `getBlockNbt`, and `getStorageNbt` functions to get the NBT data of entities, blocks, and storage respectively. 
+NBT is another important part of datapacks. In Katton, you can use [`getEntityNbt`](../api/common/dpcaller/KattonNbtApi.md#getentitynbt), [`getBlockNbt`](../api/common/dpcaller/KattonNbtApi.md#getblocknbt), and [`getStorageNbt`](../api/common/dpcaller/KattonNbtApi.md#getstoragenbt) functions to get the NBT data of entities, blocks, and storage respectively. 
 
 ## Call Datapack Functions
 
-Want to continue calling the mcfunction you've already written? No problem! You can use the `runFunction` function to call any mcfunction in your datapack.
+Want to continue calling the mcfunction you've already written? No problem! You can use the [`runFunction`](../api/common/dpcaller/KattonServerApi.md#runfunction) function to call any mcfunction in your datapack.
 
 ## `#tick` and `#load` Functions
 
-In datapacks, we will use functions with `#load` tag to execute some code when the datapack is loaded, and use functions with `#tick` tag to execute some code every tick. In Katton, we replace these tags with more powerful event listeners. You can use `KattonEvents.ServerTick` event to execute code every tick, and use `KattonEvents.ServerLifecycle` event to execute code when the server starts or stops. Check out the [Events](event.md) page for more details.
+In datapacks, we will use functions with `#load` tag to execute some code when the datapack is loaded, and use functions with `#tick` tag to execute some code every tick. In Katton, we replace these tags with more powerful event listeners. You can use [`ServerEvent.onStartServerTick`](../api/fabric/event/ServerEvent.md#serverevent-onstartservertick) event to execute code every tick, and use [`ServerEvent.onServerStarted`](../api/fabric/event/ServerEvent.md#serverevent-onserverstarted) event to execute code when the server starts or stops. Check out the [Events](event.md) page for more details.
 
 ```kotlin
 fun main() {

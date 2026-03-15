@@ -1,22 +1,22 @@
 # Scripts
 
-In Katton, we provide two types of scripts: **Global Scripts** and **Packed Scripts**. Global scripts are executed once when the mod is loaded and are ideal for registering content and setting up global event listeners, but they are not hot-reloadable. Packed scripts are executed every time when the datapack or resourcepack is reloaded, making them perfect for content that needs to be hot-reloadable. Both global scripts and packed scripts support client and server side execution.
+Katton provides two types of scripts: **Global Scripts** and **Packed Scripts**. Global scripts are executed once when the mod is loaded and are ideal for registering content and setting up global event listeners; however, they do not support hot-reloading. Packed scripts are executed every time a datapack or resourcepack is reloaded, making them perfect for content that requires frequent updates. Both global and packed scripts support client-side and server-side execution.
 
 ## Global Scripts
 
-Global scripts are located in the `katton` folder under the game's root directory. Each directory under `katton` represents a namespace. Server side scripts and client side scripts are placed in the `server_scripts` and `client_scripts` subdirectories respectively. 
+Global scripts are located in the `katton` folder within the game's root directory. Each sub-directory under `katton` represents a namespace. Server-side and client-side scripts are placed in the `server_scripts` and `client_scripts` subdirectories, respectively. 
 
-Global scripts will be compile and execute only once when Katton mod is loaded, so they are not hot-reloadable. You need to restart game to see the changes.
+Global scripts are compiled and executed only once when Katton is loaded, and thus do not support hot-reloading. You must restart the game to apply any changes made to these scripts.
 
 ## Packed Scripts
 
-Packed scripts are located in resourcepacks or datapacks. Resourcepacks contain client side scripts, while datapacks contain server side scripts. Packed scripts are executed when resourcepacks or datapacks are reloaded, so they are hot-reloadable. Using F3 to reload resourcepacks or `reload` command to reload datapacks will apply any changes you made to packed scripts without restarting the game.
+Packed scripts are contained within resourcepacks or datapacks. Resourcepacks house client-side scripts, while datapacks house server-side scripts. Packed scripts are executed whenever resourcepacks or datapacks are reloaded, enabling hot-reloading. Using `F3 + T` to reload resourcepacks or the `/reload` command to reload datapacks will apply your changes instantly without requiring a game restart.
 
-### Client Side Scripts
+### Client-Side Scripts
 
-Packed client side scripts are located in the `assets/<namespace>/client_scripts` directory of a resourcepack, so you can reload them by pressing F3+T in game. Client side scripts can access client only classes and APIs, such as rendering and client events. 
+Packed client-side scripts are located in the `assets/<namespace>/client_scripts` directory of a resourcepack. They can be reloaded by pressing `F3 + T` in-game. Client-side scripts have access to client-only classes and APIs, such as those for rendering and client events. 
 
-Here is a simple example of a client side script that renders a custom HUD overlay:
+The following example demonstrates a client-side script that renders a custom HUD overlay:
 
 ```kotlin
 import top.katton.api.HudRenderLayer
@@ -55,13 +55,13 @@ val hudRenderTestEntryPoint = hudRenderTestMain()
 ```
 
 >[!Caution]
-> Katton won't check for API misuse. Never try to access server only APIs in client side scripts, or access client only APIs in server side scripts, excepted you want to crash your game.
+> Katton does not validate API usage across sides. Never attempt to access server-only APIs in client-side scripts, or client-only APIs in server-side scripts, as this will likely result in a game crash.
 
-### Server Side Scripts
+### Server-Side Scripts
 
-Packed server side scripts are located in the `data/<namespace>/server_scripts` directory of a datapack, so you can reload them by running `reload` command in game. Server side scripts can access server only classes and APIs, such as commands and server events. For datapack developers, server side scripts maybe the most familiar part of Katton.
+Packed server-side scripts are located in the `data/<namespace>/server_scripts` directory of a datapack and can be reloaded via the `/reload` command. Server-side scripts can access server-only classes and APIs, such as commands and server events. For datapack developers, server-side scripts are likely the most familiar aspect of Katton.
 
-Here is a simple example of a server side script that send a welcome message to players when they join the game:
+The following example shows a server-side script that sends a welcome message to players upon joining:
 
 ```kotlin
 ServerPlayerEvent.onPlayerJoin += join@ fun(arg: PlayerArg) {
@@ -76,5 +76,5 @@ ServerPlayerEvent.onPlayerJoin += join@ fun(arg: PlayerArg) {
 }
 ```
 
-In this example, we listen to the `onPlayerJoin` event and send a welcome message to the player. We also use the `once` API to check if this is the first time the player has joined the server, and send a different message accordingly.
+In this example, we subscribe to the [`onPlayerJoin`](../api/fabric/event/ServerPlayerEvent.html#serverplayerevent-onplayerjoin) event to send a greeting to the player. We also utilize the [`once`](../api/common/KattonAPI.md#once) API to determine if the player is joining for the first time, allowing us to tailor the message accordingly.
 
