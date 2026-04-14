@@ -10,6 +10,6 @@
   "dependencies": {
     "prismjs": "^1.30.0",
     "vitepress": "^1.4.0",
-    "vitepress-carbon": "^1.5.0"
+    "vitepress-carbon": "^1.6.0"
   }
 }
