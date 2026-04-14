@@ -8,7 +8,8 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
-    "vitepress-carbon": "^1.5.0",
-    "vitepress": "^1.4.0"
+    "prismjs": "^1.30.0",
+    "vitepress": "^1.4.0",
+    "vitepress-carbon": "^1.5.0"
   }
 }

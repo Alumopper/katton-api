@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Katton"
   text: ""
-  tagline: A powerful modding framework for Minecraft
+  tagline: A powerful scripting framework for Minecraft
   icon: ⚡
   image:
     src: ./logo.png
@@ -20,7 +20,7 @@ hero:
 
 features:
   - title: Easy
-    details: Katton's intuitive API and hot-reload feature make it easy for modders of all skill levels to create and test their mods quickly.
+    details: Katton's intuitive API and hot-reload feature make it easy for modders of all skill levels to create and test their scripts quickly.
   - title: Powerful
     details: Directly interact with Java objects during the runtime of Minecraft, ensuring high performance and seamless integration.
   - title: Hot-Reloadable

@@ -16,27 +16,7 @@ If you are using the example project, remember to copy necessary dependencies ja
 
 As your first script, we will send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `scripts` directory with the following content:
 
-```kotlin
-//nessary imports for the script
-import net.minecraft.network.chat.Component
-import top.katton.api.KattonEvents
-
-// The main function is the entry point of the script. 
-fun main(){
-    // Register an event listener for when a player joins the server
-    KattonEvents.ServerPlayer.onPlayerJoin += onJoin@
-    fun(arg: KattonEvents.ServerPlayer.PlayerArg){
-        // Get the player who joined and send them a message
-        val player = arg.player
-        // As same as you would do in a normal mod!
-        player.sendSystemMessage(Component.literal("Hello Katton"))
-    }
-}
-
-// It will be called to execute the main function
-@Suppress("unused")
-val entryPoint = main()
-```
+<!--@include: ../example/quickstart/get-started/01.md-->
 
 Launch the game with the Katton mod and join your world. You should see a "Hello Katton" message in the chat when you join. Congratulations, you've just created your first mod with Katton!
 
@@ -48,9 +28,7 @@ Katton supports debugging datapack Kotlin scripts through standard JVM remote de
 
 1. Start Minecraft (or the dedicated server) with a debug agent, for example:
 
-   ```text
-   -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
-   ```
+   <!--@include: ../example/quickstart/get-started/02.md-->
 
 2. In IntelliJ IDEA, create an **Attach to remote JVM** run configuration and connect to the same host and port.
 3. Set breakpoints in the actual datapack script file (for example, `data/<namespace>/scripts/*.kt`).
