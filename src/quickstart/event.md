@@ -2,7 +2,11 @@
 
 In Katton, events are a powerful way to react to various actions and changes in the game. They allow you to execute custom code when specific events occur, such as player interactions, world changes, or entity updates.
 
-To listen to an event, you can use the `KattonEvents` API. You can find all available events in the [Fabric API documentation](../api/fabric/) or the [NeoForge API documentation](../api/neoforge/). Each event has its own set of arguments that provide information about the event and allow you to interact with it.
+To listen to an event, you can use the Katton's event API. You can find all available events in the [Fabric API documentation](../api/fabric/) or the [NeoForge API documentation](../api/neoforge/). Each event has its own set of arguments that provide information about the event and allow you to interact with it.
+
+## Start listening to an Event
+
+
 
 ## Detailed Event List
 
