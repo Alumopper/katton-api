@@ -209,6 +209,9 @@ export default defineConfigWithTheme<ThemeConfig>({
   description: "Modding your world with hot-reloadable Kotlin scripts",
   srcDir: "src",
   cleanUrls: false,
+  markdown: {
+    lineNumbers: true,
+  },
   head: [
     [
       "script",
@@ -265,8 +268,8 @@ export default defineConfigWithTheme<ThemeConfig>({
       themeConfig: {
         nav: [
           { text: "首页", link: "/zh/" },
-          { text: "快速开始", link: "/zh/quickstart/getting-started" },
-          { text: "API", link: "/kdoc/index.html" },
+          { text: "快速开始", link: "/zh/quickstart" },
+          { text: "API", link: "/api/index.html" },
         ],
         sidebar: [
           {

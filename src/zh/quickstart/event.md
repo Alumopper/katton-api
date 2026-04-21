@@ -4,6 +4,10 @@
 
 要监听事件，你可以使用 `KattonEvents` API。你可以在 [Fabric API 文档](../../api/fabric/) 或者 [NeoForge API 文档](../../api/neoforge/) 中找到所有可用的事件。Katton 包装了Fabric等Mod加载器提供的事件，并将所有的参数都包装为了一个单独的事件参数记录类，方便你在事件处理函数中获取所需的信息。
 
+## 开始监听事件
+
+你可以在脚本中直接订阅对应事件回调，并在回调中编写你的业务逻辑。
+
 ## 可用事件列表
 
 在 Fabric 和 NeoForge 中，Katton 提供的事件稍有差异。下方提供了一份详细的列表。

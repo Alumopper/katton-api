@@ -5,6 +5,8 @@ import ApiDocPage from './components/ApiDocPage.vue'
 import ApiMembersList from './components/ApiMembersList.vue'
 import ApiMemberCard from './components/ApiMemberCard.vue'
 import HomeCodeShowcase from './components/HomeCodeShowcase.vue'
+import ImageCaptionZoom from './components/ImageCaptionZoom.vue'
+import './override.css'
 
 const theme: Theme = {
   ...VPCarbon,
@@ -18,6 +20,7 @@ const theme: Theme = {
     ctx.app.component('ApiDocPage', ApiDocPage)
     ctx.app.component('ApiMembersList', ApiMembersList)
     ctx.app.component('ApiMemberCard', ApiMemberCard)
+    ctx.app.component('ImageCaptionZoom', ImageCaptionZoom)
   },
 }
 

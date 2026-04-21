@@ -1,0 +1,36 @@
+/* Remove framed look around language selector in navbar */
+.VPNavBarTranslations.VPFlyout {
+	border: none !important;
+	box-shadow: none !important;
+	background: transparent !important;
+	padding-inline: 0 !important;
+	padding-block: 0 !important;
+}
+
+.VPNavBarTranslations.VPFlyout:hover,
+.VPNavBarTranslations.VPFlyout:active {
+	background: transparent !important;
+}
+
+.VPNavBarTranslations.VPFlyout .button,
+.VPNavBarTranslations.VPFlyout .text {
+	border: none !important;
+	box-shadow: none !important;
+	background: transparent !important;
+}
+
+/* Increase code block line spacing and keep line numbers aligned */
+.vp-doc div[class*='language-'] pre,
+.vp-doc div[class*='language-'] code {
+	line-height: 1.85;
+}
+
+.vp-doc div[class*='language-'].line-numbers-mode .line-numbers-wrapper {
+	line-height: 1.85;
+	border-right: 0 !important;
+	box-shadow: none !important;
+}
+
+.vp-doc {
+	--vp-code-block-divider-color: transparent;
+}

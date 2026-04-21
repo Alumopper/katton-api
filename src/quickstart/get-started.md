@@ -12,6 +12,13 @@ Katton will compile and execute kotlin scripts in all datapacks as [server scrip
 
 Although we call it "Kotlin Scripts", they are actually normal kotlin files end with `.kt` instead of `.kts` for better IDE support. We assume you have cloned the example project and opened it in your IDE. The example project contains two modules: `fabric` and `neoforge`, which are set up for Fabric and Neoforge mod loaders respectively. Choose either module to work with based on your mod loader of choice. In both modules you will find four source folders: `client-scripts`, `server-scripts`, `global-client-scripts`, and `global-server-scripts`. To make things simple, we only use `server-scripts` in this tutorial.
 
+<ImageCaptionZoom
+   src="./1.png"
+   alt="Script Folders"
+   caption="Script folders in the example project"
+   figure-width="400px"
+/>
+
 Before we start, we need to include Minecraft source code in our project. The easiest way is to open the `version` folder in your Minecraft game folder, find the correct version folder and open it where you will find a jar file. For example, I'm using Minecraft 26.1-Fabric, so I will open the `26.1-Fabric` folder, and copy the jar file into the `lib` folder in our project. In this way we will include Minecraft source code for server sides, and client source code is still missing, but for this tutorial server source code is enough.  
 
 As your first script, we will send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `server-scripts` directory with the following content:
@@ -20,7 +27,7 @@ As your first script, we will send a "Hello Katton" message to the player when t
 
 For now, we are justing writing scipts in a independent project, and we need to copy these scripts into our datapack to ensure Katton can find and execute them. It can be a tedious task to copy the scripts manually every time we make a change, so the example project includes a convenient Gradle task to automate this process.
 
-Open `build.gradle`, edit the following lines: 
+Open `build.gradle.kts`, edit the following lines: 
 
 ```kt
 //In this project we only use server scripts, so we only need to set serverScriptsTargetDir, and other three can be null
@@ -30,7 +37,14 @@ val gClientScriptsTargetDir: File? = null
 val gServerScriptsTargetDir: File? = null
 ```
 
-Make sure to replace `path\\to\\datapack` with the actual path to your datapack. Then run the `copyGameScripts` Gradle task, you will find all the scripts are now in your datapack. It's worth noting that this task will actually make a link to the original script files instead of copying them, so any changes you make to the scripts in the example project will be reflected in the datapack immediately without needing to run the task again. This allows for a much smoother development experience.
+Make sure to replace `path\\to\\datapack` with the actual path to your datapack. Then click the gradle button at the right side of you IDEA (looks like an elephant!), find and run the `copyGameScripts` Gradle task, and all the scripts will be in their right places. It's worth noting that this task will actually make a link to the original script files instead of copying them, so any changes you make to the scripts in the example project will be reflected in the datapack immediately without needing to run the task again. This allows for a much smoother development experience.
+
+<ImageCaptionZoom
+   src="./image-3.png"
+   alt="Script Folders"
+   caption="You can find the task here!"
+   figure-width="400px"
+/>
 
 Now, launch the game with the Katton mod and join your world. You should see a "Hello Katton" message in the chat when you join. Congratulations! You've just created your first script with Katton!
 
@@ -45,5 +59,20 @@ Katton supports debugging datapack Kotlin scripts through standard JVM remote de
    <!--@include: ../example/quickstart/get-started/02.md-->
 
 2. In IntelliJ IDEA, create an **Attach to remote JVM** run configuration and connect to the same host and port.
+
+<ImageCaptionZoom
+   src="./image-4.png"
+   alt="Script Folders"
+   caption="First click here"
+   figure-width="400px"
+/>
+
+<ImageCaptionZoom
+   src="./image-5.png"
+   alt="Script Folders"
+   caption="And then here!"
+   figure-width="400px"
+/>
+
 3. Set breakpoints in the script file.
 4. Enjoy debugging your scripts with the IDE's standard debugging tools.
