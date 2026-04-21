@@ -13,7 +13,7 @@ Katton will compile and execute kotlin scripts in all datapacks as [server scrip
 Although we call it "Kotlin Scripts", they are actually normal kotlin files end with `.kt` instead of `.kts` for better IDE support. We assume you have cloned the example project and opened it in your IDE. The example project contains two modules: `fabric` and `neoforge`, which are set up for Fabric and Neoforge mod loaders respectively. Choose either module to work with based on your mod loader of choice. In both modules you will find four source folders: `client-scripts`, `server-scripts`, `global-client-scripts`, and `global-server-scripts`. To make things simple, we only use `server-scripts` in this tutorial.
 
 <ImageCaptionZoom
-   src="./1.png"
+   src="/docimg/1.png"
    alt="Script Folders"
    caption="Script folders in the example project"
    figure-width="400px"
@@ -40,7 +40,7 @@ val gServerScriptsTargetDir: File? = null
 Make sure to replace `path\\to\\datapack` with the actual path to your datapack. Then click the gradle button at the right side of you IDEA (looks like an elephant!), find and run the `copyGameScripts` Gradle task, and all the scripts will be in their right places. It's worth noting that this task will actually make a link to the original script files instead of copying them, so any changes you make to the scripts in the example project will be reflected in the datapack immediately without needing to run the task again. This allows for a much smoother development experience.
 
 <ImageCaptionZoom
-   src="./image-3.png"
+   src="/docimg/image-3.png"
    alt="Script Folders"
    caption="You can find the task here!"
    figure-width="400px"
@@ -61,14 +61,14 @@ Katton supports debugging datapack Kotlin scripts through standard JVM remote de
 2. In IntelliJ IDEA, create an **Attach to remote JVM** run configuration and connect to the same host and port.
 
 <ImageCaptionZoom
-   src="./image-4.png"
+   src="/docimg/image-4.png"
    alt="Script Folders"
    caption="First click here"
    figure-width="400px"
 />
 
 <ImageCaptionZoom
-   src="./image-5.png"
+   src="/docimg/image-5.png"
    alt="Script Folders"
    caption="And then here!"
    figure-width="400px"
