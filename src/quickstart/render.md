@@ -23,16 +23,31 @@ The following examples demonstrate the capabilities of the rendering API:
 
 <!--@include: ../example/quickstart/render/03.md-->
 
-![alt text](image-1.png)
+<ImageCaptionZoom
+   src="/docimg/image-1.png"
+   alt=""
+   caption=""
+   figure-width="400px"
+/>
 
 * Sending messages and notifications to the player:
 
 <!--@include: ../example/quickstart/render/04.md-->
 
-![alt text](image.png)
+<ImageCaptionZoom
+   src="/docimg/image.png"
+   alt=""
+   caption=""
+   figure-width="400px"
+/>
 
 * Drawing 3D shapes in the world:
 
 <!--@include: ../example/quickstart/render/05.md-->
 
-![alt text](image-2.png)
+<ImageCaptionZoom
+   src="/docimg/image-2.png"
+   alt=""
+   caption=""
+   figure-width="400px"
+/>

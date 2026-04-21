@@ -13,7 +13,7 @@ Katton 会将所有数据包中的 Kotlin 脚本编译并作为[服务端脚本]
 虽然我们称其为 "Kotlin Scripts"，但它们实际上是普通 Kotlin 文件，只是后缀为 `.kt` 而不是 `.kts`，这样 IDE 支持会更好。这里默认你已经克隆并打开了示例项目。示例项目包含 `fabric` 和 `neoforge` 两个模块，分别对应 Fabric 与 NeoForge。你可以按自己使用的加载器选择其一。在每个模块中你都能看到四个源码目录：`client-scripts`、`server-scripts`、`global-client-scripts`、`global-server-scripts`。为了简化流程，本教程只使用 `server-scripts`。
 
 <ImageCaptionZoom
-   src="../../quickstart/1.png"
+   src="/docimg/1.png"
    alt="脚本目录结构"
    caption="示例项目中的脚本目录"
    figure-width="400px"
@@ -40,7 +40,7 @@ val gServerScriptsTargetDir: File? = null
 请把 `path\\to\\datapack` 替换为你的数据包真实路径。然后在 IDEA 右侧 Gradle 面板（小象图标）中找到并执行 `copyGameScripts` 任务，脚本就会自动出现在对应目录。需要注意的是，该任务实际会创建到原脚本文件的链接，而不是简单复制。因此你在示例项目中的改动会即时反映到数据包里，不需要每次都重复执行任务，开发体验会顺畅很多。
 
 <ImageCaptionZoom
-   src="../../quickstart/image-3.png"
+   src="/docimg/image-3.png"
    alt="Gradle 任务位置"
    caption="在这里可以找到 copyGameScripts 任务"
    figure-width="400px"
@@ -61,14 +61,14 @@ Katton 支持通过标准 JVM 远程调试来调试数据包 Kotlin 脚本。
 2. 在 IntelliJ IDEA 中创建 **Attach to remote JVM** 运行配置，并连接到相同主机和端口。
 
 <ImageCaptionZoom
-   src="../../quickstart/image-4.png"
+   src="/docimg/image-4.png"
    alt="调试配置入口"
    caption="先点击这里"
    figure-width="400px"
 />
 
 <ImageCaptionZoom
-   src="../../quickstart/image-5.png"
+   src="/docimg/image-5.png"
    alt="调试配置类型"
    caption="然后选择这里"
    figure-width="400px"

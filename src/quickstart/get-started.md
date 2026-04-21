@@ -41,7 +41,7 @@ Make sure to replace `path\\to\\datapack` with the actual path to your datapack.
 
 <ImageCaptionZoom
    src="/docimg/image-3.png"
-   alt="Script Folders"
+   alt=""
    caption="You can find the task here!"
    figure-width="400px"
 />
@@ -62,14 +62,14 @@ Katton supports debugging datapack Kotlin scripts through standard JVM remote de
 
 <ImageCaptionZoom
    src="/docimg/image-4.png"
-   alt="Script Folders"
+   alt=""
    caption="First click here"
    figure-width="400px"
 />
 
 <ImageCaptionZoom
    src="/docimg/image-5.png"
-   alt="Script Folders"
+   alt=""
    caption="And then here!"
    figure-width="400px"
 />
