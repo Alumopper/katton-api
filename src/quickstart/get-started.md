@@ -6,11 +6,20 @@ Katton only supports Minecraft 26.1 and above, and requires Java 25 or higher. K
 
 We recommend using IntelliJ IDEA for development, as it has excellent support for Kotlin and Minecraft modding. You can also use other IDEs that support Kotlin, but you may need to configure them manually.
 
-Katton will compile and execute kotlin scripts in all datapacks as [server scripts](./scripts.md#server-side-scripts), and kotlin scripts in all resourcepacks as [client scripts](./scripts.md#client-side-scripts). The quickest way to get started is to clone the [Katton Example](https://github.com/Alumopper/Katton-Example) repository and open it in your IDE. This example project is set up with all the necessary dependencies and configurations to start modding with Katton right away.
+Katton loads Kotlin scripts from script packs in the `kattonpacks/` directory (see [Scripts](./scripts.md) for details). The quickest way to get started is to clone the [Katton Example](https://github.com/Alumopper/Katton-Example) repository and open it in your IDE. This example project is set up with all the necessary dependencies and configurations to start modding with Katton right away.
 
 ## Creating Your First Script
 
-Although we call it "Kotlin Scripts", they are actually normal kotlin files end with `.kt` instead of `.kts` for better IDE support. We assume you have cloned the example project and opened it in your IDE. The example project contains two modules: `fabric` and `neoforge`, which are set up for Fabric and Neoforge mod loaders respectively. Choose either module to work with based on your mod loader of choice. In both modules you will find four source folders: `client-scripts`, `server-scripts`, `global-client-scripts`, and `global-server-scripts`. To make things simple, we only use `server-scripts` in this tutorial.
+Although we call it "Kotlin Scripts", they are actually normal kotlin files ending with `.kt` instead of `.kts` for better IDE support. We assume you have cloned the example project and opened it in your IDE. The example project contains two modules: `fabric` and `neoforge`, which are set up for Fabric and Neoforge mod loaders respectively. Choose either module to work with based on your mod loader of choice. In both modules you will find up to four source folders:
+
+| Folder | Purpose |
+|---|---|
+| `server_scripts/` | Server-side scripts (hot-reloadable) |
+| `client_scripts/` | Client-side scripts (hot-reloadable) |
+| `global_server_scripts/` | Server scripts loaded once at startup (no hot reload) |
+| `global_client_scripts/` | Client scripts loaded once at startup (no hot reload) |
+
+To make things simple, we'll only use `server_scripts/` in this tutorial.
 
 <ImageCaptionZoom
    src="/docimg/1.png"
@@ -19,25 +28,47 @@ Although we call it "Kotlin Scripts", they are actually normal kotlin files end 
    figure-width="400px"
 />
 
-Before we start, we need to include Minecraft source code in our project. The easiest way is to open the `version` folder in your Minecraft game folder, find the correct version folder and open it where you will find a jar file. For example, I'm using Minecraft 26.1-Fabric, so I will open the `26.1-Fabric` folder, and copy the jar file into the `lib` folder in our project. In this way we will include Minecraft source code for server sides, and client source code is still missing, but for this tutorial server source code is enough.  
+Before we start, we need to include Minecraft source code in our project for IDE code completion. The easiest way is to open the `versions` folder in your Minecraft game directory, find the correct version folder, and copy the jar file inside into the `lib/` folder of the example project. For example, if you're using Minecraft 26.1-Fabric, go to the `26.1-Fabric` folder and copy its jar to `lib/`. This gives us server-side source code — client-side source code isn't needed for this tutorial.
 
-As your first script, we will send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `server-scripts` directory with the following content:
+As your first script, we'll send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `server_scripts/` directory with the following content:
 
 <!--@include: ../example/quickstart/get-started/01.md-->
 
-For now, we are justing writing scipts in a independent project, and we need to copy these scripts into our datapack to ensure Katton can find and execute them. It can be a tedious task to copy the scripts manually every time we make a change, so the example project includes a convenient Gradle task to automate this process.
+Right now we're just writing scripts in a standalone project. We need to get these scripts into a location Katton can find. The recommended way is to place them in a **script pack** under your world's `kattonpacks/` directory.
 
-Open `build.gradle.kts`, edit the following lines: 
+### Step 1: Create your script pack
+
+Create a new folder inside your world's `kattonpacks/` directory (e.g. `<worldDir>/kattonpacks/my_first_pack/`), and add a `manifest.json`:
+
+```json
+{
+  "id": "my_first_pack",
+  "name": "My First Katton Pack",
+  "version": "1.0.0",
+  "enabled": true
+}
+```
+
+If the `kattonpacks/` directory doesn't exist yet, create it manually or let Katton create it on first reload.
+
+### Step 2: Configure the Gradle sync task
+
+The example project includes a `copyGameScripts` Gradle task that creates **hard links** from your source folders to your game directory — so any changes you make in the IDE are instantly reflected in the game without running the task again.
+
+Open `build.gradle.kts` and set the target directories:
 
 ```kt
-//In this project we only use server scripts, so we only need to set serverScriptsTargetDir, and other three can be null
+// In this tutorial we only use server scripts, so set the others to null
 val clientScriptsTargetDir: File? = null
-val serverScriptsTargetDir: File? = file("path\\to\\datapack\\data\\test\\scripts")
+val serverScriptsTargetDir: File? = file("path\\to\\saves\\<world>\\kattonpacks\\my_first_pack")
 val gClientScriptsTargetDir: File? = null
 val gServerScriptsTargetDir: File? = null
 ```
 
-Make sure to replace `path\\to\\datapack` with the actual path to your datapack. Then click the gradle button at the right side of you IDEA (looks like an elephant!), find and run the `copyGameScripts` Gradle task, and all the scripts will be in their right places. It's worth noting that this task will actually make a link to the original script files instead of copying them, so any changes you make to the scripts in the example project will be reflected in the datapack immediately without needing to run the task again. This allows for a much smoother development experience.
+Make sure to replace the path with the actual path to your world save. Then click the Gradle button on the right side of IntelliJ IDEA (the elephant icon!), find the `copyGameScripts` task, and run it. Your scripts now appear inside your pack as hard links.
+
+> [!TIP]
+> **What about datapack paths?** If you prefer the older approach, you can still target a datapack path like `data/<ns>/scripts/` — Katton scans those too. But `kattonpacks/` gives you manifest support, the in-game pack UI, and a cleaner workflow. It's the recommended way going forward.
 
 <ImageCaptionZoom
    src="/docimg/image-3.png"
@@ -48,11 +79,13 @@ Make sure to replace `path\\to\\datapack` with the actual path to your datapack.
 
 Now, launch the game with the Katton mod and join your world. You should see a "Hello Katton" message in the chat when you join. Congratulations! You've just created your first script with Katton!
 
-Change the message in `hello.kt` to something else, save the file, and use `reload` command, you should see the new message when you join again without restarting the game. This is the power of hot-reloadable scripts!
+Change the message in `hello.kt` to something else, save the file, and use `/katton reload` command — you should see the new message when you rejoin without restarting the game. This is the power of hot-reloadable scripts!
+
+> You can also use `/reload` (vanilla) for server-only scripts, or `F3 + T` for client scripts. But `/katton reload` handles both at once and shows a visual progress bar so you always know what's happening. Check out the [Commands](commands.md) page for all built-in commands.
 
 ## Debugging
 
-Katton supports debugging datapack Kotlin scripts through standard JVM remote debugging.
+Katton supports debugging script pack Kotlin scripts through standard JVM remote debugging.
 
 1. Start Minecraft (or the dedicated server) with a debug agent, for example:
 
@@ -74,5 +107,5 @@ Katton supports debugging datapack Kotlin scripts through standard JVM remote de
    figure-width="400px"
 />
 
-3. Set breakpoints in the script file.
+3. Set breakpoints in the actual script pack file (for example, `<worldDir>/kattonpacks/my_first_pack/hello.kt`).
 4. Enjoy debugging your scripts with the IDE's standard debugging tools.

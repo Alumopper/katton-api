@@ -30,3 +30,13 @@ In datapacks, we will use functions with `#load` tag to execute some code when t
 
 <!--@include: ../example/quickstart/for-cber/03.md-->
 
+## Katton Commands
+
+Katton also ships with built-in commands for script management. The most useful ones for datapack developers:
+
+- `/katton reload` — reload all scripts (like `/reload` but for scripts specifically, with a progress bar!)
+- `/katton registry` — see what your scripts have registered
+- `/katton status` — check if Katton is running properly
+
+Check the [Commands](commands.md) page for the full list.
+

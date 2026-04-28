@@ -250,6 +250,8 @@ export default defineConfigWithTheme<ThemeConfig>({
                 { text: "Registry", link: "/quickstart/registry" },
                 { text: "Render", link: "/quickstart/render" },
                 { text: "Code Injection", link: "/quickstart/inject" },
+                { text: "Commands", link: "/quickstart/commands" },
+                { text: "Script Pack UI", link: "/quickstart/pack-ui" },
                 {
                   text: "For Datapack Developers",
                   link: "/quickstart/for-cber",
@@ -281,6 +283,8 @@ export default defineConfigWithTheme<ThemeConfig>({
               { text: "注册", link: "/zh/quickstart/registry" },
               { text: "渲染", link: "/zh/quickstart/render" },
               { text: "代码注入", link: "/zh/quickstart/inject" },
+              { text: "命令", link: "/zh/quickstart/commands" },
+              { text: "脚本包界面", link: "/zh/quickstart/pack-ui" },
               { text: "数据包开发者指南", link: "/zh/quickstart/for-cber" },
             ],
           },
