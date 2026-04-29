@@ -247,7 +247,13 @@ export default defineConfigWithTheme<ThemeConfig>({
                 { text: "Getting Started", link: "/quickstart/get-started" },
                 { text: "Scripts", link: "/quickstart/scripts" },
                 { text: "Event", link: "/quickstart/event" },
-                { text: "Registry", link: "/quickstart/registry" },
+                {
+                  text: "Registry",
+                  link: "/quickstart/registry/",
+                  items: [
+                    { text: "Entity Tutorial", link: "/quickstart/registry/entity" },
+                  ],
+                },
                 { text: "Render", link: "/quickstart/render" },
                 { text: "Code Injection", link: "/quickstart/inject" },
                 { text: "Commands", link: "/quickstart/commands" },
@@ -280,7 +286,13 @@ export default defineConfigWithTheme<ThemeConfig>({
               { text: "入门指南", link: "/zh/quickstart/get-started" },
               { text: "脚本", link: "/zh/quickstart/scripts" },
               { text: "事件", link: "/zh/quickstart/event" },
-              { text: "注册", link: "/zh/quickstart/registry" },
+              {
+                text: "注册",
+                link: "/zh/quickstart/registry/",
+                items: [
+                  { text: "实体教程", link: "/zh/quickstart/registry/entity" },
+                ],
+              },
               { text: "渲染", link: "/zh/quickstart/render" },
               { text: "代码注入", link: "/zh/quickstart/inject" },
               { text: "命令", link: "/zh/quickstart/commands" },
