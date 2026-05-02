@@ -42,18 +42,12 @@ class Zombie1Model<T : EntityRenderState>(root: ModelPart) : EntityModel<T>(root
 1. In BlockBench, switch to **Animate** mode
 2. Create your animations (idle, walk, attack, etc.)
 3. File → Export → Export Java Animation
-4. Save as `.java` file and convert to `.kt` as before
+4. Save as `.java` file. There is no need to convert to Kotlin — Katton will compile it as-is and you can reference the definitions from your scripts.
+5. Fix any syntax issues from the Java export.
 
-The export produces:
-
-```kotlin
-object Zombie1Animation {
-    val idle: AnimationDefinition = AnimationDefinition.Builder.withLength(4.0f).looping()
-        .addAnimation("head", ...)
-        .build()
-    val walkforward: AnimationDefinition = ...
-}
-```
+>[!TIP]
+> ### Java in Katton
+> Katton can compile both `.kt` and `.java` files in your script folders. This allows you to write your main logic in Kotlin while you can still use Java if needed (e.g., for BlockBench exports or if you prefer Java for certain tasks). Katton will compile all java files first with Java Compiler, and then compile Kotlin files with access to the compiled Java classes, which means you can reference Java classes from Kotlin, but not the other way around.
 
 > [!CAUTION]
 > **Bone name mismatch** is a common crash. If your animation references a bone name that doesn't exist in the model (e.g., `"item_display"` from BlockBench locators), `bake()` will throw an exception. Either add empty placeholder bones to your model, or remove those channels from the animation.
