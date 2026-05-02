@@ -14,12 +14,10 @@ Although we call it "Kotlin Scripts", they are actually normal kotlin files endi
 
 | Folder | Purpose |
 |---|---|
-| `server_scripts/` | Server-side scripts (hot-reloadable) |
-| `client_scripts/` | Client-side scripts (hot-reloadable) |
-| `global_server_scripts/` | Server scripts loaded once at startup (no hot reload) |
-| `global_client_scripts/` | Client scripts loaded once at startup (no hot reload) |
+| `world_scripts/` | World-specific scripts (hot-reloadable) |
+| `global_scripts/` | Scripts loaded once at startup (no hot reload) |
 
-To make things simple, we'll only use `server_scripts/` in this tutorial.
+To make things simple, we'll only use `world_scripts/` in this tutorial.
 
 <ImageCaptionZoom
    src="/docimg/1.png"
@@ -30,7 +28,7 @@ To make things simple, we'll only use `server_scripts/` in this tutorial.
 
 Before we start, we need to include Minecraft source code in our project for IDE code completion. The easiest way is to open the `versions` folder in your Minecraft game directory, find the correct version folder, and copy the jar file inside into the `lib/` folder of the example project. For example, if you're using Minecraft 26.1-Fabric, go to the `26.1-Fabric` folder and copy its jar to `lib/`. This gives us server-side source code — client-side source code isn't needed for this tutorial.
 
-As your first script, we'll send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `server_scripts/` directory with the following content:
+As your first script, we'll send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `world_scripts/` directory with the following content:
 
 <!--@include: ../example/quickstart/get-started/01.md-->
 
@@ -59,16 +57,13 @@ Open `build.gradle.kts` and set the target directories:
 
 ```kt
 // In this tutorial we only use server scripts, so set the others to null
-val clientScriptsTargetDir: File? = null
-val serverScriptsTargetDir: File? = file("path\\to\\saves\\<world>\\kattonpacks\\my_first_pack")
-val gClientScriptsTargetDir: File? = null
-val gServerScriptsTargetDir: File? = null
+val worldScriptsTargetDir: List<File> = listOf(
+   file("/path/to/your/world/kattonpacks/my_first_pack/")
+)
+val globalScriptsTargetDir: List<File> = listOf()
 ```
 
 Make sure to replace the path with the actual path to your world save. Then click the Gradle button on the right side of IntelliJ IDEA (the elephant icon!), find the `copyGameScripts` task, and run it. Your scripts now appear inside your pack as hard links.
-
-> [!TIP]
-> **What about datapack paths?** If you prefer the older approach, you can still target a datapack path like `data/<ns>/scripts/` — Katton scans those too. But `kattonpacks/` gives you manifest support, the in-game pack UI, and a cleaner workflow. It's the recommended way going forward.
 
 <ImageCaptionZoom
    src="/docimg/image-3.png"
