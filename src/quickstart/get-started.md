@@ -26,7 +26,7 @@ To make things simple, we'll only use `world_scripts/` in this tutorial.
    figure-width="400px"
 />
 
-Before we start, we need to include Minecraft source code in our project for IDE code completion. The easiest way is to open the `versions` folder in your Minecraft game directory, find the correct version folder, and copy the jar file inside into the `lib/` folder of the example project. For example, if you're using Minecraft 26.1-Fabric, go to the `26.1-Fabric` folder and copy its jar to `lib/`. This gives us server-side source code — client-side source code isn't needed for this tutorial.
+Before we start, we need to include Minecraft source code in our project for IDE code completion. The easiest way is to open the `versions` folder in your Minecraft game directory, find the correct version folder, and copy the jar file inside into the `lib/` folder of the example project. For example, if you're using Minecraft 26.1-Fabric, go to the `26.1-Fabric` folder and copy its jar to `lib/`. This gives us minecraft source code. You may still need to manually add some dependencies if you see some classes not found, but most of the common ones should work out of the box.
 
 As your first script, we'll send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `world_scripts/` directory with the following content:
 
@@ -34,7 +34,7 @@ As your first script, we'll send a "Hello Katton" message to the player when the
 
 Right now we're just writing scripts in a standalone project. We need to get these scripts into a location Katton can find. The recommended way is to place them in a **script pack** under your world's `kattonpacks/` directory.
 
-### Step 1: Create your script pack
+### Create your script pack
 
 Create a new folder inside your world's `kattonpacks/` directory (e.g. `<worldDir>/kattonpacks/my_first_pack/`), and add a `manifest.json`:
 
@@ -49,9 +49,14 @@ Create a new folder inside your world's `kattonpacks/` directory (e.g. `<worldDi
 
 If the `kattonpacks/` directory doesn't exist yet, create it manually or let Katton create it on first reload.
 
-### Step 2: Configure the Gradle sync task
+### Configure the Gradle sync task
 
 The example project includes a `copyGameScripts` Gradle task that creates **hard links** from your source folders to your game directory — so any changes you make in the IDE are instantly reflected in the game without running the task again.
+
+>[!NOTE]
+> Hard links can only be created on the same drive.
+>
+> If you create or delete files in the source folders, you may need to run the `copyGameScripts` task again to update the links.
 
 Open `build.gradle.kts` and set the target directories:
 

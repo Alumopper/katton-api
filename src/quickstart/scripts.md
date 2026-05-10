@@ -1,6 +1,6 @@
 # Scripts
 
-Katton organizes your Kotlin code into **Script Packs**. A script pack is simply a folder (or `.jar` file) containing a `manifest.json` and one or more `.kt` files. Unlike traditional mods, script packs are **side-agnostic** — the same pack can serve both server and client, and everything is **hot-reloadable** with `/katton reload`.
+Katton organizes your Kotlin code into **Script Packs**. A script pack is simply a folder containing a `manifest.json` and one or more `.kt` files. Unlike traditional mods, script packs are **side-agnostic** — the same pack can serve both server and client, and everything is **hot-reloadable** with `/katton reload`.
 
 ## Script Packs
 
@@ -8,20 +8,19 @@ Katton organizes your Kotlin code into **Script Packs**. A script pack is simply
 
 Script packs live inside a directory named `kattonpacks`, which Katton scans automatically:
 
-```
-# Global — shared across all worlds, survives world deletion:
-<gameDir>/kattonpacks/<packName>/manifest.json
-<gameDir>/kattonpacks/<packName>/**/*.kt
+* Global — shared across all worlds, survives world deletion:
+`<gameDir>/kattonpacks/<packName>/manifest.json`\
+`<gameDir>/kattonpacks/<packName>/**/*.kt`
 
-# World — per-world, created automatically when you first reload:
-<worldDir>/kattonpacks/<packName>/manifest.json
-<worldDir>/kattonpacks/<packName>/**/*.kt
-```
+* World — per-world, created automatically when you first reload:
+`<worldDir>/kattonpacks/<packName>/manifest.json`\
+`<worldDir>/kattonpacks/<packName>/**/*.kt`
+
 
 - **Global** packs load once when the mod starts and are shared across all worlds.
 - **World** packs load per save — ideal for map-specific scripts.
 
-Inside a pack, `.kt` files can be nested in any subdirectory structure. Katton walks the entire tree. Your entrypoint can be at the root, in `src/main/`, in `qwq/` — anywhere.
+Inside a pack, `.kt` files can be nested in any subdirectory structure. Katton walks the entire tree. Your entrypoint can be at the root, in `src/main/`, in `test/` — anywhere.
 
 ### Manifest (`manifest.json`)
 
@@ -102,7 +101,7 @@ Client-side scripts are great for HUD overlays, custom renderers, UI interaction
 
 <!--@include: ../example/quickstart/scripts/01.md-->
 
-Client scripts can live in the same pack as server scripts (they just need `@ClientScriptEntrypoint`), or they can be delivered via a resource pack at `assets/<namespace>/client_scripts/`. On multiplayer servers, client packs are automatically synced from the server to `<gameDir>/serverpacks/`.
+Client scripts can live in the same pack as server scripts (they just need `@ClientScriptEntrypoint`). On multiplayer servers, client packs are automatically synced from the server to `<gameDir>/serverpacks/`.
 
 ## Server Scripts
 
@@ -112,28 +111,6 @@ Server-side scripts handle game logic: commands, events, registries, world manip
 
 In this example, we subscribe to the [`onPlayerJoin`](../api/fabric/event/ServerPlayerEvent.html#serverplayerevent-onplayerjoin) event to send a greeting. The [`once`](../api/common/KattonAPI.md#once) API checks whether the player is joining for the first time, so we can tailor the message accordingly.
 
-## Pack Types
-
-Katton supports two physical formats:
-
-| Type | Structure | Compilation | Best For |
-|---|---|---|---|
-| **Directory** | Folder with `manifest.json` + `.kt` files | All source packs compiled together (cross-pack references work) | Development and iteration |
-| **JAR** | `.jar` file with `manifest.json` at root or `META-INF/katton/manifest.json` | Loaded directly (pre-compiled) | Distribution and sharing |
-
-Directory packs get compiled together as one unit — so you can define a helper function in one pack and use it from another. JAR packs are loaded individually.
-
-JAR pack creation is a one-liner with Gradle, but it's outside the scope of this quickstart. The key point: **directory packs for development, JAR packs for sharing**.
-
-## Legacy Locations (Still Supported)
-
-If you have existing setups using the older conventions, they still work:
-
-- **Datapacks**: `data/<namespace>/scripts/` — server scripts
-- **Resource packs**: `assets/<namespace>/client_scripts/` — client scripts
-
-These are scanned alongside `kattonpacks/` on reload. However, **`kattonpacks/` is the recommended format** — it supports manifests, the pack UI, enable/disable toggling, and the full reload lifecycle. Old-style embedded scripts silently receive default settings.
-
 ## Advanced: Server→Client Sync
 
 When a client connects to a multiplayer server, Katton automatically syncs server-authoritative script packs to the client:
@@ -141,7 +118,16 @@ When a client connects to a multiplayer server, Katton automatically syncs serve
 1. Server sends a **hash list** (`ScriptPackHashListPacket`) — mapping each pack's sync ID to its SHA-256
 2. Client **compares hashes** against its local cache at `<gameDir>/serverpacks/<bucket>/`
 3. Client **requests** any missing or mismatched packs (`ScriptPackRequestPacket`)
-4. Server sends **full bundles** (`ScriptPackBundlePacket`) — manifest + all `.kt` files
+4. Server sends **full bundles** (`ScriptPackBundlePacket`) — manifest + all script files
 5. Client persists to disk and executes before registry validation
 
 This ensures every player runs the exact same scripts as the server — no manual installation, no version mismatches. The sync protocol is fully automatic and requires zero configuration from you.
+
+## Legacy Locations (Still Supported)
+
+If you have existing setups using the old conventions, they still work:
+
+- **Datapacks**: `data/<namespace>/scripts/` — server scripts
+- **Resource packs**: `assets/<namespace>/client_scripts/` — client scripts
+
+Katton scans these locations alongside `kattonpacks/` during reload. However, **`kattonpacks/` is the recommended format** — it supports manifest files, the in-game pack UI, toggle switches, and the full reload lifecycle. Old-format scripts silently use default settings.

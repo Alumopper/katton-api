@@ -42,7 +42,12 @@ class Zombie1Model<T : EntityRenderState>(root: ModelPart) : EntityModel<T>(root
 1. BlockBench 切换到 **动画** 模式
 2. 创建动画（idle、walk、attack 等）
 3. 导出 → 导出 Java 动画
-4. 保存为 `.java`，然后和模型一样转为 `.kt`
+4. 保存为 `.java` 文件，不需要转为 Kotlin——Katton 会直接编译它，你可以在脚本中直接引用这些定义。
+5. 修正 Java 导出的语法问题。
+
+>[!TIP]
+> ### Katton 中的 Java
+> Katton 可以编译脚本文件夹中的 `.kt` 和 `.java` 文件。这意味着你可以用 Kotlin 写主逻辑，同时保留 Java 文件（例如 BlockBench 导出，或某些任务你更喜欢用 Java）。Katton 会先通过 Java 编译器编译所有 java 文件，然后用 Kotlin 编译器编译 Kotlin 文件，且 Kotlin 可以访问已编译的 Java 类。也就是说 Kotlin 可以引用 Java 类，但反过来不行。
 
 > [!CAUTION]
 > **骨骼名不匹配**常见崩溃原因。动画里引用的骨骼名如果模型里不存在（如 BlockBench 定位器导出的 `"item_display"`），`bake()` 会抛异常。要么在模型里加空占位骨骼，要么从动画文件删掉对应的 channel。
@@ -128,7 +133,17 @@ fun initZombieRenderer() {
 ```
 
 > [!NOTE]
-> `animations` 完全灵活——想加几个加几个。默认逻辑：移动时播 `"walk"`，静止时播 `"idle"`。自定义逻辑传 `animate` 回调即可。
+> `animations` 映射**非常灵活**——想加几个加几个。默认逻辑会在实体移动时播放 `"walk"`，静止时播放 `"idle"`。要自定义，传入 `animate` 回调：
+>
+> ```kotlin
+> animations = mapOf("idle" to idleDef, "walk" to walkDef, "attack" to attackDef),
+> animate = { model, entity, state, baked ->
+>     model.resetPose()
+>     // 在这里写你的自定义动画逻辑...
+>     val state = KattonBridge["anim:${entity.id}:attack"] as? AnimationState
+>     baked["attack"]?.apply(state, state.ageInTicks)
+> }
+> ```
 
 ## 步骤 6：纹理
 
@@ -155,9 +170,9 @@ fun initZombieRenderer() {
 
 ### "动画乱七八糟"
 
-1. 缺 `resetPose()`
-2. 同时叠加播放 idle + walk
-3. `bake()` 因缺骨骼抛异常
+1. **缺 `resetPose()`** — 每次应用动画前都要调用 `model.resetPose()`。
+2. **叠加动画** — 每帧只应用**一个**动画。同时播放 idle 和 walk 会导致变换累积。
+3. **`bake()` 静默失败** — 如果动画引用了模型中不存在的骨骼，`bake()` 会抛异常。用 `runCatching` 捕获它。
 
 ### "重载崩溃"
 

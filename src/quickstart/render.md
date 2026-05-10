@@ -25,8 +25,8 @@ The following examples demonstrate the capabilities of the rendering API:
 
 <ImageCaptionZoom
    src="/docimg/image-1.png"
-   alt=""
-   caption=""
+   alt="HUD text rendering"
+   caption="Example of rendering text on the HUD"
    figure-width="400px"
 />
 
@@ -36,8 +36,8 @@ The following examples demonstrate the capabilities of the rendering API:
 
 <ImageCaptionZoom
    src="/docimg/image.png"
-   alt=""
-   caption=""
+   alt="Message and notification rendering"
+   caption="Message and notification display"
    figure-width="400px"
 />
 
@@ -47,7 +47,7 @@ The following examples demonstrate the capabilities of the rendering API:
 
 <ImageCaptionZoom
    src="/docimg/image-2.png"
-   alt=""
-   caption=""
+   alt="World 3D shape rendering"
+   caption="3D graphics rendering example"
    figure-width="400px"
 />

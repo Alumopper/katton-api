@@ -8,7 +8,15 @@
 
 你可以在脚本中直接订阅对应事件回调，并在回调中编写你的业务逻辑。
 
-## 可用事件列表
+## 简单示例
+
+以下是一个监听 `onPlayerJoin` 事件并向玩家发送欢迎消息的简单示例。该示例与[入门指南](./get-started)中的示例相同。
+
+<!--@include: ../../example/quickstart/get-started/01.md-->
+
+每个事件都有自己的一组参数，这些参数提供关于该事件的信息，并允许你与之交互。你可以在[API文档](../../api/common/event/KattonEventsArg)中查找每个事件的详细参数。
+
+## 详细事件列表
 
 在 Fabric 和 NeoForge 中，Katton 提供的事件稍有差异。下方提供了一份详细的列表。
 
