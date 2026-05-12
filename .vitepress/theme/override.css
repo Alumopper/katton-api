@@ -34,3 +34,10 @@
 .vp-doc {
 	--vp-code-block-divider-color: transparent;
 }
+
+/* ── Override external fonts with system fonts ── */
+/* vitepress-carbon loads JetBrains Mono from Google Fonts which may be blocked */
+/* We fall back to common monospace fonts installed on most developer machines */
+:root {
+	--vp-font-family-mono: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+}

@@ -213,6 +213,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     lineNumbers: true,
   },
   head: [
+    ["link", { rel: "icon", type: "image/png", href: "/logo.png" }],
     [
       "script",
       {},
@@ -237,6 +238,7 @@ export default defineConfigWithTheme<ThemeConfig>({
         nav: [
           { text: "Home", link: "/" },
           { text: "Quick Start", link: "/quickstart" },
+          { text: "Template", link: "/template/" },
           { text: "API", link: "/api/index.html" },
         ],
         sidebar: {
@@ -277,35 +279,39 @@ export default defineConfigWithTheme<ThemeConfig>({
         nav: [
           { text: "首页", link: "/zh/" },
           { text: "快速开始", link: "/zh/quickstart" },
+          { text: "模板生成器", link: "/zh/template/" },
           { text: "API", link: "/api/index.html" },
         ],
-        sidebar: [
-          {
-            text: "快速开始",
-            items: [
-              { text: "入门指南", link: "/zh/quickstart/get-started" },
-              { text: "脚本", link: "/zh/quickstart/scripts" },
-              { text: "事件", link: "/zh/quickstart/event" },
-              {
-                text: "注册",
-                link: "/zh/quickstart/registry/",
-                items: [
-                  { text: "实体教程", link: "/zh/quickstart/registry/entity" },
-                ],
-              },
-              { text: "渲染", link: "/zh/quickstart/render" },
-              { text: "代码注入", link: "/zh/quickstart/inject" },
-              { text: "命令", link: "/zh/quickstart/commands" },
-              { text: "脚本包界面", link: "/zh/quickstart/pack-ui" },
-              { text: "数据包开发者指南", link: "/zh/quickstart/for-cber" },
-            ],
-          },
-        ],
+        sidebar: {
+          '/zh/quickstart/': [
+            {
+              text: "快速开始",
+              items: [
+                { text: "入门指南", link: "/zh/quickstart/get-started" },
+                { text: "脚本", link: "/zh/quickstart/scripts" },
+                { text: "事件", link: "/zh/quickstart/event" },
+                {
+                  text: "注册",
+                  link: "/zh/quickstart/registry/",
+                  items: [
+                    { text: "实体教程", link: "/zh/quickstart/registry/entity" },
+                  ],
+                },
+                { text: "渲染", link: "/zh/quickstart/render" },
+                { text: "代码注入", link: "/zh/quickstart/inject" },
+                { text: "命令", link: "/zh/quickstart/commands" },
+                { text: "脚本包界面", link: "/zh/quickstart/pack-ui" },
+                { text: "数据包开发者指南", link: "/zh/quickstart/for-cber" },
+              ],
+            },
+          ],
+        },
       },
     },
   },
 
   themeConfig: {
+    logo: "/logo.png",
     search: {
       provider: "local",
     },
