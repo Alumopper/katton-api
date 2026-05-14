@@ -80,7 +80,7 @@ tasks.register("copyWorldScripts") {
     group = "distribution"
     description = "Mirrors world_scripts to the configured target path using hard links."
     doLast {
-        worldScriptsTargetDir.forEach { syncDirectoryAsHardLinks(file("world_scripts"), it) }
+        worldScriptsTargetDir.forEach { syncDirectoryAsHardLinks(file("src/world_scripts"), it) }
     }
 }
 
@@ -88,7 +88,7 @@ tasks.register("copyGlobalScripts") {
     group = "distribution"
     description = "Mirrors global_scripts to the configured target path using hard links."
     doLast {
-        globalScriptsTargetDir.forEach { syncDirectoryAsHardLinks(file("global_scripts"), it) }
+        globalScriptsTargetDir.forEach { syncDirectoryAsHardLinks(file("src/global_scripts"), it) }
     }
 }
 
@@ -105,10 +105,10 @@ import java.nio.file.Path
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "2.3.0"
-    id("fabric-loom") version "1.12-SNAPSHOT"
 }
 
 val kattonVersion = "${info.kattonVersion}"
+val fabricApiVersion = "0.144.0+26.1"
 val worldScriptsTargetDir: List<File> = listOf(
     file("/path/to/your/world/kattonpacks/${info.packId}/")
 )
@@ -128,6 +128,7 @@ dependencies {
     compileOnly(fileTree("lib") {
         include("*.jar")
     })
+    compileOnly("net.fabricmc.fabric-api:fabric-api:\${fabricApiVersion}")
     compileOnly("com.mojang:brigadier:1.3.10")
     compileOnly("org.joml:joml:1.10.8")
 }
@@ -135,7 +136,7 @@ dependencies {
 kotlin {
     jvmToolchain(25)
     sourceSets.named("main") {
-        kotlin.srcDirs("global_scripts", "world_scripts")
+        kotlin.srcDirs("src/global_scripts", "src/world_scripts")
     }
 }
 
@@ -177,14 +178,14 @@ dependencies {
 kotlin {
     jvmToolchain(25)
     sourceSets.named("main") {
-        kotlin.srcDirs("global_scripts", "world_scripts")
+        kotlin.srcDirs("src/global_scripts", "src/world_scripts")
     }
 }
 
 ${SYNC_TASK}`
 }
 
-function settingsGradle(): string {
+function settingsGradle(info: PackInfo): string {
   return `pluginManagement {
     repositories {
         mavenCentral()
@@ -195,7 +196,7 @@ plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
 }
 
-rootProject.name = "katton-template"
+rootProject.name = ${info.packId}
 `
 }
 
@@ -539,7 +540,7 @@ export async function generateZip(
   zip.file(`${rootDir}build.gradle.kts`, buildGradle)
 
   // 2. Settings
-  zip.file(`${rootDir}settings.gradle`, settingsGradle())
+  zip.file(`${rootDir}settings.gradle`, settingsGradle(info))
 
   // 3. Gradle wrapper properties
   zip.file(
@@ -572,7 +573,7 @@ export async function generateZip(
 
   // 7. Main.kt
   onProgress?.('Generating Main.kt...')
-  zip.file(`${rootDir}src/main/kotlin/Main.kt`, mainKt(info))
+  zip.file(`${rootDir}src/world_scripts/Main.kt`, mainKt(info))
 
   // 8. .gitignore
   zip.file(`${rootDir}.gitignore`, `/.gradle/\n/build/\n/run/\n/lib/\n`)
@@ -617,7 +618,7 @@ A Katton script pack for ${loaderName}.
 
 ## Development
 
-Write your Kotlin scripts in the \`world_scripts/\` directory. Use:
+Write your Kotlin scripts in the \`src/world_scripts/\` directory. Use:
 
 - \`@ServerScriptEntrypoint\` — runs on server
 - \`@ClientScriptEntrypoint\` — runs on client
