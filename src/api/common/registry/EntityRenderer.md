@@ -233,7 +233,7 @@ baked["walk"]?.apply(walkAnimState, state.ageInTicks)
 
 | Parameter | Description |
 | --- | --- |
-| `animations` | map of name → AnimationDefinition. Default logic plays<br>"walk" when moving and "idle" otherwise. Animation states are read from<br>KattonBridge["anim:<entityId>:<name>"]. |
+| `animations` | map of name → AnimationDefinition. Default logic plays<br>"walk" when moving and "idle" otherwise. Animation states are read from<br>KattonBridge["anim:&lt;entityId&gt;:&lt;name&gt;"]. |
 
 </ApiMemberCard>
 

@@ -40,7 +40,6 @@ defineProps<{
 .api-member-card__name {
     color: #f0f6fc;
     font-weight: 600;
-    align-items: baseline;
 }
 
 .api-member-card__meta {
@@ -51,12 +50,11 @@ defineProps<{
 }
 
 .api-member-card__pill {
-    padding: 0.1rem 0.65rem;
-    border-radius: 999px;
+    padding: 0.34rem 0.65rem;
+  border-radius: 999px;
     border: 1px solid #30363d;
     background: rgba(110, 118, 129, 0.08);
     color: #8b949e;
-    align-items: baseline;
   font-size: 0.78rem;
 }
 
