@@ -1,4 +1,7 @@
-# Render 
+# Render
+
+> [!WARNING]
+> Rendering is available on Fabric and NeoForge clients only. Paper is a server-only platform and does not support client-side rendering.
 
 Katton provides a simple API for rendering custom HUD elements and 3D shapes in the world.
 

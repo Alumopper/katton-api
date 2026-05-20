@@ -1,6 +1,9 @@
 # Scripts
 
-Katton organizes your Kotlin code into **Script Packs**. A script pack is simply a folder containing a `manifest.json` and one or more `.kt` files. Unlike traditional mods, script packs are **side-agnostic** — the same pack can serve both server and client, and everything is **hot-reloadable** with `/katton reload`.
+Katton organizes your Kotlin code into **Script Packs**. A script pack is simply a folder containing a `manifest.json` and one or more `.kt` files. Unlike traditional mods, script packs are **side-agnostic** — the same pack can serve both server and client on Fabric and NeoForge, and everything is **hot-reloadable** with `/katton reload`.
+
+> [!NOTE]
+> On Paper, script packs are server-only. There is no client side, so `@ClientScriptEntrypoint` and client-side APIs are not available. Scripts are loaded from `<serverDir>/kattonpacks/` or `<worldDir>/kattonpacks/`.
 
 ## Script Packs
 
@@ -93,9 +96,12 @@ Run `/katton reload` to reload all scripts without restarting the game. This is 
 You can also trigger reloads indirectly:
 - **`/reload`** (vanilla) → triggers server-side Katton reload
 - **`F3 + T`** (reload resources) → triggers client-side Katton reload
-- **Pack UI** → press K, click Reload — triggers both sides
+- **Pack UI** → press K, click Reload — triggers both sides (Fabric/NeoForge only; Paper has no client GUI)
 
 ## Client Scripts
+
+> [!WARNING]
+> Client-side scripts are only available on Fabric and NeoForge. Paper is a server-only platform and does not support client-side rendering or HUD scripts.
 
 Client-side scripts are great for HUD overlays, custom renderers, UI interactions, and anything that needs access to `Minecraft.getInstance()` or rendering APIs.
 
@@ -122,6 +128,9 @@ When a client connects to a multiplayer server, Katton automatically syncs serve
 5. Client persists to disk and executes before registry validation
 
 This ensures every player runs the exact same scripts as the server — no manual installation, no version mismatches. The sync protocol is fully automatic and requires zero configuration from you.
+
+> [!NOTE]
+> On Paper servers, there is no client sync — all scripts are server-local files loaded from `<serverDir>/kattonpacks/`.
 
 ## Legacy Locations (Still Supported)
 

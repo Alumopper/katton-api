@@ -12,3 +12,4 @@ These pages are generated from Kotlin KDoc comments.
 - [common](./common/index.md)
 - [fabric](./fabric/index.md)
 - [neoforge](./neoforge/index.md)
+- [paper](./paper/index.md)

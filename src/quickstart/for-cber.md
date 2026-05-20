@@ -2,7 +2,10 @@
 
 In fact, I am originally a vanilla datapack developer. It was precisely because I grew tired of the tediousness and various limitations of datapacks that I developed Katton. I wanted to retain the advantage of datapack hot-reloading while achieving powerful functionality comparable to that of mods. So if you're also a datapack developer, don't worry, Katton will definitely give you a home-like experience.
 
-Katton provides a series of functions that wrap all the functionalities of the vanilla commands. Even if you know nothing about Fabric modding, you can still use these functions to implement everything you can within the datapack. 
+Katton provides a series of functions that wrap all the functionalities of the vanilla commands. Even if you know nothing about Fabric modding, you can still use these functions to implement everything you can within the datapack.
+
+> [!NOTE]
+> On Paper, DP caller functions work just like on Fabric and NeoForge. However, registry operations (registering custom items, blocks, entities, etc.) are disabled on Paper because there is no client mod to sync registry entries with. 
 
 ## Commands
 

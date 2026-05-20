@@ -2,7 +2,10 @@
 
 ## Environment Setup
 
-Katton only supports Minecraft 26.1 and above, and requires Java 25 or higher. Katton supports both Fabric and Neoforge mod loaders. Make sure you have the appropriate mod loader installed and set up for your Minecraft version.
+Katton only supports Minecraft 26.1 and above, and requires Java 25 or higher. Katton supports both Fabric and Neoforge mod loaders, as well as Paper plugin servers. Make sure you have the appropriate mod loader or plugin environment installed and set up for your Minecraft version.
+
+> [!NOTE]
+> Paper is a server-only platform. If you are developing for Paper, there is no client side, so client scripts, rendering, and the pack UI are not available. Script packs on Paper are loaded from `<serverDir>/kattonpacks/`.
 
 We recommend using IntelliJ IDEA for development, as it has excellent support for Kotlin and Minecraft modding. You can also use other IDEs that support Kotlin, but you may need to configure them manually.
 

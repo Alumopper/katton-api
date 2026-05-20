@@ -198,6 +198,60 @@ const apiSidebar = {
             },
           ],
         },
+        {
+          text: "Paper",
+          link: "/api/paper/",
+          collapsed: false,
+          items: [
+            {
+              text: "ChunkAndBlockEvent",
+              link: "/api/paper/event/ChunkAndBlockEvent",
+            },
+            {
+              text: "ItemComponentEvent",
+              link: "/api/paper/event/ItemComponentEvent",
+            },
+            { text: "ItemEvent", link: "/api/paper/event/ItemEvent" },
+            {
+              text: "LivingBehaviorEvent",
+              link: "/api/paper/event/LivingBehaviorEvent",
+            },
+            {
+              text: "LivingUseItemEvent",
+              link: "/api/paper/event/LivingUseItemEvent",
+            },
+            {
+              text: "LootTableEvent",
+              link: "/api/paper/event/LootTableEvent",
+            },
+            { text: "PlayerEvent", link: "/api/paper/event/PlayerEvent" },
+            {
+              text: "ServerEntityCombatEvent",
+              link: "/api/paper/event/ServerEntityCombatEvent",
+            },
+            {
+              text: "ServerEntityEvent",
+              link: "/api/paper/event/ServerEntityEvent",
+            },
+            { text: "ServerEvent", link: "/api/paper/event/ServerEvent" },
+            {
+              text: "ServerLivingEntityEvent",
+              link: "/api/paper/event/ServerLivingEntityEvent",
+            },
+            {
+              text: "ServerMessageEvent",
+              link: "/api/paper/event/ServerMessageEvent",
+            },
+            {
+              text: "ServerMobEffectEvent",
+              link: "/api/paper/event/ServerMobEffectEvent",
+            },
+            {
+              text: "ServerPlayerEvent",
+              link: "/api/paper/event/ServerPlayerEvent",
+            },
+          ],
+        },
       ],
     },
   ],

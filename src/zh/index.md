@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "Katton"
   text: ""
-  tagline: 可热重载的强大 Minecraft 脚本开发框架
+  tagline: 可热重载的强大 Minecraft 脚本开发框架 (支持 Fabric, NeoForge, Paper)
   icon: ⚡
   image:
     src: ../logo.png

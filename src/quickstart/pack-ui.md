@@ -1,5 +1,8 @@
 # Script Pack UI
 
+> [!WARNING]
+> The Script Pack UI is available on Fabric and NeoForge clients only. Paper is a server-only platform and does not have a client-side GUI.
+
 Katton includes an in-game screen for managing your script packs. Press **K** (default) while in a world to open it — no config files needed.
 
 ## What You Can Do

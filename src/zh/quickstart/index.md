@@ -6,7 +6,7 @@
 
 Katton 是一个强大的 Minecraft 模组开发框架，允许你使用 Kotlin 脚本创建和修改游戏内容。借助热重载脚本，你可以实时查看更改，无需重启游戏。
 
-Katton 同时支持 Fabric 和 NeoForge。我们会尽可能保持 API 在两者之间保持一致，但是仍然可能会存在一些些的差别。
+Katton 同时支持 Fabric、NeoForge 和 Paper 插件服。我们会尽可能保持 API 在各平台之间保持一致，但是仍然可能会存在一些差别。Paper 为纯服务端，因此渲染、脚本包界面等客户端功能在 Paper 上不可用。
 
 ## 为什么选择 Katton？
 

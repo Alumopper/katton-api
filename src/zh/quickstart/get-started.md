@@ -2,7 +2,10 @@
 
 ## 环境配置
 
-Katton 仅支持 Minecraft 26.1 及以上版本，并且要求 Java 25 或更高版本。Katton 同时支持 Fabric 和 NeoForge 模组加载器。请先确认你的游戏版本已正确安装并配置对应加载器。
+Katton 仅支持 Minecraft 26.1 及以上版本，并且要求 Java 25 或更高版本。Katton 同时支持 Fabric、NeoForge 模组加载器和 Paper 插件服。请先确认你的游戏版本已正确安装并配置对应加载器或插件环境。
+
+> [!NOTE]
+> Paper 为纯服务端平台。如果你在 Paper 上开发，则没有客户端，因此客户端脚本、渲染和脚本包界面均不可用。Paper 上的脚本包从 `<serverDir>/kattonpacks/` 加载。
 
 我们推荐使用 IntelliJ IDEA 进行开发，因为它对 Kotlin 和 Minecraft 模组开发支持最好。你也可以使用其他支持 Kotlin 的 IDE，但可能需要自行补充一些配置。
 

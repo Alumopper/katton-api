@@ -14,6 +14,9 @@ Katton ships with a set of built-in commands under `/katton` to help you manage 
 | `/katton debug registryLogging` | Check debug log toggle | **OP only** |
 | `/katton debug registryLogging on/off` | Enable/disable debug logs | **OP only** |
 
+> [!NOTE]
+> On Paper, the `/katton` command is simpler: only `/katton help`, `/katton status`, and `/katton reload` are available. Reload requires the `katton.admin` permission (not just OP). The `registry` and `debug` subcommands are not available on Paper because registry operations are disabled.
+
 ## Help
 
 Just type `/katton` or `/katton help` — Katton will list all available subcommands.

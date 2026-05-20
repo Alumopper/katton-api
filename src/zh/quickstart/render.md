@@ -1,5 +1,8 @@
 # 渲染
 
+> [!WARNING]
+> 渲染功能仅适用于客户端（Fabric/NeoForge），Paper 为纯服务端，不支持渲染。
+
 Katton 提供了简洁的 API，用于在 HUD 上绘制自定义元素，以及在世界中绘制 3D 图形。
 
 >[!NOTE]

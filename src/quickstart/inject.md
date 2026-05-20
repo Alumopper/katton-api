@@ -1,5 +1,8 @@
 # Code injection
 
+> [!WARNING]
+> Code injection is available on Fabric and NeoForge only. Paper does not support runtime bytecode injection due to plugin architecture limitations.
+
 Mixin is a powerful tool for modding, but it is designed to be static and can only be loaded during the mod initialization phase. So unfortunately, we cannot use mixin to inject code in our kotlin scripts. But don't worry, Katton provides a lightweight code injection API that allows you to inject code into existing Java methods at runtime and still hot-reloadable.
 
 ## Insert
