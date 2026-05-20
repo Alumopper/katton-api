@@ -1,7 +1,9 @@
 <template>
   <section class="api-doc-page">
     <div class="api-doc-page__header">
-      <p class="api-doc-page__eyebrow">{{ module }}</p>
+            <div class="api-doc-page__badges">
+                <span class="api-doc-page__module-badge" :data-module="moduleKey">{{ module }}</span>
+            </div>
       <h1 class="api-doc-page__title">{{ title }}</h1>
       <div class="api-doc-page__meta">
         <span class="api-doc-page__chip">{{ packageName }}</span>
@@ -18,6 +20,7 @@
 defineProps<{
   title: string
   module: string
+    moduleKey: string
   packageName: string
   sourceFile: string
 }>()
@@ -42,13 +45,28 @@ defineProps<{
     padding-bottom: 0.25rem;
 }
 
-.api-doc-page__eyebrow {
-  margin: 0 0 0.35rem;
-  color: var(--api-accent);
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-  text-transform: uppercase;
+.api-doc-page__badges {
+    margin-bottom: 0.55rem;
 }
+
+.api-doc-page__module-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem 0.72rem;
+    border: 1px solid #30363d;
+    border-radius: 999px;
+    background: rgba(88, 166, 255, 0.14);
+    color: #c9d1d9;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.api-doc-page__module-badge[data-module='common'] { border-color: rgba(88, 166, 255, 0.35); color: #79c0ff; background: rgba(88, 166, 255, 0.12); }
+.api-doc-page__module-badge[data-module='fabric'] { border-color: rgba(242, 201, 76, 0.34); color: #f2cc60; background: rgba(242, 201, 76, 0.1); }
+.api-doc-page__module-badge[data-module='neoforge'] { border-color: rgba(63, 185, 80, 0.34); color: #7ee787; background: rgba(63, 185, 80, 0.1); }
+.api-doc-page__module-badge[data-module='paper'] { border-color: rgba(230, 126, 34, 0.34); color: #f0a04b; background: rgba(230, 126, 34, 0.1); }
 
 .api-doc-page__title {
   margin: 0;
@@ -71,14 +89,11 @@ defineProps<{
     background: rgba(110, 118, 129, 0.08);
   color: var(--api-muted);
   font-size: 0.82rem;
-    max-width: 100%;
-    overflow-wrap: anywhere;
 }
 
 .api-doc-page__body {
   margin-top: 1rem;
   color: var(--api-text);
-    overflow-wrap: anywhere;
 }
 
 .api-doc-page :deep(p),
@@ -96,38 +111,6 @@ defineProps<{
   .api-doc-page {
     padding: 1.1rem;
         border-radius: 10px;
-        margin-bottom: 1.25rem;
-  }
-
-  .api-doc-page__header {
-    padding-bottom: 0;
-  }
-
-  .api-doc-page__eyebrow {
-    margin-bottom: 0.45rem;
-    font-size: 0.74rem;
-    letter-spacing: 0.06em;
-  }
-
-  .api-doc-page__title {
-    font-size: clamp(1.55rem, 8vw, 2rem);
-    line-height: 1.2;
-  }
-
-  .api-doc-page__meta {
-    gap: 0.45rem;
-    margin-top: 0.85rem;
-  }
-
-  .api-doc-page__chip {
-    width: 100%;
-    border-radius: 0.8rem;
-    font-size: 0.8rem;
-    line-height: 1.35;
-  }
-
-  .api-doc-page__body {
-    margin-top: 0.9rem;
   }
 }
 </style>

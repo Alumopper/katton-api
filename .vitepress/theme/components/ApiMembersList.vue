@@ -8,7 +8,7 @@
             <li v-for="item in parsedItems" :key="item.href" class="api-members-list__item">
                 <a :href="item.href" class="api-members-list__link">
                     <span class="api-members-list__label">{{ item.label }}</span>
-                    <span class="api-members-list__kind">{{ item.kind }}</span>
+                    <span class="api-members-list__kind" :data-kind="item.kindKey">{{ item.kind }}</span>
                 </a>
             </li>
         </ul>
@@ -22,6 +22,7 @@ type Item = {
     label: string
     href: string
     kind: string
+    kindKey: string
 }
 
 const props = defineProps<{
@@ -44,7 +45,6 @@ const parsedItems = computed<Item[]>(() => {
     border: 1px solid #30363d;
     border-radius: 12px;
     background: #161b22;
-    overflow: hidden;
 }
 
 .api-members-list__header {
@@ -81,7 +81,7 @@ const parsedItems = computed<Item[]>(() => {
     display: flex;
     justify-content: space-between;
     gap: 0.8rem;
-    align-items: flex-start;
+    align-items: center;
     padding: 0.75rem 0.9rem;
     border: 1px solid #30363d;
     border-radius: 10px;
@@ -99,52 +99,30 @@ const parsedItems = computed<Item[]>(() => {
 .api-members-list__label {
     font-weight: 500;
     word-break: break-word;
-    overflow-wrap: anywhere;
 }
 
 .api-members-list__kind {
     flex-shrink: 0;
+    padding: 0.2rem 0.48rem;
+    border: 1px solid #30363d;
+    border-radius: 999px;
     color: #8b949e;
+    background: rgba(110, 118, 129, 0.08);
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    text-align: right;
 }
 
-@media (max-width: 640px) {
-    .api-members-list {
-        margin: 1rem 0 1.25rem;
-        padding: 0.9rem;
-        border-radius: 10px;
-    }
-
-    .api-members-list__header {
-        margin-bottom: 0.8rem;
-    }
-
-    .api-members-list__title {
-        font-size: 0.98rem;
-    }
-
-    .api-members-list__subtitle {
-        font-size: 0.82rem;
-        line-height: 1.45;
-    }
-
-    .api-members-list__grid {
-        grid-template-columns: 1fr;
-        gap: 0.6rem;
-    }
-
-    .api-members-list__link {
-        flex-direction: column;
-        gap: 0.35rem;
-        padding: 0.8rem;
-    }
-
-    .api-members-list__kind {
-        text-align: left;
-        font-size: 0.74rem;
-    }
-}
+.api-members-list__kind[data-kind='function'] { border-color: rgba(88, 166, 255, 0.35); color: #79c0ff; background: rgba(88, 166, 255, 0.1); }
+.api-members-list__kind[data-kind='property'] { border-color: rgba(242, 201, 76, 0.35); color: #f2cc60; background: rgba(242, 201, 76, 0.1); }
+.api-members-list__kind[data-kind='data-class'] { border-color: rgba(188, 140, 255, 0.35); color: #d2a8ff; background: rgba(188, 140, 255, 0.12); }
+.api-members-list__kind[data-kind='class'] { border-color: rgba(139, 148, 158, 0.35); color: #c9d1d9; background: rgba(139, 148, 158, 0.1); }
+.api-members-list__kind[data-kind='object'] { border-color: rgba(63, 185, 80, 0.35); color: #7ee787; background: rgba(63, 185, 80, 0.1); }
+.api-members-list__kind[data-kind='interface'] { border-color: rgba(56, 139, 253, 0.35); color: #58a6ff; background: rgba(56, 139, 253, 0.1); }
+.api-members-list__kind[data-kind='enum-class'],
+.api-members-list__kind[data-kind='annotation-class'],
+.api-members-list__kind[data-kind='value-class'],
+.api-members-list__kind[data-kind='sealed-class'],
+.api-members-list__kind[data-kind='type-alias'],
+.api-members-list__kind[data-kind='companion-object'] { border-color: rgba(210, 153, 34, 0.35); color: #e3b341; background: rgba(210, 153, 34, 0.1); }
 </style>

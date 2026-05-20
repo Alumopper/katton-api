@@ -27,3 +27,4 @@ Generated from module `neoforge`.
 - [ServerMessageEvent](./event/ServerMessageEvent.md) - Server-side message events for NeoForge platform.
 - [ServerMobEffectEvent](./event/ServerMobEffectEvent.md) - Mob effect events for NeoForge platform.
 - [ServerPlayerEvent](./event/ServerPlayerEvent.md) - Server player events for NeoForge platform.
+- [NeoForgeManagedEvents](./event/managed/NeoForgeManagedEvents.md) - NeoForge implementation of [ManagedListenerProvider].

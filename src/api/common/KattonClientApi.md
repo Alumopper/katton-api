@@ -96,7 +96,7 @@ The client level instance, or null if not in a world or on server
 >
 
 ```kotlin
-fun clientTell(message: Any?, overlay: Boolean = true)
+fun clientTell(message: Any?, overlay: Boolean = true): Boolean
 ```
 
 Sends a message to the client player's chat.

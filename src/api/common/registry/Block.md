@@ -28,7 +28,7 @@ Registers a native Block with hot-reload support (String overload).
 
 ```kotlin
 @ApiStatus.Experimental
-@ApiStatus.Experimental fun registerNativeBlock(id: String, registerMode: RegisterMode = RegisterMode.AUTO, blockFactory: (BlockBehaviour.Properties) -> Block): KattonRegistry.KattonBlockEntry
+@ApiStatus.Experimental fun registerNativeBlock(id: String, registerMode: RegisterMode = RegisterMode.WORLD, blockFactory: (BlockBehaviour.Properties) -> Block): KattonRegistry.KattonBlockEntry
 ```
 
 Registers a native Block with hot-reload support (String overload).
@@ -42,7 +42,7 @@ hot-reload capability.
 | Parameter | Description |
 | --- | --- |
 | `id` | Block identifier (e.g., "mymod:custom_block") |
-| `registerMode` | Registration mode (GLOBAL, RELOADABLE, or AUTO) |
+| `registerMode` | Registration mode (GLOBAL, WORLD, or RELOADABLE) |
 | `blockFactory` | Factory function to create the Block instance, receives Properties |
 
 ### Returns
@@ -64,7 +64,7 @@ The registered KattonBlockEntry
 
 ```kotlin
 @ApiStatus.Experimental
-@ApiStatus.Experimental fun registerNativeBlock(id: Identifier, registerMode: RegisterMode = RegisterMode.AUTO, blockFactory: (BlockBehaviour.Properties) -> Block): KattonRegistry.KattonBlockEntry
+@ApiStatus.Experimental fun registerNativeBlock(id: Identifier, registerMode: RegisterMode = RegisterMode.WORLD, blockFactory: (BlockBehaviour.Properties) -> Block): KattonRegistry.KattonBlockEntry
 ```
 
 Registers a native Block with hot-reload support (Identifier overload).

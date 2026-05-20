@@ -14,6 +14,7 @@ Katton supports both Fabric and NeoForge, as well as Paper plugin servers. We ar
 - **Flexibility**: With Kotlin's powerful features, you can create complex mods that interact with Minecraft in unique ways.
 - **Performance**: Katton uses Kotlin Scripts to directly interact with Java objects during the runtime of Minecraft, ensuring high performance and seamless integration.
 - **Powerful API**: Katton provides a comprehensive API that allows you to access and modify various aspects of the game, from blocks and items to entities and world generation, even code injections like mixins, and **ALL HOT-RELOADABLE**.
+- **Modify Existing Content**: Beyond adding new content, you can change vanilla blocks, items, recipes, loot tables, entity attributes, and villager trades — see the [Modify Content](./modify/) guide.
 - **In-Game Management**: Manage your script packs through a built-in GUI (press K!), toggle packs on/off, and monitor registries with diagnostic commands — all without leaving the game.
 
 ## I don't know Kotlin

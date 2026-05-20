@@ -27,3 +27,4 @@ Generated from module `fabric`.
 - [ServerMessageEvent](./event/ServerMessageEvent.md) - Server-side message events for Fabric platform.
 - [ServerMobEffectEvent](./event/ServerMobEffectEvent.md) - Mob effect events for Fabric platform.
 - [ServerPlayerEvent](./event/ServerPlayerEvent.md) - Server player events for Fabric platform.
+- [FabricManagedEvents](./event/managed/FabricManagedEvents.md) - Fabric implementation of [ManagedListenerProvider].

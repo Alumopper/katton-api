@@ -28,7 +28,7 @@ Registers a native Item with hot-reload support.
 
 ```kotlin
 @ApiStatus.Experimental
-@ApiStatus.Experimental fun registerNativeItem(id: String, registerMode: RegisterMode = RegisterMode.AUTO, configure: KattonItemProperties.() -> Unit = {}, itemFactory: (KattonItemProperties) -> Item): KattonRegistry.KattonItemEntry
+@ApiStatus.Experimental fun registerNativeItem(id: String, registerMode: RegisterMode = RegisterMode.WORLD, configure: KattonItemProperties.() -> Unit = {}, itemFactory: (KattonItemProperties) -> Item): KattonRegistry.KattonItemEntry
 ```
 
 Registers a native Item with hot-reload support.
@@ -42,7 +42,7 @@ hot-reload capability.
 | Parameter | Description |
 | --- | --- |
 | `id` | Item identifier (e.g., "mymod:my_item") |
-| `registerMode` | Registration mode (GLOBAL, RELOADABLE, or AUTO) |
+| `registerMode` | Registration mode (GLOBAL, WORLD, or RELOADABLE) |
 | `configure` | Configuration lambda for item properties |
 | `itemFactory` | Factory function to create the Item instance |
 
@@ -65,7 +65,7 @@ The registered KattonItemEntry
 
 ```kotlin
 @ApiStatus.Experimental
-@ApiStatus.Experimental fun registerNativeItem(id: Identifier, registerMode: RegisterMode = RegisterMode.AUTO, configure: KattonItemProperties.() -> Unit = {}, itemFactory: (KattonItemProperties) -> Item): KattonRegistry.KattonItemEntry
+@ApiStatus.Experimental fun registerNativeItem(id: Identifier, registerMode: RegisterMode = RegisterMode.WORLD, configure: KattonItemProperties.() -> Unit = {}, itemFactory: (KattonItemProperties) -> Item): KattonRegistry.KattonItemEntry
 ```
 
 Registers a native Item with hot-reload support.
@@ -98,7 +98,7 @@ The registered KattonItemEntry
 
 ```kotlin
 @ApiStatus.Experimental
-@ApiStatus.Experimental fun registerNativeItem(id: String, properties: KattonItemProperties, registerMode: RegisterMode = RegisterMode.AUTO, itemFactory: (KattonItemProperties) -> Item): KattonRegistry.KattonItemEntry
+@ApiStatus.Experimental fun registerNativeItem(id: String, properties: KattonItemProperties, registerMode: RegisterMode = RegisterMode.WORLD, itemFactory: (KattonItemProperties) -> Item): KattonRegistry.KattonItemEntry
 ```
 
 Registers a native Item with pre-configured properties.

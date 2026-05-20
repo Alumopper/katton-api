@@ -131,12 +131,3 @@ This ensures every player runs the exact same scripts as the server — no manua
 
 > [!NOTE]
 > On Paper servers, there is no client sync — all scripts are server-local files loaded from `<serverDir>/kattonpacks/`.
-
-## Legacy Locations (Still Supported)
-
-If you have existing setups using the old conventions, they still work:
-
-- **Datapacks**: `data/<namespace>/scripts/` — server scripts
-- **Resource packs**: `assets/<namespace>/client_scripts/` — client scripts
-
-Katton scans these locations alongside `kattonpacks/` during reload. However, **`kattonpacks/` is the recommended format** — it supports manifest files, the in-game pack UI, toggle switches, and the full reload lifecycle. Old-format scripts silently use default settings.

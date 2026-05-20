@@ -13,7 +13,7 @@ outline: [2, 2]
 Screen-space render callback context.
 </ApiDocPage>
 
-<ApiMembersList items-json='[{&quot;label&quot;:&quot;HudRenderContext&quot;,&quot;href&quot;:&quot;#hudrendercontext&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;WorldRenderContext&quot;,&quot;href&quot;:&quot;#worldrendercontext&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;HudRenderLayer&quot;,&quot;href&quot;:&quot;#hudrenderlayer&quot;,&quot;kind&quot;:&quot;Enum Class&quot;,&quot;kindKey&quot;:&quot;enum-class&quot;}, {&quot;label&quot;:&quot;WorldRenderLayer&quot;,&quot;href&quot;:&quot;#worldrenderlayer&quot;,&quot;kind&quot;:&quot;Enum Class&quot;,&quot;kindKey&quot;:&quot;enum-class&quot;}, {&quot;label&quot;:&quot;registerHudRenderer&quot;,&quot;href&quot;:&quot;#registerhudrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerHudRenderer&quot;,&quot;href&quot;:&quot;#registerhudrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;unregisterHudRenderer&quot;,&quot;href&quot;:&quot;#unregisterhudrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerWorldRenderer&quot;,&quot;href&quot;:&quot;#registerworldrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerWorldRenderer&quot;,&quot;href&quot;:&quot;#registerworldrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;unregisterWorldRenderer&quot;,&quot;href&quot;:&quot;#unregisterworldrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearClientRenderers&quot;,&quot;href&quot;:&quot;#clearclientrenderers&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dispatchHudRender&quot;,&quot;href&quot;:&quot;#dispatchhudrender&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dispatchWorldRender&quot;,&quot;href&quot;:&quot;#dispatchworldrender&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;drawHudText&quot;,&quot;href&quot;:&quot;#drawhudtext&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;fillHudRect&quot;,&quot;href&quot;:&quot;#fillhudrect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;drawHudTexture&quot;,&quot;href&quot;:&quot;#drawhudtexture&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;drawLine3D&quot;,&quot;href&quot;:&quot;#drawline3d&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;drawBillboard3D&quot;,&quot;href&quot;:&quot;#drawbillboard3d&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
+<ApiMembersList items-json='[{&quot;label&quot;:&quot;HudRenderContext&quot;,&quot;href&quot;:&quot;#hudrendercontext&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;WorldRenderContext&quot;,&quot;href&quot;:&quot;#worldrendercontext&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;HudRenderLayer&quot;,&quot;href&quot;:&quot;#hudrenderlayer&quot;,&quot;kind&quot;:&quot;Enum Class&quot;,&quot;kindKey&quot;:&quot;enum-class&quot;}, {&quot;label&quot;:&quot;WorldRenderLayer&quot;,&quot;href&quot;:&quot;#worldrenderlayer&quot;,&quot;kind&quot;:&quot;Enum Class&quot;,&quot;kindKey&quot;:&quot;enum-class&quot;}, {&quot;label&quot;:&quot;registerHudRenderer&quot;,&quot;href&quot;:&quot;#registerhudrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerHudRenderer&quot;,&quot;href&quot;:&quot;#registerhudrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;unregisterHudRenderer&quot;,&quot;href&quot;:&quot;#unregisterhudrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerWorldRenderer&quot;,&quot;href&quot;:&quot;#registerworldrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerWorldRenderer&quot;,&quot;href&quot;:&quot;#registerworldrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;unregisterWorldRenderer&quot;,&quot;href&quot;:&quot;#unregisterworldrenderer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearClientRenderers&quot;,&quot;href&quot;:&quot;#clearclientrenderers&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dispatchHudRender&quot;,&quot;href&quot;:&quot;#dispatchhudrender&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dispatchWorldRender&quot;,&quot;href&quot;:&quot;#dispatchworldrender&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;drawHudText&quot;,&quot;href&quot;:&quot;#drawhudtext&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;fillHudRect&quot;,&quot;href&quot;:&quot;#fillhudrect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;drawHudTexture&quot;,&quot;href&quot;:&quot;#drawhudtexture&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;drawLine3D&quot;,&quot;href&quot;:&quot;#drawline3d&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
 
 ## HudRenderContext
 
@@ -27,7 +27,7 @@ Screen-space render callback context.
 >
 
 ```kotlin
-data class HudRenderContext( val graphics: GuiGraphics, val tickDelta: Float )
+data class HudRenderContext( val graphics: GuiGraphicsExtractor, val tickDelta: Float )
 ```
 
 Screen-space render callback context.
@@ -55,7 +55,7 @@ Contains the graphics context and timing information for HUD rendering.
 >
 
 ```kotlin
-data class WorldRenderContext( val viewMatrix: Any, val projectionMatrix: Any, val camera: Camera?, val tickDelta: Float )
+data class WorldRenderContext( val camera: CameraRenderState?, val tickDelta: Float )
 ```
 
 World-space render callback context.
@@ -66,8 +66,6 @@ Contains matrix and camera information for 3D world rendering.
 
 | Property | Description |
 | --- | --- |
-| `viewMatrix` | The current view transformation matrix |
-| `projectionMatrix` | The current projection matrix |
 | `camera` | The current camera instance (may be null) |
 | `tickDelta` | The partial tick time for smooth animations |
 
@@ -327,7 +325,7 @@ Useful for cleanup during script reload or when resetting state.
 
 ```kotlin
 @JvmName("dispatchHudRender")
-@JvmName("dispatchHudRender") fun dispatchHudRender(graphics: GuiGraphics, tickDelta: Float)
+@JvmName("dispatchHudRender") fun dispatchHudRender(graphics: GuiGraphicsExtractor, tickDelta: Float)
 ```
 
 Internal dispatcher: called by platform render hooks to invoke all HUD renderers.
@@ -354,7 +352,7 @@ Internal dispatcher: called by platform render hooks to invoke all HUD renderers
 
 ```kotlin
 @JvmName("dispatchWorldRender")
-@JvmName("dispatchWorldRender") fun dispatchWorldRender(viewMatrix: Any, projectionMatrix: Any, camera: Camera?, tickDelta: Float)
+@JvmName("dispatchWorldRender") fun dispatchWorldRender(camera: CameraRenderState?, tickDelta: Float)
 ```
 
 Internal dispatcher: called by platform render hooks to invoke all world renderers.
@@ -363,8 +361,6 @@ Internal dispatcher: called by platform render hooks to invoke all world rendere
 
 | Parameter | Description |
 | --- | --- |
-| `viewMatrix` | The view transformation matrix |
-| `projectionMatrix` | The projection matrix |
 | `camera` | The camera instance |
 | `tickDelta` | The partial tick time |
 
@@ -450,7 +446,7 @@ true if drawing succeeded, false otherwise
 >
 
 ```kotlin
-fun drawHudTexture(ctx: HudRenderContext, texture: String, x: Int, y: Int, width: Int, height: Int, u: Float = 0f, v: Float = 0f, textureWidth: Int = width, textureHeight: Int = height): Boolean
+fun drawHudTexture(ctx: HudRenderContext, texture: String, x: Int, y: Int, width: Int, height: Int, u0: Float = 0f, u1: Float = 1f, v0: Float = 0f, v1: Float = 1f): Boolean
 ```
 
 Draws a texture region on HUD using current [HudRenderContext].
@@ -465,10 +461,10 @@ Draws a texture region on HUD using current [HudRenderContext].
 | `y` | The Y position on screen |
 | `width` | The width to draw |
 | `height` | The height to draw |
-| `u` | The U coordinate in the texture (default: 0) |
-| `v` | The V coordinate in the texture (default: 0) |
-| `textureWidth` | The total texture width (default: same as width) |
-| `textureHeight` | The total texture height (default: same as height) |
+| `u0` | The U coordinate of the texture region (default: 0) |
+| `u1` | The U coordinate of the texture region (default: 1) |
+| `v0` | The V coordinate of the texture region (default: 0) |
+| `v1` | The V coordinate of the texture region (default: 1) |
 
 ### Returns
 
@@ -508,43 +504,6 @@ Uses real GPU mesh rendering via VertexConsumer+RenderType.
 | `z2` | End Z coordinate in world space |
 | `argbColor` | The line color in ARGB format |
 | `lineWidth` | The width of the line (default: 1.0) |
-
-### Returns
-
-true if drawing succeeded, false otherwise
-
-</ApiMemberCard>
-
-## drawBillboard3D
-
-<ApiMemberCard
-  id="drawbillboard3d"
-  name="drawBillboard3D"
-  kind="Function"
-  kind-key="function"
-  module="Common"
-  module-key="common"
->
-
-```kotlin
-fun drawBillboard3D(ctx: WorldRenderContext, x: Double, y: Double, z: Double, argbColor: Int, size: Float = 1.0f): Boolean
-```
-
-Draw a colored quad billboard at world position.
-
-Uses real GPU mesh rendering via VertexConsumer+RenderType.
-Billboards always face the camera.
-
-### Parameters
-
-| Parameter | Description |
-| --- | --- |
-| `ctx` | The world render context |
-| `x` | The X coordinate in world space |
-| `y` | The Y coordinate in world space |
-| `z` | The Z coordinate in world space |
-| `argbColor` | The color in ARGB format |
-| `size` | The size of the billboard (default: 1.0) |
 
 ### Returns
 

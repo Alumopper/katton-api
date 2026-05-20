@@ -27,7 +27,7 @@ Registers a native MobEffect with hot-reload support (String overload).
 >
 
 ```kotlin
-fun registerNativeEffect(id: String, registerMode: RegisterMode = RegisterMode.AUTO, effectFactory: () -> MobEffect): KattonRegistry.KattonMobEffectEntry
+fun registerNativeEffect(id: String, registerMode: RegisterMode = RegisterMode.WORLD, effectFactory: () -> MobEffect): KattonRegistry.KattonMobEffectEntry
 ```
 
 Registers a native MobEffect with hot-reload support (String overload).
@@ -41,7 +41,7 @@ hot-reload capability.
 | Parameter | Description |
 | --- | --- |
 | `id` | Effect identifier (e.g., "mymod:custom_effect") |
-| `registerMode` | Registration mode (GLOBAL, RELOADABLE, or AUTO) |
+| `registerMode` | Registration mode (GLOBAL, WORLD, or RELOADABLE) |
 | `effectFactory` | Factory function to create the MobEffect instance |
 
 ### Returns
@@ -62,7 +62,7 @@ The registered KattonMobEffectEntry
 >
 
 ```kotlin
-fun registerNativeEffect(id: Identifier, registerMode: RegisterMode = RegisterMode.AUTO, effectFactory: () -> MobEffect): KattonRegistry.KattonMobEffectEntry
+fun registerNativeEffect(id: Identifier, registerMode: RegisterMode = RegisterMode.WORLD, effectFactory: () -> MobEffect): KattonRegistry.KattonMobEffectEntry
 ```
 
 Registers a native MobEffect with hot-reload support (Identifier overload).

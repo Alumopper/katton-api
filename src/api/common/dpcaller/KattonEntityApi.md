@@ -13,7 +13,7 @@ outline: [2, 2]
 Get/Set the NBT data of an Entity.
 </ApiDocPage>
 
-<ApiMembersList items-json='[{&quot;label&quot;:&quot;nbt&quot;,&quot;href&quot;:&quot;#nbt&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;EntityEvent&quot;,&quot;href&quot;:&quot;#entityevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;EntityEvent.EntityOnTickEvent&quot;,&quot;href&quot;:&quot;#entityevent-entityontickevent&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;EntityEvent.onTick&quot;,&quot;href&quot;:&quot;#entityevent-ontick&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;EntityEvent.beginReload&quot;,&quot;href&quot;:&quot;#entityevent-beginreload&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityEvent.rebindLoadedEntities&quot;,&quot;href&quot;:&quot;#entityevent-rebindloadedentities&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.all&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-all&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.contains&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-contains&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.get&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.set&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;attributeValues&quot;,&quot;href&quot;:&quot;#attributevalues&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;getAttribute&quot;,&quot;href&quot;:&quot;#getattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;hasAttribute&quot;,&quot;href&quot;:&quot;#hasattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getBaseAttribute&quot;,&quot;href&quot;:&quot;#getbaseattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setBaseAttribute&quot;,&quot;href&quot;:&quot;#setbaseattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addAttributeModify&quot;,&quot;href&quot;:&quot;#addattributemodify&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeAttributeModify&quot;,&quot;href&quot;:&quot;#removeattributemodify&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addEffect&quot;,&quot;href&quot;:&quot;#addeffect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeEffect&quot;,&quot;href&quot;:&quot;#removeeffect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearEffects&quot;,&quot;href&quot;:&quot;#cleareffects&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;mount&quot;,&quot;href&quot;:&quot;#mount&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dismount&quot;,&quot;href&quot;:&quot;#dismount&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;spreadPlayers&quot;,&quot;href&quot;:&quot;#spreadplayers&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;summon&quot;,&quot;href&quot;:&quot;#summon&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getTags&quot;,&quot;href&quot;:&quot;#gettags&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addTag&quot;,&quot;href&quot;:&quot;#addtag&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeTag&quot;,&quot;href&quot;:&quot;#removetag&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
+<ApiMembersList items-json='[{&quot;label&quot;:&quot;nbt&quot;,&quot;href&quot;:&quot;#nbt&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.all&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-all&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.contains&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-contains&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.get&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.set&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;attributeValues&quot;,&quot;href&quot;:&quot;#attributevalues&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;getAttribute&quot;,&quot;href&quot;:&quot;#getattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;hasAttribute&quot;,&quot;href&quot;:&quot;#hasattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getBaseAttribute&quot;,&quot;href&quot;:&quot;#getbaseattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setBaseAttribute&quot;,&quot;href&quot;:&quot;#setbaseattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addAttributeModify&quot;,&quot;href&quot;:&quot;#addattributemodify&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeAttributeModify&quot;,&quot;href&quot;:&quot;#removeattributemodify&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addEffect&quot;,&quot;href&quot;:&quot;#addeffect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeEffect&quot;,&quot;href&quot;:&quot;#removeeffect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearEffects&quot;,&quot;href&quot;:&quot;#cleareffects&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;mount&quot;,&quot;href&quot;:&quot;#mount&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dismount&quot;,&quot;href&quot;:&quot;#dismount&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;spreadPlayers&quot;,&quot;href&quot;:&quot;#spreadplayers&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;summon&quot;,&quot;href&quot;:&quot;#summon&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getTags&quot;,&quot;href&quot;:&quot;#gettags&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addTag&quot;,&quot;href&quot;:&quot;#addtag&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeTag&quot;,&quot;href&quot;:&quot;#removetag&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
 
 ## nbt
 
@@ -31,104 +31,6 @@ var Entity.nbt: CompoundTag
 ```
 
 Get/Set the NBT data of an Entity.
-
-</ApiMemberCard>
-
-## EntityEvent
-
-<ApiMemberCard
-  id="entityevent"
-  name="EntityEvent"
-  kind="Object"
-  kind-key="object"
-  module="Common"
-  module-key="common"
->
-
-```kotlin
-object EntityEvent
-```
-
-Event handlers for entity lifecycle events.
-
-### EntityEvent.EntityOnTickEvent
-
-<ApiMemberCard
-  id="entityevent-entityontickevent"
-  name="EntityEvent.EntityOnTickEvent"
-  kind="Class"
-  kind-key="class"
-  module="Common"
-  module-key="common"
->
-
-```kotlin
-class EntityOnTickEvent(entity: Entity): ContextEvent<Entity, Entity.(level: Level)-> Unit>(entity, onTickHandlers)
-```
-
-Context event for entity tick operations.
-
-</ApiMemberCard>
-
-### EntityEvent.onTick
-
-<ApiMemberCard
-  id="entityevent-ontick"
-  name="EntityEvent.onTick"
-  kind="Property"
-  kind-key="property"
-  module="Common"
-  module-key="common"
->
-
-```kotlin
-val Entity.onTick: EntityOnTickEvent
-```
-
-Register a tick event for this entity.
-
-</ApiMemberCard>
-
-### EntityEvent.beginReload
-
-<ApiMemberCard
-  id="entityevent-beginreload"
-  name="EntityEvent.beginReload"
-  kind="Function"
-  kind-key="function"
-  module="Common"
-  module-key="common"
->
-
-```kotlin
-fun beginReload()
-```
-
-Clear all script-owned entity handlers before scripts are reloaded.
-
-</ApiMemberCard>
-
-### EntityEvent.rebindLoadedEntities
-
-<ApiMemberCard
-  id="entityevent-rebindloadedentities"
-  name="EntityEvent.rebindLoadedEntities"
-  kind="Function"
-  kind-key="function"
-  module="Common"
-  module-key="common"
->
-
-```kotlin
-fun rebindLoadedEntities(server: MinecraftServer)
-```
-
-Re-apply handlers for entities that are already loaded.
-
-This makes behavior changes effective immediately after reload,
-without requiring entities to be reloaded from chunks.
-
-</ApiMemberCard>
 
 </ApiMemberCard>
 
@@ -994,7 +896,7 @@ Spread players around a center point.
 >
 
 ```kotlin
-fun summon(level: ServerLevel, reference: Holder.Reference<EntityType<*>>, vec3: Vec3, entityData: CompoundTag? = null): Entity?
+fun summon(level: ServerLevel, id: String, vec3: Vec3, entityData: CompoundTag? = null): Entity?
 ```
 
 Summon an entity of a given type at a position with optional NBT.
