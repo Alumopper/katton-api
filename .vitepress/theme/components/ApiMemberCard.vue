@@ -50,7 +50,7 @@ defineProps<{
 }
 
 .api-member-card__pill {
-    padding: 0.34rem 0.65rem;
+    padding: 0.1rem 0.65rem;
   border-radius: 999px;
     border: 1px solid #30363d;
     background: rgba(110, 118, 129, 0.08);
