@@ -1,16 +1,28 @@
 import type { Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
+import { VPCarbon } from 'vitepress-carbon'
+import { h } from 'vue'
 import ApiDocPage from './components/ApiDocPage.vue'
 import ApiMembersList from './components/ApiMembersList.vue'
 import ApiMemberCard from './components/ApiMemberCard.vue'
+import HomeCodeShowcase from './components/HomeCodeShowcase.vue'
+import ImageCaptionZoom from './components/ImageCaptionZoom.vue'
+import TemplateGenerator from './components/TemplateGenerator.vue'
+import './override.css'
 
 const theme: Theme = {
-  ...DefaultTheme,
+  ...VPCarbon,
+  Layout: () => {
+    return h(VPCarbon.Layout!, null, {
+      'home-hero-after': () => h(HomeCodeShowcase),
+    })
+  },
   enhanceApp(ctx) {
-    DefaultTheme.enhanceApp?.(ctx)
+    VPCarbon.enhanceApp?.(ctx)
     ctx.app.component('ApiDocPage', ApiDocPage)
-        ctx.app.component('ApiMembersList', ApiMembersList)
+    ctx.app.component('ApiMembersList', ApiMembersList)
     ctx.app.component('ApiMemberCard', ApiMemberCard)
+    ctx.app.component('ImageCaptionZoom', ImageCaptionZoom)
+    ctx.app.component('TemplateGenerator', TemplateGenerator)
   },
 }
 
