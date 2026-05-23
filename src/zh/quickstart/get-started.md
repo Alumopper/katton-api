@@ -1,5 +1,7 @@
 # 入门指南
 
+<div class="instruction-line">
+
 ## 环境配置
 
 Katton 仅支持 Minecraft 26.1 及以上版本，并且要求 Java 25 或更高版本。Katton 同时支持 Fabric、NeoForge 模组加载器和 Paper 插件服。请先确认你的游戏版本已正确安装并配置对应加载器或插件环境。
@@ -112,3 +114,5 @@ Katton 支持通过标准 JVM 远程调试来调试脚本包 Kotlin 脚本。
 
 3. 在实际的脚本包文件中设置断点（例如 `<世界目录>/kattonpacks/my_first_pack/hello.kt`）。
 4. 使用 IDE 标准调试工具调试你的脚本。
+
+</div>

@@ -1,5 +1,7 @@
 # Get Started
 
+<div class="instruction-line">
+
 ## Environment Setup
 
 Katton only supports Minecraft 26.1 and above, and requires Java 25 or higher. Katton supports both Fabric and Neoforge mod loaders, as well as Paper plugin servers. Make sure you have the appropriate mod loader or plugin environment installed and set up for your Minecraft version.
@@ -112,3 +114,5 @@ Katton supports debugging script pack Kotlin scripts through standard JVM remote
 
 3. Set breakpoints in the actual script pack file (for example, `<worldDir>/kattonpacks/my_first_pack/hello.kt`).
 4. Enjoy debugging your scripts with the IDE's standard debugging tools.
+
+</div>

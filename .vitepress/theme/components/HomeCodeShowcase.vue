@@ -198,7 +198,7 @@ function setupGlowTracking() {
   }
 
   const rect = el.getBoundingClientRect()
-  queueGlowPosition(rect.width / 2, rect.height / 2, false)
+  queueGlowPosition(140, 140, false)
 
   const onMove = (event: PointerEvent) => {
     const nextRect = el.getBoundingClientRect()
@@ -212,7 +212,7 @@ function setupGlowTracking() {
 
   const onLeave = () => {
     const nextRect = el.getBoundingClientRect()
-    queueGlowPosition(nextRect.width / 2, nextRect.height / 2, false)
+    queueGlowPosition(140, 140, false)
   }
 
   el.addEventListener('pointerenter', onEnter)
