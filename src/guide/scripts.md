@@ -48,6 +48,31 @@ Every pack needs a `manifest.json` at its root. All fields are optional — Katt
 
 For signing details and the exact hash input, see [Manifest and Signing](../architecture/manifest.md).
 
+### Signing a Pack
+
+Katton provides a Gradle plugin, `top.katton.sign`, for writing Ed25519 signature metadata into `manifest.json`. In a Gradle project that applies the plugin, generate a key pair first:
+
+```bash
+./gradlew generateKattonSigningKey \
+  -PkattonPrivateKey=keys/katton-signing-key.pem \
+  -PkattonPublicKey=keys/katton-signing-key.pub
+```
+
+Then sign a script pack directory:
+
+```bash
+./gradlew signKattonPack \
+  -PkattonPackDir=kattonpacks/example_pack \
+  -PkattonPrivateKey=keys/katton-signing-key.pem \
+  -PkattonPublicKey=keys/katton-signing-key.pub \
+  -PkattonKeyId=example-server-key \
+  -PkattonScope=world
+```
+
+`signKattonPack` rewrites the pack's `manifest.json`: it removes any previous `signature`, signs the current manifest and sorted `.kt` / `.java` files, then writes `algorithm`, `keyId`, `publicKey`, and `signature`.
+
+Keep the private key out of version control. `kattonScope` must match the scope used when the pack is synced (`world` or `global`), because the signed payload includes the pack sync ID.
+
 ### State File (`.kattonpack.state.json`)
 
 When you toggle a pack on/off from the in-game UI (press **K**), Katton writes a local state file:

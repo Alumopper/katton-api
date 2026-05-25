@@ -59,6 +59,19 @@
 	margin-top: 4px;
 }
 
+.VPNav .title {
+	--vp-nav-logo-height: 48px;
+}
+
+.VPNav .nav-bar-title-text {
+	font-size: 20px;
+}
+
+.VPNavBarMenu.menu {
+	gap: 15px;
+	margin-inline: 15px;
+}
+
 /* Numbered instruction line for step-by-step guide pages */
 .vp-doc .instruction-line {
 	--instruction-gutter: 3.35rem;

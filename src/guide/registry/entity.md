@@ -6,53 +6,44 @@ This guide walks you through creating a custom animated entity from scratch — 
 
 Creating a custom entity in Katton requires four pieces:
 
-| Piece | Where | Format |
-|---|---|---|
-| **Model** | BlockBench export → `.kt` class | Java-style `EntityModel` subclass |
-| **Animation** | BlockBench export → `.kt` class | `AnimationDefinition` definitions |
-| **Entity Class** | Your script | `Monster` subclass with `AnimationState` fields |
-| **Textures** | Resource pack or kattonpacks | `.png` file |
+| Piece | Where                             | Format |
+|---|-----------------------------------|---|
+| **Model** | BlockBench export → `.java` class | Java-style `EntityModel` subclass |
+| **Animation** | BlockBench export → `.java` class | `AnimationDefinition` definitions |
+| **Entity Class** | Your script                       | `Monster` subclass with `AnimationState` fields |
+| **Textures** | Resource pack or kattonpacks      | `.png` file |
 
-## Step 1: Create Your Model in BlockBench
+<div class="instruction-line">
+
+## Create Your Model in BlockBench
 
 1. Design your entity model in [BlockBench](https://www.blockbench.net/)
 2. File → Export → Export Java Entity Model
 3. Choose **Mojang mappings**, Minecraft version **1.19+**
-4. Save the `.java` file, right click it in IDEA and choose "Convert Java File to Kotlin File" to `.kt` (Katton uses `.kt` extension for better IDE support)
-
-The export produces a class like this (renamed to `.kt`):
-
-```kotlin
-class Zombie1Model<T : EntityRenderState>(root: ModelPart) : EntityModel<T>(root) {
-    companion object {
-        val LAYER_LOCATION = ModelLayerLocation(id("test", "zombie1"), "main")
-        fun createBodyLayer(): LayerDefinition { ... }
-    }
-}
-```
+4. Save the `.java` file to your project
 
 > [!TIP]
-> You may manually need to import some classes (e.g., `ModelPart`, `ModelLayerLocation`, `LayerDefinition`) and fix any syntax issues from the Java → Kotlin conversion (e.g. `EntityModel<T>` instead of `EntityModel<T?>`).
-
-> [!IMPORTANT]
-> **Change the namespace** in `LAYER_LOCATION` from `"modid"` to your actual mod namespace (e.g., `"test"`). This ID must match what you use when registering the entity.
-
-## Step 2: Export Animations
-
-1. In BlockBench, switch to **Animate** mode
-2. Create your animations (idle, walk, attack, etc.)
-3. File → Export → Export Java Animation
-4. Save as `.java` file. There is no need to convert to Kotlin — Katton will compile it as-is and you can reference the definitions from your scripts.
-5. Fix any syntax issues from the Java export.
+> You may manually need to import some classes (e.g., `ModelPart`, `ModelLayerLocation`, `LayerDefinition`) and fix any syntax issues. Most can be quickly fixed in IntelliJ IDEA with Alt+Enter.
 
 >[!TIP]
 > ### Java in Katton
 > Katton can compile both `.kt` and `.java` files in your script folders. This allows you to write your main logic in Kotlin while you can still use Java if needed (e.g., for BlockBench exports or if you prefer Java for certain tasks). Katton will compile all java files first with Java Compiler, and then compile Kotlin files with access to the compiled Java classes, which means you can reference Java classes from Kotlin, but not the other way around.
 
+> [!IMPORTANT]
+> **Change the namespace** in `LAYER_LOCATION` from `"modid"` to your actual mod namespace (e.g., `"test"`). This ID must match what you use when registering the entity.
+
+## Export Animations
+
+1. In BlockBench, switch to **Animate** mode
+2. Create your animations (idle, walk, attack, etc.)
+3. File → Export → Export Java Animation
+4. Save as `.java` file.
+5. Fix any syntax issues from the Java export.
+
 > [!CAUTION]
 > **Bone name mismatch** is a common crash. If your animation references a bone name that doesn't exist in the model (e.g., `"item_display"` from BlockBench locators), `bake()` will throw an exception. Either add empty placeholder bones to your model, or remove those channels from the animation.
 
-## Step 3: Write Your Entity Class
+## Write Your Entity Class
 
 ```kotlin
 class Zombie1Entity(type: EntityType<out Monster>, level: Level) : Monster(type, level) {
@@ -96,9 +87,10 @@ class Zombie1Entity(type: EntityType<out Monster>, level: Level) : Monster(type,
 > val state = KattonBridge["anim:${entityId}:idle"] as? AnimationState
 > ```
 
-## Step 4: Register Entity (Server Side)
+## Register Entity (Server Side + Client Side)
 
 ```kotlin
+@ClientScriptEntrypoint
 @ServerScriptEntrypoint
 fun initZombie() {
     registerNativeEntity("test:zombie1", RegisterMode.RELOADABLE,
@@ -118,7 +110,7 @@ fun initZombie() {
 }
 ```
 
-## Step 5: Register Renderer + Animations (Client Side)
+## Register Renderer + Animations (Client Side)
 
 Use the high-level `registerAnimatedEntityRenderer` — one call handles model layer, renderer construction, and animation wiring:
 
@@ -152,7 +144,7 @@ fun initZombieRenderer() {
 > }
 > ```
 
-## Step 6: Place Your Texture
+## Place Your Texture
 
 The texture path is specified in `registerAnimatedEntityRenderer`:
 
@@ -161,6 +153,8 @@ texture = id("test", "textures/entity/zombie1.png")
 ```
 
 This expects the file at `assets/test/textures/entity/zombie1.png` in your resource pack or mod resources.
+
+</div>
 
 ## MC 26.1 Animation API
 
@@ -174,7 +168,7 @@ If you need to write a custom renderer (without `registerAnimatedEntityRenderer`
 
 And **always** call `model.resetPose()` before applying animations each frame — otherwise transforms accumulate across frames, producing chaotic motion.
 
-## Common Pitfalls
+## Common Q&A
 
 ### "My entity is invisible"
 
@@ -244,6 +238,7 @@ class Zombie1Entity(type: EntityType<out Monster>, level: Level) : Monster(type,
 }
 
 @ServerScriptEntrypoint
+@ClientScriptEntrypoint
 fun initZombie() {
     registerNativeEntity("test:zombie1", RegisterMode.RELOADABLE,
         configure = {

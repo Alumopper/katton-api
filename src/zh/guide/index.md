@@ -1,6 +1,6 @@
 # 使用指北
 
-这里是 Katton 使用的全面指南！对于萌新，建议先阅读[快速开始](../quickstart)哦。然后，我们建议你先看看脚本包一章，再选择你感兴趣的主题深入了解。
+这里是 Katton 使用的全面指南！对于萌新，建议先阅读[快速开始](../quickstart/)哦。然后，我们建议你先看看脚本包一章，再选择你感兴趣的主题深入了解。
 
 关于 Katton 在各个平台的支持差异见 [平台](../platform/)。重载、联网同步和注册表生命周期等技术细节见 [架构](../architecture/)。
 
@@ -50,7 +50,7 @@
       <span>DP caller、选择器、NBT、调用已有函数。</span>
     </span>
   </a>
-  <a class="next-card" href="./render.html">
+  <a class="next-card" href="./render/">
     <span class="next-card__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"/><path d="M12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
     </span>
@@ -78,4 +78,3 @@
     </span>
   </a>
 </div>
-

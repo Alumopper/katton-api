@@ -5,13 +5,13 @@
 
 HUD renderers draw in screen space. World renderers draw in the client world each frame. Both APIs use stable string ids, so registering the same id again replaces the old callback; client reload also clears script-owned render callbacks.
 
-Detailed signatures live in the [KattonClientRenderApi](../api/common/KattonClientRenderApi.md).
+Detailed signatures live in the [KattonClientRenderApi](../../api/common/KattonClientRenderApi.md).
 
 ## HUD Renderers
 
 Use `registerHudRenderer` from a `@ClientScriptEntrypoint`. The callback receives a `HudRenderContext`, which is passed to helpers such as `drawHudText`, `fillHudRect`, and `drawHudTexture`.
 
-<!--@include: ../example/quickstart/render/03.md-->
+<!--@include: ../../example/quickstart/render/03.md-->
 
 <ImageCaptionZoom
    src="/docimg/image-1.png"
@@ -24,7 +24,7 @@ Use `registerHudRenderer` from a `@ClientScriptEntrypoint`. The callback receive
 
 Use `registerWorldRenderer` for camera-relative world drawing. The current helper set includes `drawLine3D` for simple world-space debug and guide visuals.
 
-<!--@include: ../example/quickstart/render/05.md-->
+<!--@include: ../../example/quickstart/render/05.md-->
 
 <ImageCaptionZoom
    src="/docimg/image-2.png"
@@ -37,7 +37,7 @@ Use `registerWorldRenderer` for camera-relative world drawing. The current helpe
 
 For titles, overlays, action bars, toasts, and client sounds, use the client UI helpers instead of a per-frame renderer.
 
-<!--@include: ../example/quickstart/render/04.md-->
+<!--@include: ../../example/quickstart/render/04.md-->
 
 <ImageCaptionZoom
    src="/docimg/image.png"

@@ -60,7 +60,7 @@ fun listenBukkitExplosions() {
 ```
 :::
 
-`registerEvent` 和 `registerFabricEvent` 都会返回 handle，只有需要提前手动注销时才需要保存。大多数脚本可以不用保存它，因为 Katton 会在重载时清理托管监听器。完整 API 和平台细节见 [托管事件](./managed-events.md)。
+`registerEvent` 和 `registerFabricEvent` 都会返回 handle，只有需要提前手动注销时才需要保存。大多数脚本可以不用保存它，因为 Katton 会在重载时清理托管监听器。
 
 ## 详细事件列表
 

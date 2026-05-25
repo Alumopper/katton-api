@@ -11,7 +11,7 @@ Katton targets Minecraft 26.1.2 and requires Java 25 or higher. Katton supports 
 
 We recommend using IntelliJ IDEA for development, as it has excellent support for Kotlin and Minecraft modding. You can also use other IDEs that support Kotlin, but you may need to configure them manually.
 
-Katton loads Kotlin scripts from script packs in the `kattonpacks/` directory (see [Script Packs](../guide/scripts.md) for details). The quickest way to get started is to generate a template project from [Template](../template) page and open it in your IDE. This template project is set up with the dependencies and configurations needed to start modding with Katton right away.
+Katton loads Kotlin scripts from script packs in the `kattonpacks/` directory (see [Script Packs](../guide/scripts.md) for details). The quickest way to get started is to generate a template project from [Template](../template/) page and open it in your IDE. This template project is set up with the dependencies and configurations needed to start modding with Katton right away.
 
 ## Creating Your First Script
 

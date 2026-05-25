@@ -30,11 +30,11 @@ const docsSidebar = [
       { text: "For Datapack Developers", link: "/guide/datapack" },
       {
         text: "Rendering",
-        link: "/guide/render",
+        link: "/guide/render/",
         items: [
-          { text: "HUD and World", link: "/guide/render-hud-world" },
-          { text: "Item Markers", link: "/guide/render-item-markers" },
-          { text: "Post Effects", link: "/guide/render-post-effects" },
+          { text: "HUD and World", link: "/guide/render/hud-world" },
+          { text: "Item Markers", link: "/guide/render/item-markers" },
+          { text: "Post Effects", link: "/guide/render/post-effects" },
         ],
       },
       { text: "Code Injection", link: "/guide/injection" },
@@ -89,11 +89,11 @@ const zhDocsSidebar = [
       { text: "数据包开发者指南", link: "/zh/guide/datapack" },
       {
         text: "渲染",
-        link: "/zh/guide/render",
+        link: "/zh/guide/render/",
         items: [
-          { text: "HUD 与世界渲染", link: "/zh/guide/render-hud-world" },
-          { text: "物品渲染标记", link: "/zh/guide/render-item-markers" },
-          { text: "后处理效果", link: "/zh/guide/render-post-effects" },
+          { text: "HUD 与世界渲染", link: "/zh/guide/render/hud-world" },
+          { text: "物品渲染标记", link: "/zh/guide/render/item-markers" },
+          { text: "后处理效果", link: "/zh/guide/render/post-effects" },
         ],
       },
       { text: "代码注入", link: "/zh/guide/injection" },

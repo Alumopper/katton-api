@@ -11,7 +11,7 @@ Katton 只支持 Minecraft 26.1 及其以上的版本，同时支持 Fabric、Ne
 
 我们推荐使用 IntelliJ IDEA 进行开发，因为它对 Kotlin 和 Minecraft 模组开发支持最好。你也可以使用其他支持 Kotlin 的 IDE，但可能需要自行补充一些配置。
 
-Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包](../guide/scripts.md)）。最快速的上手方式是在[模板生成器](../template)里面生成一个模板项目并在 IDE 中打开。模板项目已经预置好开发所需依赖与配置，打开后即可开始编写脚本。
+Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包](../guide/scripts.md)）。最快速的上手方式是在[模板生成器](../template/)里面生成一个模板项目并在 IDE 中打开。模板项目已经预置好开发所需依赖与配置，打开后即可开始编写脚本。
 
 ## 编写你的第一个脚本
 

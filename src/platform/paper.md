@@ -40,7 +40,7 @@ The `registry` and `debug registryLogging` subcommands are Fabric/NeoForge only.
 
 ## Native Bukkit Events
 
-Use [Managed Events](../guide/managed-events.md) to listen to any Bukkit event directly:
+Use [Managed Events](../guide/events.md#unwrapped-native-events) to listen to any Bukkit event directly:
 
 ```kotlin
 import org.bukkit.event.player.PlayerMoveEvent

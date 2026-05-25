@@ -30,6 +30,20 @@ fun showRewardMarker(player: net.minecraft.server.level.ServerPlayer) {
 
 `showItemRenderMarker(marker)` 会广播给所有在线玩家，`showItemRenderMarker(player, marker)` 只发送给单个玩家。
 
+## 调试命令
+
+Fabric 和 NeoForge 提供了一个小型 `/katton itemrender` 命令组，可以不写脚本直接在游戏里试物品渲染标记：
+
+| 命令 | 效果 |
+|---|---|
+| `/katton itemrender spawn <item>` | 在命令源视线前方两格生成物品标记，使用 `showcase` 预设。 |
+| `/katton itemrender spawn <item> <preset>` | 使用一个预设：`still`、`spin`、`float`、`pulse` 或 `showcase`。 |
+| `/katton itemrender spawn <item> <preset> <scale>` | 设置标记缩放。 |
+| `/katton itemrender spawn <item> <preset> <scale> <lifetimeTicks>` | 设置标记存在时间。`-1` 表示一直存在，直到被清理。 |
+| `/katton itemrender clear <radius>` | 清除当前维度中，命令源周围 `radius` 方块范围内的已追踪标记。 |
+
+该命令使用 `ItemDisplayContext.FIXED`、`maxDistance = 96.0`，并广播给已连接客户端。它主要用于视觉预览和调试；正式玩法逻辑建议使用下方 API。
+
 ## 动画标记
 
 标记可以携带具名动画组。动画组可以用缓动曲线控制位移、旋转和缩放。

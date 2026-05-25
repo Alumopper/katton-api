@@ -30,6 +30,20 @@ fun showRewardMarker(player: net.minecraft.server.level.ServerPlayer) {
 
 Use `showItemRenderMarker(marker)` to broadcast to every connected player, or `showItemRenderMarker(player, marker)` for one viewer.
 
+## Debug Commands
+
+Fabric and NeoForge expose a small `/katton itemrender` command group for trying markers in-game without writing a script:
+
+| Command | Effect |
+|---|---|
+| `/katton itemrender spawn <item>` | Spawns the item two blocks in front of the command source with the `showcase` preset. |
+| `/katton itemrender spawn <item> <preset>` | Uses one preset: `still`, `spin`, `float`, `pulse`, or `showcase`. |
+| `/katton itemrender spawn <item> <preset> <scale>` | Sets the marker scale. |
+| `/katton itemrender spawn <item> <preset> <scale> <lifetimeTicks>` | Sets the marker lifetime. Use `-1` for a marker that stays until cleared. |
+| `/katton itemrender clear <radius>` | Removes tracked markers in the current dimension within `radius` blocks of the command source. |
+
+The spawn command uses `ItemDisplayContext.FIXED`, `maxDistance = 96.0`, and broadcasts the marker to connected clients. It is mainly a visual preview and debugging helper; scripts should use the API below for gameplay logic.
+
 ## Animate a Marker
 
 Markers can carry named animation sets. A set can animate translation, rotation, and scale with easing curves.

@@ -51,7 +51,7 @@ For platform-level availability, see [Platforms](../platform/). For reload, netw
       <span>DP caller APIs, selectors, NBT, and calling existing functions.</span>
     </span>
   </a>
-  <a class="next-card" href="./render.html">
+  <a class="next-card" href="./render/">
     <span class="next-card__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"/><path d="M12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
     </span>

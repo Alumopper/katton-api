@@ -60,7 +60,7 @@ fun listenBukkitExplosions() {
 ```
 :::
 
-`registerEvent` and `registerFabricEvent` return a handle if you need to unregister manually. Most scripts do not need to keep it because Katton cleans managed listeners up during reload. See [Managed Events](./managed-events.md) for the full API and platform notes.
+`registerEvent` and `registerFabricEvent` return a handle if you need to unregister manually. Most scripts do not need to keep it because Katton cleans managed listeners up during reload.
 
 > [!CAUTION]
 > NEVER register native listeners without using Katton's managed event API. 

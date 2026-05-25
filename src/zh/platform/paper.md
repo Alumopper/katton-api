@@ -40,7 +40,7 @@ Paper 上的 `/katton` 更精简：
 
 ## Bukkit 原生事件
 
-使用 [托管事件](../guide/managed-events.md) 可以直接监听任意 Bukkit 事件：
+使用 [托管事件](../guide/events.md#监听尚未封装的原生事件) 可以直接监听任意 Bukkit 事件：
 
 ```kotlin
 import org.bukkit.event.player.PlayerMoveEvent
