@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "Katton"
   text: ""
-  tagline: 可热重载的强大 Minecraft 脚本开发框架 (支持 Fabric, NeoForge, Paper)
+  tagline: 面向 Fabric、NeoForge 和 Paper 的可热重载 Kotlin 脚本框架
   icon: ⚡
   image:
     src: ../logo.png
@@ -18,10 +18,10 @@ hero:
       link: /api/index.html
 
 features:
-  - title: 简单易用
-    details: 简洁的API，无论是新手还是经验丰富的模组开发者都能快速上手，轻松创建和测试脚本。
-  - title: 功能强大
-    details: 在 Minecraft 运行时直接与 Java 对象交互，确保高性能和无缝集成。
+  - title: 脚本包
+    details: 用 manifest、状态文件和可选客户端同步组织 Kotlin/Java 源码。
+  - title: 多平台支持
+    details: Fabric/NeoForge 提供完整客户端与模组能力，Paper 提供服务端 Bukkit 脚本和 Folia 调度。
   - title: 热重载
-    details: 无需重启游戏，甚至无需重进世界即可实时查看更改
+    details: 事件、注册表、注入、渲染钩子和数据包修改都能随开发循环快速重载。
 ---

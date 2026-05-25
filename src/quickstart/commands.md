@@ -57,24 +57,4 @@ Filters to only show registries that have stale entries. Handy after you've remo
 > [!TIP]
 > - **F3 + T** reloads resource packs and also triggers client script reload (via LoadingOverlay hook).
 > - **`/reload`** (vanilla) reloads datapacks; Katton hooks into this for server scripts.
-> - **`/katton reload`** does both in one go and shows a visual progress bar!
-
-## Debug Logging
-
-Katton has a built-in debug log toggle that prints every registration call to the game log. Toggle it from command or script:
-
-<!--@include: ../example/quickstart/commands/04.md-->
-
-Default is `false`. Turn it on when you're troubleshooting registration issues, then turn it off to avoid log spam in production.
-
-## Visual Progress Overlay
-
-Whenever a script reload is triggered (via command, resource reload, or UI), Katton shows a centered progress bar at the top of your screen:
-
-- **Message + percentage** — e.g. "Compiling server scripts (48%)"
-- **Green progress bar** filling left to right
-- Disappears automatically when done, with a brief "Done" message
-
-This means you no longer have to guess whether your reload is still running or has crashed — **you can literally see the progress.**
-
-No code needed to enable this — it just works. The overlay renders on the HUD and on loading screens (world load, resource reload).
+> - **`/katton reload`** does both in one go.

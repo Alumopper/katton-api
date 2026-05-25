@@ -4,18 +4,18 @@
 
 ## Environment Setup
 
-Katton only supports Minecraft 26.1 and above, and requires Java 25 or higher. Katton supports both Fabric and Neoforge mod loaders, as well as Paper plugin servers. Make sure you have the appropriate mod loader or plugin environment installed and set up for your Minecraft version.
+Katton targets Minecraft 26.1.2 and requires Java 25 or higher. Katton supports Fabric and NeoForge mod loaders, as well as Paper plugin servers. Make sure you have the appropriate mod loader or plugin environment installed and set up for your Minecraft version.
 
 > [!NOTE]
 > Paper is a server-only platform. If you are developing for Paper, there is no client side, so client scripts, rendering, and the pack UI are not available. Script packs on Paper are loaded from `<serverDir>/kattonpacks/`.
 
 We recommend using IntelliJ IDEA for development, as it has excellent support for Kotlin and Minecraft modding. You can also use other IDEs that support Kotlin, but you may need to configure them manually.
 
-Katton loads Kotlin scripts from script packs in the `kattonpacks/` directory (see [Scripts](./scripts.md) for details). The quickest way to get started is to clone the [Katton Example](https://github.com/Alumopper/Katton-Example) repository and open it in your IDE. This example project is set up with all the necessary dependencies and configurations to start modding with Katton right away.
+Katton loads Kotlin scripts from script packs in the `kattonpacks/` directory (see [Script Packs](../guide/scripts.md) for details). The quickest way to get started is to generate a template project from [Template](../template) page and open it in your IDE. This template project is set up with the dependencies and configurations needed to start modding with Katton right away.
 
 ## Creating Your First Script
 
-Although we call it "Kotlin Scripts", they are actually normal kotlin files ending with `.kt` instead of `.kts` for better IDE support. We assume you have cloned the example project and opened it in your IDE. The example project contains two modules: `fabric` and `neoforge`, which are set up for Fabric and Neoforge mod loaders respectively. Choose either module to work with based on your mod loader of choice. In both modules you will find up to four source folders:
+Although we call them "Kotlin scripts", they are normal Kotlin files ending with `.kt` instead of `.kts` for better IDE support. We assume you have cloned the example project and opened it in your IDE. Choose the platform setup that matches your runtime. In the example source layout you will find script source folders such as:
 
 | Folder | Purpose |
 |---|---|
@@ -32,6 +32,15 @@ To make things simple, we'll only use `world_scripts/` in this tutorial.
 />
 
 Before we start, we need to include Minecraft source code in our project for IDE code completion. The easiest way is to open the `versions` folder in your Minecraft game directory, find the correct version folder, and copy the jar file inside into the `lib/` folder of the example project. For example, if you're using Minecraft 26.1-Fabric, go to the `26.1-Fabric` folder and copy its jar to `lib/`. This gives us minecraft source code. You may still need to manually add some dependencies if you see some classes not found, but most of the common ones should work out of the box.
+
+> [!NOTE]
+> For Paper, you don't need to manually include Minecraft source code. Paper provides a lightweight plugin development environment, and you can simply add the following to your `build.gradle.kts` to get access to the Paper API and Minecraft source code:
+> ```kts
+> plugins {
+>     id("io.papermc.paperweight.userdev") version "2.0.0-beta.21"
+> }
+> ```
+> This will set up the necessary dependencies for Paper plugin development.
 
 As your first script, we'll send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `world_scripts/` directory with the following content:
 
@@ -86,7 +95,7 @@ Now, launch the game with the Katton mod and join your world. You should see a "
 
 Change the message in `hello.kt` to something else, save the file, and use `/katton reload` command — you should see the new message when you rejoin without restarting the game. This is the power of hot-reloadable scripts!
 
-> You can also use `/reload` (vanilla) for server-only scripts, or `F3 + T` for client scripts. But `/katton reload` handles both at once and shows a visual progress bar so you always know what's happening. Check out the [Commands](commands.md) page for all built-in commands.
+> You can also use `/reload` (vanilla) for server-side scripts, or `F3 + T` for client scripts on Fabric/NeoForge. `/katton reload` is the normal Katton workflow and shows a visual progress bar. See [Hot Reload and Debugging](./hot-reload.md) and [Commands](commands.md) for details.
 
 ## Debugging
 

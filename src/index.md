@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Katton"
   text: ""
-  tagline: A powerful scripting framework for Minecraft
+  tagline: Hot-reloadable Kotlin scripting for Minecraft Fabric, NeoForge, and Paper
   icon: ⚡
   image:
     src: ./logo.png
@@ -19,11 +19,11 @@ hero:
       link: /api/index.html
 
 features:
-  - title: Easy
-    details: Katton's intuitive API and hot-reload feature make it easy for modders of all skill levels to create and test their scripts quickly.
-  - title: Powerful
-    details: Directly interact with Java objects during the runtime of Minecraft, ensuring high performance and seamless integration.
-  - title: Hot-Reloadable
-    details: See changes in real-time without restarting the game!
+  - title: Script Packs
+    details: Organize Kotlin and Java sources into local or world-specific packs with manifests, state files, and optional client sync.
+  - title: Platform Aware
+    details: Use Fabric and NeoForge for full client/mod features, or Paper for server-only Bukkit scripting and Folia-aware scheduling.
+  - title: Hot Reload
+    details: Reload events, registries, injections, rendering hooks, and datapack mutations without restarting your workflow.
 ---
 

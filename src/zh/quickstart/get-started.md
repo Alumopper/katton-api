@@ -4,25 +4,25 @@
 
 ## 环境配置
 
-Katton 仅支持 Minecraft 26.1 及以上版本，并且要求 Java 25 或更高版本。Katton 同时支持 Fabric、NeoForge 模组加载器和 Paper 插件服。请先确认你的游戏版本已正确安装并配置对应加载器或插件环境。
+Katton 只支持 Minecraft 26.1 及其以上的版本，同时支持 Fabric、NeoForge 模组加载器和 Paper 插件服。请先确认你的游戏版本已正确安装并配置对应加载器或插件环境。
 
 > [!NOTE]
-> Paper 为纯服务端平台。如果你在 Paper 上开发，则没有客户端，因此客户端脚本、渲染和脚本包界面均不可用。Paper 上的脚本包从 `<serverDir>/kattonpacks/` 加载。
+> Paper 为纯服务端平台。如果你在 Paper 上开发，则客户端脚本、渲染和脚本包界面均不可用。Paper 上的脚本包从 `<serverDir>/kattonpacks/` 加载。
 
 我们推荐使用 IntelliJ IDEA 进行开发，因为它对 Kotlin 和 Minecraft 模组开发支持最好。你也可以使用其他支持 Kotlin 的 IDE，但可能需要自行补充一些配置。
 
-Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本](scripts.md)）。最快速的上手方式是克隆 [Katton Example](https://github.com/Alumopper/Katton-Example) 仓库并在 IDE 中打开。该示例项目已经预置好开发所需依赖与配置，打开后即可开始编写脚本。
+Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包](../guide/scripts.md)）。最快速的上手方式是在[模板生成器](../template)里面生成一个模板项目并在 IDE 中打开。模板项目已经预置好开发所需依赖与配置，打开后即可开始编写脚本。
 
 ## 编写你的第一个脚本
 
-虽然我们称其为 "Kotlin Scripts"，但它们实际上是普通 Kotlin 文件，只是后缀为 `.kt` 而不是 `.kts`，这样 IDE 支持会更好。这里默认你已经克隆并打开了示例项目。示例项目包含 `fabric` 和 `neoforge` 两个模块，分别对应 Fabric 与 NeoForge。你可以按自己使用的加载器选择其一。每个模块中你都能看到最多四个源码目录：
+虽然我们称其为 "Kotlin Scripts"，但它们实际上是普通 Kotlin 文件，只是后缀为 `.kt` 而不是 `.kts`。这里默认你已经打开了模板项目并等待IDEA完成了构建，在源码布局中你会看到类似这样的目录：
 
 | 目录 | 用途 |
 |---|---|
 | `world_scripts/` | 世界专属脚本（可热重载） |
 | `global_scripts/` | 启动时一次性加载的脚本（不热重载） |
 
-为了简化流程，本教程只使用 `world_scripts/`。
+简便起见，本教程只使用 `world_scripts/`。
 
 <ImageCaptionZoom
    src="/docimg/1.png"
@@ -33,9 +33,18 @@ Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本](s
 
 开始前，我们需要把 Minecraft 源码引入项目以便 IDE 代码补全。最简单的方法是打开 Minecraft 游戏目录中的 `versions` 文件夹，找到对应版本目录并进入，然后把里面的 jar 复制到示例项目的 `lib/` 目录。比如你用的是 Minecraft 26.1-Fabric，就进入 `26.1-Fabric` 目录复制 jar 到 `lib/`。这样就引入了 Minecraft 源码。
 
+> [!NOTE]
+> 对于Paper端，则不需要使用这样的方法引入Minecraft源码。Paper提供了一个轻量级插件开发环境，可以直接在build.gradle.kts中添加
+> ```kts
+> plugins {
+>     id("io.papermc.paperweight.userdev") version "2.0.0-beta.21"
+> }
+> ```
+> 从而引入Paper API和Minecraft源码。
+
 作为第一个脚本，我们实现玩家加入游戏时发送 "Hello Katton"。在 `world_scripts/` 目录中新建 `hello.kt`，内容如下：
 
-<!--@include: ../example/quickstart/get-started/01.md-->
+<!--@include: ../../example/quickstart/get-started/01.md-->
 
 当前我们只是在独立工程里写脚本。需要把脚本放到 Katton 能发现的地方。推荐的方式是放到世界存档的 **脚本包**（`kattonpacks/`）目录下。
 
@@ -59,7 +68,7 @@ Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本](s
 示例项目自带一个 `copyGameScripts` Gradle 任务，它会在你的源文件夹和目标之间创建**硬链接**——所以你在 IDE 里的任何改动都会立即反映到游戏中，不需要重复执行任务。
 
 >[!NOTE]
-> 硬链接只能在同一驱动器上创建。
+> 硬链接只能在同一磁盘上创建。
 >
 > 如果你在源文件夹中创建或删除文件，可能需要重新运行 `copyGameScripts` 任务来更新链接。
 
@@ -73,7 +82,7 @@ val worldScriptsTargetDir: List<File> = listOf(
 val globalScriptsTargetDir: List<File> = listOf()
 ```
 
-记得把路径换成你的世界存档真实路径。然后在 IDEA 右侧 Gradle 面板（小象图标）中找到并执行 `copyGameScripts` 任务，你的脚本就会以硬链接的形式出现在脚本包里。
+记得把路径换成你的世界存档真实路径。然后在 IDEA 右侧 Gradle 面板（就是那个大象喵）中找到并执行 `copyGameScripts` 任务，你的脚本就会以硬链接的形式出现在脚本包里。
 
 <ImageCaptionZoom
    src="/docimg/image-3.png"
@@ -84,9 +93,10 @@ val globalScriptsTargetDir: List<File> = listOf()
 
 接下来启动安装了 Katton 的游戏并进入世界。你应该会在聊天栏看到 "Hello Katton"。恭喜，你已经完成了第一个 Katton 脚本。
 
-把 `hello.kt` 里的消息改成其他内容并保存，然后执行 `/katton reload` 命令。重新进入后即可看到新消息，无需重启游戏。这就是脚本热重载的威力。
+把 `hello.kt` 里的消息改成其他内容并保存，然后执行 `/katton reload` 命令。重新进入后即可看到新消息，无需重启游戏。对啦，这就是脚本热重载的威力。
 
-> 你也可以用 `/reload`（原版命令）只重载服务端脚本，或用 `F3 + T` 重载客户端脚本。但 `/katton reload` 一次搞定两边，还带可视化进度条让你随时知道进展。去看看 [命令](commands.md) 页面了解所有内置命令。
+> [!TIP]
+> 你也可以用 `/reload`（原版命令）重载服务端脚本，或在 Fabric/NeoForge 上用 `F3 + T` 重载客户端脚本。`/katton reload` 是推荐工作流，并带可视化进度条。详见 [热重载与调试](./hot-reload.md) 和 [命令](commands.md)。
 
 ## 调试
 
@@ -94,7 +104,7 @@ Katton 支持通过标准 JVM 远程调试来调试脚本包 Kotlin 脚本。
 
 1. 使用调试参数启动 Minecraft（或专用服务器），例如：
 
-    <!--@include: ../example/quickstart/get-started/02.md-->
+<!--@include: ../../example/quickstart/get-started/02.md-->
 
 2. 在 IntelliJ IDEA 中创建 **Attach to remote JVM** 运行配置，并连接到相同主机和端口。
 
