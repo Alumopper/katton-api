@@ -33,7 +33,7 @@ const t = computed(() => ({
   footerRun: isZh.value ? '。' : '.',
 } as const))
 
-const modLoader = ref<'fabric' | 'neoforge'>('fabric')
+const modLoader = ref<PackInfo['modLoader']>('fabric')
 const kattonVersion = ref('0.2.0')
 const packId = ref('my_pack')
 const packName = ref('My Pack')
@@ -65,6 +65,11 @@ const canGenerate = computed(() =>
 const selectedVersion = computed(() =>
   versions.value.find(v => v.tag === kattonVersion.value)
 )
+const loaderLabel = computed(() => {
+  if (modLoader.value === 'fabric') return 'Fabric'
+  if (modLoader.value === 'neoforge') return 'NeoForge'
+  return 'Paper'
+})
 
 async function loadVersions() {
   versionsLoading.value = true
@@ -140,6 +145,14 @@ async function doGenerate() {
           >
             <span class="loader-icon"><img src="https://docs.neoforged.net/img/logo.svg" alt="NeoForge" /></span>
             <span>NeoForge</span>
+          </button>
+          <button
+            class="loader-btn"
+            :class="{ active: modLoader === 'paper' }"
+            @click="modLoader = 'paper'"
+          >
+            <span class="loader-icon"><img src="https://assets.papermc.io/brand/papermc_logo.512.png" alt="Paper" /></span>
+            <span>Paper</span>
           </button>
         </div>
       </div>
@@ -251,7 +264,7 @@ async function doGenerate() {
       </button>
 
       <p class="generator-footer">
-        {{ t.footerBase }}{{ modLoader === 'fabric' ? 'Fabric' : 'NeoForge' }}{{ t.footerSetup }}<code>build.gradle.kts</code>{{ t.footerPath }}<code>copyGameScripts</code>{{ t.footerRun }}
+        {{ t.footerBase }}{{ loaderLabel }}{{ t.footerSetup }}<code>build.gradle.kts</code>{{ t.footerPath }}<code>copyGameScripts</code>{{ t.footerRun }}
       </p>
     </div>
   </div>

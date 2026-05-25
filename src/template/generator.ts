@@ -1,7 +1,7 @@
 import JSZip from 'jszip'
 
 export interface PackInfo {
-  modLoader: 'fabric' | 'neoforge'
+  modLoader: 'fabric' | 'neoforge' | 'paper'
   kattonVersion: string
   packId: string
   packName: string
@@ -13,7 +13,40 @@ export interface PackInfo {
 const WRAPPER_JAR_URL =
   'https://raw.githubusercontent.com/FabricMC/fabric-example-mod/refs/heads/master/gradle/wrapper/gradle-wrapper.jar'
 
+const KOTLIN_PLUGIN_VERSION = '2.3.0'
+const KATTON_SIGN_PLUGIN_VERSION = '0.3.0b6'
+const PAPERWEIGHT_VERSION = '2.0.0-beta.21'
+const PAPER_DEV_BUNDLE_VERSION = '26.1.2.build.+'
+
 // ─── Build script templates ────────────────────────────────────────────────
+
+function signingTasks(info: PackInfo): string {
+  return `tasks.named<top.katton.sign.GenerateKattonSigningKeyTask>("generateKattonSigningKey") {
+    privateKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pem"))
+    publicKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pub"))
+}
+
+tasks.named<top.katton.sign.KattonSignPackTask>("signKattonWorldPack") {
+    dependsOn("generateKattonSigningKey")
+    packDir.convention(layout.projectDirectory.dir("world_scripts"))
+    privateKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pem"))
+    publicKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pub"))
+    scope.convention("world")
+    keyId.convention("${info.modLoader}-${info.packId}-world")
+}
+
+tasks.register<top.katton.sign.KattonSignPackTask>("signKattonGlobalPack") {
+    group = "katton"
+    description = "Signs the global Katton script pack and writes signature metadata to manifest.json."
+    dependsOn("generateKattonSigningKey")
+    packDir.convention(layout.projectDirectory.dir("global_scripts"))
+    privateKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pem"))
+    publicKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pub"))
+    scope.convention("global")
+    keyId.convention("${info.modLoader}-${info.packId}-global")
+}
+`
+}
 
 const SYNC_TASK = `fun syncDirectoryAsHardLinks(sourceDir: File, targetDir: File) {
     val sourceRoot = sourceDir.toPath().toAbsolutePath().normalize()
@@ -80,7 +113,7 @@ tasks.register("copyWorldScripts") {
     group = "distribution"
     description = "Mirrors world_scripts to the configured target path using hard links."
     doLast {
-        worldScriptsTargetDir.forEach { syncDirectoryAsHardLinks(file("src/world_scripts"), it) }
+        worldScriptsTargetDir.forEach { syncDirectoryAsHardLinks(file("world_scripts"), it) }
     }
 }
 
@@ -88,7 +121,7 @@ tasks.register("copyGlobalScripts") {
     group = "distribution"
     description = "Mirrors global_scripts to the configured target path using hard links."
     doLast {
-        globalScriptsTargetDir.forEach { syncDirectoryAsHardLinks(file("src/global_scripts"), it) }
+        globalScriptsTargetDir.forEach { syncDirectoryAsHardLinks(file("global_scripts"), it) }
     }
 }
 
@@ -97,6 +130,36 @@ tasks.register("copyGameScripts") {
     description = "Mirrors world_scripts and global_scripts contents to their configured target paths."
     dependsOn("copyWorldScripts", "copyGlobalScripts")
 }
+
+tasks.named("copyWorldScripts") {
+    mustRunAfter("signKattonPack")
+}
+
+tasks.named("copyGlobalScripts") {
+    mustRunAfter("signKattonGlobalPack")
+}
+
+tasks.named("copyGameScripts") {
+    mustRunAfter("signKattonPack", "signKattonGlobalPack")
+}
+
+tasks.register("signAndCopyWorldScripts") {
+    group = "distribution"
+    description = "Signs world_scripts and mirrors them to the configured target path."
+    dependsOn("signKattonWorldPack", "copyWorldScripts")
+}
+
+tasks.register("signAndCopyGlobalScripts") {
+    group = "distribution"
+    description = "Signs global_scripts and mirrors them to the configured target path."
+    dependsOn("signKattonGlobalPack", "copyGlobalScripts")
+}
+
+tasks.register("signAndCopyGameScripts") {
+    group = "distribution"
+    description = "Signs world_scripts and global_scripts, then mirrors them to their configured target paths."
+    dependsOn("signKattonWorldPack", "signKattonGlobalPack", "copyGameScripts")
+}
 `
 
 function fabricBuildGradle(info: PackInfo): string {
@@ -104,7 +167,8 @@ function fabricBuildGradle(info: PackInfo): string {
 import java.nio.file.Path
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.3.0"
+    id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
+    id("top.katton.sign") version "1.0.0"
 }
 
 val kattonVersion = "${info.kattonVersion}"
@@ -113,6 +177,8 @@ val worldScriptsTargetDir: List<File> = listOf(
     file("/path/to/your/world/kattonpacks/${info.packId}/")
 )
 val globalScriptsTargetDir: List<File> = listOf()
+
+${signingTasks(info)}
 
 repositories {
     mavenLocal()
@@ -131,12 +197,13 @@ dependencies {
     compileOnly("net.fabricmc.fabric-api:fabric-api:\${fabricApiVersion}")
     compileOnly("com.mojang:brigadier:1.3.10")
     compileOnly("org.joml:joml:1.10.8")
+    compileOnly("com.google.code.gson:gson:2.13.2")
 }
 
 kotlin {
     jvmToolchain(25)
     sourceSets.named("main") {
-        kotlin.srcDirs("src/global_scripts", "src/world_scripts")
+        kotlin.srcDirs("global_scripts", "world_scripts")
     }
 }
 
@@ -148,7 +215,8 @@ function neoforgeBuildGradle(info: PackInfo): string {
 import java.nio.file.Path
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.3.0"
+    id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
+    id("top.katton.sign") version "1.0.0"
 }
 
 val kattonVersion = "${info.kattonVersion}"
@@ -156,6 +224,8 @@ val worldScriptsTargetDir: List<File> = listOf(
     file("/path/to/your/world/kattonpacks/${info.packId}/")
 )
 val globalScriptsTargetDir: List<File> = listOf()
+
+${signingTasks(info)}
 
 repositories {
     mavenLocal()
@@ -178,33 +248,73 @@ dependencies {
 kotlin {
     jvmToolchain(25)
     sourceSets.named("main") {
-        kotlin.srcDirs("src/global_scripts", "src/world_scripts")
+        kotlin.srcDirs("global_scripts", "world_scripts")
     }
 }
 
 ${SYNC_TASK}`
 }
 
-function settingsGradle(info: PackInfo): string {
+function paperBuildGradle(info: PackInfo): string {
+  return `import java.nio.file.Files
+import java.nio.file.Path
+
+plugins {
+    id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
+    id("io.papermc.paperweight.userdev") version "${PAPERWEIGHT_VERSION}"
+    id("top.katton.sign") version "1.0.0"
+}
+
+val kattonVersion = "${info.kattonVersion}"
+val worldScriptsTargetDir: List<File> = listOf(
+    file("/path/to/your/paper/world/kattonpacks/${info.packId}/")
+)
+val globalScriptsTargetDir: List<File> = listOf()
+
+${signingTasks(info)}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven("https://repo.papermc.io/repository/maven-public")
+    maven("https://nexus.mcfpp.top/repository/maven-public/")
+}
+
+dependencies {
+    implementation("top.katton:katton-paper:\${kattonVersion}")
+    paperweight.paperDevBundle("${PAPER_DEV_BUNDLE_VERSION}")
+}
+
+kotlin {
+    jvmToolchain(25)
+    sourceSets.named("main") {
+        kotlin.srcDirs("global_scripts", "world_scripts")
+    }
+}
+
+${SYNC_TASK}`
+}
+
+function settingsGradleKts(info: PackInfo): string {
   return `pluginManagement {
     repositories {
+        mavenLocal()
         mavenCentral()
         gradlePluginPortal()
+        maven("https://repo.papermc.io/repository/maven-public/")
+        maven("https://nexus.mcfpp.top/repository/maven-public/")
     }
 }
 plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
 
-rootProject.name = ${info.packId}
+rootProject.name = "${info.packId}"
 `
 }
 
-function gradleWrapperProperties(loader: 'fabric' | 'neoforge'): string {
-  const distributionUrl =
-    loader === 'fabric'
-      ? 'https\\://services.gradle.org/distributions/gradle-8.13-bin.zip'
-      : 'https\\://services.gradle.org/distributions/gradle-9.0-bin.zip'
+function gradleWrapperProperties(): string {
+  const distributionUrl = 'https\\://services.gradle.org/distributions/gradle-9.3.0-bin.zip'
   return `distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 distributionUrl=${distributionUrl}
@@ -411,6 +521,7 @@ function manifestJson(info: PackInfo): string {
       description: info.description,
       authors,
       enabled: true,
+      clientSync: info.modLoader !== 'paper',
     },
     null,
     2
@@ -435,8 +546,10 @@ export interface KattonVersion {
 }
 
 // Hardcoded fallback when GitHub API is unreachable.
-// Updated: 2026-05-12
+// Updated: 2026-05-26
 const FALLBACK_VERSIONS: KattonVersion[] = [
+  { tag: '0.3.0b10', prerelease: true },
+  { tag: '0.3.0b6', prerelease: true },
   { tag: '0.2.0', prerelease: false },
   { tag: '0.2.0b5', prerelease: true },
   { tag: '0.2.0b3', prerelease: true },
@@ -536,16 +649,18 @@ export async function generateZip(
   const buildGradle =
     info.modLoader === 'fabric'
       ? fabricBuildGradle(info)
-      : neoforgeBuildGradle(info)
+      : info.modLoader === 'neoforge'
+        ? neoforgeBuildGradle(info)
+        : paperBuildGradle(info)
   zip.file(`${rootDir}build.gradle.kts`, buildGradle)
 
   // 2. Settings
-  zip.file(`${rootDir}settings.gradle`, settingsGradle(info))
+  zip.file(`${rootDir}settings.gradle.kts`, settingsGradleKts(info))
 
   // 3. Gradle wrapper properties
   zip.file(
     `${rootDir}gradle/wrapper/gradle-wrapper.properties`,
-    gradleWrapperProperties(info.modLoader)
+    gradleWrapperProperties()
   )
 
   // 4. Gradlew scripts
@@ -567,13 +682,14 @@ export async function generateZip(
     console.warn('Failed to download gradle-wrapper.jar')
   }
 
-  // 6. Manifest
+  // 6. Manifests
   onProgress?.('Generating manifest.json...')
-  zip.file(`${rootDir}manifest.json`, manifestJson(info))
+  zip.file(`${rootDir}world_scripts/manifest.json`, manifestJson(info))
+  zip.file(`${rootDir}global_scripts/manifest.json`, manifestJson(info))
 
   // 7. Main.kt
   onProgress?.('Generating Main.kt...')
-  zip.file(`${rootDir}src/world_scripts/Main.kt`, mainKt(info))
+  zip.file(`${rootDir}world_scripts/Main.kt`, mainKt(info))
 
   // 8. .gitignore
   zip.file(`${rootDir}.gitignore`, `/.gradle/\n/build/\n/run/\n/lib/\n`)
@@ -591,7 +707,28 @@ export async function generateZip(
 }
 
 function readmeTemplate(info: PackInfo): string {
-  const loaderName = info.modLoader === 'fabric' ? 'Fabric' : 'NeoForge'
+  const loaderName =
+    info.modLoader === 'fabric'
+      ? 'Fabric'
+      : info.modLoader === 'neoforge'
+        ? 'NeoForge'
+        : 'Paper'
+  const setupSteps =
+    info.modLoader === 'paper'
+      ? `1. Open this project in IntelliJ IDEA
+2. Edit \`build.gradle.kts\` to configure \`worldScriptsTargetDir\` and \`globalScriptsTargetDir\`
+3. Run the \`copyGameScripts\` Gradle task to link your scripts into the server
+4. Run \`signAndCopyGameScripts\` when you want to sign \`world_scripts\` and \`global_scripts\` before copying`
+      : `1. Copy the official Minecraft jar (matching your Minecraft version) into \`lib/\`
+2. Open this project in IntelliJ IDEA
+3. Edit \`build.gradle.kts\` to configure \`worldScriptsTargetDir\` and \`globalScriptsTargetDir\`
+4. Run the \`copyGameScripts\` Gradle task to link your scripts into the game
+5. Run \`signAndCopyGameScripts\` when you want to sign \`world_scripts\` and \`global_scripts\` before copying`
+  const entrypoints =
+    info.modLoader === 'paper'
+      ? '- `@ServerScriptEntrypoint` — runs on the Paper server'
+      : `- \`@ServerScriptEntrypoint\` — runs on server
+- \`@ClientScriptEntrypoint\` — runs on client`
 
   return `# ${info.packName}
 
@@ -601,10 +738,7 @@ A Katton script pack for ${loaderName}.
 
 ## Getting Started
 
-1. Copy the official Minecraft jar (matching your Minecraft version) into \`lib/\`
-2. Open this project in IntelliJ IDEA
-3. Edit \`build.gradle.kts\` to configure \`worldScriptsTargetDir\` (point it to your world's \`kattonpacks/${info.packId}/\` directory)
-4. Run the \`copyGameScripts\` Gradle task to link your scripts into the game
+${setupSteps}
 
 ## Pack Info
 
@@ -618,10 +752,9 @@ A Katton script pack for ${loaderName}.
 
 ## Development
 
-Write your Kotlin scripts in the \`src/world_scripts/\` directory. Use:
+Write world-scoped scripts in \`world_scripts/\`, and global-scoped scripts in \`global_scripts/\`. Use:
 
-- \`@ServerScriptEntrypoint\` — runs on server
-- \`@ClientScriptEntrypoint\` — runs on client
+${entrypoints}
 
 Run \`/katton reload\` in-game to hot-reload your scripts without restarting.
 `
