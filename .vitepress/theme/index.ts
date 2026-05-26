@@ -6,6 +6,7 @@ import ApiMembersList from './components/ApiMembersList.vue'
 import ApiMemberCard from './components/ApiMemberCard.vue'
 import HomeCodeShowcase from './components/HomeCodeShowcase.vue'
 import ImageCaptionZoom from './components/ImageCaptionZoom.vue'
+import KattonNotFound from './components/KattonNotFound.vue'
 import TemplateGenerator from './components/TemplateGenerator.vue'
 import './override.css'
 
@@ -14,6 +15,7 @@ const theme: Theme = {
   Layout: () => {
     return h(VPCarbon.Layout!, null, {
       'home-hero-after': () => h(HomeCodeShowcase),
+      'not-found': () => h(KattonNotFound),
     })
   },
   enhanceApp(ctx) {
