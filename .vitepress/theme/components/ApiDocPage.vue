@@ -2,7 +2,7 @@
   <section class="api-doc-page">
     <div class="api-doc-page__header">
             <div class="api-doc-page__badges">
-                <span class="api-doc-page__module-badge" :data-module="moduleKey">{{ module }}</span>
+                <span class="api-doc-page__module-badge" :data-module="moduleKey">{{ displayModule }}</span>
             </div>
       <h1 class="api-doc-page__title">{{ title }}</h1>
       <div class="api-doc-page__meta">
@@ -17,13 +17,31 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+
+const props = defineProps<{
   title: string
   module: string
     moduleKey: string
   packageName: string
   sourceFile: string
 }>()
+
+const { lang } = useData()
+const isZh = computed(() => lang.value.startsWith('zh'))
+
+const zhModuleLabels: Record<string, string> = {
+  common: '通用',
+  fabric: 'Fabric',
+  neoforge: 'NeoForge',
+  paper: 'Paper',
+}
+
+const displayModule = computed(() => {
+  if (!isZh.value) return props.module
+  return zhModuleLabels[props.moduleKey] ?? props.module
+})
 </script>
 
 <style scoped>

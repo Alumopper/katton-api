@@ -1,14 +1,14 @@
 <template>
-    <nav class="api-members-list" aria-label="Members navigation">
+    <nav class="api-members-list" :aria-label="copy.ariaLabel">
         <div class="api-members-list__header">
-            <p class="api-members-list__title">Members</p>
-            <p class="api-members-list__subtitle">Jump directly to declarations on this page.</p>
+            <p class="api-members-list__title">{{ copy.title }}</p>
+            <p class="api-members-list__subtitle">{{ copy.subtitle }}</p>
         </div>
         <ul class="api-members-list__grid">
             <li v-for="item in parsedItems" :key="item.href" class="api-members-list__item">
                 <a :href="item.href" class="api-members-list__link">
                     <span class="api-members-list__label">{{ item.label }}</span>
-                    <span class="api-members-list__kind" :data-kind="item.kindKey">{{ item.kind }}</span>
+                    <span class="api-members-list__kind" :data-kind="item.kindKey">{{ displayKind(item) }}</span>
                 </a>
             </li>
         </ul>
@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useData } from 'vitepress'
 
 type Item = {
     label: string
@@ -29,6 +30,41 @@ const props = defineProps<{
     itemsJson: string
 }>()
 
+const { lang } = useData()
+
+const isZh = computed(() => lang.value.startsWith('zh'))
+
+const copy = computed(() => {
+    if (isZh.value) {
+        return {
+            title: '成员',
+            subtitle: '直接跳转到本页的声明。',
+            ariaLabel: '成员导航',
+        }
+    }
+
+    return {
+        title: 'Members',
+        subtitle: 'Jump directly to declarations on this page.',
+        ariaLabel: 'Members navigation',
+    }
+})
+
+const zhKindLabels: Record<string, string> = {
+    function: '函数',
+    property: '属性',
+    class: '类',
+    object: '对象',
+    interface: '接口',
+    'data-class': '数据类',
+    'enum-class': '枚举类',
+    'annotation-class': '注解类',
+    'value-class': '值类',
+    'sealed-class': '密封类',
+    'type-alias': '类型别名',
+    'companion-object': '伴生对象',
+}
+
 const parsedItems = computed<Item[]>(() => {
     try {
         return JSON.parse(props.itemsJson) as Item[]
@@ -36,6 +72,11 @@ const parsedItems = computed<Item[]>(() => {
         return []
     }
 })
+
+function displayKind(item: Item) {
+    if (!isZh.value) return item.kind
+    return zhKindLabels[item.kindKey] ?? item.kind
+}
 </script>
 
 <style scoped>

@@ -2,6 +2,7 @@ import { defineConfigWithTheme } from "vitepress";
 import type { ThemeConfig } from "vitepress-carbon";
 import baseConfig from "vitepress-carbon/config";
 import apiSidebar from "./api-sidebar";
+import zhApiSidebar from "./zh-api-sidebar";
 
 const datapackGuideItems = [
   { text: "Overview", link: "/guide/datapack/" },
@@ -215,13 +216,14 @@ export default defineConfigWithTheme<ThemeConfig>({
           { text: "首页", link: "/zh/" },
           { text: "快速开始", link: "/zh/quickstart" },
           { text: "模板生成器", link: "/zh/template/" },
-          { text: "API", link: "/api/index.html" },
+          { text: "API", link: "/zh/api/index.html" },
         ],
         sidebar: {
           '/zh/quickstart/': zhDocsSidebar,
           '/zh/guide/': zhDocsSidebar,
           '/zh/platform/': zhDocsSidebar,
           '/zh/architecture/': zhDocsSidebar,
+          ...zhApiSidebar,
         },
       },
     },

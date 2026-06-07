@@ -3,8 +3,8 @@
     <header class="api-member-card__header">
       <div class="api-member-card__meta">
                 <span class="api-member-card__name">{{ name }}</span>
-                <span class="api-member-card__pill api-member-card__pill--module" :data-module="moduleKey">{{ module }}</span>
-                <span class="api-member-card__pill api-member-card__pill--kind" :data-kind="kindKey">{{ kind }}</span>
+                <span class="api-member-card__pill api-member-card__pill--module" :data-module="moduleKey">{{ displayModule }}</span>
+                <span class="api-member-card__pill api-member-card__pill--kind" :data-kind="kindKey">{{ displayKind }}</span>
       </div>
     </header>
     <div class="api-member-card__body">
@@ -14,7 +14,10 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+
+const props = defineProps<{
   id: string
   name: string
   kind: string
@@ -22,6 +25,41 @@ defineProps<{
   module: string
     moduleKey: string
 }>()
+
+const { lang } = useData()
+const isZh = computed(() => lang.value.startsWith('zh'))
+
+const zhKindLabels: Record<string, string> = {
+  function: '函数',
+  property: '属性',
+  class: '类',
+  object: '对象',
+  interface: '接口',
+  'data-class': '数据类',
+  'enum-class': '枚举类',
+  'annotation-class': '注解类',
+  'value-class': '值类',
+  'sealed-class': '密封类',
+  'type-alias': '类型别名',
+  'companion-object': '伴生对象',
+}
+
+const zhModuleLabels: Record<string, string> = {
+  common: '通用',
+  fabric: 'Fabric',
+  neoforge: 'NeoForge',
+  paper: 'Paper',
+}
+
+const displayKind = computed(() => {
+  if (!isZh.value) return props.kind
+  return zhKindLabels[props.kindKey] ?? props.kind
+})
+
+const displayModule = computed(() => {
+  if (!isZh.value) return props.module
+  return zhModuleLabels[props.moduleKey] ?? props.module
+})
 </script>
 
 <style scoped>
