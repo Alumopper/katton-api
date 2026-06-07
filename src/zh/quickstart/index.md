@@ -2,6 +2,27 @@
 
 欢迎使用 Katton。本站包含了使用 Katton 模组开发框架的文档和指南。无论你是想要入门的初学者，还是经验丰富的模组开发者，你都能在这里找到有价值的信息。
 
+<div class="download-card-grid">
+  <a class="download-card download-card--modrinth" href="https://modrinth.com/mod/katton" target="_blank" rel="noopener noreferrer">
+    <span class="download-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 2 3.5 6.9v10.2L12 22l8.5-4.9V6.9L12 2Z"/><path d="m8 16 2-8 2 5 2-5 2 8"/></svg>
+    </span>
+    <span class="download-card__body">
+      <strong>在 Modrinth 下载</strong>
+      <span>获取最新最热 Katton 版本</span>
+    </span>
+  </a>
+  <a class="download-card download-card--github" href="https://github.com/Alumopper/Katton" target="_blank" rel="noopener noreferrer">
+    <span class="download-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2.5-5.5-3m11 5v-3.5c0-1 .1-1.4-.5-2 2.9-.3 6-1.4 6-6A4.7 4.7 0 0 0 18.7 6c.1-.4.5-1.8-.1-3.5 0 0-1.1-.3-3.6 1.3a12.4 12.4 0 0 0-6.5 0C6 2.2 4.9 2.5 4.9 2.5 4.3 4.2 4.7 5.6 4.8 6A4.7 4.7 0 0 0 3.5 9.5c0 4.6 3.1 5.7 6 6-.6.6-.6 1.2-.5 2V21"/></svg>
+    </span>
+    <span class="download-card__body">
+      <strong>在 GitHub 查看源码</strong>
+      <span>浏览代码、反馈问题和发起讨论</span>
+    </span>
+  </a>
+</div>
+
 ## 什么是 Katton？
 
 Katton 是一个强大的 Minecraft 脚本开发框架，允许你使用 Kotlin 脚本创建和修改游戏内容。借助热重载脚本，你可以实时查看更改，无需重启游戏。

@@ -9,6 +9,12 @@ import scriptSnippet from '../../../src/example/quickstart/scripts/02.md?raw'
 import registrySnippet from '../../../src/example/quickstart/registry/02.md?raw'
 import renderSnippet from '../../../src/example/quickstart/render/01.md?raw'
 import datapackSnippet from '../../../src/example/quickstart/for-cber/01.md?raw'
+import commandSnippet from '../../../src/example/quickstart/commands/03.md?raw'
+import itemModifySnippet from '../../../src/example/quickstart/modify/01.md?raw'
+import entityModifySnippet from '../../../src/example/quickstart/modify/04.md?raw'
+import packUiSnippet from '../../../src/example/quickstart/pack-ui/02.md?raw'
+import targetSelectorSnippet from '../../../src/example/quickstart/for-cber/02.md?raw'
+import worldRenderSnippet from '../../../src/example/quickstart/render/05.md?raw'
 
 type RawSnippet = {
   title: string
@@ -49,6 +55,36 @@ const rawSnippets: RawSnippet[] = [
     title: 'Scoreboard Setup',
     category: 'Datapack',
     source: datapackSnippet,
+  },
+  {
+    title: 'Registry Diagnostics',
+    category: 'Commands',
+    source: commandSnippet,
+  },
+  {
+    title: 'Modify Vanilla Items',
+    category: 'Runtime Modding',
+    source: itemModifySnippet,
+  },
+  {
+    title: 'Tune Mob Attributes',
+    category: 'Runtime Modding',
+    source: entityModifySnippet,
+  },
+  {
+    title: 'In-Game Pack Toggle',
+    category: 'Pack UI',
+    source: packUiSnippet,
+  },
+  {
+    title: 'Datapack-Style Selectors',
+    category: 'Interop',
+    source: targetSelectorSnippet,
+  },
+  {
+    title: 'World Space Debug Lines',
+    category: 'Render',
+    source: worldRenderSnippet,
   },
 ]
 

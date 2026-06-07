@@ -2,6 +2,27 @@
 
 Welcome to Katton. This wiki contains documentation and guides for using the Katton modding framework. Whether you're a beginner looking to get started or an experienced modder seeking advanced tips, you'll find valuable information here.
 
+<div class="download-card-grid">
+  <a class="download-card download-card--modrinth" href="https://modrinth.com/mod/katton" target="_blank" rel="noopener noreferrer">
+    <span class="download-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 2 3.5 6.9v10.2L12 22l8.5-4.9V6.9L12 2Z"/><path d="m8 16 2-8 2 5 2-5 2 8"/></svg>
+    </span>
+    <span class="download-card__body">
+      <strong>Download on Modrinth</strong>
+      <span>Install Katton for your Minecraft loader</span>
+    </span>
+  </a>
+  <a class="download-card download-card--github" href="https://github.com/Alumopper/Katton" target="_blank" rel="noopener noreferrer">
+    <span class="download-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2.5-5.5-3m11 5v-3.5c0-1 .1-1.4-.5-2 2.9-.3 6-1.4 6-6A4.7 4.7 0 0 0 18.7 6c.1-.4.5-1.8-.1-3.5 0 0-1.1-.3-3.6 1.3a12.4 12.4 0 0 0-6.5 0C6 2.2 4.9 2.5 4.9 2.5 4.3 4.2 4.7 5.6 4.8 6A4.7 4.7 0 0 0 3.5 9.5c0 4.6 3.1 5.7 6 6-.6.6-.6 1.2-.5 2V21"/></svg>
+    </span>
+    <span class="download-card__body">
+      <strong>View Source on GitHub</strong>
+      <span>Browse releases, issues, and source code</span>
+    </span>
+  </a>
+</div>
+
 ## What is Katton?
 
 Katton is a powerful modding framework for Minecraft that allows you to use Kotlin scripts to create and modify game content. With hot-reloadable scripts, you can see your changes in real-time without needing to restart the game.
