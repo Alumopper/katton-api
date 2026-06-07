@@ -1,4 +1,3 @@
-# Moved: Datapack Developers
+# Moved: Datapack Migration Guide
 
-The datapack developer guide now lives in [Guide / For Vanilla Datapack Developers](../guide/datapack.md).
-
+The datapack developer guide now lives in [Guide / Datapack Migration](../guide/datapack/).

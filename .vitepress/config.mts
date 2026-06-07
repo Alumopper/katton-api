@@ -3,6 +3,34 @@ import type { ThemeConfig } from "vitepress-carbon";
 import baseConfig from "vitepress-carbon/config";
 import apiSidebar from "./api-sidebar";
 
+const datapackGuideItems = [
+  { text: "Overview", link: "/guide/datapack/" },
+  { text: "Structure & Reload", link: "/guide/datapack/project-structure" },
+  { text: "mcfunction to Kotlin", link: "/guide/datapack/mcfunction-to-kotlin" },
+  { text: "Commands", link: "/guide/datapack/commands" },
+  { text: "Selectors", link: "/guide/datapack/selectors" },
+  { text: "State", link: "/guide/datapack/state" },
+  { text: "Load & Tick", link: "/guide/datapack/load-tick-schedule" },
+  { text: "Mutations", link: "/guide/datapack/datapack-mutations" },
+  { text: "Keep Datapacks", link: "/guide/datapack/keep-existing-datapacks" },
+  { text: "Beyond Datapacks", link: "/guide/datapack/beyond-datapacks" },
+  { text: "Platforms", link: "/guide/datapack/platform-notes" },
+];
+
+const zhDatapackGuideItems = [
+  { text: "概览", link: "/zh/guide/datapack/" },
+  { text: "结构与重载", link: "/zh/guide/datapack/project-structure" },
+  { text: "mcfunction 到 Kotlin", link: "/zh/guide/datapack/mcfunction-to-kotlin" },
+  { text: "命令", link: "/zh/guide/datapack/commands" },
+  { text: "目标选择器", link: "/zh/guide/datapack/selectors" },
+  { text: "状态", link: "/zh/guide/datapack/state" },
+  { text: "Load 与 Tick", link: "/zh/guide/datapack/load-tick-schedule" },
+  { text: "数据修改", link: "/zh/guide/datapack/datapack-mutations" },
+  { text: "保留数据包", link: "/zh/guide/datapack/keep-existing-datapacks" },
+  { text: "比数据包更强大", link: "/zh/guide/datapack/beyond-datapacks" },
+  { text: "平台差异", link: "/zh/guide/datapack/platform-notes" },
+];
+
 const docsSidebar = [
   {
     text: "Quick Start",
@@ -27,7 +55,12 @@ const docsSidebar = [
         ],
       },
       { text: "Modify Content", link: "/guide/modify/" },
-      { text: "For Datapack Developers", link: "/guide/datapack" },
+      {
+        text: "Datapack Migration",
+        link: "/guide/datapack/",
+        collapsed: false,
+        items: datapackGuideItems,
+      },
       {
         text: "Rendering",
         link: "/guide/render/",
@@ -86,7 +119,12 @@ const zhDocsSidebar = [
         ],
       },
       { text: "修改内容", link: "/zh/guide/modify/" },
-      { text: "数据包开发者指南", link: "/zh/guide/datapack" },
+      {
+        text: "数据包迁移",
+        link: "/zh/guide/datapack/",
+        collapsed: false,
+        items: zhDatapackGuideItems,
+      },
       {
         text: "渲染",
         link: "/zh/guide/render/",

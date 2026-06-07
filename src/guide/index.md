@@ -42,13 +42,13 @@ For platform-level availability, see [Platforms](../platform/). For reload, netw
       <span>Mutate items, blocks, recipes, loot tables, attributes, and trades.</span>
     </span>
   </a>
-  <a class="next-card" href="./datapack.html">
+  <a class="next-card" href="./datapack/">
     <span class="next-card__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3Z"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
     </span>
     <span class="next-card__body">
-      <strong>For Datapack Developers</strong>
-      <span>DP caller APIs, selectors, NBT, and calling existing functions.</span>
+      <strong>Datapack Migration</strong>
+      <span>Move mcfunction logic into Kotlin without losing hot reload.</span>
     </span>
   </a>
   <a class="next-card" href="./render/">

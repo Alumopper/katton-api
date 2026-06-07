@@ -41,13 +41,13 @@
       <span>修改已有的物品、方块、配方、战利品表、实体属性和村民交易。</span>
     </span>
   </a>
-  <a class="next-card" href="./datapack.html">
+  <a class="next-card" href="./datapack/">
     <span class="next-card__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3Z"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
     </span>
     <span class="next-card__body">
-      <strong>面向原版开发者</strong>
-      <span>DP caller、选择器、NBT、调用已有函数。</span>
+      <strong>数据包迁移</strong>
+      <span>把 mcfunction 逻辑迁移到 Kotlin，同时保留热重载。</span>
     </span>
   </a>
   <a class="next-card" href="./render/">
