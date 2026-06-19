@@ -9,6 +9,8 @@ import ImageCaptionZoom from './components/ImageCaptionZoom.vue'
 import KattonNotFound from './components/KattonNotFound.vue'
 import TemplateGenerator from './components/TemplateGenerator.vue'
 import './override.css'
+import FloatingVue from 'floating-vue'
+import 'floating-vue/dist/style.css'
 
 const theme: Theme = {
   ...VPCarbon,
@@ -19,6 +21,7 @@ const theme: Theme = {
     })
   },
   enhanceApp(ctx) {
+    ctx.app.use(FloatingVue)
     VPCarbon.enhanceApp?.(ctx)
     ctx.app.component('ApiDocPage', ApiDocPage)
     ctx.app.component('ApiMembersList', ApiMembersList)

@@ -7,7 +7,8 @@ export interface PackInfo {
   packName: string
   packVersion: string
   authors: string
-  description: string
+  description: string,
+  signing: boolean
 }
 
 const WRAPPER_JAR_URL =
@@ -26,7 +27,7 @@ function signingTasks(info: PackInfo): string {
     publicKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pub"))
 }
 
-tasks.named<top.katton.sign.KattonSignPackTask>("signKattonWorldPack") {
+tasks.register<top.katton.sign.KattonSignPackTask>("signKattonWorldPack") {
     dependsOn("generateKattonSigningKey")
     packDir.convention(layout.projectDirectory.dir("world_scripts"))
     privateKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pem"))
@@ -36,8 +37,6 @@ tasks.named<top.katton.sign.KattonSignPackTask>("signKattonWorldPack") {
 }
 
 tasks.register<top.katton.sign.KattonSignPackTask>("signKattonGlobalPack") {
-    group = "katton"
-    description = "Signs the global Katton script pack and writes signature metadata to manifest.json."
     dependsOn("generateKattonSigningKey")
     packDir.convention(layout.projectDirectory.dir("global_scripts"))
     privateKeyFile.convention(layout.buildDirectory.file("katton-signing-key.pem"))
@@ -130,9 +129,11 @@ tasks.register("copyGameScripts") {
     description = "Mirrors world_scripts and global_scripts contents to their configured target paths."
     dependsOn("copyWorldScripts", "copyGlobalScripts")
 }
+`
 
+const SIGN_AND_COPY_TASK = `
 tasks.named("copyWorldScripts") {
-    mustRunAfter("signKattonPack")
+    mustRunAfter("signKattonWorldPack")
 }
 
 tasks.named("copyGlobalScripts") {
@@ -140,7 +141,7 @@ tasks.named("copyGlobalScripts") {
 }
 
 tasks.named("copyGameScripts") {
-    mustRunAfter("signKattonPack", "signKattonGlobalPack")
+    mustRunAfter("signKattonWorldPack", "signKattonGlobalPack")
 }
 
 tasks.register("signAndCopyWorldScripts") {
@@ -168,7 +169,7 @@ import java.nio.file.Path
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
-    id("top.katton.sign") version "1.0.0"
+    ${info.signing ? 'id("top.katton.sign") version "1.0.0"' : ''}
 }
 
 val kattonVersion = "${info.kattonVersion}"
@@ -178,7 +179,7 @@ val worldScriptsTargetDir: List<File> = listOf(
 )
 val globalScriptsTargetDir: List<File> = listOf()
 
-${signingTasks(info)}
+${info.signing ? signingTasks(info): ''}
 
 repositories {
     mavenLocal()
@@ -207,7 +208,10 @@ kotlin {
     }
 }
 
-${SYNC_TASK}`
+${SYNC_TASK}
+
+${info.signing ? SIGN_AND_COPY_TASK : ''}
+`
 }
 
 function neoforgeBuildGradle(info: PackInfo): string {
@@ -216,7 +220,7 @@ import java.nio.file.Path
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
-    id("top.katton.sign") version "1.0.0"
+    ${info.signing ? 'id("top.katton.sign") version "1.0.0"' : ''}
 }
 
 val kattonVersion = "${info.kattonVersion}"
@@ -225,7 +229,7 @@ val worldScriptsTargetDir: List<File> = listOf(
 )
 val globalScriptsTargetDir: List<File> = listOf()
 
-${signingTasks(info)}
+${info.signing ? signingTasks(info): ''}
 
 repositories {
     mavenLocal()
@@ -252,7 +256,10 @@ kotlin {
     }
 }
 
-${SYNC_TASK}`
+${SYNC_TASK}
+
+${info.signing ? SIGN_AND_COPY_TASK : ''}
+`
 }
 
 function paperBuildGradle(info: PackInfo): string {
@@ -262,7 +269,6 @@ import java.nio.file.Path
 plugins {
     id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
     id("io.papermc.paperweight.userdev") version "${PAPERWEIGHT_VERSION}"
-    id("top.katton.sign") version "1.0.0"
 }
 
 val kattonVersion = "${info.kattonVersion}"
@@ -270,8 +276,6 @@ val worldScriptsTargetDir: List<File> = listOf(
     file("/path/to/your/paper/world/kattonpacks/${info.packId}/")
 )
 val globalScriptsTargetDir: List<File> = listOf()
-
-${signingTasks(info)}
 
 repositories {
     mavenLocal()
@@ -548,6 +552,7 @@ export interface KattonVersion {
 // Hardcoded fallback when GitHub API is unreachable.
 // Updated: 2026-05-26
 const FALLBACK_VERSIONS: KattonVersion[] = [
+  { tag: '0.3.0', prerelease: true },
   { tag: '0.3.0b10', prerelease: true },
   { tag: '0.3.0b6', prerelease: true },
   { tag: '0.2.0', prerelease: false },
@@ -623,6 +628,12 @@ export async function fetchKattonVersions(): Promise<KattonVersion[]> {
           }))
           .filter(v => v.tag)
 
+        //remove the possible latter 'v' prefix from the tag
+        for (const v of remote) {
+          if (v.tag.startsWith('v')) {
+            v.tag = v.tag.slice(1)
+          }
+        }
         if (remote.length > 0) {
           return filterAndSort(remote)
         }

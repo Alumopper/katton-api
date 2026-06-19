@@ -8,6 +8,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "floating-vue": "^5.2.2",
     "jszip": "^3.10.1",
     "prismjs": "^1.30.0",
     "vitepress": "^1.4.0",

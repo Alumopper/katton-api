@@ -9,10 +9,15 @@ const isZh = computed(() => lang.value.startsWith('zh'))
 const t = computed(() => ({
   modLoader: isZh.value ? '模组加载器' : 'Mod Loader',
   kattonVersion: isZh.value ? 'Katton 版本' : 'Katton Version',
+  kattonVersionTooltip: isZh.value ? 'Katton 版本决定了你可以使用的 API 功能' : 'The Katton version determines the available API features',
   preRelease: isZh.value ? '预览版' : 'pre-release',
   packId: isZh.value ? '脚本包 ID' : 'Pack ID',
+  packIdTooltip: isZh.value ? '你的脚本包在游戏中唯一的标识符，通常用于区分不同的脚本包' : 'The unique identifier of your script pack in-game, usually used to distinguish different script packs',
   packIdHint: isZh.value ? '仅限字母、数字、-、_' : 'Letters, numbers, -, _ only',
   packName: isZh.value ? '脚本包名称' : 'Pack Name',
+  packNameTooltip: isZh.value ? '你的脚本包将会在游戏中展示的名称': 'The name of your script pack that will be displayed in-game',
+  signing: isZh.value ? '附带签名插件' : 'With Sign Plugin',
+  signingTooltip: isZh.value ? (modLoader.value === 'paper' ? '在paper端的脚本不会被发送到客户端，因此签名是不必要的' : '对于在服务端的需要被发送到客户端的脚本，请勾选此项以附带签名插件，确保客户端可以加载这些脚本') : (modLoader.value === 'paper' ? 'Signing is unnecessary because scriptpacks are never sent from paper-side to client-side' : 'For scripts that need to be sent to the client on the server side, check this option to include the signing plugin to ensure the client can load these scripts'),
   version: isZh.value ? '版本' : 'Version',
   authors: isZh.value ? '作者' : 'Authors',
   description: isZh.value ? '描述' : 'Description',
@@ -34,12 +39,13 @@ const t = computed(() => ({
 } as const))
 
 const modLoader = ref<PackInfo['modLoader']>('fabric')
-const kattonVersion = ref('0.2.0')
+const kattonVersion = ref('0.3.0')
 const packId = ref('my_pack')
 const packName = ref('My Pack')
 const packVersion = ref('1.0.0')
 const authors = ref('Dev')
 const description = ref('')
+const signingKey = ref(false)
 
 const versions = ref<KattonVersion[]>([{ tag: '0.2.0', prerelease: false }])
 const versionsLoading = ref(false)
@@ -52,6 +58,7 @@ const packInfo = computed<PackInfo>(() => ({
   kattonVersion: kattonVersion.value,
   packId: packId.value,
   packName: packName.value,
+  signing: signingKey.value,
   packVersion: packVersion.value,
   authors: authors.value,
   description: description.value,
@@ -128,7 +135,9 @@ async function doGenerate() {
     <div class="generator-card">
       <!-- Mod Loader -->
       <div class="field-group">
-        <label class="field-label">{{ t.modLoader }}</label>
+        <div class="field-with-hint">
+          <label class="field-label">{{ t.modLoader }}</label>
+        </div>
         <div class="loader-toggle">
           <button
             class="loader-btn"
@@ -149,7 +158,7 @@ async function doGenerate() {
           <button
             class="loader-btn"
             :class="{ active: modLoader === 'paper' }"
-            @click="modLoader = 'paper'"
+            @click="modLoader = 'paper';signingKey = false"
           >
             <span class="loader-icon"><img src="https://assets.papermc.io/brand/papermc_logo.512.png" alt="Paper" /></span>
             <span>Paper</span>
@@ -186,10 +195,13 @@ async function doGenerate() {
 
       <!-- Pack Info -->
       <div class="field-group">
-        <label class="field-label" for="pack-id">
-          {{ t.packId }}
-          <span v-if="!validPackId && packId" class="field-hint error">{{ t.packIdHint }}</span>
-        </label>
+        <div class="field-with-hint">
+          <label class="field-label" for="pack-id">
+            {{ t.packId }}
+            <span v-if="!validPackId && packId" class="field-hint error">{{ t.packIdHint }}</span>
+          </label>
+          <span v-tooltip="t.packIdTooltip" class="hint-icon" aria-label="help">?</span>
+        </div>
         <input
           id="pack-id"
           v-model="packId"
@@ -200,15 +212,33 @@ async function doGenerate() {
         />
       </div>
 
-      <div class="field-group">
-        <label class="field-label" for="pack-name">{{ t.packName }}</label>
-        <input
-          id="pack-name"
-          v-model="packName"
-          type="text"
-          class="field-input"
-          :placeholder="t.packNamePlaceholder"
-        />
+      <div class="field-row">
+        <div class="field-group half">
+          <div class="field-with-hint">
+            <label class="field-label" for="pack-name">{{ t.packName }}</label>
+            <span v-tooltip="t.packIdTooltip" class="hint-icon" aria-label="help">?</span>
+          </div>
+          <input
+            id="pack-name"
+            v-model="packName"
+            type="text"
+            class="field-input"
+            :placeholder="t.packNamePlaceholder"
+          />
+        </div>
+        <div class="field-checkbox">
+          <div class="field-with-hint">
+            <label class="field-label" for="pack-name">{{ t.signing }}</label>
+            <span v-tooltip="t.signingTooltip" class="hint-icon" aria-label="help">?</span>
+          </div>
+          <input
+            id="pack-signing"
+            v-model="signingKey"
+            type="checkbox"
+            class="field-checkbox"
+            :disabled="modLoader === 'paper'"
+          />
+        </div>
       </div>
 
       <div class="field-row">
@@ -288,6 +318,12 @@ async function doGenerate() {
   margin-bottom: 20px;
 }
 
+.field-with-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .field-label {
   display: block;
   margin-bottom: 6px;
@@ -295,6 +331,21 @@ async function doGenerate() {
   font-weight: 600;
   color: var(--vp-c-text-2);
   letter-spacing: 0.02em;
+}
+
+.hint-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--vp-c-text-2);
+  color: var(--vp-c-bg);
+  font-size: 10px;
+  font-weight: bold;
+  cursor: help;
+  margin-bottom: 6px;
 }
 
 .field-hint {
@@ -305,6 +356,26 @@ async function doGenerate() {
 
 .field-hint.error {
   color: #ef4444;
+}
+
+.field-checkbox {
+  width: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  margin: 0 16px;
+}
+
+.field-checkbox > .field-label {
+  width: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  align-self: center;
 }
 
 .field-input,
@@ -452,7 +523,7 @@ async function doGenerate() {
   letter-spacing: 0.05em;
   background: color-mix(in srgb, #f59e0b 18%, transparent);
   color: #fbbf24;
-  border: px solid color-mix(in srgb, #f59e0b 30%, transparent);
+  border: 1px solid color-mix(in srgb, #f59e0b 30%, transparent);
 }
 
 /* Dark-themed select dropdown */
