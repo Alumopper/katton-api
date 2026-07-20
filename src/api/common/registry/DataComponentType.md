@@ -45,7 +45,7 @@ Use this for data that must survive across save/load cycles.
 
 ### Returns
 
-The registered KattonDataComponentTypeEntry
+registered KattonDataComponentTypeEntry
 
 </ApiMemberCard>
 
@@ -76,7 +76,7 @@ Registers a persistent (saved to disk) DataComponentType with hot-reload support
 
 ### Returns
 
-The registered KattonDataComponentTypeEntry
+registered KattonDataComponentTypeEntry
 
 </ApiMemberCard>
 
@@ -110,7 +110,7 @@ Use this for data that is computed at runtime (e.g., render-only state).
 
 ### Returns
 
-The registered KattonDataComponentTypeEntry
+registered KattonDataComponentTypeEntry
 
 </ApiMemberCard>
 
@@ -141,7 +141,7 @@ Registers a network-synchronized DataComponentType with hot-reload support.
 
 ### Returns
 
-The registered KattonDataComponentTypeEntry
+registered KattonDataComponentTypeEntry
 
 </ApiMemberCard>
 

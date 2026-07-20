@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api"
   source-file="common/src/main/kotlin/top/katton/api/KattonConfigApi.kt"
 >
-面向脚本的配置API。从当前脚本的包清单中读取配置值。
+面向脚本的配置 API，会从当前脚本包的 manifest 里读取配置值。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;KattonConfig&quot;,&quot;href&quot;:&quot;#kattonconfig&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonConfig.get&quot;,&quot;href&quot;:&quot;#kattonconfig-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonConfig.getString&quot;,&quot;href&quot;:&quot;#kattonconfig-getstring&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonConfig.getNumber&quot;,&quot;href&quot;:&quot;#kattonconfig-getnumber&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonConfig.getBool&quot;,&quot;href&quot;:&quot;#kattonconfig-getbool&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonConfig.all&quot;,&quot;href&quot;:&quot;#kattonconfig-all&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;config&quot;,&quot;href&quot;:&quot;#config&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -30,7 +30,7 @@ outline: [2, 2]
 object KattonConfig
 ```
 
-面向脚本的配置API。从当前脚本的包清单中读取配置值。
+面向脚本的配置 API，会从当前脚本包的 manifest 里读取配置值。
 
 脚本中的用法：
 ```kotlin
@@ -42,8 +42,8 @@ val debug = config.getBool("debug_mode")
 val raw = config["some_key"]
 ```
 
-每个脚本包都有自己独立的配置值（来自manifest.json `"config"`字段）。
-当前包是从脚本执行上下文中自动检测的。
+每个脚本包都有自己独立的配置值，来自 manifest.json 里的 `"config"` 字段。
+当前脚本包会根据脚本执行上下文自动识别。
 
 ### KattonConfig.get
 
@@ -60,7 +60,7 @@ val raw = config["some_key"]
 operator fun get(key: String): Any?
 ```
 
-通过键获取原始配置值。如果未找到键或未解析包，则返回 null。
+按键获取原始配置值。如果键不存在，或者当前脚本包无法解析，则返回 null。
 
 </ApiMemberCard>
 
@@ -79,7 +79,7 @@ operator fun get(key: String): Any?
 fun getString(key: String, default: String = ""): String
 ```
 
-获取带有可选默认值的字符串配置值。
+获取字符串配置值，可指定默认值。
 
 </ApiMemberCard>
 
@@ -98,7 +98,7 @@ fun getString(key: String, default: String = ""): String
 fun getNumber(key: String, default: Number = 0): Number
 ```
 
-获取具有可选默认值的数字配置值。
+获取数值配置，可指定默认值。
 
 </ApiMemberCard>
 
@@ -117,7 +117,7 @@ fun getNumber(key: String, default: Number = 0): Number
 fun getBool(key: String, default: Boolean = false): Boolean
 ```
 
-获取带有可选默认值的布尔配置值。
+获取布尔配置值，可指定默认值。
 
 </ApiMemberCard>
 
@@ -136,7 +136,7 @@ fun getBool(key: String, default: Boolean = false): Boolean
 fun all(): Map<String, Any>
 ```
 
-返回当前包的所有配置条目。
+返回当前脚本包的全部配置项。
 
 </ApiMemberCard>
 
@@ -157,7 +157,7 @@ fun all(): Map<String, Any>
 val config: KattonConfig
 ```
 
-速记访问器 - 在脚本中使用 `config["key"]`。
+简写访问器 - 在脚本中使用 `config["key"]`。
 
 </ApiMemberCard>
 

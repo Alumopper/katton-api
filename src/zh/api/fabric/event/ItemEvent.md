@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/ItemEvent.kt"
 >
-Fabric平台的物品交互事件。
+Fabric 平台的物品交互事件。 此对象提供与物品使用和投掷相关的事件。 当玩家在世界中与物品交互时触发。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ItemEvent&quot;,&quot;href&quot;:&quot;#itemevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ItemEvent.onUseOn&quot;,&quot;href&quot;:&quot;#itemevent-onuseon&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ItemEvent.onUse&quot;,&quot;href&quot;:&quot;#itemevent-onuse&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,9 @@ Fabric平台的物品交互事件。
 object ItemEvent
 ```
 
-Fabric平台的物品交互事件。
-
-该对象提供与物品使用和投掷相关的事件。
-当玩家与世界中的物品互动时，就会触发事件。
+Fabric 平台的物品交互事件。
+此对象提供与物品使用和投掷相关的事件。
+当玩家在世界中与物品交互时触发。
 
 ### ItemEvent.onUseOn
 
@@ -51,12 +50,13 @@ Fabric平台的物品交互事件。
 val onUseOn
 ```
 
-当在块上使用物品时触发事件（右键单击块）。
+当物品在方块上使用（右键方块）时触发。
 
 ### 返回值
 
-InteractionResult 控制交互结果。
-返回非空值以覆盖默认行为。
+返回值用于控制交互结果。
+
+返回非 null 值可覆盖默认行为。
 
 </ApiMemberCard>
 
@@ -75,12 +75,13 @@ InteractionResult 控制交互结果。
 val onUse
 ```
 
-使用物品时触发的事件（在空中或实体上右键单击）。
+当物品使用（空中右键或对实体使用）时触发。
 
 ### 返回值
 
-InteractionResult 控制交互结果。
-返回非空值以覆盖默认行为。
+返回值用于控制交互结果。
+
+返回非 null 值可覆盖默认行为。
 
 </ApiMemberCard>
 

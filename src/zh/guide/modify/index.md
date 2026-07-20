@@ -3,7 +3,7 @@
 修改原版（或模组）游戏内容与添加新内容同样重要。Katton 提供了一套 `modify*` 函数，让你可以在 Kotlin 脚本中修改物品属性、方块行为、实体属性、配方、战利品表和村民交易。
 
 > [!NOTE]
-> 所有 modify 函数位于 `top.katton.api.mod` 并标注 `@ApiStatus.Experimental`。目标 Minecraft 版本：**26.1.2**。
+> 所有 modify 函数位于 `top.katton.api.mod` 并标注 `@ApiStatus.Experimental`，适用于当前支持的 Minecraft **26.1.2 与 26.2**。
 
 ## 导入
 
@@ -123,7 +123,7 @@ Modify API 根据与 Minecraft 内部状态的交互方式分为两类：
 
 <!--@include: ../../../example/quickstart/modify/06.md-->
 
-**Trade-set id（26.1.2 使用斜杠 `/` 分隔符）：**
+**Trade-set id（当前支持的 26.x 版本使用斜杠 `/` 分隔符）：**
 
 | Trade-set id | 效果 |
 |--------------|------|

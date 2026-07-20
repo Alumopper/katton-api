@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/ServerLivingEntityEvent.kt"
 >
-Fabric平台的服务器端生物体事件。
+Fabric 平台的服务端生物实体事件。 此对象提供与生物实体生命周期相关的事件，包括伤害、死亡以及生物转换事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerLivingEntityEvent&quot;,&quot;href&quot;:&quot;#serverlivingentityevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onLivingHurt&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onlivinghurt&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onAllowDamage&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onallowdamage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onAfterDamage&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onafterdamage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onAllowDeath&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onallowdeath&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onAfterDeath&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onafterdeath&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onLivingFall&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onlivingfall&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onMobConversion&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onmobconversion&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,8 @@ Fabric平台的服务器端生物体事件。
 object ServerLivingEntityEvent
 ```
 
-Fabric平台的服务器端生物体事件。
-
-该对象提供与生命实体生命周期相关的事件，包括
-伤害、死亡和生物转化事件。
+Fabric 平台的服务端生物实体事件。
+此对象提供与生物实体生命周期相关的事件，包括伤害、死亡以及生物转换事件。
 
 ### ServerLivingEntityEvent.onLivingHurt
 
@@ -52,8 +50,8 @@ Fabric平台的服务器端生物体事件。
 @JvmField val onLivingHurt
 ```
 
-当生物体受伤时触发事件。
-可以取消以防止损坏。
+当生物实体受到伤害时触发。
+可取消以阻止伤害处理。
 
 </ApiMemberCard>
 
@@ -72,11 +70,11 @@ Fabric平台的服务器端生物体事件。
 val onAllowDamage
 ```
 
-触发事件以允许或拒绝对生物体造成伤害。
+当需要决定是否允许生物实体受到伤害时触发。
 
 ### 返回值
 
-true 允许损坏， false 取消损坏。
+返回值允许伤害，false 表示取消。
 
 </ApiMemberCard>
 
@@ -95,7 +93,7 @@ true 允许损坏， false 取消损坏。
 val onAfterDamage
 ```
 
-生物受到伤害后触发的事件。
+当生物实体受到伤害之后触发。
 
 </ApiMemberCard>
 
@@ -114,11 +112,11 @@ val onAfterDamage
 val onAllowDeath
 ```
 
-触发事件以允许或拒绝生物体死亡。
+当需要决定是否允许生物实体死亡时触发。
 
 ### 返回值
 
-true 允许死亡， false 取消死亡。
+返回值允许死亡，false 表示取消。
 
 </ApiMemberCard>
 
@@ -137,7 +135,7 @@ true 允许死亡， false 取消死亡。
 val onAfterDeath
 ```
 
-生物死亡后触发的事件。
+当生物实体死亡之后触发。
 
 </ApiMemberCard>
 
@@ -157,8 +155,8 @@ val onAfterDeath
 @JvmField val onLivingFall
 ```
 
-当生物体掉落时触发事件。
-可以取消防止坠落损坏的处理。
+当生物实体摔落时触发。
+可取消以阻止后续处理。
 
 </ApiMemberCard>
 
@@ -177,8 +175,8 @@ val onAfterDeath
 val onMobConversion
 ```
 
-当生物转换为另一种类型时触发的事件
-（例如，僵尸村民治愈、猪灵僵尸化）。
+当生物转换为其他类型时触发。
+（例如僵尸村民治愈、疣猪兽僵尸化）。
 
 </ApiMemberCard>
 

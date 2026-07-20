@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/ServerMessageEvent.kt"
 >
-Fabric平台的服务器端消息事件。
+Fabric 平台的服务端消息事件。 此对象提供与聊天消息、游戏消息和命令消息相关的事件。 包含可取消的允许类事件，以及仅通知的处理类事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerMessageEvent&quot;,&quot;href&quot;:&quot;#servermessageevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerMessageEvent.onAllowChatMessage&quot;,&quot;href&quot;:&quot;#servermessageevent-onallowchatmessage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMessageEvent.onAllowGameMessage&quot;,&quot;href&quot;:&quot;#servermessageevent-onallowgamemessage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMessageEvent.onAllowCommandMessage&quot;,&quot;href&quot;:&quot;#servermessageevent-onallowcommandmessage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMessageEvent.onChatMessage&quot;,&quot;href&quot;:&quot;#servermessageevent-onchatmessage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMessageEvent.onGameMessage&quot;,&quot;href&quot;:&quot;#servermessageevent-ongamemessage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMessageEvent.onCommandMessage&quot;,&quot;href&quot;:&quot;#servermessageevent-oncommandmessage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -30,10 +30,9 @@ Fabric平台的服务器端消息事件。
 object ServerMessageEvent
 ```
 
-Fabric平台的服务器端消息事件。
-
-该对象提供与聊天消息、游戏消息和命令消息相关的事件。
-包括允许事件（可以取消）和处理程序事件（仅通知）。
+Fabric 平台的服务端消息事件。
+此对象提供与聊天消息、游戏消息和命令消息相关的事件。
+包含可取消的允许类事件，以及仅通知的处理类事件。
 
 ### ServerMessageEvent.onAllowChatMessage
 
@@ -50,11 +49,11 @@ Fabric平台的服务器端消息事件。
 val onAllowChatMessage
 ```
 
-触发事件以允许或拒绝发送聊天消息。
+当需要决定是否允许发送聊天消息时触发。
 
 ### 返回值
 
-true 表示允许该消息， false 表示取消该消息。
+返回值允许消息发送，false 表示取消。
 
 </ApiMemberCard>
 
@@ -73,11 +72,11 @@ true 表示允许该消息， false 表示取消该消息。
 val onAllowGameMessage
 ```
 
-触发事件以允许或拒绝发送游戏消息。
+当需要决定是否允许发送游戏消息时触发。
 
 ### 返回值
 
-true 表示允许该消息， false 表示取消该消息。
+返回值允许消息发送，false 表示取消。
 
 </ApiMemberCard>
 
@@ -96,11 +95,11 @@ true 表示允许该消息， false 表示取消该消息。
 val onAllowCommandMessage
 ```
 
-触发事件以允许或拒绝发送命令消息。
+当需要决定是否允许发送命令消息时触发。
 
 ### 返回值
 
-true 表示允许该消息， false 表示取消该消息。
+返回值允许消息发送，false 表示取消。
 
 </ApiMemberCard>
 
@@ -119,7 +118,7 @@ true 表示允许该消息， false 表示取消该消息。
 val onChatMessage
 ```
 
-发送聊天消息时触发的事件（被允许后）。
+当聊天消息发送后触发（在允许之后）。
 
 </ApiMemberCard>
 
@@ -138,7 +137,7 @@ val onChatMessage
 val onGameMessage
 ```
 
-发送游戏消息时触发的事件（被允许后）。
+当游戏消息发送后触发（在允许之后）。
 
 </ApiMemberCard>
 
@@ -157,7 +156,7 @@ val onGameMessage
 val onCommandMessage
 ```
 
-发送命令消息时（被允许后）触发事件。
+当命令消息发送后触发（在允许之后）。
 
 </ApiMemberCard>
 

@@ -46,7 +46,7 @@ hot-reload capability.
 
 ### Returns
 
-The registered KattonMobEffectEntry
+registered KattonMobEffectEntry
 
 </ApiMemberCard>
 
@@ -77,7 +77,7 @@ Registers a native MobEffect with hot-reload support (Identifier overload).
 
 ### Returns
 
-The registered KattonMobEffectEntry
+registered KattonMobEffectEntry
 
 </ApiMemberCard>
 
@@ -110,7 +110,7 @@ For more complex effects, use the full factory pattern with registerNativeEffect
 
 ### Returns
 
-A new MobEffect instance
+new MobEffect instance
 
 </ApiMemberCard>
 

@@ -74,7 +74,7 @@ Event triggered to allow or deny a mob effect being added to an entity.
 
 ### Returns
 
-true to allow the effect, false to cancel it.
+to allow the effect, false to cancel it.
 
 </ApiMemberCard>
 
@@ -136,7 +136,7 @@ Event triggered to allow or deny early removal of a mob effect.
 
 ### Returns
 
-true to allow removal, false to cancel it.
+to allow removal, false to cancel it.
 
 </ApiMemberCard>
 

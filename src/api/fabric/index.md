@@ -16,7 +16,7 @@ Generated from module `fabric`.
 - [ChunkAndBlockEvent](./event/ChunkAndBlockEvent.md) - Chunk, block entity, and block events for Fabric platform.
 - [ItemComponentEvent](./event/ItemComponentEvent.md) - Item component and enchantment events for Fabric platform.
 - [ItemEvent](./event/ItemEvent.md) - Item interaction events for Fabric platform.
-- [LivingBehaviorEvent](./event/LivingBehaviorEvent.md) - Living entity behavior events for Fabric platform.
+- [LivingBehaviorEvent](./event/LivingBehaviorEvent.md) - Living behavior events for Fabric platform.
 - [LivingUseItemEvent](./event/LivingUseItemEvent.md) - Living entity use item events for Fabric platform.
 - [LootTableEvent](./event/LootTableEvent.md) - Loot table events for Fabric platform.
 - [PlayerEvent](./event/PlayerEvent.md) - Player interaction events for Fabric platform.

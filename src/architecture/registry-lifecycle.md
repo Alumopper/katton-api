@@ -23,9 +23,9 @@ Katton tracks 10 reloadable registry areas:
 
 | Mode | Behavior |
 |---|---|
-| `RegisterMode.GLOBAL` | Registers once and is not tracked for reload. |
-| `RegisterMode.RELOADABLE` | Tracks ownership by script and refreshes that ownership on reload. |
-| `RegisterMode.AUTO` | Uses GLOBAL during init and RELOADABLE after the server starts. |
+| `RegisterMode.GLOBAL` | Permanent registration, allowed only during initialization. It is unaffected by reloads and world changes. |
+| `RegisterMode.WORLD` | Lives for one world session. It survives `/katton reload` and is released when leaving the world. |
+| `RegisterMode.RELOADABLE` | Tracks ownership by script and refreshes that ownership on `/katton reload`. |
 
 ## Reload Semantics
 
@@ -38,4 +38,3 @@ Use `/katton registry` and `/katton registry stale` on Fabric/NeoForge to inspec
 ## Paper
 
 Paper disables registry mutation entirely. A vanilla client connected to a Paper server cannot receive Katton-defined registry entries, so Paper scripts should use vanilla content, Bukkit APIs, datapack mutations, and event logic instead.
-

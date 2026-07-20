@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event.managed"
   source-file="neoforge/src/main/kotlin/top/katton/api/event/managed/NeoForgeManagedEvents.kt"
 >
-NeoForge 实施[ManagedListenerProvider]。
+NeoForge 版 [ManagedListenerProvider] 的实现。 通过 [IEventBus.addListener] 注册原生 NeoForge 事件监听器，按作用域跟踪以便在重载时自动清理，并支持通过 [ManagedEventHandle] 手动注销。 在 [KattonNeoForge] 构造期间通过 [initialize] 初始化一次。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;NeoForgeManagedEvents&quot;,&quot;href&quot;:&quot;#neoforgemanagedevents&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;NeoForgeManagedEvents.initialize&quot;,&quot;href&quot;:&quot;#neoforgemanagedevents-initialize&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,13 +30,9 @@ NeoForge 实施[ManagedListenerProvider]。
 object NeoForgeManagedEvents
 ```
 
-NeoForge 实施[ManagedListenerProvider]。
-
-通过 [IEventBus.addListener] 注册原生 NeoForge 事件监听器，
-按范围跟踪它们，以便在重载时自动清理，并支持手动
-通过[ManagedEventHandle]取消注册。
-
-通过 [initialize] 在 [KattonNeoForge] 构造函数中初始化一次。
+NeoForge 版 [ManagedListenerProvider] 的实现。
+通过 [IEventBus.addListener] 注册原生 NeoForge 事件监听器，按作用域跟踪以便在重载时自动清理，并支持通过 [ManagedEventHandle] 手动注销。
+在 [KattonNeoForge] 构造期间通过 [initialize] 初始化一次。
 
 ### NeoForgeManagedEvents.initialize
 
@@ -54,8 +50,8 @@ NeoForge 实施[ManagedListenerProvider]。
 @JvmStatic fun initialize()
 ```
 
-必须在 mod 构建期间调用一次。
-在 [ManagedEvents] 上安装NeoForge特定的[provider]。
+必须在模组构造期间调用一次。
+在 [ManagedEvents] 上安装 NeoForge 专用的 [provider]。
 
 </ApiMemberCard>
 

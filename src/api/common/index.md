@@ -14,13 +14,18 @@ Generated from module `common`.
 ## Pages
 
 - [ClientDataApi](./ClientDataApi.md) - Sync a key-value pair to all connected players. A value of `null` removes the key on the client side.
+- [ClientItemRenderAnimation](./ClientItemRenderAnimation.md) - A transform keyframe on an animation track. [time] is usually 0.0 to 1.0.
+- [ClientItemRenderMarkerApi](./ClientItemRenderMarkerApi.md) - A lightweight client-side item model rendered directly in the world.
+- [ClientPostEffectApi](./ClientPostEffectApi.md) - Register a runtime client post effect from Minecraft 26.x post-effect JSON.
+- [ClientPostEffectPresetsApi](./ClientPostEffectPresetsApi.md) - Register a configurable full-screen invert effect.
+- [ClientPostEffectServerApi](./ClientPostEffectServerApi.md) - Ask one Fabric or NeoForge client to activate a registered post effect.
 - [KattonAPI](./KattonAPI.md) - Execute [block] only once for a given [key] under the current script owner namespace.
 - [KattonClientApi](./KattonClientApi.md) - Gets the raw Minecraft client instance.
 - [KattonClientRenderApi](./KattonClientRenderApi.md) - Screen-space render callback context.
 - [KattonComponentApi](./KattonComponentApi.md) - Combines two nullable Components into a new Component.
 - [KattonConfigApi](./KattonConfigApi.md) - Script-facing config API. Reads config values from the current script's pack manifest.
 - [KattonContextApi](./KattonContextApi.md) - Determines which position the returned [ExecutionContext] uses.
-- [ScriptEntrypoint](./ScriptEntrypoint.md) - Marks a top-level no-argument function as a client-side script entrypoint.
+- [ScriptEntrypoint](./ScriptEntrypoint.md) - Marks a top-level no-argument function as a client script entrypoint.
 - [Recipes](./datapack/Recipes.md)
 - [KattonBlockApi](./dpcaller/KattonBlockApi.md) - Map-like access to blocks in a level by position.
 - [KattonBlockEntityApi](./dpcaller/KattonBlockEntityApi.md) - Map-like access to block entities in a level by position.
@@ -36,8 +41,8 @@ Generated from module `common`.
 - [KattonSlotProviderApi](./dpcaller/KattonSlotProviderApi.md) - Get an item from a container slot.
 - [KattonWorldApi](./dpcaller/KattonWorldApi.md) - Map-like access to all server levels by ResourceKey.
 - [KattonEventsArg](./event/KattonEventsArg.md) - Argument for server-level events.
-- [ManagedEvents](./event/managed/ManagedEvents.md) - Managed event listener handle — returned to scripts when registering a native listener. Can be used to manually unregister the listener before reload.
-- [InjectApi](./inject/InjectApi.md) - Handle for a registered injection, used for rollback operations.
+- [ManagedEvents](./event/managed/ManagedEvents.md) - Managed event listener handle returned to scripts when registering a native listener. 注册原生事件监听器后返回给脚本的托管监听器句柄。
+- [InjectApi](./inject/InjectApi.md) - 注册注入的句柄，用于回滚操作。
 - [KattonBlockModificationApi](./mod/KattonBlockModificationApi.md) - Configuration for modifying existing block properties.
 - [KattonEntityTypeModificationApi](./mod/KattonEntityTypeModificationApi.md) - Configuration for modifying default attributes of an existing [EntityType] (vanilla or modded).
 - [KattonItemModificationApi](./mod/KattonItemModificationApi.md) - Configuration for modifying existing item properties.

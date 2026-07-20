@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event.managed"
   source-file="common/src/main/kotlin/top/katton/api/event/managed/ManagedEvents.kt"
 >
-托管事件侦听器句柄 - 在注册本机侦听器时返回到脚本。可用于在重载之前手动取消注册侦听器。
+Managed event listener handle returned to scripts when registering a native listener. 注册原生事件监听器后返回给脚本的托管监听器句柄。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ManagedEventHandle&quot;,&quot;href&quot;:&quot;#managedeventhandle&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ManagedListenerProvider&quot;,&quot;href&quot;:&quot;#managedlistenerprovider&quot;,&quot;kind&quot;:&quot;Interface&quot;,&quot;kindKey&quot;:&quot;interface&quot;}, {&quot;label&quot;:&quot;provider&quot;,&quot;href&quot;:&quot;#provider&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;registerEvent&quot;,&quot;href&quot;:&quot;#registerevent&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;unregisterEvent&quot;,&quot;href&quot;:&quot;#unregisterevent&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearManagedByScope&quot;,&quot;href&quot;:&quot;#clearmanagedbyscope&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearAllManaged&quot;,&quot;href&quot;:&quot;#clearallmanaged&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,8 +30,8 @@ outline: [2, 2]
 data class ManagedEventHandle( val id: Long, val eventClass: Class<*> )
 ```
 
-托管事件侦听器句柄 - 在注册本机侦听器时返回到脚本。
-可用于在重载之前手动取消注册侦听器。
+Managed event listener handle returned to scripts when registering a native listener.
+注册原生事件监听器后返回给脚本的托管监听器句柄。
 
 </ApiMemberCard>
 
@@ -50,11 +50,12 @@ data class ManagedEventHandle( val id: Long, val eventClass: Class<*> )
 interface ManagedListenerProvider
 ```
 
-平台提供的托管事件侦听器注册表的实现。
-每个平台（Paper、Fabric、NeoForge）在初始化期间设置[provider]。
+Platform bridge for managed native event listeners.
+Paper, Fabric, and NeoForge can provide their own implementation through [provider].
+Implementations track scope and environment so integrated client and server listeners can reload independently.
 
-托管侦听器会在重载时自动清理（GLOBAL范围仍然存在，
-WORLD/SERVER_CACHE范围被清除，所有侦听器在完全重载时被清除）。
+事件会按脚本所有者和作用域记录。WORLD/SERVER_CACHE 作用域会在重载或清理时自动移除，
+GLOBAL 作用域需要显式注销或在全局清理时移除。
 
 </ApiMemberCard>
 
@@ -75,8 +76,8 @@ WORLD/SERVER_CACHE范围被清除，所有侦听器在完全重载时被清除�
 @Volatile @JvmField var provider: ManagedListenerProvider?
 ```
 
-平台在初始化期间设置它（例如，PaperManagedEvents.initialize()）。
-必须在任何脚本调用 [registerEvent] 之前设置。
+Active managed-listener provider installed by the current platform.
+Paper currently initializes this from `PaperManagedEvents.initialize()`.
 
 </ApiMemberCard>
 
@@ -95,23 +96,23 @@ WORLD/SERVER_CACHE范围被清除，所有侦听器在完全重载时被清除�
 inline fun <reified T : Any> registerEvent(priority: Int = 2, ignoreCancelled: Boolean = false, handler: (T) -> Unit): ManagedEventHandle
 ```
 
-注册托管本机事件侦听器。
+Register a native platform event listener from script code.
 
-侦听器会在 WORLD/SERVER_CACHE 范围的 `/katton reload` 上自动清理。
-GLOBAL范围侦听器在重载期间持续存在，直到手动[unregisterEvent]为止。
+Listeners in WORLD/SERVER_CACHE scope are cleaned up during `/katton reload`.
+GLOBAL listeners stay active until [unregisterEvent] or a full managed cleanup removes them.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `T` | 本机事件类（例如，org.bukkit.event.player.PlayerMoveEvent） |
-| `priority` | 事件优先级（0=LOWEST、1=LOW、2=NORMAL、3=HIGH、4=HIGHEST、5=MONITOR） |
-| `ignoreCancelled` | 如果为 true，则不会为已取消的事件调用处理程序 |
-| `handler` | 接收输入事件的回调 |
+| `T` | Native event type, for example `org.bukkit.event.player.PlayerMoveEvent`. |
+| `priority` | Event priority. Paper uses 0=LOWEST, 1=LOW, 2=NORMAL, 3=HIGH, 4=HIGHEST, 5=MONITOR. |
+| `ignoreCancelled` | When `true`, cancelled events are ignored when the platform supports that behavior. |
+| `handler` | Callback invoked with the native event instance. |
 
 ### 返回值
 
-可以与 [unregisterEvent] 一起使用来手动删除监听器的句柄
+Handle that can be passed to [unregisterEvent].
 
 </ApiMemberCard>
 
@@ -130,7 +131,7 @@ GLOBAL范围侦听器在重载期间持续存在，直到手动[unregisterEvent]
 fun unregisterEvent(handle: ManagedEventHandle)
 ```
 
-手动注销由 [registerEvent] 创建的托管侦听器。
+Unregister a listener previously created by [registerEvent].
 
 </ApiMemberCard>
 
@@ -149,8 +150,8 @@ fun unregisterEvent(handle: ManagedEventHandle)
 fun clearManagedByScope(scope: ScriptPackScope)
 ```
 
-取消注册在 [scope] 下注册的所有托管侦听器。
-被[top.katton.Katton.clearWorldAndServerEvents]呼叫。
+Clear all managed listeners registered under [scope].
+Called from [top.katton.Katton.clearWorldAndServerEvents].
 
 </ApiMemberCard>
 
@@ -169,8 +170,8 @@ fun clearManagedByScope(scope: ScriptPackScope)
 fun clearAllManaged()
 ```
 
-取消注册 ALL 托管侦听器。
-在完全重载或服务器关闭时调用。
+Clear every managed listener from the active provider.
+Used during full shutdown or global cleanup.
 
 </ApiMemberCard>
 

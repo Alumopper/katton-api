@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.inject"
   source-file="common/src/main/kotlin/top/katton/api/inject/InjectApi.kt"
 >
-Handle for a registered injection, used for rollback operations.
+注册注入的句柄，用于回滚操作。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;InjectionHandle&quot;,&quot;href&quot;:&quot;#injectionhandle&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.method&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-method&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.instance&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-instance&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.arguments&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-arguments&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.owner&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-owner&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.setArgument&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-setargument&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.cancel&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-cancel&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.cancelWith&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-cancelwith&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.setReturnValue&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-setreturnvalue&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext.constructor&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext-constructor&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext.instance&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext-instance&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext.arguments&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext-arguments&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext.owner&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext-owner&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;injectBefore&quot;,&quot;href&quot;:&quot;#injectbefore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectBefore&quot;,&quot;href&quot;:&quot;#injectbefore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectAfter&quot;,&quot;href&quot;:&quot;#injectafter&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectConstructorBefore&quot;,&quot;href&quot;:&quot;#injectconstructorbefore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectConstructorBefore&quot;,&quot;href&quot;:&quot;#injectconstructorbefore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectConstructorAfter&quot;,&quot;href&quot;:&quot;#injectconstructorafter&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectConstructorAfter&quot;,&quot;href&quot;:&quot;#injectconstructorafter&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectAfter&quot;,&quot;href&quot;:&quot;#injectafter&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;replace&quot;,&quot;href&quot;:&quot;#replace&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;replace&quot;,&quot;href&quot;:&quot;#replace&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;redirect&quot;,&quot;href&quot;:&quot;#redirect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;redirect&quot;,&quot;href&quot;:&quot;#redirect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rollbackUnsafe&quot;,&quot;href&quot;:&quot;#rollbackunsafe&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rollbackUnsafeByOwner&quot;,&quot;href&quot;:&quot;#rollbackunsafebyowner&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,13 +30,13 @@ Handle for a registered injection, used for rollback operations.
 class InjectionHandle internal constructor( val id: String )
 ```
 
-Handle for a registered injection, used for rollback operations.
+注册注入的句柄，用于回滚操作。
 
 ### Properties
 
 | Property | Description |
 | --- | --- |
-| `id` | Injection registration id, used for rollback |
+| `id` | 注入注册 ID，用于回滚。 |
 
 </ApiMemberCard>
 
@@ -55,16 +55,15 @@ Handle for a registered injection, used for rollback operations.
 class InjectionInvocationContext internal constructor( private val delegate: InjectionManager.InjectionInvocation )
 ```
 
-Invocation context passed to unsafe callbacks.
+传给不安全回调的调用上下文。
 
-Provides access to the method being invoked, the receiver instance,
-arguments, and control over the invocation flow.
+可访问正在调用的方法、接收实例、参数，并控制调用流程。
 
 ### Properties
 
 | Property | Description |
 | --- | --- |
-| `delegate` | The underlying injection invocation delegate |
+| `delegate` | 底层的注入调用委托。 |
 
 ### InjectionInvocationContext.method
 
@@ -81,7 +80,7 @@ arguments, and control over the invocation flow.
 val method: Method
 ```
 
-Method currently being invoked.
+当前正在调用的方法。
 
 </ApiMemberCard>
 
@@ -100,7 +99,7 @@ Method currently being invoked.
 val instance: Any?
 ```
 
-Method receiver instance, or `null` for static methods.
+方法接收实例；对于静态方法则为 `null`。
 
 </ApiMemberCard>
 
@@ -119,7 +118,7 @@ Method receiver instance, or `null` for static methods.
 val arguments: Array<Any?>
 ```
 
-Raw argument array.
+原始参数数组。
 
 </ApiMemberCard>
 
@@ -138,7 +137,7 @@ Raw argument array.
 val owner: String?
 ```
 
-Bound script owner for this invocation.
+这次调用绑定的脚本归属。
 
 </ApiMemberCard>
 
@@ -157,14 +156,14 @@ Bound script owner for this invocation.
 fun setArgument(index: Int, value: Any?)
 ```
 
-Mutates argument at [index] for current invocation.
+修改当前调用中指定位置的参数。
 
 ### Parameters
 
 | Parameter | Description |
 | --- | --- |
-| `index` | The argument index to modify |
-| `value` | The new value for the argument |
+| `index` | 要修改的参数下标。 |
+| `value` | 参数的新值。 |
 
 </ApiMemberCard>
 
@@ -183,7 +182,7 @@ Mutates argument at [index] for current invocation.
 fun cancel()
 ```
 
-Cancels current invocation. Return value becomes type default if not overridden.
+取消当前调用。若未覆写返回值，则使用该类型的默认值。
 
 </ApiMemberCard>
 
@@ -202,13 +201,13 @@ Cancels current invocation. Return value becomes type default if not overridden.
 fun cancelWith(returnValue: Any?)
 ```
 
-Cancels current invocation and overrides return value immediately.
+取消当前调用，并立即指定返回值。
 
 ### Parameters
 
 | Parameter | Description |
 | --- | --- |
-| `returnValue` | The value to return instead of executing the method |
+| `returnValue` | 用来替代方法执行结果的返回值。 |
 
 </ApiMemberCard>
 
@@ -227,13 +226,13 @@ Cancels current invocation and overrides return value immediately.
 fun setReturnValue(returnValue: Any?)
 ```
 
-Overrides return value in after phase.
+在 after 阶段覆写返回值。
 
 ### Parameters
 
 | Parameter | Description |
 | --- | --- |
-| `returnValue` | The value to return instead of the original result |
+| `returnValue` | 用来替代原始结果的返回值。 |
 
 </ApiMemberCard>
 
@@ -254,13 +253,13 @@ Overrides return value in after phase.
 class ConstructorInvocationContext internal constructor( private val delegate: InjectionManager.ConstructorInvocation )
 ```
 
-Constructor invocation context passed to unsafe constructor callbacks.
+传给不安全构造器回调的构造器调用上下文。
 
 ### Properties
 
 | Property | Description |
 | --- | --- |
-| `delegate` | The underlying constructor invocation delegate |
+| `delegate` | 底层的构造器调用委托。 |
 
 ### ConstructorInvocationContext.constructor
 
@@ -277,7 +276,7 @@ Constructor invocation context passed to unsafe constructor callbacks.
 val constructor: Constructor<*>
 ```
 
-Constructor currently being invoked.
+当前正在调用的构造器。
 
 </ApiMemberCard>
 
@@ -296,7 +295,7 @@ Constructor currently being invoked.
 val instance: Any?
 ```
 
-Constructed instance (`this`) when available.
+已构造的实例（`this`），如果可用。
 
 </ApiMemberCard>
 

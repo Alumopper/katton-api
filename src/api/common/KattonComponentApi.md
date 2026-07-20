@@ -42,7 +42,7 @@ If either Component is null, it is treated as an empty Component.
 
 ### Returns
 
-A new Component containing both texts
+new Component containing both texts
 
 </ApiMemberCard>
 
@@ -73,7 +73,7 @@ The string is converted to a literal Component before appending.
 
 ### Returns
 
-A new Component containing both texts
+new Component containing both texts
 
 </ApiMemberCard>
 
@@ -104,7 +104,7 @@ The string is converted to a literal Component and prepended to the Component.
 
 ### Returns
 
-A new Component containing both texts
+new Component containing both texts
 
 </ApiMemberCard>
 

@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.dpcaller"
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonScoreboardApi.kt"
 >
-获取目标中目标的分值。
+Get a score value for a target in an objective.
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;get&quot;,&quot;href&quot;:&quot;#get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;set&quot;,&quot;href&quot;:&quot;#set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;fake&quot;,&quot;href&quot;:&quot;#fake&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonScoreHolderScoreCollection&quot;,&quot;href&quot;:&quot;#kattonscoreholderscorecollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonScoreHolderScoreCollection.get&quot;,&quot;href&quot;:&quot;#kattonscoreholderscorecollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonScoreHolderScoreCollection.set&quot;,&quot;href&quot;:&quot;#kattonscoreholderscorecollection-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;scores&quot;,&quot;href&quot;:&quot;#scores&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;getObjective&quot;,&quot;href&quot;:&quot;#getobjective&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getOrCreateObjective&quot;,&quot;href&quot;:&quot;#getorcreateobjective&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setScore&quot;,&quot;href&quot;:&quot;#setscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setScore&quot;,&quot;href&quot;:&quot;#setscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setScore&quot;,&quot;href&quot;:&quot;#setscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addScore&quot;,&quot;href&quot;:&quot;#addscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addScore&quot;,&quot;href&quot;:&quot;#addscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addScore&quot;,&quot;href&quot;:&quot;#addscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getScore&quot;,&quot;href&quot;:&quot;#getscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getScore&quot;,&quot;href&quot;:&quot;#getscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getScore&quot;,&quot;href&quot;:&quot;#getscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;resetScore&quot;,&quot;href&quot;:&quot;#resetscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;resetScore&quot;,&quot;href&quot;:&quot;#resetscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;resetScore&quot;,&quot;href&quot;:&quot;#resetscore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;leaveTeam&quot;,&quot;href&quot;:&quot;#leaveteam&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;joinTeam&quot;,&quot;href&quot;:&quot;#jointeam&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;emptyTeam&quot;,&quot;href&quot;:&quot;#emptyteam&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;deleteTeam&quot;,&quot;href&quot;:&quot;#deleteteam&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;createTeam&quot;,&quot;href&quot;:&quot;#createteam&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getTeam&quot;,&quot;href&quot;:&quot;#getteam&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addTriggerValue&quot;,&quot;href&quot;:&quot;#addtriggervalue&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setTriggerValue&quot;,&quot;href&quot;:&quot;#settriggervalue&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;simpleTrigger&quot;,&quot;href&quot;:&quot;#simpletrigger&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,7 +30,7 @@ outline: [2, 2]
 operator fun Scoreboard.get(target: ScoreHolder, objective: Objective): Int?
 ```
 
-获取目标中目标的分值。
+Get a score value for a target in an objective.
 
 </ApiMemberCard>
 
@@ -49,7 +49,7 @@ operator fun Scoreboard.get(target: ScoreHolder, objective: Objective): Int?
 operator fun Scoreboard.set(target: ScoreHolder, objective: Objective, value: Int)
 ```
 
-为目标中的目标设置分数值。
+Set a score value for a target in an objective.
 
 </ApiMemberCard>
 
@@ -68,17 +68,17 @@ operator fun Scoreboard.set(target: ScoreHolder, objective: Objective, value: In
 fun fake(name: String): ScoreHolder
 ```
 
-创建一个带有名字的假得分持有者。
+Create a fake score holder with a name.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `name` | 假分数持有者的姓名 |
+| `name` | The name for the fake score holder |
 
 ### 返回值
 
-仅用于计分板目的的ScoreHolder
+A ScoreHolder that only exists for scoreboard purposes
 
 </ApiMemberCard>
 
@@ -97,14 +97,14 @@ fun fake(name: String): ScoreHolder
 class KattonScoreHolderScoreCollection( val scoreboard: Scoreboard, val scoreHolder: ScoreHolder )
 ```
 
-像地图一样访问得分持有者跨目标的得分。
+Map-like access to a score holder's scores across objectives.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `scoreboard` | 记分板实例 |
-| `scoreHolder` | 正在访问其分数的ScoreHolder |
+| `scoreboard` | The Scoreboard instance |
+| `scoreHolder` | The ScoreHolder whose scores are being accessed |
 
 ### KattonScoreHolderScoreCollection.get
 
@@ -121,7 +121,7 @@ class KattonScoreHolderScoreCollection( val scoreboard: Scoreboard, val scoreHol
 operator fun get(objective: Objective): Int?
 ```
 
-获取目标的得分值。
+Get the score value for an objective.
 
 </ApiMemberCard>
 
@@ -140,7 +140,7 @@ operator fun get(objective: Objective): Int?
 operator fun set(objective: Objective, value: Int)
 ```
 
-设置目标的分值。
+Set the score value for an objective.
 
 </ApiMemberCard>
 
@@ -161,7 +161,7 @@ operator fun set(objective: Objective, value: Int)
 val ScoreHolder.scores: KattonScoreHolderScoreCollection
 ```
 
-用于访问分数持有者分数的扩展属性。
+Extension property to access a score holder's scores.
 
 </ApiMemberCard>
 
@@ -180,17 +180,17 @@ val ScoreHolder.scores: KattonScoreHolderScoreCollection
 fun getObjective(name: String): Objective?
 ```
 
-按名称获取目标。
+Get an objective by name.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `name` | 目标名称 |
+| `name` | objective name |
 
 ### 返回值
 
-目标或 null 如果未找到
+Objective or null if not found
 
 </ApiMemberCard>
 
@@ -209,22 +209,22 @@ fun getObjective(name: String): Objective?
 fun getOrCreateObjective(name: String, displayName: Component = Component.literal(name), criteria: ObjectiveCriteria = ObjectiveCriteria.DUMMY, renderType: ObjectiveCriteria.RenderType = ObjectiveCriteria.RenderType.INTEGER, displayAutoUpdate: Boolean = false, numberFormat: NumberFormat? = null): Objective
 ```
 
-获取或创建记分板目标。
+Get or create a scoreboard Objective.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `name` | 目标名称 |
-| `displayName` | 目标的显示名称组件 |
-| `criteria` | 客观标准 |
-| `renderType` | 目标的渲染类型 |
-| `displayAutoUpdate` | 显示是否自动更新 |
-| `numberFormat` | 可选数字格式 |
+| `name` | objective name |
+| `displayName` | display name component for the objective |
+| `criteria` | objective criteria |
+| `renderType` | render type for the objective |
+| `displayAutoUpdate` | whether the display auto-updates |
+| `numberFormat` | optional number format |
 
 ### 返回值
 
-现有或新创建的目标
+existing or newly created Objective
 
 </ApiMemberCard>
 
@@ -243,15 +243,15 @@ fun getOrCreateObjective(name: String, displayName: Component = Component.litera
 fun setScore(target: String, objective: Objective, value: Int)
 ```
 
-为按名称标识的目标设置分数。
+Set a score for a target identified by name.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标名称 |
-| `objective` | 设定目标 |
-| `value` | 要设置的分值 |
+| `target` | target name |
+| `objective` | objective to set |
+| `value` | score value to set |
 
 </ApiMemberCard>
 
@@ -270,15 +270,15 @@ fun setScore(target: String, objective: Objective, value: Int)
 fun setScore(target: Entity, objective: Objective, value: Int)
 ```
 
-为实体设置分数。
+Set a score for an Entity.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标实体 |
-| `objective` | 设定目标 |
-| `value` | 分值 |
+| `target` | target Entity |
+| `objective` | objective to set |
+| `value` | score value |
 
 </ApiMemberCard>
 
@@ -297,15 +297,15 @@ fun setScore(target: Entity, objective: Objective, value: Int)
 fun setScore(target: ScoreHolder, objective: Objective, value: Int)
 ```
 
-将分数设置为ScoreHolder。
+Set a score for a ScoreHolder.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标ScoreHolder |
-| `objective` | 设定目标 |
-| `value` | 分值 |
+| `target` | target ScoreHolder |
+| `objective` | objective to set |
+| `value` | score value |
 
 </ApiMemberCard>
 
@@ -324,15 +324,15 @@ fun setScore(target: ScoreHolder, objective: Objective, value: Int)
 fun addScore(target: String, objective: Objective, delta: Int)
 ```
 
-按名称将增量添加到目标分数。
+Add delta to a target's score by name.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标名称 |
-| `objective` | 修改目标 |
-| `delta` | 添加量 |
+| `target` | target name |
+| `objective` | objective to modify |
+| `delta` | amount to add |
 
 </ApiMemberCard>
 
@@ -351,15 +351,15 @@ fun addScore(target: String, objective: Objective, delta: Int)
 fun addScore(target: Entity, objective: Objective, delta: Int)
 ```
 
-将增量添加到目标实体的分数中。
+Add delta to a target Entity's score.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标实体 |
-| `objective` | 修改目标 |
-| `delta` | 添加量 |
+| `target` | target Entity |
+| `objective` | objective to modify |
+| `delta` | amount to add |
 
 </ApiMemberCard>
 
@@ -378,15 +378,15 @@ fun addScore(target: Entity, objective: Objective, delta: Int)
 fun addScore(target: ScoreHolder, objective: Objective, delta: Int)
 ```
 
-将 delta 添加到 ScoreHolder 的分数中。
+Add delta to a ScoreHolder's score.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标ScoreHolder |
-| `objective` | 修改目标 |
-| `delta` | 添加量 |
+| `target` | target ScoreHolder |
+| `objective` | objective to modify |
+| `delta` | amount to add |
 
 </ApiMemberCard>
 
@@ -405,18 +405,18 @@ fun addScore(target: ScoreHolder, objective: Objective, delta: Int)
 fun getScore(target: String, objective: Objective): Int?
 ```
 
-按目标名称获取分数。
+Get a score by target name.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标名称 |
-| `objective` | 查询目的 |
+| `target` | target name |
+| `objective` | objective to query |
 
 ### 返回值
 
-得分值或 null（如果不存在）
+score value or null if not present
 
 </ApiMemberCard>
 
@@ -435,18 +435,18 @@ fun getScore(target: String, objective: Objective): Int?
 fun getScore(target: Entity, objective: Objective): Int?
 ```
 
-按实体获取分数。
+Get a score by Entity.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标实体 |
-| `objective` | 查询目的 |
+| `target` | target Entity |
+| `objective` | objective to query |
 
 ### 返回值
 
-得分值或 null（如果不存在）
+score value or null if not present
 
 </ApiMemberCard>
 
@@ -465,18 +465,18 @@ fun getScore(target: Entity, objective: Objective): Int?
 fun getScore(target: ScoreHolder, objective: Objective): Int?
 ```
 
-获得ScoreHolder 的分数。
+Get a score for a ScoreHolder.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标ScoreHolder |
-| `objective` | 查询目的 |
+| `target` | target ScoreHolder |
+| `objective` | objective to query |
 
 ### 返回值
 
-得分值或 null（如果不存在）
+score value or null if not present
 
 </ApiMemberCard>
 
@@ -495,14 +495,14 @@ fun getScore(target: ScoreHolder, objective: Objective): Int?
 fun resetScore(target: String, objective: Objective)
 ```
 
-按名称重置目标的分数。
+Reset a target's score by name.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标名称 |
-| `objective` | 重置目标 |
+| `target` | target name |
+| `objective` | objective to reset |
 
 </ApiMemberCard>
 
@@ -521,14 +521,14 @@ fun resetScore(target: String, objective: Objective)
 fun resetScore(target: Entity, objective: Objective)
 ```
 
-按实体重置目标的分数。
+Reset a target's score by Entity.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标实体 |
-| `objective` | 重置目标 |
+| `target` | target Entity |
+| `objective` | objective to reset |
 
 </ApiMemberCard>
 
@@ -547,14 +547,14 @@ fun resetScore(target: Entity, objective: Objective)
 fun resetScore(target: ScoreHolder, objective: Objective)
 ```
 
-重置ScoreHolder的分数。
+Reset a ScoreHolder's score.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标ScoreHolder |
-| `objective` | 重置目标 |
+| `target` | target ScoreHolder |
+| `objective` | objective to reset |
 
 </ApiMemberCard>
 
@@ -573,13 +573,13 @@ fun resetScore(target: ScoreHolder, objective: Objective)
 fun leaveTeam(members: Collection<ScoreHolder>)
 ```
 
-从任何球队中删除一组球员。
+Remove a collection of players from any teams.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `members` | 要从团队中删除的ScoreHolder成员集合 |
+| `members` | collection of ScoreHolder members to remove from teams |
 
 </ApiMemberCard>
 
@@ -598,14 +598,14 @@ fun leaveTeam(members: Collection<ScoreHolder>)
 fun joinTeam(team: PlayerTeam, members: Collection<ScoreHolder>)
 ```
 
-将成员添加到PlayerTeam。
+Add members to a PlayerTeam.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `team` | PlayerTeam加入 |
-| `members` | 要添加的ScoreHolder集合 |
+| `team` | PlayerTeam to join |
+| `members` | collection of ScoreHolder to add |
 
 </ApiMemberCard>
 
@@ -624,13 +624,13 @@ fun joinTeam(team: PlayerTeam, members: Collection<ScoreHolder>)
 fun emptyTeam(team: PlayerTeam)
 ```
 
-清空玩家团队的所有成员。
+Empty a player team of all members.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `team` | PlayerTeam 清空 |
+| `team` | PlayerTeam to empty |
 
 </ApiMemberCard>
 
@@ -649,13 +649,13 @@ fun emptyTeam(team: PlayerTeam)
 fun deleteTeam(team: PlayerTeam)
 ```
 
-从记分板中删除玩家队伍。
+Delete a player team from the scoreboard.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `team` | 要删除的团队 |
+| `team` | team to delete |
 
 </ApiMemberCard>
 
@@ -674,14 +674,14 @@ fun deleteTeam(team: PlayerTeam)
 fun createTeam(name: String, displayName: Component = Component.literal(name))
 ```
 
-如果团队不存在，请创建一个团队。
+Create a team if it does not exist.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `name` | 队名 |
-| `displayName` | 团队的显示名称组件 |
+| `name` | team name |
+| `displayName` | display name component for the team |
 
 </ApiMemberCard>
 
@@ -700,17 +700,17 @@ fun createTeam(name: String, displayName: Component = Component.literal(name))
 fun getTeam(name: String): PlayerTeam?
 ```
 
-按名字找一个团队。
+Get a team by name.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `name` | 队名 |
+| `name` | team name |
 
 ### 返回值
 
-PlayerTeam 如果未找到则为 null
+PlayerTeam or null if not found
 
 </ApiMemberCard>
 
@@ -729,15 +729,15 @@ PlayerTeam 如果未找到则为 null
 fun addTriggerValue(serverPlayer: ServerPlayer, objective: Objective, i: Int)
 ```
 
-为触发目标上的玩家添加触发得分值。
+Add a trigger score value for a player on a trigger objective.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `serverPlayer` | 播放器修改 |
-| `objective` | 触发目标 |
-| `i` | 添加量 |
+| `serverPlayer` | player to modify |
+| `objective` | trigger objective |
+| `i` | amount to add |
 
 </ApiMemberCard>
 
@@ -756,15 +756,15 @@ fun addTriggerValue(serverPlayer: ServerPlayer, objective: Objective, i: Int)
 fun setTriggerValue(serverPlayer: ServerPlayer, objective: Objective, i: Int)
 ```
 
-为触发目标上的玩家设置触发得分值。
+Set a trigger score value for a player on a trigger objective.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `serverPlayer` | 播放器修改 |
-| `objective` | 触发目标 |
-| `i` | 要设置的值 |
+| `serverPlayer` | player to modify |
+| `objective` | trigger objective |
+| `i` | value to set |
 
 </ApiMemberCard>
 
@@ -783,14 +783,14 @@ fun setTriggerValue(serverPlayer: ServerPlayer, objective: Objective, i: Int)
 fun simpleTrigger(serverPlayer: ServerPlayer, objective: Objective)
 ```
 
-简单触发：将玩家的触发目标增加 1。
+Simple trigger: increment a trigger objective for a player by 1.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `serverPlayer` | 玩家触发 |
-| `objective` | 触发目标 |
+| `serverPlayer` | player to trigger |
+| `objective` | trigger objective |
 
 </ApiMemberCard>
 

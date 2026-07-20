@@ -100,7 +100,7 @@ Event triggered to allow or deny an enchantment being applied to an item.
 
 ### Returns
 
-TriState indicating whether to allow (TRUE), deny (FALSE), or use default (DEFAULT).
+indicating whether to allow (TRUE), deny (FALSE), or use default (DEFAULT).
 
 </ApiMemberCard>
 

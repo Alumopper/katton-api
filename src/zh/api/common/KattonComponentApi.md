@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api"
   source-file="common/src/main/kotlin/top/katton/api/KattonComponentApi.kt"
 >
-将两个可为空的组件组合成一个新组件。
+将两个可空的 Component 合并为一个新的 Component。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;plus&quot;,&quot;href&quot;:&quot;#plus&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;plus&quot;,&quot;href&quot;:&quot;#plus&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;plus&quot;,&quot;href&quot;:&quot;#plus&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,19 +30,19 @@ outline: [2, 2]
 operator fun Component?.plus(component: Component?): Component
 ```
 
-将两个可为空的组件组合成一个新组件。
+将两个可空的 Component 合并为一个新的 Component。
 
-如果任一组件为 null，则将其视为空组件。
+如果任意一侧为 null，就把它当作空 Component 处理。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `component` | 要附加的组件 |
+| `component` | 要追加的 Component。 |
 
 ### 返回值
 
-包含两个文本的新组件
+包含两段文本的新 Component。
 
 </ApiMemberCard>
 
@@ -61,19 +61,19 @@ operator fun Component?.plus(component: Component?): Component
 operator fun String?.plus(component: Component?): Component
 ```
 
-将可为空的字符串与可为空的组件组合。
+将可空字符串与可空 Component 组合。
 
-在附加之前，字符串会被转换为文字组件。
+字符串会先转换成字面量 Component，再追加到结果中。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `component` | 要附加的组件 |
+| `component` | 要追加的 Component。 |
 
 ### 返回值
 
-包含两个文本的新组件
+包含两段文本的新 Component。
 
 </ApiMemberCard>
 
@@ -92,19 +92,19 @@ operator fun String?.plus(component: Component?): Component
 operator fun Component?.plus(string: String?): Component
 ```
 
-将可为空的组件与可为空的字符串组合。
+将可空 Component 与可空字符串组合。
 
-该字符串将转换为文字组件并添加到组件前面。
+字符串会先转换成字面量 Component，再作为前缀加到 Component 前面。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `string` | 要添加到前面的字符串 |
+| `string` | 要作为前缀的字符串。 |
 
 ### 返回值
 
-包含两个文本的新组件
+包含两段文本的新 Component。
 
 </ApiMemberCard>
 

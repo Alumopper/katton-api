@@ -7,10 +7,10 @@ outline: [2, 2]
   title="KattonBlockEntityApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonBlockEntityApi.kt"
 >
-类似于地图的按位置访问世界中的方块实体。
+以类似 Map 的方式按位置访问关卡中的方块实体。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;KattonLevelBlockEntityCollection&quot;,&quot;href&quot;:&quot;#kattonlevelblockentitycollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelblockentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockEntityCollection.set&quot;,&quot;href&quot;:&quot;#kattonlevelblockentitycollection-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockEntityCollection.set&quot;,&quot;href&quot;:&quot;#kattonlevelblockentitycollection-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;nbt&quot;,&quot;href&quot;:&quot;#nbt&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -30,13 +30,13 @@ outline: [2, 2]
 class KattonLevelBlockEntityCollection( val level: Level )
 ```
 
-类似于地图的按位置访问世界中的方块实体。
+以类似 Map 的方式按位置访问关卡中的方块实体。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 包含方块实体的世界 |
+| `level` | 包含这些方块实体的 Level。 |
 
 ### KattonLevelBlockEntityCollection.get
 
@@ -53,7 +53,7 @@ class KattonLevelBlockEntityCollection( val level: Level )
 operator fun get(blockPos: BlockPos): BlockEntity?
 ```
 
-在某个位置获取BlockEntity。
+获取方块Entity at a 位置。
 
 </ApiMemberCard>
 
@@ -72,9 +72,8 @@ operator fun get(blockPos: BlockPos): BlockEntity?
 operator fun set(blockPos: BlockPos, blockEntity: BlockEntity)
 ```
 
-在特定位置设置BlockEntity。
-
-方块实体的位置必须与目标位置匹配。
+在指定位置设置一个方块实体。
+方块实体自身的位置必须与目标位置一致。
 
 </ApiMemberCard>
 
@@ -93,7 +92,7 @@ operator fun set(blockPos: BlockPos, blockEntity: BlockEntity)
 fun set(blockEntity: BlockEntity)
 ```
 
-在世界中其自身位置设置一个BlockEntity。
+在关卡中按方块实体自身的位置设置它。
 
 </ApiMemberCard>
 
@@ -114,7 +113,7 @@ fun set(blockEntity: BlockEntity)
 var BlockEntity.nbt: CompoundTag
 ```
 
-用于获取/设置 BlockEntity 上的 NBT 数据的扩展属性。
+用于读取或设置方块实体 NBT 数据的扩展属性。
 
 </ApiMemberCard>
 

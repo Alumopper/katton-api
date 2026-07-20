@@ -127,7 +127,7 @@ Gets a recipe by its identifier as a JsonObject.
 
 ### Returns
 
-The recipe as JsonObject, or null if not found
+recipe as JsonObject, or null if not found
 
 </ApiMemberCard>
 
@@ -156,7 +156,7 @@ Gets a recipe by its identifier as a JsonObject.
 
 ### Returns
 
-The recipe as JsonObject, or null if not found
+recipe as JsonObject, or null if not found
 
 </ApiMemberCard>
 

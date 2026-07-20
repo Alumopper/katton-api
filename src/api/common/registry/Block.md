@@ -47,7 +47,7 @@ hot-reload capability.
 
 ### Returns
 
-The registered KattonBlockEntry
+registered KattonBlockEntry
 
 </ApiMemberCard>
 
@@ -79,7 +79,7 @@ Registers a native Block with hot-reload support (Identifier overload).
 
 ### Returns
 
-The registered KattonBlockEntry
+registered KattonBlockEntry
 
 </ApiMemberCard>
 
@@ -111,7 +111,7 @@ For more complex blocks, use the full factory pattern with registerNativeBlock.
 
 ### Returns
 
-A new Block instance
+new Block instance
 
 </ApiMemberCard>
 

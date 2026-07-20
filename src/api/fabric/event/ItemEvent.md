@@ -55,7 +55,8 @@ Event triggered when an item is used on a block (right-click on block).
 
 ### Returns
 
-InteractionResult to control the interaction outcome.
+to control the interaction outcome.
+
 Return a non-null value to override default behavior.
 
 </ApiMemberCard>
@@ -79,7 +80,8 @@ Event triggered when an item is used (right-click in air or on entity).
 
 ### Returns
 
-InteractionResult to control the interaction outcome.
+to control the interaction outcome.
+
 Return a non-null value to override default behavior.
 
 </ApiMemberCard>

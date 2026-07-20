@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonItemApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonItemApi.kt"
 >
 Extension property to get/set NBT data on an ItemStack.
@@ -168,7 +168,7 @@ Gets an item from a container block slot.
 
 ### Returns
 
-ItemStack or null if invalid
+or null if invalid
 
 </ApiMemberCard>
 
@@ -198,7 +198,7 @@ Gets an item from an entity slot.
 
 ### Returns
 
-ItemStack or null if slot missing
+or null if slot missing
 
 </ApiMemberCard>
 
@@ -228,7 +228,7 @@ Applies a LootItemFunction to an ItemStack and returns the modified stack.
 
 ### Returns
 
-Modified ItemStack (size-limited)
+ItemStack (size-limited)
 
 </ApiMemberCard>
 

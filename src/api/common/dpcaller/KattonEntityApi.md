@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonEntityApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonEntityApi.kt"
 >
 Get/Set the NBT data of an Entity.
@@ -340,11 +340,11 @@ Get an attribute value from a LivingEntity.
 | Parameter | Description |
 | --- | --- |
 | `entity` | the entity |
-| `attribute` | attribute holder to read |
+| `attribute` | holder of the attribute to read |
 
 ### Returns
 
-current attribute value
+attribute value
 
 </ApiMemberCard>
 
@@ -370,11 +370,11 @@ Check if a LivingEntity has a given attribute.
 | Parameter | Description |
 | --- | --- |
 | `entity` | the entity |
-| `attribute` | attribute holder to check |
+| `attribute` | holder of the attribute to check |
 
 ### Returns
 
-true if attribute present
+if attribute present
 
 </ApiMemberCard>
 
@@ -400,11 +400,11 @@ Get base attribute value from a LivingEntity.
 | Parameter | Description |
 | --- | --- |
 | `entity` | the entity |
-| `attribute` | attribute holder to read |
+| `attribute` | holder of the attribute to check |
 
 ### Returns
 
-base value or null if attribute missing
+base attribute value; null if attribute not present
 
 </ApiMemberCard>
 
@@ -435,7 +435,7 @@ Set the base attribute value for a LivingEntity.
 
 ### Returns
 
-true if changed, false otherwise
+if changed, false otherwise
 
 </ApiMemberCard>
 
@@ -738,7 +738,7 @@ Mount a passenger on a vehicle entity.
 
 ### Returns
 
-true if mounting succeeded, false otherwise
+if mounting succeeded, false otherwise
 
 </ApiMemberCard>
 
@@ -767,7 +767,7 @@ Dismount a passenger from its vehicle.
 
 ### Returns
 
-true if dismounted, false if not riding
+if dismounted, false if not riding
 
 </ApiMemberCard>
 
@@ -849,7 +849,7 @@ Rotate an entity to look at a position.
 | --- | --- |
 | `target` | entity to rotate |
 | `lookAt` | position to look at |
-| `targetAnchor` | anchor on target entity |
+| `targetAnchor` | anchor point on the target |
 
 </ApiMemberCard>
 
@@ -875,12 +875,12 @@ Spread players around a center point.
 | Parameter | Description |
 | --- | --- |
 | `level` | server level used for context |
-| `center` | center position vector (x=z, y ignored) |
+| `center` | center position vector (x/z used, y ignored) |
 | `spreadDistance` | minimum distance between players |
 | `maxRange` | max spread radius |
 | `maxHeight` | maximum height difference |
 | `respectTeams` | whether to keep teams together |
-| `targets` | collection of entities to spread |
+| `targets` | entities to spread |
 
 </ApiMemberCard>
 
@@ -912,7 +912,7 @@ Summon an entity of a given type at a position with optional NBT.
 
 ### Returns
 
-spawned Entity or null on failure
+Entity or null on failure
 
 </ApiMemberCard>
 
@@ -941,7 +941,7 @@ Get tags attached to an entity.
 
 ### Returns
 
-mutable collection of tag strings
+tag string collection
 
 </ApiMemberCard>
 
@@ -971,7 +971,7 @@ Add a tag to an entity.
 
 ### Returns
 
-true if tag was added, false if already present
+if tag was added, false if already present
 
 </ApiMemberCard>
 
@@ -1001,7 +1001,7 @@ Remove a tag from an entity.
 
 ### Returns
 
-true if the tag was removed
+if the tag was removed
 
 </ApiMemberCard>
 

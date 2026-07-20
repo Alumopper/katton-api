@@ -77,7 +77,7 @@ Can be used to modify the amount of damage blocked.
 
 ### Returns
 
-The amount of damage that should be blocked.
+amount of damage that should be blocked.
 
 </ApiMemberCard>
 

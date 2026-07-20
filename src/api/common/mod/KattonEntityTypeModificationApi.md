@@ -271,7 +271,8 @@ modded ones that register attributes through the same mechanism.
 
 ### Returns
 
-`true` when the supplier was replaced; `false` when the entity type
+when the supplier was replaced; `false` when the entity type
+
 could not be resolved or the underlying registry is non-living.
 
 </ApiMemberCard>

@@ -196,7 +196,7 @@ Can be cancelled to prevent the pickup.
 @JvmField val onPickFromBlock
 ```
 
-Event triggered when a player middle-clicks a block (pick block).
+Event triggered when a player picks an item from a block (middle-click).
 
 </ApiMemberCard>
 
@@ -216,7 +216,7 @@ Event triggered when a player middle-clicks a block (pick block).
 @JvmField val onPickFromEntity
 ```
 
-Event triggered when a player middle-clicks an entity (pick entity).
+Event triggered when a player picks an item from an entity (middle-click).
 
 </ApiMemberCard>
 

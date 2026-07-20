@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/LivingBehaviorEvent.kt"
 >
-Fabric平台的活体行为事件。
+Fabric 平台的生物行为事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;LivingBehaviorEvent&quot;,&quot;href&quot;:&quot;#livingbehaviorevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onElytraAllow&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onelytraallow&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onElytraCustom&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onelytracustom&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowSleeping&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallowsleeping&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onStartSleeping&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onstartsleeping&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onStopSleeping&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onstopsleeping&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowBed&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallowbed&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowNearbyMonsters&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallownearbymonsters&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowResettingTime&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallowresettingtime&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onModifySleepingDirection&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onmodifysleepingdirection&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowSettingSpawn&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallowsettingspawn&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onSetBedOccupationState&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onsetbedoccupationstate&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onModifyWakeUpPosition&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onmodifywakeupposition&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onPlayerWakeUp&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onplayerwakeup&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,9 @@ Fabric平台的活体行为事件。
 object LivingBehaviorEvent
 ```
 
-Fabric平台的活体行为事件。
+Fabric 平台的生物行为事件。
 
-该对象提供与生物体行为相关的事件，包括
-鞘翅飞行、睡眠、动物驯服和幼崽产卵。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 ### LivingBehaviorEvent.onElytraAllow
 
@@ -51,11 +50,9 @@ Fabric平台的活体行为事件。
 val onElytraAllow
 ```
 
-触发事件以检查是否允许实体使用鞘翅。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-true 表示允许使用鞘翅， false 表示拒绝。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -74,11 +71,9 @@ true 表示允许使用鞘翅， false 表示拒绝。
 val onElytraCustom
 ```
 
-触发事件以提供自定义鞘翅飞行行为。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-如果应用自定义行为，则为 true；如果使用默认行为，则为 false。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -97,11 +92,9 @@ val onElytraCustom
 val onAllowSleeping
 ```
 
-触发事件以检查是否允许玩家睡觉。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-BedSleepingProblem 如果睡眠被拒绝，则为 null 以允许。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -120,7 +113,9 @@ BedSleepingProblem 如果睡眠被拒绝，则为 null 以允许。
 val onStartSleeping
 ```
 
-当玩家开始睡觉时触发事件。
+Fabric 平台的生物行为事件。
+
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -139,7 +134,9 @@ val onStartSleeping
 val onStopSleeping
 ```
 
-当玩家停止睡觉时触发事件。
+Fabric 平台的生物行为事件。
+
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -158,11 +155,9 @@ val onStopSleeping
 val onAllowBed
 ```
 
-触发事件以检查是否允许玩家使用床。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-EventResult表示检查结果。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -181,11 +176,9 @@ EventResult表示检查结果。
 val onAllowNearbyMonsters
 ```
 
-触发事件以检查附近的怪物是否阻止睡眠。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-EventResult 指示怪物是否应该阻止睡眠。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -204,11 +197,9 @@ EventResult 指示怪物是否应该阻止睡眠。
 val onAllowResettingTime
 ```
 
-触发事件以检查睡眠后是否应重置时间。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-true 允许时间重置， false 阻止时间重置。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -227,11 +218,9 @@ true 允许时间重置， false 阻止时间重置。
 val onModifySleepingDirection
 ```
 
-上床时触发事件以修改睡眠方向。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-修改后的玩家面对的方向。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -250,11 +239,9 @@ val onModifySleepingDirection
 val onAllowSettingSpawn
 ```
 
-触发事件以检查睡眠时是否应设置生成点。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-true 允许设置生成， false 阻止设置。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -273,11 +260,9 @@ true 允许设置生成， false 阻止设置。
 val onSetBedOccupationState
 ```
 
-触发事件以设置床位占用状态。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-如果状态已处理，则为 true；如果为默认行为，则为 false。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -296,11 +281,9 @@ val onSetBedOccupationState
 val onModifyWakeUpPosition
 ```
 
-触发事件来修改玩家的唤醒位置。
+Fabric 平台的生物行为事件。
 
-### 返回值
-
-修改后的Vec3唤醒位置。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 
@@ -320,7 +303,9 @@ val onModifyWakeUpPosition
 @JvmField val onPlayerWakeUp
 ```
 
-当玩家从睡眠中醒来时触发事件。
+Fabric 平台的生物行为事件。
+
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 

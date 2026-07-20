@@ -48,7 +48,7 @@ and spawn placement configuration in a single call.
 
 ### Returns
 
-The registered KattonEntityTypeEntry
+registered KattonEntityTypeEntry
 
 </ApiMemberCard>
 
@@ -176,7 +176,7 @@ automatically.
 
 ### Returns
 
-The registered KattonItemEntry
+registered KattonItemEntry
 
 </ApiMemberCard>
 

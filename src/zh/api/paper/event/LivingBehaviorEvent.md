@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="paper/src/main/kotlin/top/katton/api/event/LivingBehaviorEvent.kt"
 >
-Paper（Bukkit）平台的生活行为事件。
+Paper (Bukkit) 平台的生物行为事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;LivingBehaviorEvent&quot;,&quot;href&quot;:&quot;#livingbehaviorevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}]' />
@@ -31,10 +31,9 @@ Paper（Bukkit）平台的生活行为事件。
 object LivingBehaviorEvent
 ```
 
-Paper（Bukkit）平台的生活行为事件。
+Paper (Bukkit) 平台的生物行为事件。
 
-该对象提供与生物行为相关的事件，包括驯服、
-繁殖、睡眠、鞘翅飞行和床互动。
+此对象提供与生物行为相关的事件，包括驯服、繁殖、睡眠、鞘翅飞行以及床交互。
 
 </ApiMemberCard>
 

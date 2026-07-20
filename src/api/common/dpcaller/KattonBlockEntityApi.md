@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonBlockEntityApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonBlockEntityApi.kt"
 >
 Map-like access to block entities in a level by position.

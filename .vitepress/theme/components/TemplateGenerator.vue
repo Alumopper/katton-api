@@ -1,15 +1,25 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { useData } from 'vitepress'
-import { generateZip, fetchKattonVersions, type PackInfo, type KattonVersion } from '../../../src/template/generator'
+import {
+  generateZip,
+  fetchKattonVersions,
+  type KattonVersion,
+  type PackInfo,
+  type SupportedMinecraftVersion,
+} from '../../../src/template/generator'
 
 const { lang } = useData()
 const isZh = computed(() => lang.value.startsWith('zh'))
 
 const t = computed(() => ({
   modLoader: isZh.value ? '模组加载器' : 'Mod Loader',
+  minecraftVersion: isZh.value ? 'Minecraft 版本' : 'Minecraft Version',
+  minecraftVersionTooltip: isZh.value ? 'Katton、平台 API 和游戏必须使用同一个 Minecraft 版本' : 'Katton, the platform API, and the game must target the same Minecraft version',
   kattonVersion: isZh.value ? 'Katton 版本' : 'Katton Version',
-  kattonVersionTooltip: isZh.value ? 'Katton 版本决定了你可以使用的 API 功能' : 'The Katton version determines the available API features',
+  kattonVersionTooltip: isZh.value ? '列表只显示已发布且兼容所选 Minecraft 与平台的 Maven 产物' : 'Only published Maven artifacts compatible with the selected Minecraft version and platform are listed',
+  mavenCoordinate: isZh.value ? 'Maven 版本' : 'Maven version',
+  legacyMaven: isZh.value ? '旧版坐标不含 MC 标识' : 'legacy coordinate without MC qualifier',
   preRelease: isZh.value ? '预览版' : 'pre-release',
   packId: isZh.value ? '脚本包 ID' : 'Pack ID',
   packIdTooltip: isZh.value ? '你的脚本包在游戏中唯一的标识符，通常用于区分不同的脚本包' : 'The unique identifier of your script pack in-game, usually used to distinguish different script packs',
@@ -39,7 +49,8 @@ const t = computed(() => ({
 } as const))
 
 const modLoader = ref<PackInfo['modLoader']>('fabric')
-const kattonVersion = ref('0.3.0')
+const minecraftVersion = ref<SupportedMinecraftVersion>('26.2')
+const kattonVersion = ref('0.3.1b3+mc26.2')
 const packId = ref('my_pack')
 const packName = ref('My Pack')
 const packVersion = ref('1.0.0')
@@ -47,7 +58,7 @@ const authors = ref('Dev')
 const description = ref('')
 const signingKey = ref(false)
 
-const versions = ref<KattonVersion[]>([{ tag: '0.2.0', prerelease: false }])
+const versions = ref<KattonVersion[]>([])
 const versionsLoading = ref(false)
 const generating = ref(false)
 const progress = ref('')
@@ -55,6 +66,7 @@ const error = ref('')
 
 const packInfo = computed<PackInfo>(() => ({
   modLoader: modLoader.value,
+  minecraftVersion: minecraftVersion.value,
   kattonVersion: kattonVersion.value,
   packId: packId.value,
   packName: packName.value,
@@ -65,12 +77,29 @@ const packInfo = computed<PackInfo>(() => ({
 }))
 
 const validPackId = computed(() => /^[a-zA-Z][a-zA-Z0-9_-]*$/.test(packId.value))
+const availableMinecraftVersions = computed<SupportedMinecraftVersion[]>(() => {
+  const supported = new Set(
+    versions.value
+      .filter(version => version.loaders.includes(modLoader.value))
+      .map(version => version.minecraftVersion)
+  )
+  return (['26.2', '26.1.2'] as SupportedMinecraftVersion[])
+    .filter(version => supported.has(version))
+})
+const availableKattonVersions = computed(() =>
+  versions.value.filter(version =>
+    version.minecraftVersion === minecraftVersion.value &&
+    version.loaders.includes(modLoader.value)
+  )
+)
 const canGenerate = computed(() =>
-  validPackId.value && packName.value.trim().length > 0 && kattonVersion.value.length > 0
+  validPackId.value &&
+  packName.value.trim().length > 0 &&
+  availableKattonVersions.value.some(version => version.mavenVersion === kattonVersion.value)
 )
 
 const selectedVersion = computed(() =>
-  versions.value.find(v => v.tag === kattonVersion.value)
+  availableKattonVersions.value.find(version => version.mavenVersion === kattonVersion.value)
 )
 const loaderLabel = computed(() => {
   if (modLoader.value === 'fabric') return 'Fabric'
@@ -83,9 +112,6 @@ async function loadVersions() {
   try {
     const v = await fetchKattonVersions()
     versions.value = v
-    if (v.length > 0 && !v.some(x => x.tag === kattonVersion.value)) {
-      kattonVersion.value = v[0].tag
-    }
   } catch {
     // keep default
   } finally {
@@ -94,6 +120,21 @@ async function loadVersions() {
 }
 
 loadVersions()
+
+function selectModLoader(loader: PackInfo['modLoader']) {
+  modLoader.value = loader
+  if (loader === 'paper') signingKey.value = false
+}
+
+watch([modLoader, minecraftVersion, versions], () => {
+  if (!availableMinecraftVersions.value.includes(minecraftVersion.value)) {
+    minecraftVersion.value = availableMinecraftVersions.value[0] ?? '26.2'
+  }
+
+  if (!availableKattonVersions.value.some(version => version.mavenVersion === kattonVersion.value)) {
+    kattonVersion.value = availableKattonVersions.value[0]?.mavenVersion ?? ''
+  }
+})
 
 // Auto-generate pack name from ID
 watch(packId, (id) => {
@@ -140,25 +181,28 @@ async function doGenerate() {
         </div>
         <div class="loader-toggle">
           <button
+            type="button"
             class="loader-btn"
             :class="{ active: modLoader === 'fabric' }"
-            @click="modLoader = 'fabric'"
+            @click="selectModLoader('fabric')"
           >
             <span class="loader-icon"><img src="https://fabricmc.net/assets/logo.png" alt="Fabric" /></span>
             <span>Fabric</span>
           </button>
           <button
+            type="button"
             class="loader-btn"
             :class="{ active: modLoader === 'neoforge' }"
-            @click="modLoader = 'neoforge'"
+            @click="selectModLoader('neoforge')"
           >
             <span class="loader-icon"><img src="https://docs.neoforged.net/img/logo.svg" alt="NeoForge" /></span>
             <span>NeoForge</span>
           </button>
           <button
+            type="button"
             class="loader-btn"
             :class="{ active: modLoader === 'paper' }"
-            @click="modLoader = 'paper';signingKey = false"
+            @click="selectModLoader('paper')"
           >
             <span class="loader-icon"><img src="https://assets.papermc.io/brand/papermc_logo.512.png" alt="Paper" /></span>
             <span>Paper</span>
@@ -166,12 +210,42 @@ async function doGenerate() {
         </div>
       </div>
 
+      <!-- Minecraft Version -->
+      <div class="field-group">
+        <div class="field-with-hint">
+          <label class="field-label" for="minecraft-version">{{ t.minecraftVersion }}</label>
+          <span v-tooltip="t.minecraftVersionTooltip" class="hint-icon" aria-label="help">?</span>
+        </div>
+        <div class="select-wrapper" :class="{ loading: versionsLoading }">
+          <select
+            id="minecraft-version"
+            v-model="minecraftVersion"
+            :disabled="versionsLoading"
+            class="field-select"
+          >
+            <option
+              v-for="version in availableMinecraftVersions"
+              :key="version"
+              :value="version"
+            >{{ version }}</option>
+          </select>
+          <span v-if="versionsLoading" class="select-spinner">
+            <svg class="spinner-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
       <!-- Katton Version -->
       <div class="field-group">
-        <label class="field-label" for="katton-version">
-          {{ t.kattonVersion }}
-          <span v-if="selectedVersion?.prerelease" class="prerelease-badge">{{ t.preRelease }}</span>
-        </label>
+        <div class="field-with-hint">
+          <label class="field-label" for="katton-version">
+            {{ t.kattonVersion }}
+            <span v-if="selectedVersion?.prerelease" class="prerelease-badge">{{ t.preRelease }}</span>
+          </label>
+          <span v-tooltip="t.kattonVersionTooltip" class="hint-icon" aria-label="help">?</span>
+        </div>
         <div class="select-wrapper" :class="{ loading: versionsLoading }">
           <select
             id="katton-version"
@@ -180,10 +254,10 @@ async function doGenerate() {
             class="field-select"
           >
             <option
-              v-for="v in versions"
-              :key="v.tag"
-              :value="v.tag"
-            >{{ v.tag }}{{ v.prerelease ? ` (${t.preRelease})` : '' }}</option>
+              v-for="version in availableKattonVersions"
+              :key="version.mavenVersion"
+              :value="version.mavenVersion"
+            >{{ version.tag }}{{ version.prerelease ? ` (${t.preRelease})` : '' }}</option>
           </select>
           <span v-if="versionsLoading" class="select-spinner">
             <svg class="spinner-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
@@ -191,6 +265,10 @@ async function doGenerate() {
             </svg>
           </span>
         </div>
+        <p v-if="selectedVersion" class="version-coordinate">
+          {{ t.mavenCoordinate }}: <code>{{ selectedVersion.mavenVersion }}</code>
+          <span v-if="selectedVersion.legacyMavenCoordinate"> · {{ t.legacyMaven }}</span>
+        </p>
       </div>
 
       <!-- Pack Info -->
@@ -216,7 +294,7 @@ async function doGenerate() {
         <div class="field-group half">
           <div class="field-with-hint">
             <label class="field-label" for="pack-name">{{ t.packName }}</label>
-            <span v-tooltip="t.packIdTooltip" class="hint-icon" aria-label="help">?</span>
+            <span v-tooltip="t.packNameTooltip" class="hint-icon" aria-label="help">?</span>
           </div>
           <input
             id="pack-name"
@@ -228,7 +306,7 @@ async function doGenerate() {
         </div>
         <div class="field-checkbox">
           <div class="field-with-hint">
-            <label class="field-label" for="pack-name">{{ t.signing }}</label>
+            <label class="field-label" for="pack-signing">{{ t.signing }}</label>
             <span v-tooltip="t.signingTooltip" class="hint-icon" aria-label="help">?</span>
           </div>
           <input
@@ -524,6 +602,21 @@ async function doGenerate() {
   background: color-mix(in srgb, #f59e0b 18%, transparent);
   color: #fbbf24;
   border: 1px solid color-mix(in srgb, #f59e0b 30%, transparent);
+}
+
+.version-coordinate {
+  margin: 7px 2px 0;
+  color: var(--vp-c-text-3);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.version-coordinate code {
+  padding: 1px 4px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  background: var(--vp-c-bg-soft);
+  font-size: 11px;
 }
 
 /* Dark-themed select dropdown */

@@ -76,7 +76,7 @@ Event triggered to allow or deny damage to a living entity.
 
 ### Returns
 
-true to allow the damage, false to cancel it.
+to allow the damage, false to cancel it.
 
 </ApiMemberCard>
 
@@ -118,7 +118,7 @@ Event triggered to allow or deny death of a living entity.
 
 ### Returns
 
-true to allow the death, false to cancel it.
+to allow the death, false to cancel it.
 
 </ApiMemberCard>
 

@@ -4,7 +4,7 @@
 
 ## 环境配置
 
-Katton 只支持 Minecraft 26.1 及其以上的版本，同时支持 Fabric、NeoForge 模组加载器和 Paper 插件服。请先确认你的游戏版本已正确安装并配置对应加载器或插件环境。
+Katton 当前支持 Minecraft 26.1.2 与 26.2，同时支持 Fabric、NeoForge 模组加载器和 Paper 插件服，并要求 Java 25 或更高版本。请确认游戏、Katton 依赖和加载器/插件环境使用同一个 Minecraft 版本。
 
 > [!NOTE]
 > Paper 为纯服务端平台。如果你在 Paper 上开发，则客户端脚本、渲染和脚本包界面均不可用。Paper 上的脚本包从 `<serverDir>/kattonpacks/` 加载。
@@ -31,7 +31,7 @@ Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包
    figure-width="400px"
 />
 
-开始前，我们需要把 Minecraft 源码引入项目以便 IDE 代码补全。最简单的方法是打开 Minecraft 游戏目录中的 `versions` 文件夹，找到对应版本目录并进入，然后把里面的 jar 复制到示例项目的 `lib/` 目录。比如你用的是 Minecraft 26.1-Fabric，就进入 `26.1-Fabric` 目录复制 jar 到 `lib/`。这样就引入了 Minecraft 源码。
+开始前，我们需要把 Minecraft 类引入项目以便 IDE 代码补全。模板生成器会根据选择的 Minecraft 版本配置 Katton 与平台依赖。Fabric 和 NeoForge 项目还需要把该版本的官方游戏 jar 复制到生成项目的 `lib/` 目录；若脚本引用了其他模组提供的 API，再补充对应的 `compileOnly` 依赖。
 
 > [!NOTE]
 > 对于Paper端，则不需要使用这样的方法引入Minecraft源码。Paper提供了一个轻量级插件开发环境，可以直接在build.gradle.kts中添加

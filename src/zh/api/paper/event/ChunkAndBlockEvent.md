@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="paper/src/main/kotlin/top/katton/api/event/ChunkAndBlockEvent.kt"
 >
-Paper (Bukkit) 平台的分块和方块事件。
+Paper (Bukkit) 平台的区块和方块事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ChunkAndBlockEvent&quot;,&quot;href&quot;:&quot;#chunkandblockevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}]' />
@@ -31,10 +31,9 @@ Paper (Bukkit) 平台的分块和方块事件。
 object ChunkAndBlockEvent
 ```
 
-Paper (Bukkit) 平台的分块和方块事件。
+Paper (Bukkit) 平台的区块和方块事件。
 
-该对象提供与块加载/卸载、块相关的事件
-破坏/放置和爆炸事件。
+此对象提供与区块加载/卸载、方块破坏/放置以及爆炸相关的事件。
 
 </ApiMemberCard>
 

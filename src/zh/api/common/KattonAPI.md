@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api"
   source-file="common/src/main/kotlin/top/katton/api/KattonAPI.kt"
 >
-对于当前脚本所有者命名空间下的给定[key]，仅执行一次[block]。
+在当前脚本所有者命名空间下，对指定键只执行一次。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;once&quot;,&quot;href&quot;:&quot;#once&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;resetOnce&quot;,&quot;href&quot;:&quot;#resetonce&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearOnce&quot;,&quot;href&quot;:&quot;#clearonce&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;server&quot;,&quot;href&quot;:&quot;#server&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;requireServer&quot;,&quot;href&quot;:&quot;#requireserver&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,16 +30,15 @@ outline: [2, 2]
 fun once(key: String, namespace: String? = null, block: () -> Unit): Boolean
 ```
 
-对于当前脚本所有者命名空间下的给定[key]，仅执行一次[block]。
+在当前脚本所有者命名空间下，对指定键只执行一次。
 
-重载脚本时，标记不会被清除，因此在使用 [resetOnce] 或 [clearOnce] 重置标记之前，块不会再次执行。
+脚本重载后，这些标记不会自动清除，因此相同的代码段不会再次执行，直到你调用 [resetOnce] 或 [clearOnce] 重置标记。
 
-当在脚本执行内部调用时，默认命名空间是该脚本的所有者 ID；
-在脚本执行之外，默认命名空间是"global"。
+在脚本执行期间调用时，默认命名空间是该脚本的所有者 id；在脚本执行之外调用时，默认命名空间是 "global"。
 
 ### 返回值
 
-如果这次执行了[block]，则为 true；如果之前已经执行过，则为 false。
+如果这次执行了 [block] 则返回 true；如果它之前已经执行过，则返回 false。
 
 </ApiMemberCard>
 
@@ -58,11 +57,11 @@ fun once(key: String, namespace: String? = null, block: () -> Unit): Boolean
 fun resetOnce(key: String, namespace: String? = null): Boolean
 ```
 
-删除当前脚本所有者命名空间中[key]（或[namespace]）的一次性保护标记。
+移除当前脚本所有者命名空间（或指定命名空间）下 [key] 对应的 once 防护标记。
 
 ### 返回值
 
-如果标记存在并被删除，则为 true，否则为 false。
+如果标记存在并已移除，则返回 true；否则返回 false。
 
 </ApiMemberCard>
 
@@ -81,7 +80,7 @@ fun resetOnce(key: String, namespace: String? = null): Boolean
 fun clearOnce(namespace: String? = null)
 ```
 
-清除当前脚本所有者命名空间（或[namespace]）中的所有一次性保护的标记。
+清除当前脚本所有者命名空间（或指定命名空间）下的所有 once 防护标记。
 
 </ApiMemberCard>
 
@@ -100,14 +99,14 @@ fun clearOnce(namespace: String? = null)
 val server: MinecraftServer?
 ```
 
-当前的Minecraft 服务器实例。在客户端执行期间可能为 null。
+当前 Minecraft 服务器实例。在客户端执行期间可能为 null。
 
-当您需要对服务器进行可选访问时，请使用此属性。
-对于服务器必须可用的情况，请使用 [requireServer] 代替。
+当你只需要可选地访问服务器时使用这个属性。
+如果操作必须依赖服务器，请改用 [requireServer]。
 
 ### 返回值
 
-当前 MinecraftServer 实例，如果不可用则为 null
+当前 MinecraftServer 实例；如果不可用则返回 null。
 
 </ApiMemberCard>
 
@@ -126,21 +125,20 @@ val server: MinecraftServer?
 fun requireServer(): MinecraftServer
 ```
 
-需要 Minecraft 服务器实例可用。
+要求 Minecraft 服务器实例可用。
 
-当服务器必须存在才能使操作成功时，请使用此功能。
-如果服务器不可用（例如，在客户端执行期间），则抛出错误
-或在服务器启动之前）。
+当操作必须依赖服务器才能成功时使用这个函数。
+如果服务器不可用会直接抛出错误，例如在客户端执行期间，或者服务器尚未启动时。
 
 ### 返回值
 
-当前 MinecraftServer 实例
+当前 MinecraftServer 实例。
 
 ### 异常
 
 | 异常 | 说明 |
 | --- | --- |
-| `IllegalStateException` | 如果服务器不可用 |
+| `IllegalStateException` | 当服务器不可用时抛出。 |
 
 </ApiMemberCard>
 

@@ -52,7 +52,8 @@ Event triggered to replace a loot table entirely.
 
 ### Returns
 
-The replacement LootTable, or null to keep the original.
+replacement LootTable, or null to keep the original.
+
 Note: This is a placeholder for NeoForge compatibility.
 
 </ApiMemberCard>

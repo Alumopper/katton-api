@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="paper/src/main/kotlin/top/katton/api/event/ServerEvent.kt"
 >
-Paper (Bukkit) 平台的服务器生命周期事件。
+Paper (Bukkit) 平台的服务器生命周期事件。 此对象提供与服务器启动/停止、tick、世界加载/卸载/保存以及数据包重载相关的事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerEvent&quot;,&quot;href&quot;:&quot;#serverevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}]' />
@@ -32,9 +32,7 @@ object ServerEvent
 ```
 
 Paper (Bukkit) 平台的服务器生命周期事件。
-
-该对象提供与服务器启动/关闭、tick、
-世界加载/卸载/保存以及数据包重载操作。
+此对象提供与服务器启动/停止、tick、世界加载/卸载/保存以及数据包重载相关的事件。
 
 </ApiMemberCard>
 

@@ -157,7 +157,7 @@ Returns all config entries for the current pack.
 val config: KattonConfig
 ```
 
-Shorthand accessor — use `config["key"]` in scripts.
+Shorthand accessor - use `config["key"]` in scripts.
 
 </ApiMemberCard>
 

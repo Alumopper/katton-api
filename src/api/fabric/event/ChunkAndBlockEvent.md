@@ -150,7 +150,7 @@ Event triggered before a player breaks a block.
 
 ### Returns
 
-true to allow the break, false to cancel it.
+to allow the break, false to cancel it.
 
 </ApiMemberCard>
 

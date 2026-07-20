@@ -7,10 +7,10 @@ outline: [2, 2]
   title="KattonBlockApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonBlockApi.kt"
 >
-像映射一样按位置访问世界中的方块。
+Map-like access to blocks in a level by position.
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;KattonLevelBlockCollection&quot;,&quot;href&quot;:&quot;#kattonlevelblockcollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelblockcollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockCollection.set&quot;,&quot;href&quot;:&quot;#kattonlevelblockcollection-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockCollection.set&quot;,&quot;href&quot;:&quot;#kattonlevelblockcollection-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockStateCollection&quot;,&quot;href&quot;:&quot;#kattonlevelblockstatecollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockStateCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelblockstatecollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockStateCollection.set&quot;,&quot;href&quot;:&quot;#kattonlevelblockstatecollection-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelBlockStateCollection.set&quot;,&quot;href&quot;:&quot;#kattonlevelblockstatecollection-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,13 +30,15 @@ outline: [2, 2]
 class KattonLevelBlockCollection( val level: Level )
 ```
 
-像映射一样按位置访问世界中的方块。
+Map-like access to blocks in a level by position.
+
+以类似 Map 的方式按位置访问关卡中的方块。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 包含方块的世界 |
+| `level` | The Level containing the blocks |
 
 ### KattonLevelBlockCollection.get
 
@@ -53,7 +55,7 @@ class KattonLevelBlockCollection( val level: Level )
 operator fun get(blockPos: BlockPos): Block
 ```
 
-获取指定位置的方块。
+获取方块 at a 位置。
 
 </ApiMemberCard>
 
@@ -91,7 +93,7 @@ operator fun set(blockPos: BlockPos, block: Block)
 operator fun set(start: BlockPos, end: BlockPos, block: Block)
 ```
 
-使用方块的默认状态填充区域。
+使用方块的默认状态填充一个区域。
 
 </ApiMemberCard>
 
@@ -112,13 +114,13 @@ operator fun set(start: BlockPos, end: BlockPos, block: Block)
 class KattonLevelBlockStateCollection( val level: Level )
 ```
 
-像地图一样按位置访问方方块状态。
+以类似 Map 的方式按位置访问关卡中的方块状态。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 包含方块的世界 |
+| `level` | 包含这些方块的 Level。 |
 
 ### KattonLevelBlockStateCollection.get
 
@@ -135,7 +137,7 @@ class KattonLevelBlockStateCollection( val level: Level )
 operator fun get(blockPos: BlockPos): BlockState
 ```
 
-在某个位置获取BlockState。
+获取方块State at a 位置。
 
 </ApiMemberCard>
 
@@ -154,7 +156,7 @@ operator fun get(blockPos: BlockPos): BlockState
 operator fun set(blockPos: BlockPos, blockState: BlockState)
 ```
 
-在某个位置设置BlockState。
+设置a 方块State at a 位置。
 
 </ApiMemberCard>
 
@@ -173,7 +175,7 @@ operator fun set(blockPos: BlockPos, blockState: BlockState)
 operator fun set(start: BlockPos, end: BlockPos, blockState: BlockState)
 ```
 
-用 BlockState 填充区域。
+使用方块状态填充一个区域。
 
 </ApiMemberCard>
 

@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.registry"
   source-file="common/src/main/kotlin/top/katton/api/registry/Entity.kt"
 >
-注册具有热重载支持的完整本机实体。
+注册完整的原生 Entity，并支持热重载。 这是脚本中注册自定义实体的主要 API。 它会在一次调用中完成 EntityType 注册，以及可选的属性、刷怪蛋和生成位置配置。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;registerNativeEntity&quot;,&quot;href&quot;:&quot;#registernativeentity&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerNativeEntity&quot;,&quot;href&quot;:&quot;#registernativeentity&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerEntityAttributes&quot;,&quot;href&quot;:&quot;#registerentityattributes&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerSpawnPlacement&quot;,&quot;href&quot;:&quot;#registerspawnplacement&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerSpawnEgg&quot;,&quot;href&quot;:&quot;#registerspawnegg&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;registerSpawnEgg&quot;,&quot;href&quot;:&quot;#registerspawnegg&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -31,24 +31,22 @@ outline: [2, 2]
 @ApiStatus.Experimental fun registerNativeEntity(id: String, registerMode: RegisterMode = RegisterMode.WORLD, configure: KattonEntityProperties.() -> Unit = {}, entityFactory: (KattonEntityProperties) -> EntityType<*>): KattonRegistry.KattonEntityTypeEntry
 ```
 
-注册具有热重载支持的完整本机实体。
-
-这是从脚本注册自定义实体的主要 API。
-它处理 EntityType 注册以及可选属性、刷怪蛋、
-并在一次调用中生成放置配置。
+注册完整的原生 Entity，并支持热重载。
+这是脚本中注册自定义实体的主要 API。
+它会在一次调用中完成 EntityType 注册，以及可选的属性、刷怪蛋和生成位置配置。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 实体标识符（例如，"mymod:custom_mob"） |
-| `registerMode` | 注册模式（GLOBAL、WORLD或RELOADABLE） |
-| `configure` | 实体属性（维度、类别、属性等）的配置 lambda |
-| `entityFactory` | 用于创建 EntityType 实例的工厂函数 |
+| `id` | Entity 标识符，例如 "mymod:custom_mob"。 |
+| `registerMode` | 注册模式（GLOBAL、WORLD 或 RELOADABLE）。 |
+| `configure` | Entity 属性配置 lambda（尺寸、类别、属性等）。 |
+| `entityFactory` | 创建 EntityType 实例的工厂函数。 |
 
 ### 返回值
 
-已注册KattonEntityTypeEntry
+已注册的 KattonEntityTypeEntry。
 
 </ApiMemberCard>
 
@@ -67,7 +65,7 @@ outline: [2, 2]
 fun registerNativeEntity(id: Identifier, registerMode: RegisterMode = RegisterMode.WORLD, configure: KattonEntityProperties.() -> Unit = {}, entityFactory: (KattonEntityProperties) -> EntityType<*>): KattonRegistry.KattonEntityTypeEntry
 ```
 
-注册具有热重载支持的完整本机实体（标识符重载）。
+注册完整的原生 Entity，并支持热重载（Identifier 重载）。
 
 </ApiMemberCard>
 
@@ -87,25 +85,20 @@ fun registerNativeEntity(id: Identifier, registerMode: RegisterMode = RegisterMo
 @ApiStatus.Experimental fun registerEntityAttributes(id: String, entityType: EntityType<out net.minecraft.world.entity.LivingEntity>, configure: KattonEntityProperties.() -> Unit, reloadable: Boolean = true)
 ```
 
-独立注册实体默认属性。
-
-当您想要为某个实体注册属性时，请使用此选项
-已通过[registerNativeEntityType]注册。对于新实体来说，
-更喜欢自动处理属性的[registerNativeEntity]。
-
-注意：自独立以来，默认情况下使用可重载路径
-属性注册通常发生在热重载期间。
-对于全局实体，使用 [registerNativeEntity] 来路由
-通过正确的模式感知路径。
+独立注册实体的默认属性。
+当你要为已经通过 [registerNativeEntityType] 注册的实体补充属性时使用此方法。
+对于新实体，优先使用 [registerNativeEntity]，它会自动处理属性注册。
+注意：这里默认使用可重载路径，因为独立的属性注册通常发生在热重载期间。
+对于全局实体，请使用 [registerNativeEntity]，它会走正确的模式分流路径。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 实体标识符 |
-| `entityType` | 已注册的实体类型 |
-| `configure` | 属性的配置 lambda |
-| `reloadable` | 对于 RELOADABLE 为 true，对于 GLOBAL 为 false |
+| `id` | 实体标识符。 |
+| `entityType` | 已注册的实体类型。 |
+| `configure` | 属性配置 lambda。 |
+| `reloadable` | `true` 表示 RELOADABLE，`false` 表示 GLOBAL。 |
 
 </ApiMemberCard>
 
@@ -126,18 +119,18 @@ fun registerNativeEntity(id: Identifier, registerMode: RegisterMode = RegisterMo
 @ApiStatus.Experimental @Suppress("UNCHECKED_CAST") fun <T : net.minecraft.world.entity.Mob> registerSpawnPlacement(entityType: EntityType<T>, placementType: SpawnPlacementType, heightmap: Heightmap.Types = Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, predicate: SpawnPlacements.SpawnPredicate<T>, reloadable: Boolean = true)
 ```
 
-独立注册生成放置规则。
+独立注册生成位置规则。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `T` | 生物实体类型 |
-| `entityType` | 实体类型 |
-| `placementType` | 实体可以生成的位置（例如，ON_GROUND、IN_WATER） |
-| `heightmap` | 用于生成检查的高度图类型 |
-| `predicate` | 自定义生成谓词 |
-| `reloadable` | 对于 RELOADABLE 为 true，对于 GLOBAL 为 false |
+| `T` | 生物实体类型。 |
+| `entityType` | 实体类型。 |
+| `placementType` | 实体可生成的位置，例如 ON_GROUND、IN_WATER。 |
+| `heightmap` | 用于生成检查的 Heightmap 类型。 |
+| `predicate` | 自定义生成条件。 |
+| `reloadable` | `true` 表示 RELOADABLE，`false` 表示 GLOBAL。 |
 
 </ApiMemberCard>
 
@@ -157,26 +150,22 @@ fun registerNativeEntity(id: Identifier, registerMode: RegisterMode = RegisterMo
 @ApiStatus.Experimental fun registerSpawnEgg(id: String, entityType: EntityType<out net.minecraft.world.entity.Mob>, registerMode: RegisterMode = RegisterMode.WORLD): KattonRegistry.KattonItemEntry
 ```
 
-独立为实体类型注册生成蛋物品。
-
-使用它为通过以下方式注册的实体创建刷怪蛋
-[registerNativeEntityType]。对于新实体，更喜欢
-[registerNativeEntity]与`withSpawnEgg()`。
-
-在 MC 1.21.11+ 中，刷怪蛋颜色源自实体类型
-自动。
+独立为某个实体类型注册刷怪蛋物品。
+当实体是通过 [registerNativeEntityType] 注册时，可以使用这个方法创建刷怪蛋。
+对于新实体，优先使用带有 `withSpawnEgg()` 的 [registerNativeEntity]。
+在 MC 1.21.11+ 中，刷怪蛋颜色会自动根据实体类型推导。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 刷怪蛋物品标识符（例如，"mymod:custom_mob_spawn_egg"） |
-| `entityType` | 该蛋生成的实体类型 |
-| `registerMode` | 注册模式 |
+| `id` | 刷怪蛋物品标识符，例如 "mymod:custom_mob_spawn_egg"。 |
+| `entityType` | 该刷怪蛋生成的实体类型。 |
+| `registerMode` | 注册模式。 |
 
 ### 返回值
 
-已注册KattonItemEntry
+已注册的 KattonItemEntry。
 
 </ApiMemberCard>
 
@@ -196,7 +185,7 @@ fun registerNativeEntity(id: Identifier, registerMode: RegisterMode = RegisterMo
 @ApiStatus.Experimental fun registerSpawnEgg(id: Identifier, entityType: EntityType<out net.minecraft.world.entity.Mob>, registerMode: RegisterMode = RegisterMode.WORLD): KattonRegistry.KattonItemEntry
 ```
 
-独立为实体类型注册生成蛋物品（标识符重载）。
+独立为某个实体类型注册刷怪蛋物品（Identifier 重载）。
 
 </ApiMemberCard>
 

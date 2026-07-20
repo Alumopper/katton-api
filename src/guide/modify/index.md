@@ -3,7 +3,7 @@
 Modifying vanilla (or modded) game content is just as important as adding new content. Katton provides a suite of `modify*` functions that let you change item properties, block behavior, entity attributes, recipes, loot tables, and villager trades — all from Kotlin scripts, all hot-reloadable.
 
 > [!NOTE]
-> All modify functions live in `top.katton.api.mod` and are annotated `@ApiStatus.Experimental`. Target Minecraft version: **26.1.2**.
+> All modify functions live in `top.katton.api.mod` and are annotated `@ApiStatus.Experimental`. They are available on the currently supported Minecraft versions: **26.1.2 and 26.2**.
 
 ## Import
 

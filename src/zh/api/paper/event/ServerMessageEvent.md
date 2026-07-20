@@ -33,8 +33,7 @@ object ServerMessageEvent
 
 Paper (Bukkit) 平台的服务器消息事件。
 
-该对象提供与聊天消息、广播相关的事件
-消息和命令调度。
+此对象提供与聊天消息、广播消息以及命令分发相关的事件。
 
 </ApiMemberCard>
 

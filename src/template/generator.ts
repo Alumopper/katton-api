@@ -2,6 +2,7 @@ import JSZip from 'jszip'
 
 export interface PackInfo {
   modLoader: 'fabric' | 'neoforge' | 'paper'
+  minecraftVersion: SupportedMinecraftVersion
   kattonVersion: string
   packId: string
   packName: string
@@ -14,10 +15,31 @@ export interface PackInfo {
 const WRAPPER_JAR_URL =
   'https://raw.githubusercontent.com/FabricMC/fabric-example-mod/refs/heads/master/gradle/wrapper/gradle-wrapper.jar'
 
-const KOTLIN_PLUGIN_VERSION = '2.3.0'
-const KATTON_SIGN_PLUGIN_VERSION = '0.3.0b6'
+export type SupportedMinecraftVersion = '26.1.2' | '26.2'
+
+interface PlatformVersions {
+  fabricApiVersion: string
+  paperDevBundleVersion: string
+}
+
+const PLATFORM_VERSIONS: Record<SupportedMinecraftVersion, PlatformVersions> = {
+  '26.1.2': {
+    fabricApiVersion: '0.144.0+26.1',
+    paperDevBundleVersion: '26.1.2.build.71-stable',
+  },
+  '26.2': {
+    fabricApiVersion: '0.154.0+26.2',
+    paperDevBundleVersion: '26.2.build.41-alpha',
+  },
+}
+
+const KOTLIN_PLUGIN_VERSION = '2.3.10'
+const KATTON_SIGN_PLUGIN_VERSION = '1.0.0'
 const PAPERWEIGHT_VERSION = '2.0.0-beta.21'
-const PAPER_DEV_BUNDLE_VERSION = '26.1.2.build.+'
+
+function platformVersions(minecraftVersion: SupportedMinecraftVersion): PlatformVersions {
+  return PLATFORM_VERSIONS[minecraftVersion]
+}
 
 // ─── Build script templates ────────────────────────────────────────────────
 
@@ -164,16 +186,18 @@ tasks.register("signAndCopyGameScripts") {
 `
 
 function fabricBuildGradle(info: PackInfo): string {
+  const versions = platformVersions(info.minecraftVersion)
   return `import java.nio.file.Files
 import java.nio.file.Path
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
-    ${info.signing ? 'id("top.katton.sign") version "1.0.0"' : ''}
+    ${info.signing ? `id("top.katton.sign") version "${KATTON_SIGN_PLUGIN_VERSION}"` : ''}
 }
 
+val minecraftVersion = "${info.minecraftVersion}"
 val kattonVersion = "${info.kattonVersion}"
-val fabricApiVersion = "0.144.0+26.1"
+val fabricApiVersion = "${versions.fabricApiVersion}"
 val worldScriptsTargetDir: List<File> = listOf(
     file("/path/to/your/world/kattonpacks/${info.packId}/")
 )
@@ -220,9 +244,10 @@ import java.nio.file.Path
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
-    ${info.signing ? 'id("top.katton.sign") version "1.0.0"' : ''}
+    ${info.signing ? `id("top.katton.sign") version "${KATTON_SIGN_PLUGIN_VERSION}"` : ''}
 }
 
+val minecraftVersion = "${info.minecraftVersion}"
 val kattonVersion = "${info.kattonVersion}"
 val worldScriptsTargetDir: List<File> = listOf(
     file("/path/to/your/world/kattonpacks/${info.packId}/")
@@ -263,6 +288,7 @@ ${info.signing ? SIGN_AND_COPY_TASK : ''}
 }
 
 function paperBuildGradle(info: PackInfo): string {
+  const versions = platformVersions(info.minecraftVersion)
   return `import java.nio.file.Files
 import java.nio.file.Path
 
@@ -271,6 +297,7 @@ plugins {
     id("io.papermc.paperweight.userdev") version "${PAPERWEIGHT_VERSION}"
 }
 
+val minecraftVersion = "${info.minecraftVersion}"
 val kattonVersion = "${info.kattonVersion}"
 val worldScriptsTargetDir: List<File> = listOf(
     file("/path/to/your/paper/world/kattonpacks/${info.packId}/")
@@ -286,7 +313,7 @@ repositories {
 
 dependencies {
     implementation("top.katton:katton-paper:\${kattonVersion}")
-    paperweight.paperDevBundle("${PAPER_DEV_BUNDLE_VERSION}")
+    paperweight.paperDevBundle("${versions.paperDevBundleVersion}")
 }
 
 kotlin {
@@ -546,104 +573,56 @@ fun init() {
 
 export interface KattonVersion {
   tag: string
+  mavenVersion: string
+  minecraftVersion: SupportedMinecraftVersion
+  loaders: PackInfo['modLoader'][]
   prerelease: boolean
+  legacyMavenCoordinate: boolean
 }
 
-// Hardcoded fallback when GitHub API is unreachable.
-// Updated: 2026-05-26
-const FALLBACK_VERSIONS: KattonVersion[] = [
-  { tag: '0.3.0', prerelease: true },
-  { tag: '0.3.0b10', prerelease: true },
-  { tag: '0.3.0b6', prerelease: true },
-  { tag: '0.2.0', prerelease: false },
-  { tag: '0.2.0b5', prerelease: true },
-  { tag: '0.2.0b3', prerelease: true },
-  { tag: '0.1.3b1', prerelease: true },
-  { tag: '0.1.1', prerelease: true },
-  { tag: '0.1', prerelease: true },
+// Verified against the module metadata in Katton's Maven repository.
+// New multi-Minecraft publications include +mc<version>; legacy publications
+// deliberately keep their original unqualified versions.
+const KATTON_VERSIONS: KattonVersion[] = [
+  {
+    tag: '0.3.1b3',
+    mavenVersion: '0.3.1b3+mc26.2',
+    minecraftVersion: '26.2',
+    loaders: ['fabric', 'neoforge', 'paper'],
+    prerelease: true,
+    legacyMavenCoordinate: false,
+  },
+  {
+    tag: '0.3.1b3',
+    mavenVersion: '0.3.1b3+mc26.1.2',
+    minecraftVersion: '26.1.2',
+    loaders: ['fabric', 'neoforge', 'paper'],
+    prerelease: true,
+    legacyMavenCoordinate: false,
+  },
+  {
+    tag: '0.3.0',
+    mavenVersion: '0.3.0',
+    minecraftVersion: '26.1.2',
+    loaders: ['fabric', 'neoforge', 'paper'],
+    prerelease: false,
+    legacyMavenCoordinate: true,
+  },
+  {
+    tag: '0.2.0',
+    mavenVersion: '0.2.0',
+    minecraftVersion: '26.1.2',
+    loaders: ['fabric', 'neoforge'],
+    prerelease: false,
+    legacyMavenCoordinate: true,
+  },
 ]
 
-const GITHUB_RELEASES_API =
-  'https://api.github.com/repos/Alumopper/Katton/releases?per_page=30'
-
-/**
- * Extract the base version by stripping pre-release suffix.
- * "0.2.0b5" → "0.2.0",  "0.2.0" → "0.2.0",  "0.1.3b1" → "0.1.3"
- */
-function baseVersion(tag: string): string {
-  return tag.replace(/b\d+$/, '')
-}
-
-/**
- * Sort tags descending (newest first). Handles semver + pre-release suffixes.
- */
-function sortTagsDesc(a: string, b: string): number {
-  const pa = a.split(/[.b-]/).map(Number).filter(n => !isNaN(n))
-  const pb = b.split(/[.b-]/).map(Number).filter(n => !isNaN(n))
-  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
-    const va = pa[i] ?? 0
-    const vb = pb[i] ?? 0
-    if (va !== vb) return vb - va
-  }
-  return a.localeCompare(b)
-}
-
-function filterAndSort(versions: KattonVersion[]): KattonVersion[] {
-  // Group by base version
-  const groups = new Map<string, KattonVersion[]>()
-  for (const v of versions) {
-    const base = baseVersion(v.tag)
-    if (!groups.has(base)) groups.set(base, [])
-    groups.get(base)!.push(v)
-  }
-
-  // For each base version group:
-  // - If a stable (non-prerelease) exists → only keep stable versions
-  // - Otherwise → keep all pre-releases
-  const filtered: KattonVersion[] = []
-  for (const [, group] of groups) {
-    const stables = group.filter(v => !v.prerelease)
-    if (stables.length > 0) {
-      filtered.push(...stables)
-    } else {
-      filtered.push(...group)
-    }
-  }
-
-  filtered.sort((a, b) => sortTagsDesc(a.tag, b.tag))
-  return filtered
-}
-
 export async function fetchKattonVersions(): Promise<KattonVersion[]> {
-  // Try GitHub API first
-  try {
-    const res = await fetch(GITHUB_RELEASES_API)
-    if (res.ok) {
-      const data = await res.json()
-      if (Array.isArray(data)) {
-        const remote: KattonVersion[] = data
-          .map((r: { tag_name: string; prerelease: boolean }) => ({
-            tag: r.tag_name,
-            prerelease: r.prerelease,
-          }))
-          .filter(v => v.tag)
-
-        //remove the possible latter 'v' prefix from the tag
-        for (const v of remote) {
-          if (v.tag.startsWith('v')) {
-            v.tag = v.tag.slice(1)
-          }
-        }
-        if (remote.length > 0) {
-          return filterAndSort(remote)
-        }
-      }
-    }
-  } catch {
-    // GitHub API unreachable — use fallback
-  }
-
-  return filterAndSort(FALLBACK_VERSIONS)
+  return KATTON_VERSIONS.map(version => ({
+    ...version,
+    loaders: [...version.loaders],
+  }))
 }
 
 // ─── Zip generation ─────────────────────────────────────────────────────────
@@ -652,6 +631,20 @@ export async function generateZip(
   info: PackInfo,
   onProgress?: (msg: string) => void
 ): Promise<Blob> {
+  const publishedVersion = KATTON_VERSIONS.some(version =>
+    version.mavenVersion === info.kattonVersion &&
+    version.minecraftVersion === info.minecraftVersion &&
+    version.loaders.includes(info.modLoader)
+  )
+  if (!publishedVersion) {
+    throw new Error(
+      `Katton ${info.kattonVersion} is not published for ${info.modLoader} on Minecraft ${info.minecraftVersion}`
+    )
+  }
+  if (info.modLoader === 'paper' && info.signing) {
+    throw new Error('Paper script packs do not support client-sync signing')
+  }
+
   const zip = new JSZip()
   const rootDir = `${info.packId}/`
 
@@ -724,17 +717,18 @@ function readmeTemplate(info: PackInfo): string {
       : info.modLoader === 'neoforge'
         ? 'NeoForge'
         : 'Paper'
-  const setupSteps =
-    info.modLoader === 'paper'
-      ? `1. Open this project in IntelliJ IDEA
-2. Edit \`build.gradle.kts\` to configure \`worldScriptsTargetDir\` and \`globalScriptsTargetDir\`
-3. Run the \`copyGameScripts\` Gradle task to link your scripts into the server
-4. Run \`signAndCopyGameScripts\` when you want to sign \`world_scripts\` and \`global_scripts\` before copying`
-      : `1. Copy the official Minecraft jar (matching your Minecraft version) into \`lib/\`
-2. Open this project in IntelliJ IDEA
-3. Edit \`build.gradle.kts\` to configure \`worldScriptsTargetDir\` and \`globalScriptsTargetDir\`
-4. Run the \`copyGameScripts\` Gradle task to link your scripts into the game
-5. Run \`signAndCopyGameScripts\` when you want to sign \`world_scripts\` and \`global_scripts\` before copying`
+  const copyTask = info.signing ? 'signAndCopyGameScripts' : 'copyGameScripts'
+  const setupInstructions = [
+    ...(info.modLoader === 'paper'
+      ? []
+      : ['Copy the official Minecraft jar for the selected version into `lib/`']),
+    'Open this project in IntelliJ IDEA',
+    'Edit `build.gradle.kts` to configure `worldScriptsTargetDir` and `globalScriptsTargetDir`',
+    `Run the \`${copyTask}\` Gradle task to link your scripts into the ${info.modLoader === 'paper' ? 'server' : 'game'}`,
+  ]
+  const setupSteps = setupInstructions
+    .map((instruction, index) => `${index + 1}. ${instruction}`)
+    .join('\n')
   const entrypoints =
     info.modLoader === 'paper'
       ? '- `@ServerScriptEntrypoint` — runs on the Paper server'
@@ -758,7 +752,8 @@ ${setupSteps}
 | ID | \`${info.packId}\` |
 | Name | ${info.packName} |
 | Version | ${info.packVersion} |
-| Katton | ${info.kattonVersion} |
+| Minecraft | ${info.minecraftVersion} |
+| Katton Maven version | ${info.kattonVersion} |
 | Loader | ${loaderName} |
 
 ## Development

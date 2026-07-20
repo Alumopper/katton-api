@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/LivingUseItemEvent.kt"
 >
-生命实体使用Fabric平台的物品事件。
+Fabric 平台的生物实体物品使用事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;LivingUseItemEvent&quot;,&quot;href&quot;:&quot;#livinguseitemevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;LivingUseItemEvent.onUseItemStart&quot;,&quot;href&quot;:&quot;#livinguseitemevent-onuseitemstart&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingUseItemEvent.onUseItemTick&quot;,&quot;href&quot;:&quot;#livinguseitemevent-onuseitemtick&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingUseItemEvent.onUseItemStop&quot;,&quot;href&quot;:&quot;#livinguseitemevent-onuseitemstop&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingUseItemEvent.onUseItemFinish&quot;,&quot;href&quot;:&quot;#livinguseitemevent-onuseitemfinish&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -30,11 +30,10 @@ outline: [2, 2]
 object LivingUseItemEvent
 ```
 
-生命实体使用Fabric平台的物品事件。
+Fabric 平台的生物实体物品使用事件。
 
-该对象提供与使用物品的生命实体相关的事件。
-注意：这些事件是 NeoForge 兼容性的占位符，如下所示
-Fabric 没有所有物品使用事件的直接等价物。
+此对象提供与生物实体使用物品相关的事件。
+注意：这些事件主要用于与 NeoForge 保持兼容，因为 Fabric 并没有所有物品使用事件的直接对应项。
 
 ### LivingUseItemEvent.onUseItemStart
 
@@ -52,8 +51,10 @@ Fabric 没有所有物品使用事件的直接等价物。
 @JvmField val onUseItemStart
 ```
 
-当生物体开始使用物品时触发事件。
-可以取消以防止物品使用。
+Fabric 平台的生物实体物品使用事件。
+
+此对象提供与生物实体使用物品相关的事件。
+注意：这些事件主要用于与 NeoForge 保持兼容，因为 Fabric 并没有所有物品使用事件的直接对应项。
 
 </ApiMemberCard>
 
@@ -73,8 +74,10 @@ Fabric 没有所有物品使用事件的直接等价物。
 @JvmField val onUseItemTick
 ```
 
-当生命实体使用物品时，事件会触发每个tick。
-可以取消以停止物品使用。
+Fabric 平台的生物实体物品使用事件。
+
+此对象提供与生物实体使用物品相关的事件。
+注意：这些事件主要用于与 NeoForge 保持兼容，因为 Fabric 并没有所有物品使用事件的直接对应项。
 
 </ApiMemberCard>
 
@@ -94,8 +97,10 @@ Fabric 没有所有物品使用事件的直接等价物。
 @JvmField val onUseItemStop
 ```
 
-当生物体停止使用某个物品时触发事件。
-可以取消以继续使用物品。
+Fabric 平台的生物实体物品使用事件。
+
+此对象提供与生物实体使用物品相关的事件。
+注意：这些事件主要用于与 NeoForge 保持兼容，因为 Fabric 并没有所有物品使用事件的直接对应项。
 
 </ApiMemberCard>
 
@@ -115,7 +120,10 @@ Fabric 没有所有物品使用事件的直接等价物。
 @JvmField val onUseItemFinish
 ```
 
-当生物体完成使用物品时触发事件。
+Fabric 平台的生物实体物品使用事件。
+
+此对象提供与生物实体使用物品相关的事件。
+注意：这些事件主要用于与 NeoForge 保持兼容，因为 Fabric 并没有所有物品使用事件的直接对应项。
 
 </ApiMemberCard>
 

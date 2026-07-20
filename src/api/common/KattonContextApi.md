@@ -142,7 +142,7 @@ Entity's natural yaw/pitch.
 WORLD
 ```
 
-Default — [Vec2.ZERO] (no rotation).
+Default: [Vec2.ZERO] (no rotation).
 
 </ApiMemberCard>
 
@@ -194,7 +194,7 @@ Combines [BonePositionMode] and [BoneOrientationMode] to set the context's
 `pos` and `rotation`. Use the returned [ExecutionContext] to execute commands
 at the bone's world position, or read `pos` / `rotation` directly for custom effects.
 
-On a dedicated client (multiplayer), the server reference may be unavailable —
+On a dedicated client (multiplayer), the server reference may be unavailable;
 in that case the returned context has position/rotation set but no command
 execution capability.
 

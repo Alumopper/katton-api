@@ -36,7 +36,7 @@ Loot table events for Paper (Bukkit) platform.
 This object provides events related to loot generation and drop
 modification.
 
-TODO: raw Bukkit event — LootTable replacement and modification hooks
+TODO: raw Bukkit event - LootTable replacement and modification hooks
 are not yet bridged for the Paper platform.
 
 </ApiMemberCard>

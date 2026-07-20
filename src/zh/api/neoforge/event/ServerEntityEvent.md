@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="neoforge/src/main/kotlin/top/katton/api/event/ServerEntityEvent.kt"
 >
-NeoForge 平台的服务器实体生命周期事件。
+NeoForge 平台的服务端实体生命周期事件。 此对象提供与实体生命周期相关的事件，包括加载、卸载、装备变化、传送和末影人愤怒。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerEntityEvent&quot;,&quot;href&quot;:&quot;#serverentityevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerEntityEvent.onEntityLoad&quot;,&quot;href&quot;:&quot;#serverentityevent-onentityload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEntityEvent.onEntityUnload&quot;,&quot;href&quot;:&quot;#serverentityevent-onentityunload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEntityEvent.onEquipmentChange&quot;,&quot;href&quot;:&quot;#serverentityevent-onequipmentchange&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEntityEvent.onAfterEntityChangeLevel&quot;,&quot;href&quot;:&quot;#serverentityevent-onafterentitychangelevel&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEntityEvent.onAfterPlayerChangeLevel&quot;,&quot;href&quot;:&quot;#serverentityevent-onafterplayerchangelevel&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEntityEvent.onEntityTeleport&quot;,&quot;href&quot;:&quot;#serverentityevent-onentityteleport&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEntityEvent.onEndermanAnger&quot;,&quot;href&quot;:&quot;#serverentityevent-onendermananger&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -32,10 +32,8 @@ NeoForge 平台的服务器实体生命周期事件。
 modid
 ```
 
-NeoForge 平台的服务器实体生命周期事件。
-
-该对象提供与实体生命周期相关的事件，包括
-装载、卸载、装备更换、传送和末影人愤怒。
+NeoForge 平台的服务端实体生命周期事件。
+此对象提供与实体生命周期相关的事件，包括加载、卸载、装备变化、传送和末影人愤怒。
 
 ### ServerEntityEvent.onEntityLoad
 
@@ -52,8 +50,8 @@ NeoForge 平台的服务器实体生命周期事件。
 val onEntityLoad
 ```
 
-当实体加入世界（服务器端）时触发的事件。
-可以取消以防止实体加入。
+当实体加入某个维度（服务端）时触发。
+可取消以阻止实体加入。
 
 </ApiMemberCard>
 
@@ -72,7 +70,7 @@ val onEntityLoad
 val onEntityUnload
 ```
 
-当实体离开世界时触发事件。
+当实体离开某个维度时触发。
 
 </ApiMemberCard>
 
@@ -91,7 +89,7 @@ val onEntityUnload
 val onEquipmentChange
 ```
 
-当实体的装备发生变化时触发事件。
+当实体的装备发生变化时触发。
 
 </ApiMemberCard>
 
@@ -111,8 +109,8 @@ val onEquipmentChange
 @JvmField val onAfterEntityChangeLevel
 ```
 
-实体更改世界/维度后触发的事件。
-注意：这是 NeoForge 兼容性的占位符。
+当实体切换维度/世界后触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -132,8 +130,8 @@ val onEquipmentChange
 @JvmField val onAfterPlayerChangeLevel
 ```
 
-玩家更改世界/维度后触发的事件。
-注意：这是 NeoForge 兼容性的占位符。
+当玩家切换维度/世界后触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -152,8 +150,8 @@ val onEquipmentChange
 val onEntityTeleport
 ```
 
-当实体传送时触发事件。
-可以取消以防止传送。
+当实体传送时触发。
+可取消以阻止传送。
 
 </ApiMemberCard>
 
@@ -172,8 +170,8 @@ val onEntityTeleport
 val onEndermanAnger
 ```
 
-当末影人被玩家激怒时触发事件。
-可以取消以防止愤怒。
+当末影人被玩家激怒时触发。
+可取消以阻止激怒。
 
 </ApiMemberCard>
 

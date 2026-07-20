@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonServerApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonServerApi.kt"
 >
 Access to all online players.
@@ -211,7 +211,7 @@ Find a player by name.
 
 ### Returns
 
-the ServerPlayer if found, null otherwise
+ServerPlayer if found, null otherwise
 
 </ApiMemberCard>
 
@@ -240,7 +240,7 @@ Find a player by UUID.
 
 ### Returns
 
-the ServerPlayer if found, null otherwise
+ServerPlayer if found, null otherwise
 
 </ApiMemberCard>
 
@@ -270,7 +270,7 @@ Find entities using an entity selector in a level.
 
 ### Returns
 
-list of matching entities
+of matching entities
 
 </ApiMemberCard>
 
@@ -299,7 +299,7 @@ Find an entity by UUID across all levels.
 
 ### Returns
 
-the Entity if found, null otherwise
+Entity if found, null otherwise
 
 </ApiMemberCard>
 
@@ -506,7 +506,7 @@ Get a player's current GameType.
 
 ### Returns
 
-current GameType
+GameType
 
 </ApiMemberCard>
 
@@ -561,7 +561,7 @@ Get a game rule value from the server overworld.
 
 ### Returns
 
-value of the game rule
+of the game rule
 
 </ApiMemberCard>
 

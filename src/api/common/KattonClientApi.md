@@ -34,7 +34,7 @@ Gets the raw Minecraft client instance.
 
 ### Returns
 
-The Minecraft client instance
+Minecraft client instance
 
 </ApiMemberCard>
 
@@ -57,7 +57,7 @@ Gets the raw client player entity.
 
 ### Returns
 
-The client player entity, or null if not in a world or on server
+client player entity, or null if not in a world or on server
 
 </ApiMemberCard>
 
@@ -80,7 +80,7 @@ Gets the raw client level (world).
 
 ### Returns
 
-The client level instance, or null if not in a world or on server
+client level instance, or null if not in a world or on server
 
 </ApiMemberCard>
 
@@ -109,7 +109,7 @@ Sends a message to the client player's chat.
 
 ### Returns
 
-true if the message was sent successfully, false otherwise
+if the message was sent successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -141,7 +141,7 @@ from a different thread context.
 
 ### Returns
 
-true if the action was queued/executed successfully
+if the action was queued/executed successfully
 
 </ApiMemberCard>
 
@@ -164,7 +164,7 @@ Checks if the client game is paused.
 
 ### Returns
 
-true if the game is paused (e.g., pause menu open), false otherwise
+if the game is paused (e.g., pause menu open), false otherwise
 
 </ApiMemberCard>
 
@@ -187,7 +187,7 @@ Checks if the client is currently in a world.
 
 ### Returns
 
-true if the client has loaded a world, false otherwise
+if the client has loaded a world, false otherwise
 
 </ApiMemberCard>
 
@@ -210,7 +210,7 @@ Gets the client player's X coordinate.
 
 ### Returns
 
-The X coordinate, or null if not available
+X coordinate, or null if not available
 
 </ApiMemberCard>
 
@@ -233,7 +233,7 @@ Gets the client player's Y coordinate.
 
 ### Returns
 
-The Y coordinate, or null if not available
+Y coordinate, or null if not available
 
 </ApiMemberCard>
 
@@ -256,7 +256,7 @@ Gets the client player's Z coordinate.
 
 ### Returns
 
-The Z coordinate, or null if not available
+Z coordinate, or null if not available
 
 </ApiMemberCard>
 
@@ -279,7 +279,7 @@ Gets the client player's position as a Vec3.
 
 ### Returns
 
-The position vector, or null if any coordinate is unavailable
+position vector, or null if any coordinate is unavailable
 
 </ApiMemberCard>
 
@@ -302,7 +302,7 @@ Gets the client player's yaw rotation.
 
 ### Returns
 
-The yaw angle in degrees, or null if not available
+yaw angle in degrees, or null if not available
 
 </ApiMemberCard>
 
@@ -325,7 +325,7 @@ Gets the client player's pitch rotation.
 
 ### Returns
 
-The pitch angle in degrees, or null if not available
+pitch angle in degrees, or null if not available
 
 </ApiMemberCard>
 
@@ -348,7 +348,7 @@ Gets the client player's current dimension identifier.
 
 ### Returns
 
-The dimension ID string (e.g., "minecraft:overworld"), or null if not available
+dimension ID string (e.g., "minecraft:overworld"), or null if not available
 
 </ApiMemberCard>
 
@@ -371,7 +371,7 @@ Gets the client world's current game time.
 
 ### Returns
 
-The game time in ticks, or null if not available
+game time in ticks, or null if not available
 
 </ApiMemberCard>
 
@@ -400,7 +400,7 @@ Displays a message in the client player's action bar.
 
 ### Returns
 
-true if displayed successfully, false otherwise
+if displayed successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -430,7 +430,7 @@ Displays an overlay message on the client screen.
 
 ### Returns
 
-true if displayed successfully, false otherwise
+if displayed successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -453,7 +453,7 @@ Clears any active overlay message on the client.
 
 ### Returns
 
-true if cleared successfully, false otherwise
+if cleared successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -482,7 +482,7 @@ Displays a "Now Playing" message for music/sound.
 
 ### Returns
 
-true if displayed successfully, false otherwise
+if displayed successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -513,7 +513,7 @@ Plays a sound on the client.
 
 ### Returns
 
-true if the sound was played successfully, false if the sound ID was invalid
+if the sound was played successfully, false if the sound ID was invalid
 
 </ApiMemberCard>
 
@@ -544,7 +544,7 @@ Plays a sound on the client.
 
 ### Returns
 
-true if the sound was played successfully, false if the sound ID was invalid
+if the sound was played successfully, false if the sound ID was invalid
 
 </ApiMemberCard>
 
@@ -573,7 +573,7 @@ Displays a title on the client screen.
 
 ### Returns
 
-true if displayed successfully, false otherwise
+if displayed successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -602,7 +602,7 @@ Displays a subtitle on the client screen.
 
 ### Returns
 
-true if displayed successfully, false otherwise
+if displayed successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -633,7 +633,7 @@ Sets the timing for title display.
 
 ### Returns
 
-true if timing was set successfully, false otherwise
+if timing was set successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -656,7 +656,7 @@ Clears any active title on the client.
 
 ### Returns
 
-true if cleared successfully, false otherwise
+if cleared successfully, false otherwise
 
 </ApiMemberCard>
 
@@ -679,7 +679,7 @@ Gets the client's current FPS (frames per second).
 
 ### Returns
 
-The current FPS, or null if not available
+current FPS, or null if not available
 
 </ApiMemberCard>
 
@@ -702,7 +702,7 @@ Checks if the client window is focused.
 
 ### Returns
 
-true if the window has focus, false otherwise
+if the window has focus, false otherwise
 
 </ApiMemberCard>
 
@@ -725,7 +725,7 @@ Gets the name of the currently open screen.
 
 ### Returns
 
-The screen class name, or null if no screen is open
+screen class name, or null if no screen is open
 
 </ApiMemberCard>
 
@@ -748,7 +748,7 @@ Checks if the client is currently in a menu (not in-game).
 
 ### Returns
 
-true if a menu screen is open, false if in-game
+if a menu screen is open, false if in-game
 
 </ApiMemberCard>
 
@@ -771,7 +771,7 @@ Checks if the chat screen is currently open.
 
 ### Returns
 
-true if chat is open, false otherwise
+if chat is open, false otherwise
 
 </ApiMemberCard>
 

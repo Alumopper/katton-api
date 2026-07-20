@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/LivingBehaviorEvent.kt"
 >
-Living entity behavior events for Fabric platform.
+Living behavior events for Fabric platform.
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;LivingBehaviorEvent&quot;,&quot;href&quot;:&quot;#livingbehaviorevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onElytraAllow&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onelytraallow&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onElytraCustom&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onelytracustom&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowSleeping&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallowsleeping&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onStartSleeping&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onstartsleeping&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onStopSleeping&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onstopsleeping&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowBed&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallowbed&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowNearbyMonsters&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallownearbymonsters&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowResettingTime&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallowresettingtime&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onModifySleepingDirection&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onmodifysleepingdirection&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onAllowSettingSpawn&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onallowsettingspawn&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onSetBedOccupationState&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onsetbedoccupationstate&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onModifyWakeUpPosition&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onmodifywakeupposition&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LivingBehaviorEvent.onPlayerWakeUp&quot;,&quot;href&quot;:&quot;#livingbehaviorevent-onplayerwakeup&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,10 @@ Living entity behavior events for Fabric platform.
 object LivingBehaviorEvent
 ```
 
-Living entity behavior events for Fabric platform.
+Living behavior events for Fabric platform.
 
-This object provides events related to living entity behaviors including
-elytra flight, sleeping, animal taming, and baby spawning.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 ### LivingBehaviorEvent.onElytraAllow
 
@@ -51,11 +51,10 @@ elytra flight, sleeping, animal taming, and baby spawning.
 val onElytraAllow
 ```
 
-Event triggered to check if an entity is allowed to use elytra.
+Living behavior events for Fabric platform.
 
-### Returns
-
-true to allow elytra usage, false to deny.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -74,11 +73,10 @@ true to allow elytra usage, false to deny.
 val onElytraCustom
 ```
 
-Event triggered to provide custom elytra flight behavior.
+Living behavior events for Fabric platform.
 
-### Returns
-
-true if custom behavior is applied, false to use default.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -97,11 +95,10 @@ true if custom behavior is applied, false to use default.
 val onAllowSleeping
 ```
 
-Event triggered to check if a player is allowed to sleep.
+Living behavior events for Fabric platform.
 
-### Returns
-
-BedSleepingProblem if sleep is denied, null to allow.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -120,7 +117,10 @@ BedSleepingProblem if sleep is denied, null to allow.
 val onStartSleeping
 ```
 
-Event triggered when a player starts sleeping.
+Living behavior events for Fabric platform.
+
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -139,7 +139,10 @@ Event triggered when a player starts sleeping.
 val onStopSleeping
 ```
 
-Event triggered when a player stops sleeping.
+Living behavior events for Fabric platform.
+
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -158,11 +161,10 @@ Event triggered when a player stops sleeping.
 val onAllowBed
 ```
 
-Event triggered to check if a player is allowed to use a bed.
+Living behavior events for Fabric platform.
 
-### Returns
-
-EventResult indicating the result of the check.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -181,11 +183,10 @@ EventResult indicating the result of the check.
 val onAllowNearbyMonsters
 ```
 
-Event triggered to check if nearby monsters prevent sleeping.
+Living behavior events for Fabric platform.
 
-### Returns
-
-EventResult indicating whether monsters should prevent sleep.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -204,11 +205,10 @@ EventResult indicating whether monsters should prevent sleep.
 val onAllowResettingTime
 ```
 
-Event triggered to check if time should reset after sleeping.
+Living behavior events for Fabric platform.
 
-### Returns
-
-true to allow time reset, false to prevent it.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -227,11 +227,10 @@ true to allow time reset, false to prevent it.
 val onModifySleepingDirection
 ```
 
-Event triggered to modify the sleeping direction when entering a bed.
+Living behavior events for Fabric platform.
 
-### Returns
-
-The modified direction for the player to face.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -250,11 +249,10 @@ The modified direction for the player to face.
 val onAllowSettingSpawn
 ```
 
-Event triggered to check if spawn point should be set when sleeping.
+Living behavior events for Fabric platform.
 
-### Returns
-
-true to allow setting spawn, false to prevent it.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -273,11 +271,10 @@ true to allow setting spawn, false to prevent it.
 val onSetBedOccupationState
 ```
 
-Event triggered to set the bed occupation state.
+Living behavior events for Fabric platform.
 
-### Returns
-
-true if the state was handled, false for default behavior.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -296,11 +293,10 @@ true if the state was handled, false for default behavior.
 val onModifyWakeUpPosition
 ```
 
-Event triggered to modify the player's wake-up position.
+Living behavior events for Fabric platform.
 
-### Returns
-
-The modified Vec3 wake-up position.
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 
@@ -320,7 +316,10 @@ The modified Vec3 wake-up position.
 @JvmField val onPlayerWakeUp
 ```
 
-Event triggered when a player wakes up from sleeping.
+Living behavior events for Fabric platform.
+
+This object provides events related to mob behaviors including taming,
+breeding, sleeping, elytra flight, and bed interaction.
 
 </ApiMemberCard>
 

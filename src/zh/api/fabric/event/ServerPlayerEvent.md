@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/ServerPlayerEvent.kt"
 >
-Fabric平台的服务器玩家事件。
+Fabric 平台的服务器玩家事件。 此对象提供与服务器玩家生命周期相关的事件，包括加入、离开、重生、经验事件和物品选取事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerPlayerEvent&quot;,&quot;href&quot;:&quot;#serverplayerevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerJoin&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerjoin&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerLeave&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerleave&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onAfterPlayerRespawn&quot;,&quot;href&quot;:&quot;#serverplayerevent-onafterplayerrespawn&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerCopy&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayercopy&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerXpChange&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerxpchange&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerXpLevelChange&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerxplevelchange&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerPickupXp&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerpickupxp&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPickFromBlock&quot;,&quot;href&quot;:&quot;#serverplayerevent-onpickfromblock&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPickFromEntity&quot;,&quot;href&quot;:&quot;#serverplayerevent-onpickfromentity&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,8 @@ Fabric平台的服务器玩家事件。
 object ServerPlayerEvent
 ```
 
-Fabric平台的服务器玩家事件。
-
-该对象提供与服务器玩家生命周期相关的事件，包括
-加入/离开/重生、XP事件和物品拾取事件。
+Fabric 平台的服务器玩家事件。
+此对象提供与服务器玩家生命周期相关的事件，包括加入、离开、重生、经验事件和物品选取事件。
 
 ### ServerPlayerEvent.onPlayerJoin
 
@@ -51,7 +49,7 @@ Fabric平台的服务器玩家事件。
 val onPlayerJoin
 ```
 
-当玩家加入服务器时触发的事件。
+在玩家加入服务器时触发。
 
 </ApiMemberCard>
 
@@ -70,7 +68,7 @@ val onPlayerJoin
 val onPlayerLeave
 ```
 
-当玩家离开服务器时触发的事件。
+在玩家离开服务器时触发。
 
 </ApiMemberCard>
 
@@ -89,7 +87,7 @@ val onPlayerLeave
 val onAfterPlayerRespawn
 ```
 
-玩家重生后触发的事件。
+在玩家重生之后触发。
 
 </ApiMemberCard>
 
@@ -108,7 +106,7 @@ val onAfterPlayerRespawn
 val onPlayerCopy
 ```
 
-复制玩家数据时触发的事件（例如，重生或尺寸更改时）。
+在复制玩家数据 (例如 on 重生 或 维度切换)时触发。
 
 </ApiMemberCard>
 
@@ -128,8 +126,8 @@ val onPlayerCopy
 @JvmField val onPlayerXpChange
 ```
 
-当玩家的XP发生变化时触发事件。
-可以取消以防止更改。
+在玩家经验变化时触发。
+可以取消，用来阻止对应的默认行为。
 
 </ApiMemberCard>
 
@@ -149,8 +147,8 @@ val onPlayerCopy
 @JvmField val onPlayerXpLevelChange
 ```
 
-当玩家的XP等级发生变化时触发事件。
-可以取消以防止更改。
+在玩家经验等级变化时触发。
+可以取消，用来阻止对应的默认行为。
 
 </ApiMemberCard>
 
@@ -170,8 +168,8 @@ val onPlayerCopy
 @JvmField val onPlayerPickupXp
 ```
 
-当玩家拾取 XP 球体时触发事件。
-可以取消以防止取货。
+在玩家拾取经验球时触发。
+可以取消，用来阻止对应的默认行为。
 
 </ApiMemberCard>
 
@@ -190,11 +188,11 @@ val onPlayerCopy
 val onPickFromBlock
 ```
 
-当玩家从块中选取一个物品（中键单击）时触发事件。
+在玩家用鼠标中键从方块选取物品时触发。
 
 ### 返回值
 
-要选取的 ItemStack，或默认行为为 null。
+要拾取的 ItemStack，返回 null 则使用默认行为。
 
 </ApiMemberCard>
 
@@ -213,11 +211,11 @@ val onPickFromBlock
 val onPickFromEntity
 ```
 
-当玩家从实体中选取物品（中键单击）时触发事件。
+在玩家用鼠标中键从实体选取物品时触发。
 
 ### 返回值
 
-要选取的 ItemStack，或默认行为为 null。
+要拾取的 ItemStack，返回 null 则使用默认行为。
 
 </ApiMemberCard>
 

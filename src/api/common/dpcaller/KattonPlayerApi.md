@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonPlayerApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonPlayerApi.kt"
 >
 List-like access to all online players.
@@ -227,7 +227,7 @@ Get the item from a player's inventory slot.
 
 ### Returns
 
-ItemStack in the slot
+in the slot
 
 </ApiMemberCard>
 
@@ -257,7 +257,7 @@ Try to give an item stack to a player.
 
 ### Returns
 
-true if added to inventory, false if full
+if added to inventory, false if full
 
 </ApiMemberCard>
 
@@ -317,7 +317,7 @@ Find the slot index of an item in player's inventory.
 
 ### Returns
 
-slot index or -1 if not found
+index or -1 if not found
 
 </ApiMemberCard>
 
@@ -509,7 +509,7 @@ Get a player's experience level.
 
 ### Returns
 
-current experience level
+experience level
 
 </ApiMemberCard>
 
@@ -538,7 +538,7 @@ Get a player's experience progress (fraction).
 
 ### Returns
 
-experience progress as float (0..1)
+progress as float (0..1)
 
 </ApiMemberCard>
 
@@ -564,7 +564,7 @@ Set spawn point for a collection of players.
 | Parameter | Description |
 | --- | --- |
 | `player` | collection of ServerPlayer to set |
-| `level` | server level for dimension |
+| `level` | server level providing the dimension |
 | `pos` | respawn position |
 | `rot` | rotation vector (pitch,x / yaw,y) |
 
@@ -623,7 +623,7 @@ Make a player spectate a target entity.
 
 ### Returns
 
-true if spectation succeeded, false otherwise
+true if spectating succeeded, false otherwise
 
 </ApiMemberCard>
 

@@ -42,7 +42,7 @@ Registers a native ParticleType with hot-reload support.
 
 ### Returns
 
-The registered KattonParticleTypeEntry
+registered KattonParticleTypeEntry
 
 </ApiMemberCard>
 
@@ -73,7 +73,7 @@ Registers a native ParticleType with hot-reload support.
 
 ### Returns
 
-The registered KattonParticleTypeEntry
+registered KattonParticleTypeEntry
 
 </ApiMemberCard>
 

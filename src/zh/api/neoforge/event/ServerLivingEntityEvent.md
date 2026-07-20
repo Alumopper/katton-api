@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="neoforge/src/main/kotlin/top/katton/api/event/ServerLivingEntityEvent.kt"
 >
-NeoForge平台的服务器端生物体事件。
+NeoForge 平台的服务端生物实体事件。 此对象提供与生物实体生命周期相关的事件，包括受伤、死亡、掉落物、坠落、跳跃和生物转化。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerLivingEntityEvent&quot;,&quot;href&quot;:&quot;#serverlivingentityevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onLivingHurt&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onlivinghurt&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onAllowDamage&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onallowdamage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onAfterDamage&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onafterdamage&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onAllowDeath&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onallowdeath&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onAfterDeath&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onafterdeath&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onLivingDrops&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onlivingdrops&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onLivingFall&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onlivingfall&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onLivingJump&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onlivingjump&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerLivingEntityEvent.onMobConversion&quot;,&quot;href&quot;:&quot;#serverlivingentityevent-onmobconversion&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,8 @@ NeoForge平台的服务器端生物体事件。
 modid
 ```
 
-NeoForge平台的服务器端生物体事件。
-
-该对象提供与生命实体生命周期相关的事件，包括
-伤害、死亡、掉落、坠落、跳跃和生物转换。
+NeoForge 平台的服务端生物实体事件。
+此对象提供与生物实体生命周期相关的事件，包括受伤、死亡、掉落物、坠落、跳跃和生物转化。
 
 ### ServerLivingEntityEvent.onLivingHurt
 
@@ -51,8 +49,8 @@ NeoForge平台的服务器端生物体事件。
 val onLivingHurt
 ```
 
-当生物体受伤时触发事件。
-可以取消以防止损坏。
+当生物实体受到伤害时触发。
+可取消以阻止伤害。
 
 </ApiMemberCard>
 
@@ -72,11 +70,11 @@ val onLivingHurt
 @JvmField val onAllowDamage
 ```
 
-触发事件以允许或拒绝对生物体造成伤害。
+用于允许或拒绝对生物实体造成伤害。
 
 ### 返回值
 
-true 允许损坏， false 取消损坏。
+返回 true 以允许伤害，返回 false 以取消伤害。
 
 </ApiMemberCard>
 
@@ -96,7 +94,7 @@ true 允许损坏， false 取消损坏。
 @JvmField val onAfterDamage
 ```
 
-生物受到伤害后触发的事件。
+当生物实体受到伤害后触发。
 
 </ApiMemberCard>
 
@@ -116,11 +114,11 @@ true 允许损坏， false 取消损坏。
 @JvmField val onAllowDeath
 ```
 
-触发事件以允许或拒绝生物体死亡。
+用于允许或拒绝生物实体死亡。
 
 ### 返回值
 
-true 允许死亡， false 取消死亡。
+返回 true 以允许死亡，返回 false 以取消死亡。
 
 </ApiMemberCard>
 
@@ -140,7 +138,7 @@ true 允许死亡， false 取消死亡。
 @JvmField val onAfterDeath
 ```
 
-生物死亡后触发的事件。
+当生物实体死亡后触发。
 
 </ApiMemberCard>
 
@@ -159,8 +157,8 @@ true 允许死亡， false 取消死亡。
 val onLivingDrops
 ```
 
-当生物体死亡时掉落物品时触发事件。
-可以取消以防止掉落。
+当生物实体死亡并掉落物品时触发。
+可取消以阻止掉落。
 
 </ApiMemberCard>
 
@@ -179,8 +177,8 @@ val onLivingDrops
 val onLivingFall
 ```
 
-当生物体掉落时触发事件。
-可以取消防止坠落损坏的处理。
+当生物实体坠落时触发。
+可取消以阻止坠落伤害处理。
 
 </ApiMemberCard>
 
@@ -199,7 +197,7 @@ val onLivingFall
 val onLivingJump
 ```
 
-当生物体跳跃时触发事件。
+当生物实体跳跃时触发。
 
 </ApiMemberCard>
 
@@ -218,8 +216,8 @@ val onLivingJump
 val onMobConversion
 ```
 
-当生物转换为另一种类型时触发的事件
-（例如，僵尸村民治愈、猪灵僵尸化）。
+当生物转换为其他类型时触发。
+例如僵尸村民治愈或猪灵僵尸化。
 
 </ApiMemberCard>
 

@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api"
   source-file="common/src/main/kotlin/top/katton/api/ScriptEntrypoint.kt"
 >
-将顶级无参数函数标记为客户端脚本入口点。
+将一个顶层无参数函数标记为客户端脚本入口点。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ClientScriptEntrypoint&quot;,&quot;href&quot;:&quot;#clientscriptentrypoint&quot;,&quot;kind&quot;:&quot;Annotation Class&quot;,&quot;kindKey&quot;:&quot;annotation-class&quot;}, {&quot;label&quot;:&quot;ServerScriptEntrypoint&quot;,&quot;href&quot;:&quot;#serverscriptentrypoint&quot;,&quot;kind&quot;:&quot;Annotation Class&quot;,&quot;kindKey&quot;:&quot;annotation-class&quot;}]' />
@@ -32,7 +32,7 @@ outline: [2, 2]
 annotation class ClientScriptEntrypoint
 ```
 
-将顶级无参数函数标记为客户端脚本入口点。
+将一个顶层无参数函数标记为客户端脚本入口点。
 
 </ApiMemberCard>
 
@@ -53,7 +53,7 @@ annotation class ClientScriptEntrypoint
 annotation class ServerScriptEntrypoint
 ```
 
-将顶级无参数函数标记为服务器端脚本入口点。
+将一个顶层无参数函数标记为服务端脚本入口点。
 
 </ApiMemberCard>
 

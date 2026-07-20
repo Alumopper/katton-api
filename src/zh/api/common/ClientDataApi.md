@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api"
   source-file="common/src/main/kotlin/top/katton/api/ClientDataApi.kt"
 >
-将键值对同步到所有连接的玩家。值`null`会删除客户端的键。
+向所有已连接玩家同步一个键值对。 值为 `null` 时会在客户端删除该键。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;syncClientData&quot;,&quot;href&quot;:&quot;#syncclientdata&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;syncClientData&quot;,&quot;href&quot;:&quot;#syncclientdata&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;syncClientData&quot;,&quot;href&quot;:&quot;#syncclientdata&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;syncClientData&quot;,&quot;href&quot;:&quot;#syncclientdata&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonClientData&quot;,&quot;href&quot;:&quot;#kattonclientdata&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonClientData.get&quot;,&quot;href&quot;:&quot;#kattonclientdata-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonClientData.getString&quot;,&quot;href&quot;:&quot;#kattonclientdata-getstring&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonClientData.getNumber&quot;,&quot;href&quot;:&quot;#kattonclientdata-getnumber&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonClientData.getBool&quot;,&quot;href&quot;:&quot;#kattonclientdata-getbool&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonClientData.all&quot;,&quot;href&quot;:&quot;#kattonclientdata-all&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clientData&quot;,&quot;href&quot;:&quot;#clientdata&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -30,8 +30,8 @@ outline: [2, 2]
 fun syncClientData(key: String, value: Any?)
 ```
 
-将键值对同步到所有连接的玩家。
-值`null`会删除客户端的键。
+向所有已连接玩家同步一个键值对。
+值为 `null` 时会在客户端删除该键。
 
 </ApiMemberCard>
 
@@ -50,8 +50,8 @@ fun syncClientData(key: String, value: Any?)
 fun syncClientData(player: ServerPlayer, key: String, value: Any?)
 ```
 
-将键值对同步到特定播放器。
-值`null`会删除客户端的键。
+向指定玩家同步一个键值对。
+值为 `null` 时会在客户端删除该键。
 
 </ApiMemberCard>
 
@@ -70,8 +70,8 @@ fun syncClientData(player: ServerPlayer, key: String, value: Any?)
 fun syncClientData(entries: Map<String, Any?>)
 ```
 
-将多个键值对同步到所有连接的玩家。
-具有 `null` 值的条目会删除客户端的键。
+向所有已连接玩家同步多个键值对。
+值为 `null` 的条目会在客户端删除对应的键。
 
 </ApiMemberCard>
 
@@ -90,8 +90,8 @@ fun syncClientData(entries: Map<String, Any?>)
 fun syncClientData(player: ServerPlayer, entries: Map<String, Any?>)
 ```
 
-将多个键值对同步到特定播放器。
-具有 `null` 值的条目会删除客户端的键。
+向指定玩家同步多个键值对。
+值为 `null` 的条目会在客户端删除对应的键。
 
 </ApiMemberCard>
 
@@ -110,7 +110,7 @@ fun syncClientData(player: ServerPlayer, entries: Map<String, Any?>)
 object KattonClientData
 ```
 
-服务器同步数据的客户端访问器。
+服务器同步数据的客户端访问入口。
 
 ### KattonClientData.get
 
@@ -127,7 +127,7 @@ object KattonClientData
 operator fun get(key: String): Any?
 ```
 
-通过键获取原始值。如果未找到键，则返回 null。
+按键获取原始值。如果找不到该键，返回 null。
 
 </ApiMemberCard>
 
@@ -146,7 +146,7 @@ operator fun get(key: String): Any?
 fun getString(key: String, default: String = ""): String
 ```
 
-获取具有可选默认值的字符串值。
+获取字符串值，可指定默认值。
 
 </ApiMemberCard>
 
@@ -165,7 +165,7 @@ fun getString(key: String, default: String = ""): String
 fun getNumber(key: String, default: Number = 0): Number
 ```
 
-获取具有可选默认值的数值。
+获取数值，可指定默认值。
 
 </ApiMemberCard>
 
@@ -184,7 +184,7 @@ fun getNumber(key: String, default: Number = 0): Number
 fun getBool(key: String, default: Boolean = false): Boolean
 ```
 
-获取具有可选默认值的布尔值。
+获取布尔值，可指定默认值。
 
 </ApiMemberCard>
 
@@ -203,7 +203,7 @@ fun getBool(key: String, default: Boolean = false): Boolean
 fun all(): Map<String, Any?>
 ```
 
-返回所有同步的数据条目（只读快照）。
+返回所有已同步的数据条目（只读快照）。
 
 </ApiMemberCard>
 
@@ -224,7 +224,7 @@ fun all(): Map<String, Any?>
 val clientData: KattonClientData
 ```
 
-速记访问器 - 在客户端脚本中使用 `clientData["key"]`。
+简写访问器 - 在客户端脚本中使用 `clientData["key"]`。
 
 </ApiMemberCard>
 

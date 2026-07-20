@@ -42,7 +42,7 @@ Registers a native BlockEntityType with hot-reload support.
 
 ### Returns
 
-The registered KattonBlockEntityTypeEntry
+registered KattonBlockEntityTypeEntry
 
 </ApiMemberCard>
 
@@ -73,7 +73,7 @@ Registers a native BlockEntityType with hot-reload support.
 
 ### Returns
 
-The registered KattonBlockEntityTypeEntry
+registered KattonBlockEntityTypeEntry
 
 </ApiMemberCard>
 

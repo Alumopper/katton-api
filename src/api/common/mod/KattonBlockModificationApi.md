@@ -75,7 +75,7 @@ state and will affect all instances of that block.
 
 ### Returns
 
-The modified Block instance
+modified Block instance
 
 </ApiMemberCard>
 
@@ -106,7 +106,7 @@ Modifies an existing block's properties.
 
 ### Returns
 
-The modified Block instance
+modified Block instance
 
 </ApiMemberCard>
 
@@ -135,7 +135,7 @@ Gets a block by its identifier.
 
 ### Returns
 
-The Block instance, or null if not found
+Block instance, or null if not found
 
 </ApiMemberCard>
 
@@ -164,7 +164,7 @@ Gets a block by its identifier.
 
 ### Returns
 
-The Block instance, or null if not found
+Block instance, or null if not found
 
 </ApiMemberCard>
 
@@ -193,7 +193,7 @@ Gets the default block state for a block.
 
 ### Returns
 
-The default BlockState, or null if block not found
+default BlockState, or null if block not found
 
 </ApiMemberCard>
 
@@ -222,7 +222,7 @@ Gets the default block state for a block.
 
 ### Returns
 
-The default BlockState, or null if block not found
+default BlockState, or null if block not found
 
 </ApiMemberCard>
 

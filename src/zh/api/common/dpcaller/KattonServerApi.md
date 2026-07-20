@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonServerApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonServerApi.kt"
 >
 访问所有在线玩家。
@@ -49,7 +49,7 @@ val players: KattonPlayerList
 val entities: KattonServerEntityCollection
 ```
 
-访问各个世界的所有实体。
+访问所有维度中的全部实体。
 
 </ApiMemberCard>
 
@@ -68,7 +68,7 @@ val entities: KattonServerEntityCollection
 val storage: CommandStorage
 ```
 
-用于持久数据的服务器命令存储。
+用于保存持久数据的服务器命令存储。
 
 </ApiMemberCard>
 
@@ -87,7 +87,7 @@ val storage: CommandStorage
 val scoreboard: Scoreboard
 ```
 
-服务器记分板实例。
+服务器计分板实例。
 
 </ApiMemberCard>
 
@@ -125,13 +125,13 @@ var difficulty: Difficulty
 fun execute(command: String)
 ```
 
-执行命令字符串。
+执行一条命令字符串。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `command` | 要执行的命令字符串 |
+| `command` | 要执行的命令字符串。 |
 
 </ApiMemberCard>
 
@@ -150,14 +150,14 @@ fun execute(command: String)
 fun executeCommand(source: CommandSourceStack, command: String)
 ```
 
-作为提供的命令源执行命令。
+以指定的命令源执行命令。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `source` | 运行命令的命令源 |
-| `command` | 要执行的命令字符串 |
+| `source` | 用作执行主体的命令源。 |
+| `command` | 要执行的命令字符串。 |
 
 </ApiMemberCard>
 
@@ -176,13 +176,13 @@ fun executeCommand(source: CommandSourceStack, command: String)
 fun executeCommandAsServer(command: String)
 ```
 
-作为服务器控制台执行命令。
+以服务器控制台身份执行命令。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `command` | 要执行的命令字符串 |
+| `command` | 要执行的命令字符串。 |
 
 </ApiMemberCard>
 
@@ -201,17 +201,17 @@ fun executeCommandAsServer(command: String)
 fun findPlayer(player: String): ServerPlayer?
 ```
 
-按名字查找球员。
+根据名称查找玩家。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 要搜索的玩家姓名 |
+| `player` | 要查找的玩家名称。 |
 
 ### 返回值
 
-如果找到则为 ServerPlayer，否则为 null
+找到则返回 ServerPlayer，否则返回 null。
 
 </ApiMemberCard>
 
@@ -230,17 +230,17 @@ fun findPlayer(player: String): ServerPlayer?
 fun findPlayer(uuid: UUID): ServerPlayer?
 ```
 
-通过UUID查找玩家。
+根据 UUID 查找玩家。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `uuid` | 要搜索的玩家UUID |
+| `uuid` | 要查找的玩家 UUID。 |
 
 ### 返回值
 
-如果找到则为 ServerPlayer，否则为 null
+找到则返回 ServerPlayer，否则返回 null。
 
 </ApiMemberCard>
 
@@ -259,18 +259,18 @@ fun findPlayer(uuid: UUID): ServerPlayer?
 fun findEntities(level: ServerLevel, selector: EntitySelector): List<Entity>
 ```
 
-使用世界中的实体选择器查找实体。
+在指定维度中使用实体选择器查找实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `level` | 要搜索的 ServerLevel |
-| `selector` | 使用的EntitySelector |
+| `level` | 要搜索的 ServerLevel。 |
+| `selector` | 要使用的 EntitySelector。 |
 
 ### 返回值
 
-匹配实体列表
+返回匹配的实体列表。
 
 </ApiMemberCard>
 
@@ -289,17 +289,17 @@ fun findEntities(level: ServerLevel, selector: EntitySelector): List<Entity>
 fun findEntity(uuid: UUID): Entity?
 ```
 
-在所有世界中通过UUID查找实体。
+在所有维度中根据 UUID 查找实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `uuid` | 要搜索的实体UUID |
+| `uuid` | 要查找的实体 UUID。 |
 
 ### 返回值
 
-如果找到实体，否则为 null
+找到则返回 Entity，否则返回 null。
 
 </ApiMemberCard>
 
@@ -318,13 +318,13 @@ fun findEntity(uuid: UUID): Entity?
 fun ban(player: ServerPlayer)
 ```
 
-通过将玩家添加到服务器禁止列表并断开连接来禁止他们。
+将玩家加入服务器封禁列表并断开其连接。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 禁止的ServerPlayer |
+| `player` | 要封禁的 ServerPlayer。 |
 
 </ApiMemberCard>
 
@@ -343,13 +343,13 @@ fun ban(player: ServerPlayer)
 fun banIp(ip: String)
 ```
 
-禁止IP地址并断开匹配的玩家。
+封禁一个 IP 地址，并断开所有匹配玩家的连接。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `ip` | IP 要禁止的地址字符串 |
+| `ip` | 要封禁的 IP 地址字符串。 |
 
 </ApiMemberCard>
 
@@ -368,13 +368,13 @@ fun banIp(ip: String)
 fun deop(player: ServerPlayer)
 ```
 
-De-op 玩家（删除操作员状态）。
+取消玩家的管理员权限。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | ServerPlayer 去操作 |
+| `player` | 要取消权限的 ServerPlayer。 |
 
 </ApiMemberCard>
 
@@ -393,13 +393,13 @@ De-op 玩家（删除操作员状态）。
 fun op(player: ServerPlayer)
 ```
 
-Op 一名玩家（授予操作员身份）。
+授予玩家管理员权限。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | ServerPlayer 前往操作 |
+| `player` | 要授予权限的 ServerPlayer。 |
 
 </ApiMemberCard>
 
@@ -424,8 +424,8 @@ fun setDifficulty(difficulty: Difficulty, ignoreLock: Boolean = true)
 
 | 参数 | 说明 |
 | --- | --- |
-| `difficulty` | 新难度 |
-| `ignoreLock` | 是否忽略难度锁定 |
+| `difficulty` | 新的 Difficulty。 |
+| `ignoreLock` | 是否忽略难度锁定。 |
 
 </ApiMemberCard>
 
@@ -444,14 +444,14 @@ fun setDifficulty(difficulty: Difficulty, ignoreLock: Boolean = true)
 fun runFunction(id: Identifier, source: CommandSourceStack = requireServer().createCommandSourceStack())
 ```
 
-使用可选命令源运行函数（数据包函数）。
+使用可选的命令源执行函数（数据包函数）。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 函数标识符 |
-| `source` | 要使用的命令源（默认为服务器） |
+| `id` | 函数标识符。 |
+| `source` | 要使用的命令源（默认使用服务器）。 |
 
 </ApiMemberCard>
 
@@ -476,8 +476,8 @@ fun setGameMode(player: ServerPlayer, gameMode: GameType)
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标ServerPlayer |
-| `gameMode` | 目标GameType |
+| `player` | 目标 ServerPlayer。 |
+| `gameMode` | 目标 GameType。 |
 
 </ApiMemberCard>
 
@@ -496,17 +496,17 @@ fun setGameMode(player: ServerPlayer, gameMode: GameType)
 fun getGameMode(player: ServerPlayer): GameType
 ```
 
-获取玩家当前的GameType。
+获取玩家当前的 GameType。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标ServerPlayer |
+| `player` | 目标 ServerPlayer。 |
 
 ### 返回值
 
-当前GameType
+返回 GameType。
 
 </ApiMemberCard>
 
@@ -525,14 +525,14 @@ fun getGameMode(player: ServerPlayer): GameType
 fun <T : Any> setGameRule(key: GameRule<T>, value: T)
 ```
 
-在服务器世界上设置游戏规则值。
+在服务器主世界中设置游戏规则值。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `key` | GameRule键 |
-| `value` | 要设置的值 |
+| `key` | GameRule 键。 |
+| `value` | 要设置的值。 |
 
 </ApiMemberCard>
 
@@ -551,17 +551,17 @@ fun <T : Any> setGameRule(key: GameRule<T>, value: T)
 fun <T : Any> getGameRule(key: GameRule<T>): T
 ```
 
-从服务器世界获取游戏规则值。
+从服务器主世界获取游戏规则值。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `key` | GameRule键 |
+| `key` | GameRule 键。 |
 
 ### 返回值
 
-游戏规则的价值
+返回该游戏规则的值。
 
 </ApiMemberCard>
 
@@ -580,14 +580,14 @@ fun <T : Any> getGameRule(key: GameRule<T>): T
 fun kick(player: Player, reason: Component = Component.translatable("multiplayer.disconnect.kicked"))
 ```
 
-使用可选原因组件踢玩家。
+踢出玩家，并可附带可选的原因组件。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标玩家（需要ServerPlayer断开连接） |
-| `reason` | 断开原因组件 |
+| `player` | 目标玩家（需要是 ServerPlayer 才能断开连接）。 |
+| `reason` | 断开连接原因组件。 |
 
 </ApiMemberCard>
 

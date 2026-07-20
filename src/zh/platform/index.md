@@ -2,6 +2,17 @@
 
 Katton 尽量让 Fabric、NeoForge、Paper 的脚本写法保持一致，但平台边界并不相同。
 
+## 支持的 Minecraft 版本
+
+| Minecraft | Fabric API | NeoForge | Paper 开发包 |
+|---|---|---|---|
+| `26.1.2` | `0.144.0+26.1` | `26.1.2.30-beta` | `26.1.2.build.71-stable` |
+| `26.2` | `0.154.0+26.2` | `26.2.0.7-beta` | `26.2.build.41-alpha` |
+
+所有目标均要求 Java 25。[模板生成器](../template/)会让 Katton Maven 坐标和平台依赖与所选 Minecraft 版本保持一致。
+
+## 能力矩阵
+
 | 能力 | Fabric | NeoForge | Paper |
 |---|:---:|:---:|:---:|
 | 服务端脚本 | 是 | 是 | 是 |
@@ -16,4 +27,3 @@ Katton 尽量让 Fabric、NeoForge、Paper 的脚本写法保持一致，但平�
 | 托管原生事件 | 是 | 是 | 是 |
 
 如果你想做一个不要求客户端安装模组的标准服务端插件，选择 [Paper](./paper.md)。如果脚本需要自定义注册表内容、渲染、客户端同步或字节码注入，选择 Fabric 或 NeoForge。
-

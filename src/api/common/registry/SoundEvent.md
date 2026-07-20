@@ -42,7 +42,7 @@ Registers a native SoundEvent with hot-reload support.
 
 ### Returns
 
-The registered KattonSoundEventEntry
+registered KattonSoundEventEntry
 
 </ApiMemberCard>
 
@@ -73,7 +73,7 @@ Registers a native SoundEvent with hot-reload support.
 
 ### Returns
 
-The registered KattonSoundEventEntry
+registered KattonSoundEventEntry
 
 </ApiMemberCard>
 
@@ -102,7 +102,7 @@ Utility factory for quickly creating a variable-range SoundEvent.
 
 ### Returns
 
-A new SoundEvent with variable range
+new SoundEvent with variable range
 
 </ApiMemberCard>
 

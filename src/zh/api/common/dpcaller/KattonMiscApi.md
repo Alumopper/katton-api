@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonMiscApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonMiscApi.kt"
 >
 向玩家发送系统消息。
@@ -36,8 +36,8 @@ fun tell(player: ServerPlayer, message: String)
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标ServerPlayer |
-| `message` | 纯字符串消息 |
+| `player` | 目标 ServerPlayer。 |
+| `message` | 普通字符串消息。 |
 
 </ApiMemberCard>
 
@@ -62,8 +62,8 @@ fun tell(player: ServerPlayer, message: Component)
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标ServerPlayer |
-| `message` | 消息组件 |
+| `player` | 目标 ServerPlayer。 |
+| `message` | 消息组件。 |
 
 </ApiMemberCard>
 
@@ -88,8 +88,8 @@ fun tell(player: ServerPlayer, message: Any)
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标ServerPlayer |
-| `message` | 消息对象，转换为字符串 |
+| `player` | 目标 ServerPlayer。 |
+| `message` | 消息对象，会转换为字符串。 |
 
 </ApiMemberCard>
 
@@ -114,8 +114,8 @@ fun tell(players: Collection<ServerPlayer>, message: String)
 
 | 参数 | 说明 |
 | --- | --- |
-| `players` | 目标ServerPlayer集合 |
-| `message` | 纯字符串消息 |
+| `players` | 目标 ServerPlayer 集合。 |
+| `message` | 普通字符串消息。 |
 
 </ApiMemberCard>
 
@@ -140,8 +140,8 @@ fun tell(players: Collection<ServerPlayer>, message: Component)
 
 | 参数 | 说明 |
 | --- | --- |
-| `players` | 目标ServerPlayer集合 |
-| `message` | 消息组件 |
+| `players` | 目标 ServerPlayer 集合。 |
+| `message` | 消息组件。 |
 
 </ApiMemberCard>
 
@@ -166,8 +166,8 @@ fun tell(players: Collection<ServerPlayer>, message: Any)
 
 | 参数 | 说明 |
 | --- | --- |
-| `players` | 目标ServerPlayer集合 |
-| `message` | 消息对象，转换为字符串 |
+| `players` | 目标 ServerPlayer 集合。 |
+| `message` | 消息对象，会转换为字符串。 |
 
 </ApiMemberCard>
 
@@ -192,7 +192,7 @@ fun tell(message: Any)
 
 | 参数 | 说明 |
 | --- | --- |
-| `message` | 消息对象，转换为字符串 |
+| `message` | 消息对象，会转换为字符串。 |
 
 </ApiMemberCard>
 
@@ -211,20 +211,20 @@ fun tell(message: Any)
 fun particle(level: ServerLevel, players: Collection<ServerPlayer>, particle: ParticleOptions, pos: Vec3, delta: Vec3 = Vec3.ZERO, speed: Double = 1.0, count: Int = 0, forced: Boolean = false)
 ```
 
-将粒子发送给一组玩家。
+向一组玩家发送粒子。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `level` | 服务器世界 |
-| `players` | 发送至的玩家 |
-| `particle` | 粒子选项 |
-| `pos` | 中心位置 |
-| `delta` | 传播向量（默认为零） |
-| `speed` | 粒子速度 |
-| `count` | 粒子数 |
-| `forced` | 是否强制发送（忽略客户端设置） |
+| `level` | 服务端关卡。 |
+| `players` | 要发送给的玩家。 |
+| `particle` | 粒子选项。 |
+| `pos` | 中心位置。 |
+| `delta` | 扩散向量（默认零）。 |
+| `speed` | 粒子速度。 |
+| `count` | 粒子数量。 |
+| `forced` | 是否强制发送，忽略客户端设置。 |
 
 </ApiMemberCard>
 
@@ -249,8 +249,8 @@ fun teleportToEntity(collection: MutableCollection<out Entity>, entity: Entity)
 
 | 参数 | 说明 |
 | --- | --- |
-| `collection` | 要传送的实体 |
-| `entity` | 要使用其位置的目标实体 |
+| `collection` | 要传送的实体。 |
+| `entity` | 作为目标位置来源的实体。 |
 
 </ApiMemberCard>
 
@@ -269,16 +269,16 @@ fun teleportToEntity(collection: MutableCollection<out Entity>, entity: Entity)
 fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: ServerLevel, pos: Vec3, rot: Vec2? = null)
 ```
 
-将一组实体传送到给定位置并可选择设置旋转。
+将一组实体传送到指定位置，并可选设置旋转。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `collection` | 要传送的实体 |
-| `serverLevel` | 目的地世界 |
-| `pos` | 目的地位置 |
-| `rot` | 可选的旋转向量；如果为空，则保持实体旋转 |
+| `collection` | 要传送的实体。 |
+| `level` | 目标关卡。 |
+| `pos` | 目标位置。 |
+| `rot` | 可选旋转向量；为 null 时保持实体当前旋转。 |
 
 </ApiMemberCard>
 
@@ -297,18 +297,18 @@ fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: Server
 fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: ServerLevel, pos: Vec3, lookAt: Entity, anchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET, lookAtAnchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET)
 ```
 
-将一组实体传送到某个位置并让它们看着一个实体。
+将一组实体传送到某个位置，并让它们朝向另一个实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `collection` | 要传送的实体 |
-| `serverLevel` | 目的地世界 |
-| `pos` | 目的地位置 |
-| `lookAt` | 传送后要查看的实体 |
-| `anchor` | 用于目标定向的锚点 |
-| `lookAtAnchor` | 用于lookAt方向的锚点 |
+| `collection` | 要传送的实体。 |
+| `level` | 目标关卡。 |
+| `pos` | 目标位置。 |
+| `lookAt` | 传送后要朝向的实体。 |
+| `anchor` | 用于目标朝向的锚点。 |
+| `lookAtAnchor` | 用于被看向目标的锚点。 |
 
 </ApiMemberCard>
 
@@ -327,17 +327,17 @@ fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: Server
 fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: ServerLevel, pos: Vec3, lookAt: Vec3, anchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET)
 ```
 
-将一组实体传送到某个位置并让它们看着某个位置。
+将一组实体传送到某个位置，并让它们朝向另一个位置。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `collection` | 要传送的实体 |
-| `serverLevel` | 目的地世界 |
-| `pos` | 目的地位置 |
-| `lookAt` | 看的位置 |
-| `anchor` | 用于目标定向的锚点 |
+| `collection` | 要传送的实体。 |
+| `level` | 目标关卡。 |
+| `pos` | 目标位置。 |
+| `lookAt` | 要看向的位置。 |
+| `anchor` | 用于目标朝向的锚点。 |
 
 </ApiMemberCard>
 
@@ -356,15 +356,15 @@ fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: Server
 fun setWaypointStyle(serverLevel: ServerLevel, waypointTransmitter: WaypointTransmitter, resourceKey: ResourceKey<WaypointStyleAsset>)
 ```
 
-设置路径点发射器的路径点样式。
+为路标发射器设置路标样式。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `serverLevel` | 服务器世界 |
-| `waypointTransmitter` | 要修改的路径点发射机 |
-| `resourceKey` | 航点样式资产键 |
+| `serverLevel` | 服务端关卡。 |
+| `waypointTransmitter` | 要修改的路标发射器。 |
+| `resourceKey` | 路标样式资源键。 |
 
 </ApiMemberCard>
 
@@ -383,15 +383,15 @@ fun setWaypointStyle(serverLevel: ServerLevel, waypointTransmitter: WaypointTran
 fun setWaypointColor(serverLevel: ServerLevel, waypointTransmitter: WaypointTransmitter, chatFormatting: ChatFormatting)
 ```
 
-使用 ChatFormatting 设置路径点颜色。
+使用 ChatFormatting 设置路标颜色。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `serverLevel` | 服务器世界 |
-| `waypointTransmitter` | 路径点发射器 |
-| `chatFormatting` | 格式化以转换为颜色 |
+| `serverLevel` | 服务端关卡。 |
+| `waypointTransmitter` | 路标发射器。 |
+| `chatFormatting` | 要转换为颜色的格式化值。 |
 
 </ApiMemberCard>
 
@@ -410,15 +410,15 @@ fun setWaypointColor(serverLevel: ServerLevel, waypointTransmitter: WaypointTran
 fun setWaypointColor(serverLevel: ServerLevel, waypointTransmitter: WaypointTransmitter, integer: Int)
 ```
 
-使用整数颜色值设置路径点颜色。
+使用整数颜色值设置路标颜色。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `serverLevel` | 服务器世界 |
-| `waypointTransmitter` | 路径点发射器 |
-| `integer` | 整数颜色值 |
+| `serverLevel` | 服务端关卡。 |
+| `waypointTransmitter` | 路标发射器。 |
+| `integer` | 整数颜色值。 |
 
 </ApiMemberCard>
 
@@ -437,14 +437,14 @@ fun setWaypointColor(serverLevel: ServerLevel, waypointTransmitter: WaypointTran
 fun resetWaypointColor(serverLevel: ServerLevel, waypointTransmitter: WaypointTransmitter)
 ```
 
-将路径点颜色重置为默认值（未设置）。
+将路标颜色重置为默认值（未设置）。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `serverLevel` | 服务器世界 |
-| `waypointTransmitter` | 路径点发射器 |
+| `serverLevel` | 服务端关卡。 |
+| `waypointTransmitter` | 路标发射器。 |
 
 </ApiMemberCard>
 
@@ -463,17 +463,17 @@ fun resetWaypointColor(serverLevel: ServerLevel, waypointTransmitter: WaypointTr
 fun teamMsg(entity: Entity, playerTeam: PlayerTeam, list: MutableList<ServerPlayer>, playerChatMessage: PlayerChatMessage, commandSourceStack: CommandSourceStack = requireServer().createCommandSourceStack())
 ```
 
-通过过滤和格式化向玩家列表发送团队聊天消息。
+向一组玩家发送带过滤和格式化的团队聊天消息。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 源实体（发送者） |
-| `playerTeam` | 正在向团队发送消息 |
-| `list` | 收件人 |
-| `playerChatMessage` | 留言内容 |
-| `commandSourceStack` | 用于格式化和过滤的命令源 |
+| `entity` | 来源实体（发送者）。 |
+| `playerTeam` | 接收消息的团队。 |
+| `list` | 接收者列表。 |
+| `playerChatMessage` | 消息内容。 |
+| `commandSourceStack` | 用于格式化和过滤的命令源。 |
 
 </ApiMemberCard>
 

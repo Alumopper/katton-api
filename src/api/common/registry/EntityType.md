@@ -46,7 +46,7 @@ spawn placement), use [registerNativeEntity] instead.
 
 ### Returns
 
-The registered KattonEntityTypeEntry
+registered KattonEntityTypeEntry
 
 </ApiMemberCard>
 
@@ -77,7 +77,7 @@ Registers a native EntityType with hot-reload support (Identifier overload).
 
 ### Returns
 
-The registered KattonEntityTypeEntry
+registered KattonEntityTypeEntry
 
 </ApiMemberCard>
 

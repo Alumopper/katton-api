@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api"
   source-file="common/src/main/kotlin/top/katton/api/KattonContextApi.kt"
 >
-确定返回的 [ExecutionContext] 使用哪个位置。
+决定返回的 [ExecutionContext] 使用哪个位置。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;BonePositionMode&quot;,&quot;href&quot;:&quot;#bonepositionmode&quot;,&quot;kind&quot;:&quot;Enum Class&quot;,&quot;kindKey&quot;:&quot;enum-class&quot;}, {&quot;label&quot;:&quot;BonePositionMode.BONE&quot;,&quot;href&quot;:&quot;#bonepositionmode-bone&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;BonePositionMode.ENTITY&quot;,&quot;href&quot;:&quot;#bonepositionmode-entity&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;BoneOrientationMode&quot;,&quot;href&quot;:&quot;#boneorientationmode&quot;,&quot;kind&quot;:&quot;Enum Class&quot;,&quot;kindKey&quot;:&quot;enum-class&quot;}, {&quot;label&quot;:&quot;BoneOrientationMode.BONE&quot;,&quot;href&quot;:&quot;#boneorientationmode-bone&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;BoneOrientationMode.ENTITY&quot;,&quot;href&quot;:&quot;#boneorientationmode-entity&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;BoneOrientationMode.WORLD&quot;,&quot;href&quot;:&quot;#boneorientationmode-world&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;computeBoneWorldPos&quot;,&quot;href&quot;:&quot;#computeboneworldpos&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;createBoneExecution&quot;,&quot;href&quot;:&quot;#createboneexecution&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,7 +30,7 @@ outline: [2, 2]
 enum class BonePositionMode
 ```
 
-确定返回的 [ExecutionContext] 使用哪个位置。
+决定返回的 [ExecutionContext] 使用哪个位置。
 
 ### BonePositionMode.BONE
 
@@ -47,7 +47,7 @@ enum class BonePositionMode
 BONE,
 ```
 
-骨骼世界空间位置（实体位置+骨骼偏移，按偏航旋转）。
+骨骼的世界空间位置（实体位置 + 骨骼偏移，并按实体 yaw 旋转）。
 
 </ApiMemberCard>
 
@@ -66,7 +66,7 @@ BONE,
 ENTITY
 ```
 
-实体世界空间位置（忽略骨骼）。
+实体的世界空间位置（忽略骨骼）。
 
 </ApiMemberCard>
 
@@ -87,7 +87,7 @@ ENTITY
 enum class BoneOrientationMode
 ```
 
-确定返回的 [ExecutionContext] 使用哪个朝向。
+决定返回的 [ExecutionContext] 使用哪个朝向。
 
 ### BoneOrientationMode.BONE
 
@@ -104,7 +104,7 @@ enum class BoneOrientationMode
 BONE,
 ```
 
-骨骼的局部旋转+实体旋转（近似世界空间面向）。
+骨骼局部旋转 + 实体旋转（近似世界空间朝向）。
 
 </ApiMemberCard>
 
@@ -123,7 +123,7 @@ BONE,
 ENTITY,
 ```
 
-实体的自然偏航/俯仰。
+实体自身的 yaw/pitch。
 
 </ApiMemberCard>
 
@@ -142,7 +142,7 @@ ENTITY,
 WORLD
 ```
 
-默认值 — [Vec2.ZERO]（不旋转）。
+默认方向 [Vec2.ZERO]，不应用旋转。
 
 </ApiMemberCard>
 
@@ -163,13 +163,12 @@ WORLD
 fun Entity.computeBoneWorldPos(bone: ModelPart, partialTick: Float = 1.0f): Vec3
 ```
 
-计算给定 [entity] 上[ModelPart]骨骼的世界空间位置。
+计算给定 [entity] 上 [ModelPart] 骨骼的世界空间位置。
 
-骨骼偏移（像素，1/16 块）通过实体的偏航旋转并添加
-到实体的插值位置。
+骨骼偏移以像素为单位（1/16 方块），会按实体 yaw 旋转并加到实体的插值位置上。
 
-调用AFTER动画已应用（[net.minecraft.client.animation.KeyframeAnimation.apply]），
-以便 [ModelPart.x]/[ModelPart.y]/[ModelPart.z] 反映动画姿势。
+请在动画应用之后调用（[net.minecraft.client.animation.KeyframeAnimation.apply]），
+这样 [ModelPart.x]/[ModelPart.y]/[ModelPart.z] 才能反映动画姿态。
 
 </ApiMemberCard>
 
@@ -188,23 +187,23 @@ fun Entity.computeBoneWorldPos(bone: ModelPart, partialTick: Float = 1.0f): Vec3
 fun Entity.createBoneExecution(modelPart: ModelPart, positionMode: BonePositionMode = BonePositionMode.BONE, orientationMode: BoneOrientationMode = BoneOrientationMode.WORLD): ExecutionContext
 ```
 
-创建一个位于 [entity] 上的 [ModelPart] 骨骼处的 [ExecutionContext]。
+Creates an [ExecutionContext] positioned at a [ModelPart] bone on an [entity].
 
-组合[BonePositionMode]和[BoneOrientationMode]来设置上下文
-`pos`和`rotation`。使用返回的[ExecutionContext]执行命令
-在骨骼的世界位置，或直接读取 `pos` / `rotation` 以获得自定义效果。
+Combines [BonePositionMode] and [BoneOrientationMode] to set the context's
+`pos` and `rotation`. Use the returned [ExecutionContext] to execute commands
+at the bone's world position, or read `pos` / `rotation` directly for custom effects.
 
-在专用客户端（多人游戏）上，服务器引用可能不可用 -
-在这种情况下，返回的上下文已设置位置/旋转但没有命令
-执行能力。
+On a dedicated client (multiplayer), the server reference may be unavailable;
+in that case the returned context has position/rotation set but no command
+execution capability.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `modelPart` | 直接[ModelPart]参考（例如`model.rightArm`、`model.head`） |
-| `positionMode` | [BonePositionMode.BONE] 或 [BonePositionMode.ENTITY] |
-| `orientationMode` | [BoneOrientationMode.BONE]、[BoneOrientationMode.ENTITY]或[BoneOrientationMode.WORLD] |
+| `modelPart` | 直接的 [ModelPart] 引用，例如 `model.rightArm` 或 `model.head`。 |
+| `positionMode` | [BonePositionMode.BONE] 或 [BonePositionMode.ENTITY]。 |
+| `orientationMode` | [BoneOrientationMode.BONE]、[BoneOrientationMode.ENTITY] 或 [BoneOrientationMode.WORLD]。 |
 
 </ApiMemberCard>
 

@@ -7,10 +7,10 @@ outline: [2, 2]
   title="KattonRecipeApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonRecipeApi.kt"
 >
-为玩家提供配方改进。
+向玩家授予配方进度。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;giveRecipes&quot;,&quot;href&quot;:&quot;#giverecipes&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;takeRecipes&quot;,&quot;href&quot;:&quot;#takerecipes&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,14 +30,14 @@ outline: [2, 2]
 fun giveRecipes(players: Collection<ServerPlayer>, recipes: Collection<RecipeHolder<*>>)
 ```
 
-为玩家提供配方改进。
+向玩家授予配方进度。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `players` | 目标玩家 |
-| `recipes` | 获奖食谱合集 |
+| `players` | 目标玩家。 |
+| `recipes` | 要授予的配方集合。 |
 
 </ApiMemberCard>
 
@@ -56,14 +56,14 @@ fun giveRecipes(players: Collection<ServerPlayer>, recipes: Collection<RecipeHol
 fun takeRecipes(players: Collection<ServerPlayer>, recipes: Collection<RecipeHolder<*>>)
 ```
 
-从玩家那里获取配方改进。
+从玩家处撤销配方进度。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `players` | 目标玩家 |
-| `recipes` | 撤销的食谱 |
+| `players` | 目标玩家。 |
+| `recipes` | 要撤销的配方集合。 |
 
 </ApiMemberCard>
 

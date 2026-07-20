@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/ServerMobEffectEvent.kt"
 >
-Fabric平台的生物效应事件。
+Fabric 平台的状态效果事件。 此对象提供与状态效果（药水）相关的事件，包括添加、移除和修改实体效果。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerMobEffectEvent&quot;,&quot;href&quot;:&quot;#servermobeffectevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.initialize&quot;,&quot;href&quot;:&quot;#servermobeffectevent-initialize&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.onAllowAdd&quot;,&quot;href&quot;:&quot;#servermobeffectevent-onallowadd&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.onBeforeAdd&quot;,&quot;href&quot;:&quot;#servermobeffectevent-onbeforeadd&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.onAfterAdd&quot;,&quot;href&quot;:&quot;#servermobeffectevent-onafteradd&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.onAllowEarlyRemove&quot;,&quot;href&quot;:&quot;#servermobeffectevent-onallowearlyremove&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.onBeforeRemove&quot;,&quot;href&quot;:&quot;#servermobeffectevent-onbeforeremove&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.onAfterRemove&quot;,&quot;href&quot;:&quot;#servermobeffectevent-onafterremove&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.MobEffectAllowAddArg&quot;,&quot;href&quot;:&quot;#servermobeffectevent-mobeffectallowaddarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.MobEffectAddArg&quot;,&quot;href&quot;:&quot;#servermobeffectevent-mobeffectaddarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.MobEffectAllowEarlyRemoveArg&quot;,&quot;href&quot;:&quot;#servermobeffectevent-mobeffectallowearlyremovearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.MobEffectBeforeRemoveArg&quot;,&quot;href&quot;:&quot;#servermobeffectevent-mobeffectbeforeremovearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerMobEffectEvent.MobEffectAfterRemoveArg&quot;,&quot;href&quot;:&quot;#servermobeffectevent-mobeffectafterremovearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}]' />
@@ -30,10 +30,8 @@ Fabric平台的生物效应事件。
 object ServerMobEffectEvent
 ```
 
-Fabric平台的生物效应事件。
-
-该对象提供与生物效果（药水）相关的事件，包括
-添加、删除和修改实体上的效果。
+Fabric 平台的状态效果事件。
+此对象提供与状态效果（药水）相关的事件，包括添加、移除和修改实体效果。
 
 ### ServerMobEffectEvent.initialize
 
@@ -50,8 +48,8 @@ Fabric平台的生物效应事件。
 fun initialize()
 ```
 
-通过注册 Fabric 事件处理程序来初始化生物效果事件。
-该方法应该在 mod 初始化期间调用。
+通过注册 Fabric 事件处理器初始化状态效果事件。
+该方法应在模组初始化期间调用。
 
 </ApiMemberCard>
 
@@ -70,11 +68,11 @@ fun initialize()
 val onAllowAdd
 ```
 
-触发事件以允许或拒绝将生物效果添加到实体。
+当需要决定是否允许向实体添加状态效果时触发。
 
 ### 返回值
 
-true 允许该效果， false 取消该效果。
+返回值允许效果生效，false 表示取消。
 
 </ApiMemberCard>
 
@@ -93,8 +91,8 @@ true 允许该效果， false 取消该效果。
 val onBeforeAdd
 ```
 
-在将生物效果添加到实体之前触发的事件。
-使用它进行预处理或修改。
+当状态效果添加到实体之前触发。
+可用于预处理或修改。
 
 </ApiMemberCard>
 
@@ -113,7 +111,7 @@ val onBeforeAdd
 val onAfterAdd
 ```
 
-将生物效果添加到实体后触发的事件。
+当状态效果已添加到实体之后触发。
 
 </ApiMemberCard>
 
@@ -132,11 +130,11 @@ val onAfterAdd
 val onAllowEarlyRemove
 ```
 
-触发事件以允许或拒绝提前移除生物效果。
+当需要决定是否允许提前移除状态效果时触发。
 
 ### 返回值
 
-true 表示允许删除， false 表示取消。
+返回值允许移除，false 表示取消。
 
 </ApiMemberCard>
 
@@ -155,7 +153,7 @@ true 表示允许删除， false 表示取消。
 val onBeforeRemove
 ```
 
-从实体中移除生物效果之前触发的事件。
+当状态效果从实体上移除之前触发。
 
 </ApiMemberCard>
 
@@ -174,7 +172,7 @@ val onBeforeRemove
 val onAfterRemove
 ```
 
-从实体中移除生物效果后触发的事件。
+当状态效果已从实体移除之后触发。
 
 </ApiMemberCard>
 
@@ -193,15 +191,15 @@ val onAfterRemove
 data class MobEffectAllowAddArg(val entity: Entity, val effectInstance: MobEffectInstance, val context: EffectEventContext)
 ```
 
-生物效果允许添加事件的参数类。
+状态效果允许添加事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 接收效果的实体 |
-| `effectInstance` | 正在添加的效果实例 |
-| `context` | 效果事件的上下文 |
+| `entity` | 接收该效果的实体。 |
+| `effectInstance` | 正在添加的效果实例。 |
+| `context` | 效果事件的上下文。 |
 
 </ApiMemberCard>
 
@@ -220,15 +218,15 @@ data class MobEffectAllowAddArg(val entity: Entity, val effectInstance: MobEffec
 data class MobEffectAddArg(val entity: Entity, val effectInstance: MobEffectInstance, val context: EffectEventContext)
 ```
 
-生物效果添加事件的参数类。
+状态效果添加事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 接收效果的实体 |
-| `effectInstance` | 正在添加的效果实例 |
-| `context` | 效果事件的上下文 |
+| `entity` | 接收该效果的实体。 |
+| `effectInstance` | 正在添加的效果实例。 |
+| `context` | 效果事件的上下文。 |
 
 </ApiMemberCard>
 
@@ -247,15 +245,15 @@ data class MobEffectAddArg(val entity: Entity, val effectInstance: MobEffectInst
 data class MobEffectAllowEarlyRemoveArg(val entity: Entity, val effectInstance: MobEffectInstance, val context: EffectEventContext)
 ```
 
-生物效果允许提前删除事件的参数类。
+状态效果允许提前移除事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 实体失去效果 |
-| `effectInstance` | 正在删除的效果实例 |
-| `context` | 效果事件的上下文 |
+| `entity` | 正在失去该效果的实体。 |
+| `effectInstance` | 正在移除的效果实例。 |
+| `context` | 效果事件的上下文。 |
 
 </ApiMemberCard>
 
@@ -274,15 +272,15 @@ data class MobEffectAllowEarlyRemoveArg(val entity: Entity, val effectInstance: 
 data class MobEffectBeforeRemoveArg(val entity: Entity, val effectInstance: MobEffectInstance, val context: EffectEventContext)
 ```
 
-删除事件之前生物效果的参数类。
+状态效果移除前事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 实体失去效果 |
-| `effectInstance` | 正在删除的效果实例 |
-| `context` | 效果事件的上下文 |
+| `entity` | 正在失去该效果的实体。 |
+| `effectInstance` | 正在移除的效果实例。 |
+| `context` | 效果事件的上下文。 |
 
 </ApiMemberCard>
 
@@ -301,15 +299,15 @@ data class MobEffectBeforeRemoveArg(val entity: Entity, val effectInstance: MobE
 data class MobEffectAfterRemoveArg(val entity: Entity, val effectInstance: MobEffectInstance, val context: EffectEventContext)
 ```
 
-删除事件后生物效果的参数类。
+状态效果移除后事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 失去效果的实体 |
-| `effectInstance` | 被移除的效果实例 |
-| `context` | 效果事件的上下文 |
+| `entity` | 已失去该效果的实体。 |
+| `effectInstance` | 已移除的效果实例。 |
+| `context` | 效果事件的上下文。 |
 
 </ApiMemberCard>
 

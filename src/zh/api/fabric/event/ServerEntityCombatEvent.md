@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/ServerEntityCombatEvent.kt"
 >
-Fabric平台的服务器实体战斗事件。
+Fabric 平台的服务端实体战斗事件。 此对象提供与实体战斗相关的事件，包括击杀、暴击和盾牌格挡。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerEntityCombatEvent&quot;,&quot;href&quot;:&quot;#serverentitycombatevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerEntityCombatEvent.onAfterKilledOtherEntity&quot;,&quot;href&quot;:&quot;#serverentitycombatevent-onafterkilledotherentity&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEntityCombatEvent.onShieldBlock&quot;,&quot;href&quot;:&quot;#serverentitycombatevent-onshieldblock&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,8 @@ Fabric平台的服务器实体战斗事件。
 object ServerEntityCombatEvent
 ```
 
-Fabric平台的服务器实体战斗事件。
-
-该对象提供与实体战斗相关的事件，包括
-实体击杀、暴击和护盾格挡。
+Fabric 平台的服务端实体战斗事件。
+此对象提供与实体战斗相关的事件，包括击杀、暴击和盾牌格挡。
 
 ### ServerEntityCombatEvent.onAfterKilledOtherEntity
 
@@ -51,8 +49,8 @@ Fabric平台的服务器实体战斗事件。
 val onAfterKilledOtherEntity
 ```
 
-一个实体杀死另一个实体后触发的事件。
-这是一个无法取消的通知事件。
+当实体击杀另一个实体之后触发。
+这是一个仅通知事件，不能取消。
 
 </ApiMemberCard>
 
@@ -72,12 +70,12 @@ val onAfterKilledOtherEntity
 @JvmField val onShieldBlock
 ```
 
-当实体用盾牌阻挡时触发事件。
-可用于修改阻挡的伤害量。
+当实体使用盾牌格挡时触发。
+可用于修改被格挡的伤害量。
 
 ### 返回值
 
-应该阻止的伤害量。
+返回应被格挡的伤害量。
 
 </ApiMemberCard>
 

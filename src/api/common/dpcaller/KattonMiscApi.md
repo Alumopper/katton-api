@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonMiscApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonMiscApi.kt"
 >
 Send a system message to a player.
@@ -223,8 +223,8 @@ Send particles to a collection of players.
 | `pos` | center position |
 | `delta` | spread vector (default zero) |
 | `speed` | particle speed |
-| `count` | number of particles |
-| `forced` | whether to force send (ignores client settings) |
+| `count` | particle count |
+| `forced` | whether to force sending and ignore client settings |
 
 </ApiMemberCard>
 
@@ -250,7 +250,7 @@ Teleport a collection of entities to another entity's position.
 | Parameter | Description |
 | --- | --- |
 | `collection` | entities to teleport |
-| `entity` | destination entity whose position to use |
+| `entity` | entity used as the destination position |
 
 </ApiMemberCard>
 
@@ -269,16 +269,16 @@ Teleport a collection of entities to another entity's position.
 fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: ServerLevel, pos: Vec3, rot: Vec2? = null)
 ```
 
-Teleport a collection of entities to a given position and optionally set rotation.
+Teleport a collection of entities to a position with optional rotation.
 
 ### Parameters
 
 | Parameter | Description |
 | --- | --- |
 | `collection` | entities to teleport |
-| `serverLevel` | destination level |
+| `level` | destination level |
 | `pos` | destination position |
-| `rot` | optional rotation vector; if null, keeps entity rotation |
+| `rot` | optional rotation vector; if null, keep the entity's current rotation |
 
 </ApiMemberCard>
 
@@ -297,18 +297,18 @@ Teleport a collection of entities to a given position and optionally set rotatio
 fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: ServerLevel, pos: Vec3, lookAt: Entity, anchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET, lookAtAnchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET)
 ```
 
-Teleport a collection of entities to a position and make them look at an entity.
+Teleport a collection of entities to a position and make them face another entity.
 
 ### Parameters
 
 | Parameter | Description |
 | --- | --- |
 | `collection` | entities to teleport |
-| `serverLevel` | destination level |
+| `level` | destination level |
 | `pos` | destination position |
-| `lookAt` | entity to look at after teleport |
-| `anchor` | anchor used for target orientation |
-| `lookAtAnchor` | anchor used for lookAt orientation |
+| `lookAt` | entity to look at after teleporting |
+| `anchor` | anchor used on the teleported entity |
+| `lookAtAnchor` | anchor used on the entity being looked at |
 
 </ApiMemberCard>
 
@@ -327,17 +327,17 @@ Teleport a collection of entities to a position and make them look at an entity.
 fun teleportToPos(collection: MutableCollection<out Entity>, serverLevel: ServerLevel, pos: Vec3, lookAt: Vec3, anchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET)
 ```
 
-Teleport a collection of entities to a position and make them look at a position.
+Teleport a collection of entities to a position and make them face another position.
 
 ### Parameters
 
 | Parameter | Description |
 | --- | --- |
 | `collection` | entities to teleport |
-| `serverLevel` | destination level |
+| `level` | destination level |
 | `pos` | destination position |
 | `lookAt` | position to look at |
-| `anchor` | anchor used for target orientation |
+| `anchor` | anchor used on the teleported entity |
 
 </ApiMemberCard>
 

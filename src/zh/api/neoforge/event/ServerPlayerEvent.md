@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="neoforge/src/main/kotlin/top/katton/api/event/ServerPlayerEvent.kt"
 >
-NeoForge平台的服务器玩家事件。
+NeoForge 平台的服务端玩家事件。 此对象提供与服务端玩家生命周期相关的事件，包括加入/离开/重生、经验值事件、物品拾取/投掷、合成等。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerPlayerEvent&quot;,&quot;href&quot;:&quot;#serverplayerevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerJoin&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerjoin&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerLeave&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerleave&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onAfterPlayerRespawn&quot;,&quot;href&quot;:&quot;#serverplayerevent-onafterplayerrespawn&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerCopy&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayercopy&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerXpChange&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerxpchange&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerXpLevelChange&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerxplevelchange&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerPickupXp&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerpickupxp&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onStartTracking&quot;,&quot;href&quot;:&quot;#serverplayerevent-onstarttracking&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onStopTracking&quot;,&quot;href&quot;:&quot;#serverplayerevent-onstoptracking&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerLoadFromFile&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerloadfromfile&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerSaveToFile&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayersavetofile&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onItemToss&quot;,&quot;href&quot;:&quot;#serverplayerevent-onitemtoss&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onItemPickupPre&quot;,&quot;href&quot;:&quot;#serverplayerevent-onitempickuppre&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onItemPickupPost&quot;,&quot;href&quot;:&quot;#serverplayerevent-onitempickuppost&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerItemCrafted&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayeritemcrafted&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerItemSmelted&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayeritemsmelted&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPlayerSpawnPhantoms&quot;,&quot;href&quot;:&quot;#serverplayerevent-onplayerspawnphantoms&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPickFromBlock&quot;,&quot;href&quot;:&quot;#serverplayerevent-onpickfromblock&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.onPickFromEntity&quot;,&quot;href&quot;:&quot;#serverplayerevent-onpickfromentity&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.PlayerTrackingArg&quot;,&quot;href&quot;:&quot;#serverplayerevent-playertrackingarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.PlayerFileArg&quot;,&quot;href&quot;:&quot;#serverplayerevent-playerfilearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.PlayerItemPickupPreArg&quot;,&quot;href&quot;:&quot;#serverplayerevent-playeritempickupprearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.PlayerItemPickupPostArg&quot;,&quot;href&quot;:&quot;#serverplayerevent-playeritempickuppostarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.PlayerCraftedItemArg&quot;,&quot;href&quot;:&quot;#serverplayerevent-playercrafteditemarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.PlayerSmeltedItemArg&quot;,&quot;href&quot;:&quot;#serverplayerevent-playersmelteditemarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerEvent.PlayerSpawnPhantomsArg&quot;,&quot;href&quot;:&quot;#serverplayerevent-playerspawnphantomsarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}]' />
@@ -32,10 +32,8 @@ NeoForge平台的服务器玩家事件。
 modid
 ```
 
-NeoForge平台的服务器玩家事件。
-
-该对象提供与服务器玩家生命周期相关的事件，包括
-加入/离开/重生、XP事件、物品拾取/投掷、制作等等。
+NeoForge 平台的服务端玩家事件。
+此对象提供与服务端玩家生命周期相关的事件，包括加入/离开/重生、经验值事件、物品拾取/投掷、合成等。
 
 ### ServerPlayerEvent.onPlayerJoin
 
@@ -53,7 +51,7 @@ NeoForge平台的服务器玩家事件。
 @JvmField val onPlayerJoin
 ```
 
-当玩家加入服务器时触发的事件。
+当玩家加入服务器时触发。
 
 </ApiMemberCard>
 
@@ -73,7 +71,7 @@ NeoForge平台的服务器玩家事件。
 @JvmField val onPlayerLeave
 ```
 
-当玩家离开服务器时触发的事件。
+当玩家离开服务器时触发。
 
 </ApiMemberCard>
 
@@ -93,7 +91,7 @@ NeoForge平台的服务器玩家事件。
 @JvmField val onAfterPlayerRespawn
 ```
 
-玩家重生后触发的事件。
+当玩家重生后触发。
 
 </ApiMemberCard>
 
@@ -113,7 +111,7 @@ NeoForge平台的服务器玩家事件。
 @JvmField val onPlayerCopy
 ```
 
-复制玩家数据时触发的事件（例如，重生或尺寸更改时）。
+当复制玩家数据时触发，例如在重生或维度切换时。
 
 </ApiMemberCard>
 
@@ -132,8 +130,8 @@ NeoForge平台的服务器玩家事件。
 val onPlayerXpChange
 ```
 
-当玩家的XP发生变化时触发事件。
-可以取消以防止更改。
+当玩家经验变化时触发。
+可取消以阻止变化。
 
 </ApiMemberCard>
 
@@ -152,8 +150,8 @@ val onPlayerXpChange
 val onPlayerXpLevelChange
 ```
 
-当玩家的XP等级发生变化时触发事件。
-可以取消以防止更改。
+当玩家经验等级变化时触发。
+可取消以阻止变化。
 
 </ApiMemberCard>
 
@@ -172,8 +170,8 @@ val onPlayerXpLevelChange
 val onPlayerPickupXp
 ```
 
-当玩家拾取 XP 球体时触发事件。
-可以取消以防止取货。
+当玩家拾取经验球时触发。
+可取消以阻止拾取。
 
 </ApiMemberCard>
 
@@ -192,7 +190,7 @@ val onPlayerPickupXp
 val onStartTracking
 ```
 
-当玩家开始跟踪实体时触发事件。
+当玩家开始跟踪某个实体时触发。
 
 </ApiMemberCard>
 
@@ -211,7 +209,7 @@ val onStartTracking
 val onStopTracking
 ```
 
-当玩家停止跟踪实体时触发事件。
+当玩家停止跟踪某个实体时触发。
 
 </ApiMemberCard>
 
@@ -230,7 +228,7 @@ val onStopTracking
 val onPlayerLoadFromFile
 ```
 
-从文件加载播放器数据时触发的事件。
+当玩家数据从文件加载时触发。
 
 </ApiMemberCard>
 
@@ -249,7 +247,7 @@ val onPlayerLoadFromFile
 val onPlayerSaveToFile
 ```
 
-当玩家数据保存到文件时触发事件。
+当玩家数据保存到文件时触发。
 
 </ApiMemberCard>
 
@@ -268,7 +266,7 @@ val onPlayerSaveToFile
 val onItemToss
 ```
 
-当玩家投掷物品时触发事件。
+当玩家投掷物品时触发。
 
 </ApiMemberCard>
 
@@ -287,8 +285,8 @@ val onItemToss
 val onItemPickupPre
 ```
 
-玩家拾取物品之前触发的事件。
-可以修改是否允许取件。
+当玩家拾取物品前触发。
+可修改是否允许拾取。
 
 </ApiMemberCard>
 
@@ -307,7 +305,7 @@ val onItemPickupPre
 val onItemPickupPost
 ```
 
-玩家拾取物品后触发的事件。
+当玩家拾取物品后触发。
 
 </ApiMemberCard>
 
@@ -326,7 +324,7 @@ val onItemPickupPost
 val onPlayerItemCrafted
 ```
 
-当玩家制作物品时触发事件。
+当玩家合成物品时触发。
 
 </ApiMemberCard>
 
@@ -345,7 +343,7 @@ val onPlayerItemCrafted
 val onPlayerItemSmelted
 ```
 
-当玩家熔炼物品时触发事件。
+当玩家熔炼物品时触发。
 
 </ApiMemberCard>
 
@@ -364,8 +362,8 @@ val onPlayerItemSmelted
 val onPlayerSpawnPhantoms
 ```
 
-当幻影即将为玩家生成时触发事件。
-可以修改幻体的数量和生成结果。
+当幻翼即将为某位玩家生成时触发。
+可修改幻翼数量和生成结果。
 
 </ApiMemberCard>
 
@@ -385,12 +383,13 @@ val onPlayerSpawnPhantoms
 @JvmField val onPickFromBlock
 ```
 
-当玩家从块中选取一个物品（中键单击）时触发事件。
+当玩家中键从方块中获取物品时触发。
 
 ### 返回值
 
-要选取的 ItemStack，或默认行为为 null。
-注意：这是 NeoForge 兼容性的占位符。
+要获取的 ItemStack，或返回 null 使用默认行为。
+
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -410,12 +409,13 @@ val onPlayerSpawnPhantoms
 @JvmField val onPickFromEntity
 ```
 
-当玩家从实体中选取物品（中键单击）时触发事件。
+当玩家中键从实体中获取物品时触发。
 
 ### 返回值
 
-要选取的 ItemStack，或默认行为为 null。
-注意：这是 NeoForge 兼容性的占位符。
+要获取的 ItemStack，或返回 null 使用默认行为。
+
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -440,8 +440,8 @@ data class PlayerTrackingArg( val player: ServerPlayer, val target: Entity )
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家追踪目标 |
-| `target` | 被追踪的实体 |
+| `player` | 正在跟踪目标的玩家。 |
+| `target` | 被跟踪的实体。 |
 
 </ApiMemberCard>
 
@@ -460,15 +460,15 @@ data class PlayerTrackingArg( val player: ServerPlayer, val target: Entity )
 data class PlayerFileArg( val player: ServerPlayer, val playerDirectory: File, val playerUUID: String )
 ```
 
-播放器文件操作的参数类。
+玩家文件操作的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 正在加载/保存的播放器 |
-| `playerDirectory` | 包含玩家数据的目录 |
-| `playerUUID` | 玩家的UUID |
+| `player` | 正在加载/保存的玩家。 |
+| `playerDirectory` | 包含玩家数据的目录。 |
+| `playerUUID` | 玩家 UUID。 |
 
 </ApiMemberCard>
 
@@ -493,9 +493,9 @@ data class PlayerItemPickupPreArg( val player: ServerPlayer, val item: ItemEntit
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家拾取物品 |
-| `item` | 被拾取的物品实体 |
-| `canPickup` | 是否允许取货（可修改） |
+| `player` | 正在拾取物品的玩家。 |
+| `item` | 正在被拾取的物品实体。 |
+| `canPickup` | 是否允许拾取（可修改）。 |
 
 </ApiMemberCard>
 
@@ -520,10 +520,10 @@ data class PlayerItemPickupPostArg( val player: ServerPlayer, val item: ItemEnti
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 拾取物品的玩家 |
-| `item` | 拾取的物品实体 |
-| `originalStack` | 原始物品堆栈 |
-| `currentStack` | 拾取后当前的物品堆栈 |
+| `player` | 已拾取物品的玩家。 |
+| `item` | 已被拾取的物品实体。 |
+| `originalStack` | 原始物品堆栈。 |
+| `currentStack` | 拾取后的当前物品堆栈。 |
 
 </ApiMemberCard>
 
@@ -542,15 +542,15 @@ data class PlayerItemPickupPostArg( val player: ServerPlayer, val item: ItemEnti
 data class PlayerCraftedItemArg( val player: ServerPlayer, val item: ItemStack, val inventory: Container )
 ```
 
-玩家制作的物品事件的参数类。
+玩家合成物品事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 制作该物品的玩家 |
-| `item` | 精心制作的物品堆栈 |
-| `inventory` | 制作该物品的库存 |
+| `player` | 合成该物品的玩家。 |
+| `item` | 合成得到的物品堆栈。 |
+| `inventory` | 发生合成的容器。 |
 
 </ApiMemberCard>
 
@@ -575,9 +575,9 @@ data class PlayerSmeltedItemArg( val player: ServerPlayer, val item: ItemStack, 
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 熔炼该物品的玩家 |
-| `item` | 已熔炼的物品堆栈 |
-| `amountRemoved` | 从输入中删除的金额 |
+| `player` | 熔炼该物品的玩家。 |
+| `item` | 熔炼得到的物品堆栈。 |
+| `amountRemoved` | 从输入中移除的数量。 |
 
 </ApiMemberCard>
 
@@ -596,15 +596,15 @@ data class PlayerSmeltedItemArg( val player: ServerPlayer, val item: ItemStack, 
 data class PlayerSpawnPhantomsArg( val player: ServerPlayer, var phantomsToSpawn: Int, var result: PlayerSpawnPhantomsEvent.Result )
 ```
 
-幻影生成事件的参数类。
+幻翼生成事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 为其生成幻影的玩家 |
-| `phantomsToSpawn` | 生成的幻影数量（可修改） |
-| `result` | 生成结果（可修改） |
+| `player` | 正在为其生成幻翼的玩家。 |
+| `phantomsToSpawn` | 要生成的幻翼数量（可修改）。 |
+| `result` | 生成结果（可修改）。 |
 
 </ApiMemberCard>
 

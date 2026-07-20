@@ -37,6 +37,7 @@ Argument for server-level events.
 | Property | Description |
 | --- | --- |
 | `server` | The MinecraftServer instance |
+| `server` | MinecraftServer 实例。 |
 
 </ApiMemberCard>
 
@@ -63,6 +64,8 @@ Argument for datapack contents synchronization event.
 | --- | --- |
 | `player` | The player receiving the sync |
 | `joined` | Whether this sync is due to player joining |
+| `player` | 接收同步内容的玩家。 |
+| `joined` | 是否因为玩家加入而触发本次同步。 |
 
 </ApiMemberCard>
 
@@ -89,6 +92,8 @@ Argument for datapack reload start event.
 | --- | --- |
 | `server` | The MinecraftServer instance |
 | `resourceManager` | The resource manager being reloaded |
+| `server` | MinecraftServer 实例。 |
+| `resourceManager` | 正在重载的资源管理器。 |
 
 </ApiMemberCard>
 
@@ -116,6 +121,9 @@ Argument for datapack reload end event.
 | `server` | The MinecraftServer instance |
 | `resourceManager` | The resource manager that was reloaded |
 | `success` | Whether the reload completed successfully |
+| `server` | MinecraftServer 实例。 |
+| `resourceManager` | 已完成重载的资源管理器。 |
+| `success` | 重载是否成功完成。 |
 
 </ApiMemberCard>
 
@@ -143,6 +151,9 @@ Argument for server save event.
 | `server` | The MinecraftServer instance |
 | `flush` | Whether data should be flushed to disk |
 | `force` | Whether this is a forced save |
+| `server` | MinecraftServer 实例。 |
+| `flush` | 是否将数据立即刷新到磁盘。 |
+| `force` | 是否为强制保存。 |
 
 </ApiMemberCard>
 

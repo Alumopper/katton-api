@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.mod"
   source-file="common/src/main/kotlin/top/katton/api/mod/KattonEntityTypeModificationApi.kt"
 >
-用于修改现有 [EntityType] 默认属性的配置（vanilla 或 modded）。
+用于修改现有 EntityType 默认属性的配置对象（原版或模组添加的实体都适用）。 它的属性面与 [top.katton.registry.KattonEntityProperties] 对应，但作用对象是已经注册的实体类型， 并通过 [top.katton.registry.DefaultAttributesHelper] 生效。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;EntityTypeModificationConfig&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.attribute&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-attribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.maxHealth&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-maxhealth&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.movementSpeed&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-movementspeed&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.knockbackResistance&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-knockbackresistance&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.attackDamage&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-attackdamage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.attackSpeed&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-attackspeed&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.armor&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-armor&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.armorToughness&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-armortoughness&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.followRange&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-followrange&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;EntityTypeModificationConfig.luck&quot;,&quot;href&quot;:&quot;#entitytypemodificationconfig-luck&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;modifyEntityType&quot;,&quot;href&quot;:&quot;#modifyentitytype&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;modifyEntityType&quot;,&quot;href&quot;:&quot;#modifyentitytype&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,18 +30,15 @@ outline: [2, 2]
 class EntityTypeModificationConfig(val entityId: Identifier)
 ```
 
-用于修改现有默认属性的配置
-[EntityType]（原版或修改版）。
-
-镜像[top.katton.registry.KattonEntityProperties]的属性面
-但适用于已经注册的实体类型
-[top.katton.registry.DefaultAttributesHelper]。
+用于修改现有 EntityType 默认属性的配置对象（原版或模组添加的实体都适用）。
+它的属性面与 [top.katton.registry.KattonEntityProperties] 对应，但作用对象是已经注册的实体类型，
+并通过 [top.katton.registry.DefaultAttributesHelper] 生效。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entityId` | 正在修改的实体类型的标识符。 |
+| `entityId` | 要修改的实体类型标识符。 |
 
 ### EntityTypeModificationConfig.attribute
 
@@ -58,7 +55,7 @@ class EntityTypeModificationConfig(val entityId: Identifier)
 fun attribute(attribute: Holder<Attribute>, value: Double): EntityTypeModificationConfig
 ```
 
-覆盖任意属性的基值。
+覆盖任意属性的基础值。
 
 </ApiMemberCard>
 
@@ -77,7 +74,7 @@ fun attribute(attribute: Holder<Attribute>, value: Double): EntityTypeModificati
 fun maxHealth(value: Double): EntityTypeModificationConfig
 ```
 
-覆盖最大生命值 (`generic.max_health`)。
+覆盖最大生命值（`generic.max_health`）。
 
 </ApiMemberCard>
 
@@ -191,7 +188,7 @@ fun armor(value: Double): EntityTypeModificationConfig
 fun armorToughness(value: Double): EntityTypeModificationConfig
 ```
 
-覆盖护甲韧性 (`generic.armor_toughness`)。
+覆盖护甲韧性（`generic.armor_toughness`）。
 
 </ApiMemberCard>
 
@@ -210,7 +207,7 @@ fun armorToughness(value: Double): EntityTypeModificationConfig
 fun followRange(value: Double): EntityTypeModificationConfig
 ```
 
-覆盖跟随范围 (`generic.follow_range`)。
+覆盖追踪范围（`generic.follow_range`）。
 
 </ApiMemberCard>
 
@@ -229,7 +226,7 @@ fun followRange(value: Double): EntityTypeModificationConfig
 fun luck(value: Double): EntityTypeModificationConfig
 ```
 
-超越运气（`generic.luck`）。
+覆盖幸运值（`generic.luck`）。
 
 </ApiMemberCard>
 
@@ -252,27 +249,21 @@ fun luck(value: Double): EntityTypeModificationConfig
 ```
 
 修改现有实体类型的默认属性。
-
-如果实体类型已经注册了默认属性，则现有的
-供应商用作基线，各个属性基值是
-被覆盖。如果不存在默认供应商，则从以下位置构建新供应商
-[LivingEntity.createLivingAttributes]用作基线。
-
-通过 [DefaultAttributesHelper] 应用（反思
-`DefaultAttributes.SUPPLIERS`）。适用于原版实体类型以及
-通过相同机制注册属性的经过修改的。
+如果该实体类型已经注册了默认属性供应器，就以现有供应器为基础，再逐项覆盖属性基础值。
+如果没有默认供应器，则会使用 [LivingEntity.createLivingAttributes] 构建一个新的基础供应器。
+该过程通过 [DefaultAttributesHelper] 生效（会反射 `DefaultAttributes.SUPPLIERS`）。
+它既适用于原版实体类型，也适用于以相同机制注册属性的模组实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entityId` | 实体类型标识符（例如 `"minecraft:zombie"`）。 |
+| `entityId` | 实体类型标识符（例如 "minecraft:zombie"）。 |
 | `configure` | 配置 lambda。 |
 
 ### 返回值
 
-`true` 更换供应商时； `false` 当实体类型
-无法解决或底层注册表已失效。
+当供应器已被替换时返回 `true`；当实体类型无法解析或底层注册表不是生物类型时返回 `false`。
 
 </ApiMemberCard>
 
@@ -292,7 +283,7 @@ fun luck(value: Double): EntityTypeModificationConfig
 @ApiStatus.Experimental fun modifyEntityType(entityId: Identifier, configure: EntityTypeModificationConfig.() -> Unit): Boolean
 ```
 
-标识符过载[modifyEntityType]。
+`modifyEntityType` 的 Identifier 重载。
 
 </ApiMemberCard>
 

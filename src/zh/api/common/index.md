@@ -1,11 +1,11 @@
 ---
-title: 通用 API
+title: Common API
 outline: false
 ---
 
-# 通用 API
+# Common API
 
-从模块`common`生成。
+由模块 `common` 生成。
 
 ## 源码根目录
 
@@ -13,45 +13,50 @@ outline: false
 
 ## 页面
 
-- [ClientDataApi](./ClientDataApi.md) - 将键值对同步到所有连接的玩家。值`null`会删除客户端的键。
-- [KattonAPI](./KattonAPI.md) - 对于当前脚本所有者命名空间下的给定 [key] 仅执行一次 [block]。
-- [KattonClientApi](./KattonClientApi.md) - 获取原始的Minecraft 客户端实例。
+- [ClientDataApi](./ClientDataApi.md) - 向所有已连接玩家同步一个键值对。 值为 `null` 时会在客户端删除该键。
+- [ClientItemRenderAnimation](./ClientItemRenderAnimation.md) - 动画轨道上的变换关键帧。[time] 通常取 0.0 到 1.0。
+- [ClientItemRenderMarkerApi](./ClientItemRenderMarkerApi.md) - 直接在世界中渲染的轻量级客户端物品模型。
+- [ClientPostEffectApi](./ClientPostEffectApi.md) - 注册一个运行时客户端 post effect，读取 Minecraft 26.x 的 post-effect JSON。
+- [ClientPostEffectPresetsApi](./ClientPostEffectPresetsApi.md) - 注册一个可配置的全屏反色效果。
+- [ClientPostEffectServerApi](./ClientPostEffectServerApi.md) - 请求一个 Fabric 或 NeoForge 客户端启用已注册的后处理效果。
+- [KattonAPI](./KattonAPI.md) - 在当前脚本所有者命名空间下，对指定键只执行一次。
+- [KattonClientApi](./KattonClientApi.md) - 获取原始 Minecraft 客户端实例。
 - [KattonClientRenderApi](./KattonClientRenderApi.md) - 屏幕空间渲染回调上下文。
-- [KattonComponentApi](./KattonComponentApi.md) - 将两个可为空的组件组合成一个新组件。
-- [KattonConfigApi](./KattonConfigApi.md) - 面向脚本的配置API。从当前脚本的包清单中读取配置值。
-- [KattonContextApi](./KattonContextApi.md) - 确定返回的[ExecutionContext]使用哪个位置。
-- [ScriptEntrypoint](./ScriptEntrypoint.md) - 将顶级无参数函数标记为客户端脚本入口点。
+- [KattonComponentApi](./KattonComponentApi.md) - 将两个可空的 Component 合并为一个新的 Component。
+- [KattonConfigApi](./KattonConfigApi.md) - 面向脚本的配置 API，会从当前脚本包的 manifest 里读取配置值。
+- [KattonContextApi](./KattonContextApi.md) - 决定返回的 [ExecutionContext] 使用哪个位置。
+- [ScriptEntrypoint](./ScriptEntrypoint.md) - 将一个顶层无参数函数标记为客户端脚本入口点。
 - [Recipes](./datapack/Recipes.md)
-- [KattonBlockApi](./dpcaller/KattonBlockApi.md) - 像映射一样按位置访问世界中的方块。
-- [KattonBlockEntityApi](./dpcaller/KattonBlockEntityApi.md) - 像地图一样按位置访问世界中的方块实体。
-- [KattonEntityApi](./dpcaller/KattonEntityApi.md) - 获取/设置实体的NBT数据。
-- [KattonItemApi](./dpcaller/KattonItemApi.md) - 用于在 ItemStack 上获取/设置 NBT 数据的扩展属性。
-- [KattonLootTableApi](./dpcaller/KattonLootTableApi.md) - 获得方块的掉落物，就像用工具破坏方块一样。
+- [KattonBlockApi](./dpcaller/KattonBlockApi.md) - Map-like access to blocks in a level by position.
+- [KattonBlockEntityApi](./dpcaller/KattonBlockEntityApi.md) - 以类似 Map 的方式按位置访问关卡中的方块实体。
+- [KattonEntityApi](./dpcaller/KattonEntityApi.md) - 获取或设置 Entity 的 NBT 数据。
+- [KattonItemApi](./dpcaller/KattonItemApi.md) - 用于读取和写入 ItemStack NBT 数据的扩展属性。
+- [KattonLootTableApi](./dpcaller/KattonLootTableApi.md) - 获取方块在使用工具破坏时的掉落物。
 - [KattonMiscApi](./dpcaller/KattonMiscApi.md) - 向玩家发送系统消息。
-- [KattonNbtApi](./dpcaller/KattonNbtApi.md) - 从数字值创建数字标签。
-- [KattonPlayerApi](./dpcaller/KattonPlayerApi.md) - 对所有在线玩家的类似列表的访问。
-- [KattonRecipeApi](./dpcaller/KattonRecipeApi.md) - 为玩家提供配方改进。
-- [KattonScoreboardApi](./dpcaller/KattonScoreboardApi.md) - 获取目标中目标的得分值。
+- [KattonNbtApi](./dpcaller/KattonNbtApi.md) - 根据 Number 值创建数值类型的 Tag。
+- [KattonPlayerApi](./dpcaller/KattonPlayerApi.md) - 以类似 List 的方式访问所有在线玩家。
+- [KattonRecipeApi](./dpcaller/KattonRecipeApi.md) - 向玩家授予配方进度。
+- [KattonScoreboardApi](./dpcaller/KattonScoreboardApi.md) - Get a score value for a target in an objective.
 - [KattonServerApi](./dpcaller/KattonServerApi.md) - 访问所有在线玩家。
-- [KattonSlotProviderApi](./dpcaller/KattonSlotProviderApi.md) - 从容器槽中获取物品。
-- [KattonWorldApi](./dpcaller/KattonWorldApi.md) - 通过ResourceKey对所有服务器世界进行类似地图的访问。
-- [KattonEventsArg](./event/KattonEventsArg.md) - 服务器级事件的参数。
-- [ManagedEvents](./event/managed/ManagedEvents.md) - 托管事件侦听器句柄 — 在注册本机侦听器时返回到脚本。可用于在重载之前手动取消注册侦听器。
-- [InjectApi](./inject/InjectApi.md) - 已注册注入的句柄，用于回滚操作。
-- [KattonBlockModificationApi](./mod/KattonBlockModificationApi.md) - 用于修改现有块属性的配置。
-- [KattonEntityTypeModificationApi](./mod/KattonEntityTypeModificationApi.md) - 用于修改现有[EntityType]默认属性的配置（vanilla 或 modded）。
-- [KattonItemModificationApi](./mod/KattonItemModificationApi.md) - 用于修改现有物品属性的配置。
-- [KattonLootTableModificationApi](./mod/KattonLootTableModificationApi.md) - 返回现有战利品表的 JSON 形式，或者当表未注册或服务器离线时返回 `null`。
-- [KattonRecipeModificationApi](./mod/KattonRecipeModificationApi.md) - 用于修改现有配方属性的配置。
-- [KattonVillagerTradeModificationApi](./mod/KattonVillagerTradeModificationApi.md) - 通过[addVillagerTrade]将单个交易附加到现有[TradeSet]的配置。
-- [Block](./registry/Block.md) - 注册具有热重载支持的本机块（字符串重载）。
-- [BlockEntityType](./registry/BlockEntityType.md) - 注册具有热重载支持的本机BlockEntityType。
-- [CreativeModeTab](./registry/CreativeModeTab.md) - 注册具有热重载支持的本机CreativeModeTab。
-- [DataComponentType](./registry/DataComponentType.md) - 注册具有热重载支持的持久性（保存到磁盘）DataComponentType。
-- [Effect](./registry/Effect.md) - 注册具有热重载支持的本机MobEffect（字符串重载）。
-- [Entity](./registry/Entity.md) - 注册具有热重载支持的完整本机实体。
-- [EntityRenderer](./registry/EntityRenderer.md) - 为脚本注册的实体类型注册自定义实体渲染器。
-- [EntityType](./registry/EntityType.md) - 注册具有热重载支持的本机EntityType。
-- [Item](./registry/Item.md) - 注册具有热重载支持的本机物品。
-- [ParticleType](./registry/ParticleType.md) - 注册具有热重载支持的本机ParticleType。
-- [SoundEvent](./registry/SoundEvent.md) - 注册具有热重载支持的本机SoundEvent。
+- [KattonSlotProviderApi](./dpcaller/KattonSlotProviderApi.md) - 从容器槽位中获取物品。
+- [KattonWorldApi](./dpcaller/KattonWorldApi.md) - 以类似 Map 的方式按 ResourceKey 访问所有服务端关卡。
+- [KattonEventsArg](./event/KattonEventsArg.md) - Argument for server-level events.
+- [ManagedEvents](./event/managed/ManagedEvents.md) - Managed event listener handle returned to scripts when registering a native listener. 注册原生事件监听器后返回给脚本的托管监听器句柄。
+- [InjectApi](./inject/InjectApi.md) - 注册注入的句柄，用于回滚操作。
+- [KattonBlockModificationApi](./mod/KattonBlockModificationApi.md) - 用于修改现有方块属性的配置对象。 这个类提供一个流式 API，用于修改已经注册到 Minecraft 方块注册表中的方块属性。 风格上类似 KubeJS 的方块修改系统。
+- [KattonEntityTypeModificationApi](./mod/KattonEntityTypeModificationApi.md) - 用于修改现有 EntityType 默认属性的配置对象（原版或模组添加的实体都适用）。 它的属性面与 [top.katton.registry.KattonEntityProperties] 对应，但作用对象是已经注册的实体类型， 并通过 [top.katton.registry.DefaultAttributesHelper] 生效。
+- [KattonItemModificationApi](./mod/KattonItemModificationApi.md) - 用于修改现有物品属性的配置对象。 这个类提供一个流式 API，用于修改已经注册到 Minecraft 物品注册表中的物品属性。 风格上类似 KubeJS 的物品修改系统。
+- [KattonLootTableModificationApi](./mod/KattonLootTableModificationApi.md) - 返回现有战利品表的 JSON 形式；如果战利品表未注册或服务器离线，则返回 `null`。 这里会从 `server.reloadableRegistries()` 读取，因为从 MC 1.21.5+ 开始，战利品表就存放在那里， 然后再通过 [LootTable.DIRECT_CODEC] 重新编码。
+- [KattonRecipeModificationApi](./mod/KattonRecipeModificationApi.md) - 用于修改现有配方属性的配置对象。 这个类提供一个流式 API，用于修改已经注册到 Minecraft 配方管理器中的配方属性。 风格上类似 KubeJS 的配方修改系统。
+- [KattonVillagerTradeModificationApi](./mod/KattonVillagerTradeModificationApi.md) - 用于向现有 [TradeSet] 追加单条交易的配置对象，可由 [addVillagerTrade] 使用。
+- [Block](./registry/Block.md) - 注册原生方块，并支持热重载（String 重载）。 这是脚本中注册自定义方块子类的主要 API。 方块会注册到全局 Minecraft 注册表，并具备完整的热重载能力。
+- [BlockEntityType](./registry/BlockEntityType.md) - 注册原生 BlockEntityType，并支持热重载。
+- [CreativeModeTab](./registry/CreativeModeTab.md) - 注册原生 CreativeModeTab，并支持热重载。
+- [DataComponentType](./registry/DataComponentType.md) - 注册持久化（保存到磁盘）的 DataComponentType，并支持热重载。 持久化组件会使用其 codec 进行序列化，并随物品一并保存。 适用于必须跨存档读写周期保留的数据。
+- [Effect](./registry/Effect.md) - 注册原生 MobEffect，并支持热重载（String 重载）。 这是脚本中注册自定义 MobEffect 子类的主要 API。 该效果会注册到全局 Minecraft 注册表，并具备完整的热重载能力。
+- [Entity](./registry/Entity.md) - 注册完整的原生 Entity，并支持热重载。 这是脚本中注册自定义实体的主要 API。 它会在一次调用中完成 EntityType 注册，以及可选的属性、刷怪蛋和生成位置配置。
+- [EntityRenderer](./registry/EntityRenderer.md) - 为脚本注册的实体类型注册自定义实体渲染器。 这是 [registerNativeEntity] 在客户端侧的配套 API。完成实体类型注册后， 在客户端调用这里的方法，就能为实体提供可视化外观。 [rendererFactory] 会接收一个 [EntityRendererProvider.Context]，其中可访问 实体渲染分发器、物品渲染器、资源管理器和实体模型集，足以构造标准 [EntityRenderer]。
+- [EntityType](./registry/EntityType.md) - 注册原生 EntityType，并支持热重载。 这是一个更底层的 API，只负责注册 EntityType 本身。 如果需要完整的实体注册流程（包括属性、刷怪蛋和生成位置），请改用 [registerNativeEntity]。
+- [Item](./registry/Item.md) - 注册原生 Item，并支持热重载。 这是脚本中注册自定义 Item 子类的主要 API。通过该 API 注册的 Item 会进入全局 Minecraft 注册表，并具备完整的热重载能力。
+- [ParticleType](./registry/ParticleType.md) - 注册原生 ParticleType，并支持热重载。
+- [SoundEvent](./registry/SoundEvent.md) - 注册原生 SoundEvent，并支持热重载。

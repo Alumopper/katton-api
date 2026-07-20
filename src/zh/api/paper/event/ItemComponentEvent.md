@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="paper/src/main/kotlin/top/katton/api/event/ItemComponentEvent.kt"
 >
-Paper (Bukkit) 平台的物品组件事件。
+Paper (Bukkit) 平台的物品附魔事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ItemComponentEvent&quot;,&quot;href&quot;:&quot;#itemcomponentevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}]' />
@@ -31,10 +31,9 @@ Paper (Bukkit) 平台的物品组件事件。
 object ItemComponentEvent
 ```
 
-Paper (Bukkit) 平台的物品组件事件。
+Paper (Bukkit) 平台的物品附魔事件。
 
-该对象提供与物品附魔准备相关的事件
-和执行。
+此对象提供与物品附魔预处理和执行相关的事件。
 
 </ApiMemberCard>
 

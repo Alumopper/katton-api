@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonBlockApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonBlockApi.kt"
 >
 Map-like access to blocks in a level by position.
@@ -31,6 +31,8 @@ class KattonLevelBlockCollection( val level: Level )
 ```
 
 Map-like access to blocks in a level by position.
+
+以类似 Map 的方式按位置访问关卡中的方块。
 
 ### Properties
 

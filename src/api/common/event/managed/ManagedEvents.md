@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event.managed"
   source-file="common/src/main/kotlin/top/katton/api/event/managed/ManagedEvents.kt"
 >
-Managed event listener handle — returned to scripts when registering a native listener. Can be used to manually unregister the listener before reload.
+Managed event listener handle returned to scripts when registering a native listener. 注册原生事件监听器后返回给脚本的托管监听器句柄。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ManagedEventHandle&quot;,&quot;href&quot;:&quot;#managedeventhandle&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ManagedListenerProvider&quot;,&quot;href&quot;:&quot;#managedlistenerprovider&quot;,&quot;kind&quot;:&quot;Interface&quot;,&quot;kindKey&quot;:&quot;interface&quot;}, {&quot;label&quot;:&quot;provider&quot;,&quot;href&quot;:&quot;#provider&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;registerEvent&quot;,&quot;href&quot;:&quot;#registerevent&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;unregisterEvent&quot;,&quot;href&quot;:&quot;#unregisterevent&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearManagedByScope&quot;,&quot;href&quot;:&quot;#clearmanagedbyscope&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearAllManaged&quot;,&quot;href&quot;:&quot;#clearallmanaged&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,8 +30,8 @@ Managed event listener handle — returned to scripts when registering a native 
 data class ManagedEventHandle( val id: Long, val eventClass: Class<*> )
 ```
 
-Managed event listener handle — returned to scripts when registering a native listener.
-Can be used to manually unregister the listener before reload.
+Managed event listener handle returned to scripts when registering a native listener.
+注册原生事件监听器后返回给脚本的托管监听器句柄。
 
 </ApiMemberCard>
 
@@ -50,11 +50,12 @@ Can be used to manually unregister the listener before reload.
 interface ManagedListenerProvider
 ```
 
-Platform-provided implementation of managed event listener registry.
-Each platform (Paper, Fabric, NeoForge) sets [provider] during initialization.
+Platform bridge for managed native event listeners.
+Paper, Fabric, and NeoForge can provide their own implementation through [provider].
+Implementations track scope and environment so integrated client and server listeners can reload independently.
 
-Managed listeners are automatically cleaned up on reload (GLOBAL scope persists,
-WORLD/SERVER_CACHE scope is cleared, all listeners cleared on full reload).
+事件会按脚本所有者和作用域记录。WORLD/SERVER_CACHE 作用域会在重载或清理时自动移除，
+GLOBAL 作用域需要显式注销或在全局清理时移除。
 
 </ApiMemberCard>
 
@@ -75,8 +76,8 @@ WORLD/SERVER_CACHE scope is cleared, all listeners cleared on full reload).
 @Volatile @JvmField var provider: ManagedListenerProvider?
 ```
 
-Platform sets this during initialization (e.g., PaperManagedEvents.initialize()).
-Must be set before any script calls [registerEvent].
+Active managed-listener provider installed by the current platform.
+Paper currently initializes this from `PaperManagedEvents.initialize()`.
 
 </ApiMemberCard>
 
@@ -95,23 +96,23 @@ Must be set before any script calls [registerEvent].
 inline fun <reified T : Any> registerEvent(priority: Int = 2, ignoreCancelled: Boolean = false, handler: (T) -> Unit): ManagedEventHandle
 ```
 
-Register a managed native event listener.
+Register a native platform event listener from script code.
 
-The listener is automatically cleaned up on `/katton reload` for WORLD/SERVER_CACHE scopes.
-GLOBAL scope listeners persist across reloads until manually [unregisterEvent]ed.
+Listeners in WORLD/SERVER_CACHE scope are cleaned up during `/katton reload`.
+GLOBAL listeners stay active until [unregisterEvent] or a full managed cleanup removes them.
 
 ### Parameters
 
 | Parameter | Description |
 | --- | --- |
-| `T` | The native event class (e.g., org.bukkit.event.player.PlayerMoveEvent) |
-| `priority` | Event priority (0=LOWEST, 1=LOW, 2=NORMAL, 3=HIGH, 4=HIGHEST, 5=MONITOR) |
-| `ignoreCancelled` | If true, the handler is not called for cancelled events |
-| `handler` | The callback receiving the typed event |
+| `T` | Native event type, for example `org.bukkit.event.player.PlayerMoveEvent`. |
+| `priority` | Event priority. Paper uses 0=LOWEST, 1=LOW, 2=NORMAL, 3=HIGH, 4=HIGHEST, 5=MONITOR. |
+| `ignoreCancelled` | When `true`, cancelled events are ignored when the platform supports that behavior. |
+| `handler` | Callback invoked with the native event instance. |
 
 ### Returns
 
-A handle that can be used with [unregisterEvent] to manually remove the listener
+Handle that can be passed to [unregisterEvent].
 
 </ApiMemberCard>
 
@@ -130,7 +131,7 @@ A handle that can be used with [unregisterEvent] to manually remove the listener
 fun unregisterEvent(handle: ManagedEventHandle)
 ```
 
-Manually unregister a managed listener created by [registerEvent].
+Unregister a listener previously created by [registerEvent].
 
 </ApiMemberCard>
 
@@ -149,8 +150,8 @@ Manually unregister a managed listener created by [registerEvent].
 fun clearManagedByScope(scope: ScriptPackScope)
 ```
 
-Unregister all managed listeners registered under [scope].
-Called by [top.katton.Katton.clearWorldAndServerEvents].
+Clear all managed listeners registered under [scope].
+Called from [top.katton.Katton.clearWorldAndServerEvents].
 
 </ApiMemberCard>
 
@@ -169,8 +170,8 @@ Called by [top.katton.Katton.clearWorldAndServerEvents].
 fun clearAllManaged()
 ```
 
-Unregister ALL managed listeners.
-Called on full reload or server shutdown.
+Clear every managed listener from the active provider.
+Used during full shutdown or global cleanup.
 
 </ApiMemberCard>
 

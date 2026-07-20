@@ -371,7 +371,7 @@ Locate a structure by ResourceKey.
 
 ### Returns
 
-nearest BlockPos of the structure or null if not found
+BlockPos of the structure, or null if not found
 
 </ApiMemberCard>
 
@@ -402,7 +402,7 @@ Locate a structure by TagKey.
 
 ### Returns
 
-nearest BlockPos or null if not found
+BlockPos, or null if not found
 
 </ApiMemberCard>
 
@@ -433,7 +433,7 @@ Find closest biome by resource key.
 
 ### Returns
 
-Pair of BlockPos and biome Holder, or null if not found
+pair of BlockPos and biome Holder, or null if not found
 
 </ApiMemberCard>
 
@@ -464,7 +464,7 @@ Find closest biome by tag key.
 
 ### Returns
 
-Pair of BlockPos and biome Holder, or null if not found
+pair of BlockPos and biome Holder, or null if not found
 
 </ApiMemberCard>
 
@@ -515,7 +515,7 @@ Place a jigsaw structure from a template pool.
 
 | Parameter | Description |
 | --- | --- |
-| `templatePool` | pool identifier |
+| `templatePool` | template pool identifier |
 | `start` | starting template identifier |
 | `depth` | placement depth |
 | `pos` | starting position |
@@ -570,9 +570,9 @@ Play a sound to a set of players, performing distance attenuation and minimum vo
 | Parameter | Description |
 | --- | --- |
 | `level` | server level |
-| `players` | players to send sound to |
+| `players` | players to send the sound to |
 | `sound` | sound identifier |
-| `soundSource` | sound category/source |
+| `soundSource` | sound source category |
 | `pos` | sound origin position |
 | `volume` | base volume |
 | `pitch` | playback pitch |
@@ -601,14 +601,14 @@ Sample a random integer in [min, max] using optional random sequence.
 
 | Parameter | Description |
 | --- | --- |
-| `randomSequence` | optional identifier for random sequence |
+| `randomSequence` | optional random sequence identifier |
 | `broadcast` | whether to broadcast the result to players |
-| `min` | inclusive minimum |
-| `max` | inclusive maximum |
+| `min` | inclusive minimum value |
+| `max` | inclusive maximum value |
 
 ### Returns
 
-sampled integer or null on invalid range
+integer or null on invalid range
 
 </ApiMemberCard>
 
@@ -662,8 +662,8 @@ Reset a named random sequence with a specific seed and behavior flags.
 | `level` | server level |
 | `randomSequence` | sequence identifier |
 | `seed` | integer seed |
-| `includeWorldSeed` | whether to include world seed |
-| `includeSequenceID` | whether to include sequence id |
+| `includeWorldSeed` | whether to include the world seed |
+| `includeSequenceID` | whether to include the sequence ID |
 
 </ApiMemberCard>
 
@@ -714,9 +714,9 @@ Reset all sequences and set new defaults.
 | Parameter | Description |
 | --- | --- |
 | `level` | server level |
-| `seed` | seed to set as default |
-| `includeWorldSeed` | whether to include world seed |
-| `includeSequenceID` | whether to include sequence id |
+| `seed` | seed to use as the new default |
+| `includeWorldSeed` | whether to include the world seed |
+| `includeSequenceID` | whether to include the sequence ID |
 
 </ApiMemberCard>
 
@@ -764,7 +764,7 @@ Query current tickrate.
 
 ### Returns
 
-current tickrate value
+tick rate value
 
 </ApiMemberCard>
 
@@ -862,7 +862,7 @@ Stop stepping mode on the tick manager.
 
 ### Returns
 
-true if stepping was stopped
+if stepping was stopped
 
 </ApiMemberCard>
 
@@ -885,7 +885,7 @@ Stop sprinting mode on the tick manager.
 
 ### Returns
 
-true if sprinting was stopped
+if sprinting was stopped
 
 </ApiMemberCard>
 
@@ -915,7 +915,7 @@ Resolve duration: if i == -1 use IntProvider sampled value; otherwise return i.
 
 ### Returns
 
-resolved duration
+duration
 
 </ApiMemberCard>
 
@@ -940,7 +940,7 @@ Set clear weather for specified duration (or sample when -1).
 
 | Parameter | Description |
 | --- | --- |
-| `i` | duration ticks or -1 to sample |
+| `i` | duration in ticks, or -1 to sample |
 
 </ApiMemberCard>
 
@@ -965,7 +965,7 @@ Set rain weather for specified duration (or sample when -1).
 
 | Parameter | Description |
 | --- | --- |
-| `i` | duration ticks or -1 to sample |
+| `i` | duration in ticks, or -1 to sample |
 
 </ApiMemberCard>
 
@@ -990,7 +990,7 @@ Set thunder weather for specified duration (or sample when -1).
 
 | Parameter | Description |
 | --- | --- |
-| `i` | duration ticks or -1 to sample |
+| `i` | duration in ticks, or -1 to sample |
 
 </ApiMemberCard>
 
@@ -1009,7 +1009,7 @@ Set thunder weather for specified duration (or sample when -1).
 fun setWorldBorderDamageBuffer(level: ServerLevel, distance: Double)
 ```
 
-Set world border safe-zone buffer.
+Set the world border safe-zone buffer.
 
 ### Parameters
 
@@ -1035,7 +1035,7 @@ Set world border safe-zone buffer.
 fun setWorldBorderDamageAmount(level: ServerLevel, damage: Double)
 ```
 
-Set world border damage per block amount.
+Set the world border damage amount per block.
 
 ### Parameters
 
@@ -1061,7 +1061,7 @@ Set world border damage per block amount.
 fun setWorldBorderWarningTime(level: ServerLevel, time: Int)
 ```
 
-Set world border warning time.
+Set the world border warning time.
 
 ### Parameters
 
@@ -1123,7 +1123,7 @@ Get the current world border size.
 
 ### Returns
 
-world border size (double)
+border size (double)
 
 </ApiMemberCard>
 
@@ -1150,7 +1150,7 @@ Set world border size, optionally over time.
 | --- | --- |
 | `level` | server level |
 | `size` | target border size |
-| `time` | time in ticks to lerp to new size (0 for instant) |
+| `time` | interpolation time in ticks (0 applies immediately) |
 
 </ApiMemberCard>
 

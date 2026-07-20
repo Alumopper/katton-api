@@ -7,10 +7,10 @@ outline: [2, 2]
   title="KattonNbtApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonNbtApi.kt"
 >
-从数字值创建数字标签。
+根据 Number 值创建数值类型的 Tag。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;numericTagOf&quot;,&quot;href&quot;:&quot;#numerictagof&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getValue&quot;,&quot;href&quot;:&quot;#getvalue&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;invoke&quot;,&quot;href&quot;:&quot;#invoke&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getOrValue&quot;,&quot;href&quot;:&quot;#getorvalue&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;invoke&quot;,&quot;href&quot;:&quot;#invoke&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;toBoolean&quot;,&quot;href&quot;:&quot;#toboolean&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;parseNbt&quot;,&quot;href&quot;:&quot;#parsenbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getEntityNbt&quot;,&quot;href&quot;:&quot;#getentitynbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setEntityNbt&quot;,&quot;href&quot;:&quot;#setentitynbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getBlockNbt&quot;,&quot;href&quot;:&quot;#getblocknbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setBlockNbt&quot;,&quot;href&quot;:&quot;#setblocknbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getBlockNbt&quot;,&quot;href&quot;:&quot;#getblocknbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setBlockNbt&quot;,&quot;href&quot;:&quot;#setblocknbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getStorageNbt&quot;,&quot;href&quot;:&quot;#getstoragenbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setStorageNbt&quot;,&quot;href&quot;:&quot;#setstoragenbt&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,17 +30,17 @@ outline: [2, 2]
 fun <T : Number> numericTagOf(value: T)
 ```
 
-从数字值创建数字标签。
+根据 Number 值创建数值类型的 Tag。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `value` | 要转换的数值 |
+| `value` | 要转换的数值。 |
 
 ### 返回值
 
-适当的NumericTag子类型
+返回对应的 NumericTag 子类型。
 
 </ApiMemberCard>
 
@@ -59,22 +59,21 @@ fun <T : Number> numericTagOf(value: T)
 fun <T : Tag> Tag?.getValue(tagType: TagType<T>): T?
 ```
 
-将标签安全地投射到特定的TagType。
-
-尽可能执行自动类型转换：
-- 数字标签可以在数字类型之间转换
-- 字符串标签可以解析成其他类型
-- 集合标签可以在数组类型之间转换
+将 Tag 安全转换为指定的 TagType。
+在可能的情况下会自动进行类型转换：
+- 数值标签可在不同数值类型之间转换
+- 字符串标签可解析为其他类型
+- 集合标签可转换为数组类型
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `tagType` | 目标TagType |
+| `tagType` | 目标 TagType。 |
 
 ### 返回值
 
-转换后的 Tag 或 null（如果无法转换）
+转换成功则返回对应的 Tag，无法转换则返回 null。
 
 </ApiMemberCard>
 
@@ -94,22 +93,21 @@ fun <T : Tag> Tag?.getValue(tagType: TagType<T>): T?
 @Suppress("UNCHECKED_CAST") operator fun <T : Tag> Tag?.invoke(tagType: TagType<T>): T?
 ```
 
-将标签安全地投射到特定的TagType。
-
-尽可能执行自动类型转换：
-- 数字标签可以在数字类型之间转换
-- 字符串标签可以解析成其他类型
-- 集合标签可以在数组类型之间转换
+将 Tag 安全转换为指定的 TagType。
+在可能的情况下会自动进行类型转换：
+- 数值标签可在不同数值类型之间转换
+- 字符串标签可解析为其他类型
+- 集合标签可转换为数组类型
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `tagType` | 目标TagType |
+| `tagType` | 目标 TagType。 |
 
 ### 返回值
 
-转换后的 Tag 或 null（如果无法转换）
+转换成功则返回对应的 Tag，无法转换则返回 null。
 
 </ApiMemberCard>
 
@@ -128,22 +126,21 @@ fun <T : Tag> Tag?.getValue(tagType: TagType<T>): T?
 fun <V> Tag?.getOrValue(default: V): V
 ```
 
-使用默认后备安全地从标签获取值。
-
-尽可能执行自动类型转换：
-- 数字标签返回数值
-- 字符串标签返回字符串值
+从 Tag 中安全读取值，并在读取失败时回退到默认值。
+在可能的情况下会自动进行类型转换：
+- 数值标签返回数值
+- 字符串标签返回字符串
 - 集合标签返回列表
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `default` | 转换失败时返回的默认值 |
+| `default` | 转换失败时返回的默认值。 |
 
 ### 返回值
 
-转换后的值或默认值
+返回转换后的值，或默认值。
 
 </ApiMemberCard>
 
@@ -163,22 +160,21 @@ fun <V> Tag?.getOrValue(default: V): V
 @Suppress("UNCHECKED_CAST") operator fun <V> Tag?.invoke(default: V): V
 ```
 
-使用默认后备安全地从标签获取值。
-
-尽可能执行自动类型转换：
-- 数字标签返回数值
-- 字符串标签返回字符串值
+从 Tag 中安全读取值，并在读取失败时回退到默认值。
+在可能的情况下会自动进行类型转换：
+- 数值标签返回数值
+- 字符串标签返回字符串
 - 集合标签返回列表
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `default` | 转换失败时返回的默认值 |
+| `default` | 转换失败时返回的默认值。 |
 
 ### 返回值
 
-转换后的值或默认值
+返回转换后的值，或默认值。
 
 </ApiMemberCard>
 
@@ -222,11 +218,11 @@ fun parseNbt(nbt: String): CompoundTag
 
 | 参数 | 说明 |
 | --- | --- |
-| `nbt` | NBT 要解析的字符串 |
+| `nbt` | 要解析的 NBT 字符串。 |
 
 ### 返回值
 
-已解析CompoundTag
+返回 CompoundTag。
 
 </ApiMemberCard>
 
@@ -245,17 +241,17 @@ fun parseNbt(nbt: String): CompoundTag
 fun getEntityNbt(entity: Entity): CompoundTag
 ```
 
-获取实体的完整NBT数据。
+获取实体的完整 NBT 数据。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
+| `entity` | 目标实体。 |
 
 ### 返回值
 
-CompoundTag 代表实体的数据
+返回表示该实体数据的 CompoundTag。
 
 </ApiMemberCard>
 
@@ -274,14 +270,14 @@ CompoundTag 代表实体的数据
 fun setEntityNbt(entity: Entity, tag: CompoundTag)
 ```
 
-替换实体的NBT数据。
+替换实体的 NBT 数据。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `tag` | 在实体上设置的CompoundTag |
+| `entity` | 目标实体。 |
+| `tag` | 要设置到实体上的 CompoundTag。 |
 
 </ApiMemberCard>
 
@@ -300,17 +296,17 @@ fun setEntityNbt(entity: Entity, tag: CompoundTag)
 fun getBlockNbt(block: BlockEntity): CompoundTag
 ```
 
-获取方块实体的NBT数据。
+获取方块实体的 NBT 数据。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `block` | 目标BlockEntity |
+| `block` | 目标方块实体。 |
 
 ### 返回值
 
-CompoundTag 代表区方块实体的数据
+返回表示该方块实体数据的 CompoundTag。
 
 </ApiMemberCard>
 
@@ -329,14 +325,14 @@ CompoundTag 代表区方块实体的数据
 fun setBlockNbt(block: BlockEntity, tag: CompoundTag)
 ```
 
-替换方块实体的NBT数据。
+替换方块实体的 NBT 数据。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `block` | 目标BlockEntity |
-| `tag` | 在方块实体上设置的CompoundTag |
+| `block` | 目标方块实体。 |
+| `tag` | 要设置到方块实体上的 CompoundTag。 |
 
 </ApiMemberCard>
 
@@ -355,18 +351,18 @@ fun setBlockNbt(block: BlockEntity, tag: CompoundTag)
 fun getBlockNbt(level: Level, pos: BlockPos): CompoundTag?
 ```
 
-如果某个位置有方方块实体，则获取该方块的NBT数据。
+获取指定位置方块实体的 NBT 数据，如果该方块没有方块实体则返回空。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `level` | 查询世界 |
-| `pos` | 块的位置 |
+| `level` | 要查询的维度。 |
+| `pos` | 方块位置。 |
 
 ### 返回值
 
-如果不存在方块实体，则CompoundTag或 null
+如果不存在方块实体，则返回 null。
 
 </ApiMemberCard>
 
@@ -385,19 +381,19 @@ fun getBlockNbt(level: Level, pos: BlockPos): CompoundTag?
 fun setBlockNbt(level: Level, pos: BlockPos, tag: CompoundTag): Boolean
 ```
 
-在给定位置设置方块实体的NBT。
+设置指定位置方块实体的 NBT。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `level` | 修改世界 |
-| `pos` | 块位置 |
-| `tag` | CompoundTag 设置 |
+| `level` | 要修改的维度。 |
+| `pos` | 方块位置。 |
+| `tag` | 要设置的 CompoundTag。 |
 
 ### 返回值
 
-如果设置成功则为 true，如果不存在方块实体则为 false
+设置成功返回 true；如果没有方块实体则返回 false。
 
 </ApiMemberCard>
 
@@ -416,17 +412,17 @@ fun setBlockNbt(level: Level, pos: BlockPos, tag: CompoundTag): Boolean
 fun getStorageNbt(id: Identifier): CompoundTag
 ```
 
-通过标识符获取存储的命令存储NBT。
+通过标识符获取已存储的命令存储 NBT。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 存储标识符 |
+| `id` | 存储标识符。 |
 
 ### 返回值
 
-CompoundTag 存储在 id 处
+返回该标识符下存储的 NBT。
 
 </ApiMemberCard>
 
@@ -445,14 +441,14 @@ CompoundTag 存储在 id 处
 fun setStorageNbt(id: Identifier, tag: CompoundTag)
 ```
 
-通过标识符设置存储命令存储NBT。
+通过标识符设置命令存储中的 NBT。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 存储标识符 |
-| `tag` | CompoundTag 存储 |
+| `id` | 存储标识符。 |
+| `tag` | 要存储的 CompoundTag。 |
 
 </ApiMemberCard>
 

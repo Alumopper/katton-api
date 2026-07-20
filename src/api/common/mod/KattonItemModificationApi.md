@@ -75,7 +75,7 @@ components and will affect all ItemStacks of that type.
 
 ### Returns
 
-The modified Item instance
+modified Item instance
 
 </ApiMemberCard>
 
@@ -106,7 +106,7 @@ Modifies an existing item's properties.
 
 ### Returns
 
-The modified Item instance
+modified Item instance
 
 </ApiMemberCard>
 
@@ -135,7 +135,7 @@ Gets an item by its identifier.
 
 ### Returns
 
-The Item instance, or null if not found
+Item instance, or null if not found
 
 </ApiMemberCard>
 
@@ -164,7 +164,7 @@ Gets an item by its identifier.
 
 ### Returns
 
-The Item instance, or null if not found
+Item instance, or null if not found
 
 </ApiMemberCard>
 
@@ -194,7 +194,7 @@ Creates an ItemStack for an item.
 
 ### Returns
 
-The created ItemStack
+created ItemStack
 
 </ApiMemberCard>
 
@@ -224,7 +224,7 @@ Creates an ItemStack for an item.
 
 ### Returns
 
-The created ItemStack
+created ItemStack
 
 </ApiMemberCard>
 

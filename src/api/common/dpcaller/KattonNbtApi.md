@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonNbtApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonNbtApi.kt"
 >
 Create a numeric Tag from a Number value.
@@ -40,7 +40,7 @@ Create a numeric Tag from a Number value.
 
 ### Returns
 
-The appropriate NumericTag subtype
+appropriate NumericTag subtype
 
 </ApiMemberCard>
 
@@ -74,7 +74,7 @@ Performs automatic type conversion where possible:
 
 ### Returns
 
-The casted Tag or null if conversion is not possible
+casted Tag or null if conversion is not possible
 
 </ApiMemberCard>
 
@@ -109,7 +109,7 @@ Performs automatic type conversion where possible:
 
 ### Returns
 
-The casted Tag or null if conversion is not possible
+casted Tag or null if conversion is not possible
 
 </ApiMemberCard>
 
@@ -143,7 +143,7 @@ Performs automatic type conversion where possible:
 
 ### Returns
 
-The converted value or the default
+converted value or the default
 
 </ApiMemberCard>
 
@@ -178,7 +178,7 @@ Performs automatic type conversion where possible:
 
 ### Returns
 
-The converted value or the default
+converted value or the default
 
 </ApiMemberCard>
 
@@ -226,7 +226,7 @@ Parse an NBT string into a CompoundTag.
 
 ### Returns
 
-parsed CompoundTag
+CompoundTag
 
 </ApiMemberCard>
 
@@ -255,7 +255,7 @@ Get the full NBT data of an entity.
 
 ### Returns
 
-CompoundTag representing the entity's data
+representing the entity's data
 
 </ApiMemberCard>
 
@@ -310,7 +310,7 @@ Get the NBT data of a block entity.
 
 ### Returns
 
-CompoundTag representing the block entity's data
+representing the block entity's data
 
 </ApiMemberCard>
 
@@ -366,7 +366,7 @@ Get the NBT data of a block at a position if it has a block entity.
 
 ### Returns
 
-CompoundTag or null if no block entity exists
+or null if no block entity exists
 
 </ApiMemberCard>
 
@@ -397,7 +397,7 @@ Set the NBT of a block entity at the given position.
 
 ### Returns
 
-true if set succeeded, false if no block entity present
+if set succeeded, false if no block entity present
 
 </ApiMemberCard>
 
@@ -426,7 +426,7 @@ Get stored command storage NBT by identifier.
 
 ### Returns
 
-CompoundTag stored at id
+stored at id
 
 </ApiMemberCard>
 

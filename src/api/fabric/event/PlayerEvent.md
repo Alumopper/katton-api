@@ -55,7 +55,7 @@ Event triggered when a player uses an item on a block.
 
 ### Returns
 
-InteractionResult.PASS to allow default behavior, or other result to override.
+to allow default behavior, or other result to override.
 
 </ApiMemberCard>
 
@@ -78,7 +78,7 @@ Event triggered when a player interacts with a block without holding an item.
 
 ### Returns
 
-InteractionResult.PASS to allow default behavior, or other result to override.
+to allow default behavior, or other result to override.
 
 </ApiMemberCard>
 
@@ -101,7 +101,7 @@ Event triggered when a player attacks (left-clicks) a block.
 
 ### Returns
 
-InteractionResult.PASS to allow default behavior, or other result to cancel/override.
+to allow default behavior, or other result to cancel/override.
 
 </ApiMemberCard>
 
@@ -124,7 +124,7 @@ Event triggered when a player attacks (left-clicks) an entity.
 
 ### Returns
 
-InteractionResult.PASS to allow default behavior, or other result to cancel/override.
+to allow default behavior, or other result to cancel/override.
 
 </ApiMemberCard>
 
@@ -147,7 +147,7 @@ Event triggered when a player interacts (right-clicks) with a block.
 
 ### Returns
 
-InteractionResult.PASS to allow default behavior, or other result to override.
+to allow default behavior, or other result to override.
 
 </ApiMemberCard>
 
@@ -170,7 +170,7 @@ Event triggered when a player interacts (right-clicks) with an entity.
 
 ### Returns
 
-InteractionResult.PASS to allow default behavior, or other result to override.
+to allow default behavior, or other result to override.
 
 </ApiMemberCard>
 
@@ -193,7 +193,7 @@ Event triggered when a player uses (right-clicks) an item.
 
 ### Returns
 
-InteractionResult.PASS to allow default behavior, or other result to override.
+to allow default behavior, or other result to override.
 
 </ApiMemberCard>
 

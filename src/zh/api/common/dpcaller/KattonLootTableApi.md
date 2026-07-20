@@ -7,10 +7,10 @@ outline: [2, 2]
   title="KattonLootTableApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonLootTableApi.kt"
 >
-获得方块的掉落物，就好像它被工具破坏一样。
+获取方块在使用工具破坏时的掉落物。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;dropBlockLoot&quot;,&quot;href&quot;:&quot;#dropblockloot&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dropKillLoot&quot;,&quot;href&quot;:&quot;#dropkillloot&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dropChestLoot&quot;,&quot;href&quot;:&quot;#dropchestloot&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dropFishingLoot&quot;,&quot;href&quot;:&quot;#dropfishingloot&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dropToBlock&quot;,&quot;href&quot;:&quot;#droptoblock&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dropToBlockReplace&quot;,&quot;href&quot;:&quot;#droptoblockreplace&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dropToPlayer&quot;,&quot;href&quot;:&quot;#droptoplayer&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dropToEntity&quot;,&quot;href&quot;:&quot;#droptoentity&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dropTo&quot;,&quot;href&quot;:&quot;#dropto&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,18 +30,18 @@ outline: [2, 2]
 fun dropBlockLoot(pos: BlockPos, tool: ItemStack): List<ItemStack>
 ```
 
-获得方块的掉落物，就好像它被工具破坏一样。
+获取方块在使用工具破坏时的掉落物。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `pos` | 块位置 |
-| `tool` | 用于打破方块的工具ItemStack |
+| `pos` | 方块位置。 |
+| `tool` | 用于破坏方块的工具 ItemStack。 |
 
 ### 返回值
 
-ItemStack 掉落列表
+返回掉落的 ItemStack 列表。
 
 </ApiMemberCard>
 
@@ -60,18 +60,18 @@ ItemStack 掉落列表
 fun dropKillLoot(entity: Entity, killer: Entity?): List<ItemStack>
 ```
 
-获得一个实体的掉落物，就像它被杀死一样。
+获取实体在被击杀时会掉落的物品。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `killer` | 可选的杀手实体（可能会影响掉落） |
+| `entity` | 目标实体。 |
+| `killer` | 可选的击杀实体，可能影响掉落结果。 |
 
 ### 返回值
 
-ItemStack 掉落列表
+返回掉落的 ItemStack 列表。
 
 </ApiMemberCard>
 
@@ -90,17 +90,17 @@ ItemStack 掉落列表
 fun dropChestLoot(lootTable: LootTable): List<ItemStack>
 ```
 
-从LootTable生成宝箱战利品。
+从 LootTable 生成容器战利品。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `lootTable` | LootTable 滚动 |
+| `lootTable` | 要抽取的 LootTable。 |
 
 ### 返回值
 
-生成的列表ItemStack
+返回生成的 ItemStack 列表。
 
 </ApiMemberCard>
 
@@ -119,19 +119,19 @@ fun dropChestLoot(lootTable: LootTable): List<ItemStack>
 fun dropFishingLoot(lootTable: LootTable, pos: BlockPos, tool: ItemStack): List<ItemStack>
 ```
 
-从LootTable生成钓鱼战利品。
+从 LootTable 生成钓鱼战利品。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `lootTable` | LootTable 滚动 |
-| `pos` | 战利品上下文的原始位置 |
-| `tool` | 使用工具ItemStack |
+| `lootTable` | 要抽取的 LootTable。 |
+| `pos` | 战利品上下文的原点位置。 |
+| `tool` | 使用的工具 ItemStack。 |
 
 ### 返回值
 
-生成的列表ItemStack
+返回生成的 ItemStack 列表。
 
 </ApiMemberCard>
 
@@ -150,14 +150,14 @@ fun dropFishingLoot(lootTable: LootTable, pos: BlockPos, tool: ItemStack): List<
 fun dropToBlock(block: BlockPos, itemStacks: List<ItemStack>)
 ```
 
-尝试将物品堆叠放入容器块中。
+尝试将 ItemStack 放入容器方块。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `block` | 容器块位置 |
-| `itemStacks` | 存入的ItemStack列表（可能会修改） |
+| `block` | 容器方块的位置。 |
+| `itemStacks` | 要放入的 ItemStack 列表，可能会被修改。 |
 
 </ApiMemberCard>
 
@@ -176,16 +176,16 @@ fun dropToBlock(block: BlockPos, itemStacks: List<ItemStack>)
 fun dropToBlockReplace(block: BlockPos, i: Int, j: Int, itemStacks: List<ItemStack>)
 ```
 
-用给定的物品堆栈替换容器块中的一系列插槽。
+使用给定的 ItemStack 替换容器方块中的一段槽位。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `block` | 集装箱位置 |
-| `i` | 起始槽索引 |
-| `j` | 要更换的插槽数量 |
-| `itemStacks` | 要放置的 ItemStacks 列表（较短的列表用空填充） |
+| `block` | 容器位置。 |
+| `i` | 起始槽位索引。 |
+| `j` | 要替换的槽位数量。 |
+| `itemStacks` | 要放置的 ItemStack 列表，较短的列表会以空物品补足。 |
 
 </ApiMemberCard>
 
@@ -204,14 +204,14 @@ fun dropToBlockReplace(block: BlockPos, i: Int, j: Int, itemStacks: List<ItemSta
 fun dropToPlayer(player: ServerPlayer, itemStacks: List<ItemStack>)
 ```
 
-向玩家提供物品堆栈（将副本添加到库存中）。
+将 ItemStack 给予玩家，并把副本加入背包。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标ServerPlayer |
-| `itemStacks` | 给予的ItemStack列表 |
+| `player` | 目标 ServerPlayer。 |
+| `itemStacks` | 要给予的 ItemStack 列表。 |
 
 </ApiMemberCard>
 
@@ -230,16 +230,16 @@ fun dropToPlayer(player: ServerPlayer, itemStacks: List<ItemStack>)
 fun dropToEntity(entity: Entity, i: Int, j: Int, itemStacks: List<ItemStack>)
 ```
 
-将物品堆栈设置到实体槽中。
+将 ItemStack 设置到实体槽位中。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `i` | 起始槽索引 |
-| `j` | 要设置的槽数 |
-| `itemStacks` | 要设置的ItemStacks列表 |
+| `entity` | 目标实体。 |
+| `i` | 起始槽位索引。 |
+| `j` | 要设置的槽位数量。 |
+| `itemStacks` | 要设置的 ItemStack 列表。 |
 
 </ApiMemberCard>
 
@@ -258,15 +258,15 @@ fun dropToEntity(entity: Entity, i: Int, j: Int, itemStacks: List<ItemStack>)
 fun dropTo(level: Level, pos: Vec3, itemStacks: List<ItemStack>)
 ```
 
-将物品堆叠放入世界中的某个位置。
+将 ItemStack 掉落到世界中的指定位置。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `level` | 世界水平 |
-| `pos` | 下降位置 |
-| `itemStacks` | 要生成的 ItemStack 列表 |
+| `level` | 世界维度。 |
+| `pos` | 掉落位置。 |
+| `itemStacks` | 要生成的 ItemStack 列表。 |
 
 </ApiMemberCard>
 

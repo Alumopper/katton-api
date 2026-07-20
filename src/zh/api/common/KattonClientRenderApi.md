@@ -32,14 +32,14 @@ data class HudRenderContext( val graphics: GuiGraphicsExtractor, val tickDelta: 
 
 屏幕空间渲染回调上下文。
 
-包含 HUD 渲染的图形上下文和计时信息。
+包含 HUD 渲染所需的图形上下文和时间信息。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `graphics` | 来自 Minecraft (GuiGraphics) 的运行时 GUI 图形对象 |
-| `tickDelta` | 平滑动画的部分tick时间 |
+| `graphics` | Minecraft 在运行时提供的 GUI 图形对象（GuiGraphics）。 |
+| `tickDelta` | 用于平滑动画的局部 tick 时间。 |
 
 </ApiMemberCard>
 
@@ -60,14 +60,14 @@ data class WorldRenderContext( val camera: CameraRenderState?, val tickDelta: Fl
 
 世界空间渲染回调上下文。
 
-包含用于 3D 世界渲染的矩阵和相机信息。
+包含 3D 世界渲染所需的矩阵和相机信息。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `camera` | 当前相机实例（可能为空） |
-| `tickDelta` | 平滑动画的部分tick时间 |
+| `camera` | 当前相机实例，可能为 null。 |
+| `tickDelta` | 用于平滑动画的局部 tick 时间。 |
 
 </ApiMemberCard>
 
@@ -86,9 +86,9 @@ data class WorldRenderContext( val camera: CameraRenderState?, val tickDelta: Fl
 enum class HudRenderLayer
 ```
 
-为 HUD 渲染回调订购存储桶。
+HUD 渲染回调的排序分组。
 
-渲染器按顺序处理：BACKGROUND -> NORMAL -> FOREGROUND
+渲染器按 BACKGROUND -> NORMAL -> FOREGROUND 的顺序处理。
 
 </ApiMemberCard>
 
@@ -107,9 +107,9 @@ enum class HudRenderLayer
 enum class WorldRenderLayer
 ```
 
-为世界渲染回调排序存储桶。
+世界渲染回调的排序分组。
 
-渲染器按顺序处理：EARLY -> NORMAL -> LATE
+渲染器按 EARLY -> NORMAL -> LATE 的顺序处理。
 
 </ApiMemberCard>
 
@@ -128,17 +128,17 @@ enum class WorldRenderLayer
 fun registerHudRenderer(id: String, render: (HudRenderContext) -> Unit)
 ```
 
-通过 [id] 注册（或替换）HUD渲染器。
+通过 [id] 注册或替换一个 HUD 渲染器。
 
-渲染器将在 HUD 渲染期间每帧被调用。
-使用优先级为 0 的 NORMAL 图层。
+该渲染器会在每帧 HUD 渲染期间调用。
+默认使用 NORMAL 图层和优先级 0。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 该渲染器的唯一标识符 |
-| `render` | 渲染回调接收HudRenderContext |
+| `id` | 此渲染器的唯一标识符。 |
+| `render` | 接收 HudRenderContext 的渲染回调。 |
 
 </ApiMemberCard>
 
@@ -157,19 +157,19 @@ fun registerHudRenderer(id: String, render: (HudRenderContext) -> Unit)
 fun registerHudRenderer(id: String, layer: HudRenderLayer, priority: Int = 0, render: (HudRenderContext) -> Unit)
 ```
 
-通过 [id]、[layer] 和 [priority] 注册（或替换）HUD渲染器。
+通过 [id] 注册或替换一个 HUD 渲染器，并指定 [layer] 和 [priority]。
 
-较低优先级值在同一层中较早渲染。
-图层按顺序渲染：BACKGROUND -> NORMAL -> FOREGROUND
+同一图层内，优先级数值越低越早渲染。
+图层按 BACKGROUND -> NORMAL -> FOREGROUND 的顺序渲染。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 该渲染器的唯一标识符 |
-| `layer` | 渲染层决定绘制顺序 |
-| `priority` | 层内的优先级（较低=较早） |
-| `render` | 渲染回调接收HudRenderContext |
+| `id` | 此渲染器的唯一标识符。 |
+| `layer` | 决定绘制顺序的渲染图层。 |
+| `priority` | 图层内优先级，数值越低越早渲染。 |
+| `render` | 接收 HudRenderContext 的渲染回调。 |
 
 </ApiMemberCard>
 
@@ -188,17 +188,17 @@ fun registerHudRenderer(id: String, layer: HudRenderLayer, priority: Int = 0, re
 fun unregisterHudRenderer(id: String): Boolean
 ```
 
-通过 [id] 删除HUD渲染器。
+按 [id] 移除一个 HUD 渲染器。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 要删除的渲染器的标识符 |
+| `id` | 要移除的渲染器标识符。 |
 
 ### 返回值
 
-如果找到并删除渲染器则为 true，否则为 false
+如果找到并移除了渲染器则返回 true，否则返回 false。
 
 </ApiMemberCard>
 
@@ -217,17 +217,17 @@ fun unregisterHudRenderer(id: String): Boolean
 fun registerWorldRenderer(id: String, render: (WorldRenderContext) -> Unit)
 ```
 
-通过 [id] 注册（或替换）世界空间渲染器。
+通过 [id] 注册或替换一个世界空间渲染器。
 
-渲染器将在世界渲染期间的每一帧被调用。
-使用优先级为 0 的 NORMAL 图层。
+该渲染器会在每帧世界渲染期间调用。
+默认使用 NORMAL 图层和优先级 0。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 该渲染器的唯一标识符 |
-| `render` | 渲染回调接收WorldRenderContext |
+| `id` | 此渲染器的唯一标识符。 |
+| `render` | 接收 WorldRenderContext 的渲染回调。 |
 
 </ApiMemberCard>
 
@@ -246,19 +246,19 @@ fun registerWorldRenderer(id: String, render: (WorldRenderContext) -> Unit)
 fun registerWorldRenderer(id: String, layer: WorldRenderLayer, priority: Int = 0, render: (WorldRenderContext) -> Unit)
 ```
 
-通过 [id]、[layer] 和 [priority] 注册（或替换）世界渲染器。
+通过 [id] 注册或替换一个世界渲染器，并指定 [layer] 和 [priority]。
 
-较低优先级值在同一层中较早渲染。
-图层按顺序渲染：EARLY -> NORMAL -> LATE
+同一图层内，优先级数值越低越早渲染。
+图层按 EARLY -> NORMAL -> LATE 的顺序渲染。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 该渲染器的唯一标识符 |
-| `layer` | 渲染层决定绘制顺序 |
-| `priority` | 层内的优先级（较低=较早） |
-| `render` | 渲染回调接收WorldRenderContext |
+| `id` | 此渲染器的唯一标识符。 |
+| `layer` | 决定绘制顺序的渲染图层。 |
+| `priority` | 图层内优先级，数值越低越早渲染。 |
+| `render` | 接收 WorldRenderContext 的渲染回调。 |
 
 </ApiMemberCard>
 
@@ -277,17 +277,17 @@ fun registerWorldRenderer(id: String, layer: WorldRenderLayer, priority: Int = 0
 fun unregisterWorldRenderer(id: String): Boolean
 ```
 
-通过 [id] 删除世界空间渲染器。
+按 [id] 移除一个世界空间渲染器。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `id` | 要删除的渲染器的标识符 |
+| `id` | 要移除的渲染器标识符。 |
 
 ### 返回值
 
-如果找到并删除渲染器则为 true，否则为 false
+如果找到并移除了渲染器则返回 true，否则返回 false。
 
 </ApiMemberCard>
 
@@ -306,9 +306,9 @@ fun unregisterWorldRenderer(id: String): Boolean
 fun clearClientRenderers()
 ```
 
-清除所有客户端渲染回调（HUD和世界渲染器）。
+清除所有客户端渲染回调，包括 HUD 和世界渲染器。
 
-对于脚本重载期间或重置状态时的清理很有用。
+可用于脚本重载期间的清理，或重置渲染状态。
 
 </ApiMemberCard>
 
@@ -328,14 +328,14 @@ fun clearClientRenderers()
 @JvmName("dispatchHudRender") fun dispatchHudRender(graphics: GuiGraphicsExtractor, tickDelta: Float)
 ```
 
-内部调度程序：由平台渲染钩子调用以调用所有HUD渲染器。
+内部分发器：由平台渲染钩子调用，用于执行所有 HUD 渲染器。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `graphics` | GUI 图形上下文 |
-| `tickDelta` | 部分tick时间 |
+| `graphics` | GUI 图形上下文。 |
+| `tickDelta` | 局部 tick 时间。 |
 
 </ApiMemberCard>
 
@@ -355,14 +355,14 @@ fun clearClientRenderers()
 @JvmName("dispatchWorldRender") fun dispatchWorldRender(camera: CameraRenderState?, tickDelta: Float)
 ```
 
-内部调度程序：由平台渲染挂钩调用以调用所有世界渲染器。
+内部分发器：由平台渲染钩子调用，用于执行所有世界渲染器。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `camera` | 相机实例 |
-| `tickDelta` | 部分tick时间 |
+| `camera` | 相机实例。 |
+| `tickDelta` | 局部 tick 时间。 |
 
 </ApiMemberCard>
 
@@ -381,22 +381,22 @@ fun clearClientRenderers()
 fun drawHudText(ctx: HudRenderContext, message: Any?, x: Int, y: Int, color: Int = 0xFFFFFF, shadow: Boolean = true)
 ```
 
-使用当前的 [HudRenderContext] 在 HUD 上绘制文本。
+使用当前 [HudRenderContext] 在 HUD 上绘制文本。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `ctx` | HUD渲染上下文 |
-| `message` | 要绘制的文本（如果尚未转换为组件，则将被转换为组件） |
-| `x` | 屏幕坐标中的 X 位置 |
-| `y` | 屏幕坐标中的 Y 位置 |
-| `color` | ARGB格式的文本颜色（默认：白色） |
-| `shadow` | 是否绘制阴影（默认：true） |
+| `ctx` | HUD 渲染上下文。 |
+| `message` | 要绘制的文本；如果不是 Component，会自动转换。 |
+| `x` | 屏幕坐标中的 X 位置。 |
+| `y` | 屏幕坐标中的 Y 位置。 |
+| `color` | ARGB 格式的文本颜色，默认为白色。 |
+| `shadow` | 是否绘制阴影，默认 true。 |
 
 ### 返回值
 
-如果绘制成功则为 true，否则为 false
+如果绘制成功则返回 true，否则返回 false。
 
 </ApiMemberCard>
 
@@ -415,22 +415,22 @@ fun drawHudText(ctx: HudRenderContext, message: Any?, x: Int, y: Int, color: Int
 fun fillHudRect(ctx: HudRenderContext, x1: Int, y1: Int, x2: Int, y2: Int, color: Int)
 ```
 
-使用当前的[HudRenderContext]在HUD上绘制一个实心矩形。
+使用当前 [HudRenderContext] 在 HUD 上绘制一个实心矩形。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `ctx` | HUD渲染上下文 |
-| `x1` | 左边缘X坐标 |
-| `y1` | 顶边Y坐标 |
-| `x2` | 右边缘X坐标 |
-| `y2` | 底边Y坐标 |
-| `color` | ARGB格式的填充颜色 |
+| `ctx` | HUD 渲染上下文。 |
+| `x1` | 左边缘 X 坐标。 |
+| `y1` | 上边缘 Y 坐标。 |
+| `x2` | 右边缘 X 坐标。 |
+| `y2` | 下边缘 Y 坐标。 |
+| `color` | ARGB 格式的填充颜色。 |
 
 ### 返回值
 
-如果绘制成功则为 true，否则为 false
+如果绘制成功则返回 true，否则返回 false。
 
 </ApiMemberCard>
 
@@ -449,26 +449,26 @@ fun fillHudRect(ctx: HudRenderContext, x1: Int, y1: Int, x2: Int, y2: Int, color
 fun drawHudTexture(ctx: HudRenderContext, texture: String, x: Int, y: Int, width: Int, height: Int, u0: Float = 0f, u1: Float = 1f, v0: Float = 0f, v1: Float = 1f): Boolean
 ```
 
-使用当前的[HudRenderContext]在HUD上绘制纹理区域。
+使用当前 [HudRenderContext] 在 HUD 上绘制一个纹理区域。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `ctx` | HUD渲染上下文 |
-| `texture` | 纹理标识符字符串 |
-| `x` | 屏幕上的 X 位置 |
-| `y` | 屏幕上的 Y 位置 |
-| `width` | 绘制的宽度 |
-| `height` | 绘制的高度 |
-| `u0` | 纹理区域的 U 坐标（默认值：0） |
-| `u1` | 纹理区域的 U 坐标（默认值：1） |
-| `v0` | 纹理区域的 V 坐标（默认值：0） |
-| `v1` | 纹理区域的 V 坐标（默认值：1） |
+| `ctx` | HUD 渲染上下文。 |
+| `texture` | 纹理标识符字符串。 |
+| `x` | 屏幕上的 X 位置。 |
+| `y` | 屏幕上的 Y 位置。 |
+| `width` | 绘制宽度。 |
+| `height` | 绘制高度。 |
+| `u0` | 纹理区域的 U 起始坐标，默认 0。 |
+| `u1` | 纹理区域的 U 结束坐标，默认 1。 |
+| `v0` | 纹理区域的 V 起始坐标，默认 0。 |
+| `v1` | 纹理区域的 V 结束坐标，默认 1。 |
 
 ### 返回值
 
-如果绘制成功则为 true，如果纹理 ID 无效则为 false
+如果绘制成功则返回 true；如果纹理 ID 无效则返回 false。
 
 </ApiMemberCard>
 
@@ -487,27 +487,27 @@ fun drawHudTexture(ctx: HudRenderContext, texture: String, x: Int, y: Int, width
 fun drawLine3D(ctx: WorldRenderContext, x1: Double, y1: Double, z1: Double, x2: Double, y2: Double, z2: Double, argbColor: Int, lineWidth: Float = 1.0f): Boolean
 ```
 
-使用世界坐标和 ARGB 颜色绘制 3D 线。
+使用世界坐标和 ARGB 颜色绘制一条 3D 线段。
 
-通过 VertexConsumer+RenderType 使用真实的 GPU 网格渲染。
+通过 VertexConsumer 和 RenderType 进行实际 GPU 网格渲染。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `ctx` | 世界渲染上下文 |
-| `x1` | 世界空间中的起始 X 坐标 |
-| `y1` | 世界空间中的起始 Y 坐标 |
-| `z1` | 世界空间中的起始 Z 坐标 |
-| `x2` | 世界空间中的结束 X 坐标 |
-| `y2` | 世界空间中的结束 Y 坐标 |
-| `z2` | 世界空间中的结束 Z 坐标 |
-| `argbColor` | ARGB格式的线条颜色 |
-| `lineWidth` | 线的宽度（默认：1.0） |
+| `ctx` | 世界渲染上下文。 |
+| `x1` | 世界空间中的起点 X 坐标。 |
+| `y1` | 世界空间中的起点 Y 坐标。 |
+| `z1` | 世界空间中的起点 Z 坐标。 |
+| `x2` | 世界空间中的终点 X 坐标。 |
+| `y2` | 世界空间中的终点 Y 坐标。 |
+| `z2` | 世界空间中的终点 Z 坐标。 |
+| `argbColor` | ARGB 格式的线条颜色。 |
+| `lineWidth` | 线条宽度，默认 1.0。 |
 
 ### 返回值
 
-如果绘制成功则为 true，否则为 false
+如果绘制成功则返回 true，否则返回 false。
 
 </ApiMemberCard>
 

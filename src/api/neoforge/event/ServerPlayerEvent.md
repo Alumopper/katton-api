@@ -389,7 +389,8 @@ Event triggered when a player picks an item from a block (middle-click).
 
 ### Returns
 
-The ItemStack to be picked, or null for default behavior.
+ItemStack to be picked, or null for default behavior.
+
 Note: This is a placeholder for NeoForge compatibility.
 
 </ApiMemberCard>
@@ -414,7 +415,8 @@ Event triggered when a player picks an item from an entity (middle-click).
 
 ### Returns
 
-The ItemStack to be picked, or null for default behavior.
+ItemStack to be picked, or null for default behavior.
+
 Note: This is a placeholder for NeoForge compatibility.
 
 </ApiMemberCard>

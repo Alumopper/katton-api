@@ -97,7 +97,7 @@ Event triggered to check if an entity is allowed to use elytra.
 
 ### Returns
 
-true to allow elytra usage, false to deny.
+to allow elytra usage, false to deny.
 
 </ApiMemberCard>
 
@@ -121,7 +121,7 @@ Event triggered to provide custom elytra flight behavior.
 
 ### Returns
 
-true if custom behavior is applied, false to use default.
+if custom behavior is applied, false to use default.
 
 </ApiMemberCard>
 
@@ -145,7 +145,7 @@ Event triggered to check if a player is allowed to sleep.
 
 ### Returns
 
-BedSleepingProblem if sleep is denied, null to allow.
+if sleep is denied, null to allow.
 
 </ApiMemberCard>
 
@@ -209,7 +209,7 @@ Event triggered to check if a player is allowed to use a bed.
 
 ### Returns
 
-EventResult indicating the result of the check.
+indicating the result of the check.
 
 </ApiMemberCard>
 
@@ -233,7 +233,7 @@ Event triggered to check if nearby monsters prevent sleeping.
 
 ### Returns
 
-EventResult indicating whether monsters should prevent sleep.
+indicating whether monsters should prevent sleep.
 
 </ApiMemberCard>
 
@@ -257,7 +257,7 @@ Event triggered to check if time should reset after sleeping.
 
 ### Returns
 
-true to allow time reset, false to prevent it.
+to allow time reset, false to prevent it.
 
 </ApiMemberCard>
 
@@ -281,7 +281,7 @@ Event triggered to modify the sleeping direction when entering a bed.
 
 ### Returns
 
-The modified direction for the player to face.
+modified direction for the player to face.
 
 </ApiMemberCard>
 
@@ -305,7 +305,7 @@ Event triggered to check if spawn point should be set when sleeping.
 
 ### Returns
 
-true to allow setting spawn, false to prevent it.
+to allow setting spawn, false to prevent it.
 
 </ApiMemberCard>
 
@@ -329,7 +329,7 @@ Event triggered to set the bed occupation state.
 
 ### Returns
 
-true if the state was handled, false for default behavior.
+if the state was handled, false for default behavior.
 
 </ApiMemberCard>
 
@@ -353,7 +353,7 @@ Event triggered to modify the player's wake-up position.
 
 ### Returns
 
-The modified Vec3 wake-up position.
+modified Vec3 wake-up position.
 
 </ApiMemberCard>
 

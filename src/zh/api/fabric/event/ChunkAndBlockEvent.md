@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/ChunkAndBlockEvent.kt"
 >
-Fabric平台的区块、方方块实体和方方块事件。
+Fabric 平台的区块、方块实体和方块事件。 此对象提供与区块加载/卸载、方块实体生命周期、方块破坏以及爆炸相关的事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ChunkAndBlockEvent&quot;,&quot;href&quot;:&quot;#chunkandblockevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkLoad&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkUnload&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkunload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkLevelTypeChange&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkleveltypechange&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onBlockEntityLoad&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onblockentityload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onBlockEntityUnload&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onblockentityunload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onBeforeBlockBreak&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onbeforeblockbreak&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onAfterBlockBreak&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onafterblockbreak&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onCanceledBlockBreak&quot;,&quot;href&quot;:&quot;#chunkandblockevent-oncanceledblockbreak&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onExplosionStart&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onexplosionstart&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onExplosionDetonate&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onexplosiondetonate&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,8 @@ Fabric平台的区块、方方块实体和方方块事件。
 object ChunkAndBlockEvent
 ```
 
-Fabric平台的区块、方方块实体和方方块事件。
-
-该对象提供与块加载/卸载相关的事件，
-方方块实体生命周期、方块破坏和爆炸。
+Fabric 平台的区块、方块实体和方块事件。
+此对象提供与区块加载/卸载、方块实体生命周期、方块破坏以及爆炸相关的事件。
 
 ### ChunkAndBlockEvent.onChunkLoad
 
@@ -51,7 +49,7 @@ Fabric平台的区块、方方块实体和方方块事件。
 val onChunkLoad
 ```
 
-加载块时触发的事件。
+在区块加载时触发。
 
 </ApiMemberCard>
 
@@ -70,7 +68,7 @@ val onChunkLoad
 val onChunkUnload
 ```
 
-卸载块时触发的事件。
+在区块卸载时触发。
 
 </ApiMemberCard>
 
@@ -89,7 +87,7 @@ val onChunkUnload
 val onChunkLevelTypeChange
 ```
 
-当块的完整状态发生变化时触发事件。
+当区块的完整状态发生变化时触发。
 
 </ApiMemberCard>
 
@@ -108,7 +106,7 @@ val onChunkLevelTypeChange
 val onBlockEntityLoad
 ```
 
-加载方块实体时触发的事件。
+当方块实体加载时触发。
 
 </ApiMemberCard>
 
@@ -127,7 +125,7 @@ val onBlockEntityLoad
 val onBlockEntityUnload
 ```
 
-卸载方块实体时触发的事件。
+当方块实体卸载时触发。
 
 </ApiMemberCard>
 
@@ -146,11 +144,11 @@ val onBlockEntityUnload
 val onBeforeBlockBreak
 ```
 
-玩家打破方块之前触发的事件。
+当玩家破坏方块之前触发。
 
 ### 返回值
 
-true 允许中断， false 取消中断。
+返回值为允许破坏，false 表示取消。
 
 </ApiMemberCard>
 
@@ -169,7 +167,7 @@ true 允许中断， false 取消中断。
 val onAfterBlockBreak
 ```
 
-玩家打破方块后触发的事件。
+当玩家破坏方块之后触发。
 
 </ApiMemberCard>
 
@@ -188,7 +186,7 @@ val onAfterBlockBreak
 val onCanceledBlockBreak
 ```
 
-取消块中断时触发的事件。
+当方块破坏被取消时触发。
 
 </ApiMemberCard>
 
@@ -208,8 +206,8 @@ val onCanceledBlockBreak
 @JvmField val onExplosionStart
 ```
 
-爆炸开始时触发事件。
-可以取消以防止爆炸。
+当爆炸开始时触发。
+可取消以阻止该爆炸。
 
 </ApiMemberCard>
 
@@ -229,8 +227,8 @@ val onCanceledBlockBreak
 @JvmField val onExplosionDetonate
 ```
 
-爆炸发生时触发事件。
-使用它来修改受影响的块/实体。
+当爆炸引爆时触发。
+可用于修改受影响的方块/实体。
 
 </ApiMemberCard>
 

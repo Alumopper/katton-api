@@ -7,10 +7,10 @@ outline: [2, 2]
   title="KattonItemApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonItemApi.kt"
 >
-用于获取/设置 ItemStack 上的 NBT 数据的扩展属性。
+用于读取和写入 ItemStack NBT 数据的扩展属性。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;nbt&quot;,&quot;href&quot;:&quot;#nbt&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;modifyBlockItem&quot;,&quot;href&quot;:&quot;#modifyblockitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;modifyEntityItem&quot;,&quot;href&quot;:&quot;#modifyentityitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setBlockItem&quot;,&quot;href&quot;:&quot;#setblockitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setEntityItem&quot;,&quot;href&quot;:&quot;#setentityitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getBlockItem&quot;,&quot;href&quot;:&quot;#getblockitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getEntityItem&quot;,&quot;href&quot;:&quot;#getentityitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;applyModifier&quot;,&quot;href&quot;:&quot;#applymodifier&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,7 +30,7 @@ outline: [2, 2]
 var ItemStack.nbt: CompoundTag
 ```
 
-用于获取/设置 ItemStack 上的 NBT 数据的扩展属性。
+用于读取和写入 ItemStack NBT 数据的扩展属性。
 
 </ApiMemberCard>
 
@@ -49,15 +49,15 @@ var ItemStack.nbt: CompoundTag
 fun modifyBlockItem(pos: BlockPos, slot: Int, modifier: LootItemFunction)
 ```
 
-将 LootItemFunction 修饰符应用于块容器槽。
+将 LootItemFunction 修饰器应用到方块容器的指定槽位。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `pos` | 容器的块位置 |
-| `slot` | 要修改的槽位索引 |
-| `modifier` | LootItemFunction 申请 |
+| `pos` | 容器所在的方块位置。 |
+| `slot` | 要修改的槽位索引。 |
+| `modifier` | 要应用的 LootItemFunction。 |
 
 </ApiMemberCard>
 
@@ -76,15 +76,15 @@ fun modifyBlockItem(pos: BlockPos, slot: Int, modifier: LootItemFunction)
 fun modifyEntityItem(entity: Entity, slot: Int, modifier: LootItemFunction)
 ```
 
-将LootItemFunction应用于实体设备槽。
+将 LootItemFunction 应用到实体的装备槽位。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `slot` | 装备槽位索引 |
-| `modifier` | LootItemFunction 申请 |
+| `entity` | 目标实体。 |
+| `slot` | 装备槽位索引。 |
+| `modifier` | 要应用的 LootItemFunction。 |
 
 </ApiMemberCard>
 
@@ -103,15 +103,15 @@ fun modifyEntityItem(entity: Entity, slot: Int, modifier: LootItemFunction)
 fun setBlockItem(pos: BlockPos, slot: Int, itemStack: ItemStack)
 ```
 
-将物品设置到容器块槽中。
+将物品放入容器方块的指定槽位。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `pos` | 块位置 |
-| `slot` | 槽位索引 |
-| `itemStack` | ItemStack 设置 |
+| `pos` | 方块位置。 |
+| `slot` | 槽位索引。 |
+| `itemStack` | 要设置的 ItemStack。 |
 
 </ApiMemberCard>
 
@@ -130,15 +130,15 @@ fun setBlockItem(pos: BlockPos, slot: Int, itemStack: ItemStack)
 fun setEntityItem(entity: Entity, slot: Int, itemStack: ItemStack)
 ```
 
-将物品设置到实体槽中。
+将物品放入实体的指定槽位。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `slot` | 槽位索引 |
-| `itemStack` | ItemStack 设置 |
+| `entity` | 目标实体。 |
+| `slot` | 槽位索引。 |
+| `itemStack` | 要设置的 ItemStack。 |
 
 </ApiMemberCard>
 
@@ -157,18 +157,18 @@ fun setEntityItem(entity: Entity, slot: Int, itemStack: ItemStack)
 fun getBlockItem(pos: BlockPos, slot: Int): ItemStack?
 ```
 
-从容器块槽中获取一个物品。
+从容器方块的指定槽位获取物品。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `pos` | 块位置 |
-| `slot` | 槽位索引 |
+| `pos` | 方块位置。 |
+| `slot` | 槽位索引。 |
 
 ### 返回值
 
-ItemStack 或 null（如果无效）
+无效时返回 null。
 
 </ApiMemberCard>
 
@@ -187,18 +187,18 @@ ItemStack 或 null（如果无效）
 fun getEntityItem(entity: Entity, slot: Int): ItemStack?
 ```
 
-从实体槽获取一个物品。
+从实体的指定槽位获取物品。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `slot` | 槽位索引 |
+| `entity` | 目标实体。 |
+| `slot` | 槽位索引。 |
 
 ### 返回值
 
-ItemStack 如果槽缺失则为 null
+槽位不存在时返回 null。
 
 </ApiMemberCard>
 
@@ -217,18 +217,18 @@ ItemStack 如果槽缺失则为 null
 fun applyModifier(itemStack: ItemStack, modifier: LootItemFunction): ItemStack
 ```
 
-将 LootItemFunction 应用于 ItemStack 并返回修改后的堆栈。
+将 LootItemFunction 应用于 ItemStack，并返回修改后的堆栈。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `itemStack` | 要修改的物品 |
-| `modifier` | 应用功能 |
+| `itemStack` | 要修改的物品。 |
+| `modifier` | 要应用的函数。 |
 
 ### 返回值
 
-修改ItemStack（大小限制）
+返回受大小限制的 ItemStack。
 
 </ApiMemberCard>
 

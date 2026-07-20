@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="neoforge/src/main/kotlin/top/katton/api/event/ServerMessageEvent.kt"
 >
-NeoForge平台的服务器端消息事件。
+NeoForge 平台的服务端消息事件。 此对象提供与聊天消息相关的事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerMessageEvent&quot;,&quot;href&quot;:&quot;#servermessageevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerMessageEvent.onServerChat&quot;,&quot;href&quot;:&quot;#servermessageevent-onserverchat&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -32,9 +32,8 @@ NeoForge平台的服务器端消息事件。
 modid
 ```
 
-NeoForge平台的服务器端消息事件。
-
-该对象提供与聊天消息相关的事件。
+NeoForge 平台的服务端消息事件。
+此对象提供与聊天消息相关的事件。
 
 ### ServerMessageEvent.onServerChat
 
@@ -51,8 +50,8 @@ NeoForge平台的服务器端消息事件。
 val onServerChat
 ```
 
-发送服务器聊天消息时触发的事件。
-可以取消以防止发送消息。
+当服务端聊天消息即将发送时触发。
+可取消以阻止消息发送。
 
 </ApiMemberCard>
 

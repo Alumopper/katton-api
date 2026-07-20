@@ -39,7 +39,7 @@ client to give your entity a visual appearance.
 
 The [rendererFactory] receives an [EntityRendererProvider.Context], which
 provides access to the entity render dispatcher, item renderer, resource
-manager, and entity model set — everything you need to construct a standard
+manager, and entity model set - everything you need to construct a standard
 [EntityRenderer].
 
 ### Parameters
@@ -162,7 +162,7 @@ data class KeyframeEvent( val animName: String, val timeSeconds: Float, val acti
 A time-stamped callback that fires at a specific point during an entity animation.
 
 Created per-entity-type in [registerAnimatedEntityRenderer]'s [keyframeEvents] list.
-The callback receives the animated model, entity, render state, and pre-baked animations —
+The callback receives the animated model, entity, render state, and pre-baked animations
 use [top.katton.api.createBoneExecution] to get an ExecutionContext at a bone position.
 
 ### Properties
@@ -197,13 +197,13 @@ One call handles model layer, renderer construction, and animation wiring.
 Uses [Mob] as entity type internally to avoid ClassCastException across
 script reloads. Animation state is shared through [KattonBridge].
 
-**Entity side** — publish animation states in `tick()`:
+**Entity side** - publish animation states in `tick()`:
 ```kotlin
 KattonBridge["anim:$id:idle"] = idleAnimationState
 KattonBridge["anim:$id:walk"] = walkAnimationState
 ```
 
-**Client side** — one call:
+**Client side** - one call:
 ```kotlin
 registerAnimatedEntityRenderer<Zombie1RenderState, Zombie1Model<Zombie1RenderState>>(
 entityTypeId = "test:zombie1",
@@ -219,7 +219,7 @@ animations = mapOf(
 )
 ```
 
-**Custom animation logic** — pass an `animate` callback. It receives
+**Custom animation logic** - pass an `animate` callback. It receives
 the model, entity, render state, and a map of pre-baked animations:
 ```kotlin
 animate = { model, entity, state, baked ->
@@ -233,7 +233,7 @@ baked["walk"]?.apply(walkAnimState, state.ageInTicks)
 
 | Parameter | Description |
 | --- | --- |
-| `animations` | map of name → AnimationDefinition. Default logic plays<br>"walk" when moving and "idle" otherwise. Animation states are read from<br>KattonBridge["anim:&lt;entityId&gt;:&lt;name&gt;"]. |
+| `animations` | map of name -&gt; AnimationDefinition. Default logic plays<br><br>"walk" when moving and "idle" otherwise. Animation states are read from<br>KattonBridge["anim:&lt;entityId&gt;:&lt;name&gt;"]. |
 
 </ApiMemberCard>
 

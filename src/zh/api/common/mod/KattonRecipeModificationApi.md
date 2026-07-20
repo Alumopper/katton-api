@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.mod"
   source-file="common/src/main/kotlin/top/katton/api/mod/KattonRecipeModificationApi.kt"
 >
-用于修改现有配方属性的配置。
+用于修改现有配方属性的配置对象。 这个类提供一个流式 API，用于修改已经注册到 Minecraft 配方管理器中的配方属性。 风格上类似 KubeJS 的配方修改系统。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;RecipeModificationConfig&quot;,&quot;href&quot;:&quot;#recipemodificationconfig&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;modifyRecipe&quot;,&quot;href&quot;:&quot;#modifyrecipe&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;modifyRecipe&quot;,&quot;href&quot;:&quot;#modifyrecipe&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getRecipe&quot;,&quot;href&quot;:&quot;#getrecipe&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getRecipe&quot;,&quot;href&quot;:&quot;#getrecipe&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeRecipe&quot;,&quot;href&quot;:&quot;#removerecipe&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeRecipe&quot;,&quot;href&quot;:&quot;#removerecipe&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,17 +30,15 @@ outline: [2, 2]
 class RecipeModificationConfig( val recipeId: Identifier )
 ```
 
-用于修改现有配方属性的配置。
-
-这个类提供了一个流畅的API来修改现有的属性
-在Minecraft的菜谱管理器中注册的菜谱。类似于KubeJS的食谱
-修改系统。
+用于修改现有配方属性的配置对象。
+这个类提供一个流式 API，用于修改已经注册到 Minecraft 配方管理器中的配方属性。
+风格上类似 KubeJS 的配方修改系统。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `recipeId` | 要修改的配方的标识符 |
+| `recipeId` | 要修改的配方标识符。 |
 
 </ApiMemberCard>
 
@@ -60,18 +58,16 @@ class RecipeModificationConfig( val recipeId: Identifier )
 @ApiStatus.Experimental fun modifyRecipe(recipeId: String, configure: RecipeModificationConfig.() -> Unit)
 ```
 
-修改现有配方的属性。
-
-此功能允许您修改已注册的配方的属性
-在Minecraft的食谱管理器中。通过重新注册来应用更改
-通过数据包系统修改配方。
+修改已有配方的属性。
+这个函数允许你修改已经注册到 Minecraft 配方管理器中的配方属性。
+变更会通过数据包系统重新注册修改后的配方来应用。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `recipeId` | 要修改的配方的标识符（例如，"minecraft:iron_ingot_from_smelting"） |
-| `configure` | 用于配方修改的配置 lambda |
+| `recipeId` | 要修改的配方标识符（例如 "minecraft:iron_ingot_from_smelting"）。 |
+| `configure` | 配方修改配置 lambda。 |
 
 </ApiMemberCard>
 
@@ -91,14 +87,14 @@ class RecipeModificationConfig( val recipeId: Identifier )
 @ApiStatus.Experimental fun modifyRecipe(recipeId: Identifier, configure: RecipeModificationConfig.() -> Unit)
 ```
 
-修改现有配方的属性。
+修改已有配方的属性。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `recipeId` | 要修改的配方的标识符 |
-| `configure` | 用于配方修改的配置 lambda |
+| `recipeId` | 要修改的配方标识符。 |
+| `configure` | 配方修改配置 lambda。 |
 
 </ApiMemberCard>
 
@@ -117,17 +113,17 @@ class RecipeModificationConfig( val recipeId: Identifier )
 fun getRecipe(recipeId: String): JsonObject?
 ```
 
-通过标识符 JsonObject 获取配方。
+根据标识符获取配方，并以 JsonObject 形式返回。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `recipeId` | 配方标识符 |
+| `recipeId` | 配方标识符。 |
 
 ### 返回值
 
-配方为JsonObject，如果未找到则为 null
+找到时返回配方的 JsonObject，未找到时返回 null。
 
 </ApiMemberCard>
 
@@ -146,17 +142,17 @@ fun getRecipe(recipeId: String): JsonObject?
 fun getRecipe(recipeId: Identifier): JsonObject?
 ```
 
-通过标识符 JsonObject 获取配方。
+根据标识符获取配方，并以 JsonObject 形式返回。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `recipeId` | 配方标识符 |
+| `recipeId` | 配方标识符。 |
 
 ### 返回值
 
-配方为JsonObject，如果未找到则为 null
+找到时返回配方的 JsonObject，未找到时返回 null。
 
 </ApiMemberCard>
 
@@ -175,13 +171,13 @@ fun getRecipe(recipeId: Identifier): JsonObject?
 fun removeRecipe(recipeId: String)
 ```
 
-通过标识符删除配方。
+根据标识符移除配方。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `recipeId` | 配方标识符 |
+| `recipeId` | 配方标识符。 |
 
 </ApiMemberCard>
 
@@ -200,13 +196,13 @@ fun removeRecipe(recipeId: String)
 fun removeRecipe(recipeId: Identifier)
 ```
 
-通过标识符删除配方。
+根据标识符移除配方。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `recipeId` | 配方标识符 |
+| `recipeId` | 配方标识符。 |
 
 </ApiMemberCard>
 

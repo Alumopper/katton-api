@@ -43,7 +43,7 @@ Registers a native CreativeModeTab with hot-reload support.
 
 ### Returns
 
-The registered KattonCreativeTabEntry
+registered KattonCreativeTabEntry
 
 </ApiMemberCard>
 

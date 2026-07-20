@@ -39,7 +39,7 @@ outside script execution, the default namespace is "global".
 
 ### Returns
 
-true if [block] was executed this time, false if it was already executed before.
+if [block] was executed this time, false if it was already executed before.
 
 </ApiMemberCard>
 
@@ -62,7 +62,7 @@ Remove once-guard marker for [key] in the current script owner namespace (or [na
 
 ### Returns
 
-true if marker existed and was removed, false otherwise.
+if marker existed and was removed, false otherwise.
 
 </ApiMemberCard>
 
@@ -107,7 +107,7 @@ For cases where the server must be available, use [requireServer] instead.
 
 ### Returns
 
-The current MinecraftServer instance, or null if not available
+current MinecraftServer instance, or null if not available
 
 </ApiMemberCard>
 
@@ -134,7 +134,7 @@ or before the server has started).
 
 ### Returns
 
-The current MinecraftServer instance
+current MinecraftServer instance
 
 ### Throws
 

@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="paper/src/main/kotlin/top/katton/api/event/LootTableEvent.kt"
 >
-Paper (Bukkit) 平台的战利品表活动。
+Paper (Bukkit) 平台的战利品表事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;LootTableEvent&quot;,&quot;href&quot;:&quot;#loottableevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}]' />
@@ -31,13 +31,11 @@ Paper (Bukkit) 平台的战利品表活动。
 object LootTableEvent
 ```
 
-Paper (Bukkit) 平台的战利品表活动。
+Paper (Bukkit) 平台的战利品表事件。
 
-该对象提供与战利品生成和掉落相关的事件
-修改。
+此对象提供与战利品生成和掉落修改相关的事件。
 
-TODO：原始Bukkit事件 - LootTable替换和修改挂钩
-尚未桥接到 Paper 平台。
+TODO: 目前尚未为 Paper 平台桥接原生 Bukkit 事件中的 LootTable 替换和修改钩子。
 
 </ApiMemberCard>
 

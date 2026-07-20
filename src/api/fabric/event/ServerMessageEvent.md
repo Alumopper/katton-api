@@ -54,7 +54,7 @@ Event triggered to allow or deny a chat message from being sent.
 
 ### Returns
 
-true to allow the message, false to cancel it.
+to allow the message, false to cancel it.
 
 </ApiMemberCard>
 
@@ -77,7 +77,7 @@ Event triggered to allow or deny a game message from being sent.
 
 ### Returns
 
-true to allow the message, false to cancel it.
+to allow the message, false to cancel it.
 
 </ApiMemberCard>
 
@@ -100,7 +100,7 @@ Event triggered to allow or deny a command message from being sent.
 
 ### Returns
 
-true to allow the message, false to cancel it.
+to allow the message, false to cancel it.
 
 </ApiMemberCard>
 

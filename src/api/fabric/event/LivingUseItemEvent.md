@@ -52,8 +52,11 @@ Fabric does not have direct equivalents for all item use events.
 @JvmField val onUseItemStart
 ```
 
-Event triggered when a living entity starts using an item.
-Can be cancelled to prevent item use.
+Living entity use item events for Fabric platform.
+
+This object provides events related to living entities using items.
+Note: These events are placeholders for NeoForge compatibility as
+Fabric does not have direct equivalents for all item use events.
 
 </ApiMemberCard>
 
@@ -73,8 +76,11 @@ Can be cancelled to prevent item use.
 @JvmField val onUseItemTick
 ```
 
-Event triggered each tick while a living entity is using an item.
-Can be cancelled to stop item use.
+Living entity use item events for Fabric platform.
+
+This object provides events related to living entities using items.
+Note: These events are placeholders for NeoForge compatibility as
+Fabric does not have direct equivalents for all item use events.
 
 </ApiMemberCard>
 
@@ -94,8 +100,11 @@ Can be cancelled to stop item use.
 @JvmField val onUseItemStop
 ```
 
-Event triggered when a living entity stops using an item.
-Can be cancelled to continue item use.
+Living entity use item events for Fabric platform.
+
+This object provides events related to living entities using items.
+Note: These events are placeholders for NeoForge compatibility as
+Fabric does not have direct equivalents for all item use events.
 
 </ApiMemberCard>
 
@@ -115,7 +124,11 @@ Can be cancelled to continue item use.
 @JvmField val onUseItemFinish
 ```
 
-Event triggered when a living entity finishes using an item.
+Living entity use item events for Fabric platform.
+
+This object provides events related to living entities using items.
+Note: These events are placeholders for NeoForge compatibility as
+Fabric does not have direct equivalents for all item use events.
 
 </ApiMemberCard>
 

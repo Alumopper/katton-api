@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.mod"
   source-file="common/src/main/kotlin/top/katton/api/mod/KattonVillagerTradeModificationApi.kt"
 >
-将单个交易的配置通过 [addVillagerTrade] 附加到现有的 [TradeSet]。
+用于向现有 [TradeSet] 追加单条交易的配置对象，可由 [addVillagerTrade] 使用。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;VillagerTradeAdditionConfig&quot;,&quot;href&quot;:&quot;#villagertradeadditionconfig&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;VillagerTradeAdditionConfig.costItemId&quot;,&quot;href&quot;:&quot;#villagertradeadditionconfig-costitemid&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;VillagerTradeAdditionConfig.costBItemId&quot;,&quot;href&quot;:&quot;#villagertradeadditionconfig-costbitemid&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;VillagerTradeAdditionConfig.resultItemId&quot;,&quot;href&quot;:&quot;#villagertradeadditionconfig-resultitemid&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;VillagerTradeAdditionConfig.maxUses&quot;,&quot;href&quot;:&quot;#villagertradeadditionconfig-maxuses&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;VillagerTradeAdditionConfig.xp&quot;,&quot;href&quot;:&quot;#villagertradeadditionconfig-xp&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;VillagerTradeAdditionConfig.priceMultiplier&quot;,&quot;href&quot;:&quot;#villagertradeadditionconfig-pricemultiplier&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;addVillagerTrade&quot;,&quot;href&quot;:&quot;#addvillagertrade&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addVillagerTrade&quot;,&quot;href&quot;:&quot;#addvillagertrade&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,14 +30,11 @@ outline: [2, 2]
 class VillagerTradeAdditionConfig internal constructor( val tradeSet: ResourceKey<TradeSet>, )
 ```
 
-将单个交易附加到现有交易的配置
-[TradeSet]通过[addVillagerTrade]。
+用于向现有 [TradeSet] 追加单条交易的配置对象，可由 [addVillagerTrade] 使用。
 
-字段直接映射到公众`VillagerTrade(TradeCost想要，
-可选 &lt;TradeCost&gt; additionalWants，ItemStackTemplate 给出，int
-maxUses, int xp, float priceMultiplier, ...)` MC 的构造函数
-26.1.2 — 这里的每个值都足够简单，可以在补丁中保持稳定
-发布。
+这些字段直接对应受支持 MC 26.x 版本中公开的 `VillagerTrade` 构造器：主要与
+可选的次要成本、结果、最大使用次数、经验和价格倍率，因此能在当前受支持版本
+之间保持兼容。
 
 ### VillagerTradeAdditionConfig.costItemId
 
@@ -54,10 +51,9 @@ maxUses, int xp, float priceMultiplier, ...)` MC 的构造函数
 var costItemId: Identifier?
 ```
 
-商人想要从玩家那里得到的物品。
+商人希望玩家提供的物品。
 
 </ApiMemberCard>
-
 ### VillagerTradeAdditionConfig.costBItemId
 
 <ApiMemberCard
@@ -73,7 +69,7 @@ var costItemId: Identifier?
 var costBItemId: Identifier?
 ```
 
-可选的二次成本。
+可选的第二种花费。
 
 </ApiMemberCard>
 
@@ -92,7 +88,7 @@ var costBItemId: Identifier?
 var resultItemId: Identifier?
 ```
 
-商家返还的物品。
+商人回赠的物品。
 
 </ApiMemberCard>
 
@@ -111,7 +107,7 @@ var resultItemId: Identifier?
 var maxUses: Int
 ```
 
-最大贸易用途（原版农民等级 1 翡翠面包 = 16）。
+交易可使用的最大次数（例如原版农民 1 级的绿宝石-面包为 16）。
 
 </ApiMemberCard>
 
@@ -130,7 +126,7 @@ var maxUses: Int
 var xp: Int
 ```
 
-每笔交易奖励村民XP。
+每次交易奖励的村民经验。
 
 </ApiMemberCard>
 
@@ -149,7 +145,7 @@ var xp: Int
 var priceMultiplier: Float
 ```
 
-普通价格乘数（默认值 0.05；与农民基准相匹配）。
+原版价格倍率（默认 0.05；与农民基线一致）。
 
 </ApiMemberCard>
 
@@ -171,22 +167,16 @@ var priceMultiplier: Float
 @ApiStatus.Experimental fun addVillagerTrade(tradeSetKey: String, configure: VillagerTradeAdditionConfig.() -> Unit): Boolean
 ```
 
-为现有村民/流浪商人添加新的贸易条目
-[TradeSet]。
-
-`tradeSetKey`是来自`minecraft:trade_set`的注册表ID，例如
-`"minecraft:farmer/level_1"`或`"minecraft:wandering_trader/buying"`。
-
-突变通过[VillagerTradeManager]上演并刷新
-在标准重载周期期间（脚本执行后，在
-服务器线程）。在 `/katton reload` 之外调用它是安全的 —
-在服务器应用挂起的数据包之前，更改不可见
-突变。
-
-在以下情况下返回 `false` 并记录警告：
-- 服务器离线，
-- 无法解析交易集 ID，
-- 配置缺少必填字段 (`cost` / `result`)。
+向现有村民或流浪商人 [TradeSet] 追加一条新交易。
+`tradeSetKey` 是来自 `minecraft:trade_set` 的注册表标识，例如
+`"minecraft:farmer/level_1"` 或 `"minecraft:wandering_trader/buying"`。
+变更会先通过 [VillagerTradeManager] 暂存，再在标准重载流程中刷出
+（也就是脚本执行后、服务器线程上）。在 `/katton reload` 之外调用也没问题，
+变更要等服务器应用待处理的数据包修改后才会生效。
+在以下情况下会返回 `false` 并记录警告：
+- 服务器未运行
+- 无法解析交易组标识
+- 配置缺少必需字段（`cost` / `result`）
 
 </ApiMemberCard>
 
@@ -206,6 +196,6 @@ var priceMultiplier: Float
 @ApiStatus.Experimental fun addVillagerTrade(tradeSetId: Identifier, configure: VillagerTradeAdditionConfig.() -> Unit): Boolean
 ```
 
-标识符过载[addVillagerTrade]。
+`addVillagerTrade` 的 Identifier 重载。
 
 </ApiMemberCard>

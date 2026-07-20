@@ -7,10 +7,10 @@ outline: [2, 2]
   title="KattonPlayerApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonPlayerApi.kt"
 >
-对所有在线玩家的类似列表的访问。
+以类似 List 的方式访问所有在线玩家。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;KattonPlayerList&quot;,&quot;href&quot;:&quot;#kattonplayerlist&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonPlayerList.get&quot;,&quot;href&quot;:&quot;#kattonplayerlist-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonPlayerList.get&quot;,&quot;href&quot;:&quot;#kattonplayerlist-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelPlayerCollection&quot;,&quot;href&quot;:&quot;#kattonlevelplayercollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonLevelPlayerCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelplayercollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addItem&quot;,&quot;href&quot;:&quot;#additem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearInventory&quot;,&quot;href&quot;:&quot;#clearinventory&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setItem&quot;,&quot;href&quot;:&quot;#setitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;giveItem&quot;,&quot;href&quot;:&quot;#giveitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;hasItem&quot;,&quot;href&quot;:&quot;#hasitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;findItem&quot;,&quot;href&quot;:&quot;#finditem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeItem&quot;,&quot;href&quot;:&quot;#removeitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;enchant&quot;,&quot;href&quot;:&quot;#enchant&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;enchantMainHand&quot;,&quot;href&quot;:&quot;#enchantmainhand&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addXpPoints&quot;,&quot;href&quot;:&quot;#addxppoints&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addXpLevels&quot;,&quot;href&quot;:&quot;#addxplevels&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setXpLevel&quot;,&quot;href&quot;:&quot;#setxplevel&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getXpLevel&quot;,&quot;href&quot;:&quot;#getxplevel&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getXpProgress&quot;,&quot;href&quot;:&quot;#getxpprogress&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;spawnPoint&quot;,&quot;href&quot;:&quot;#spawnpoint&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setWorldSpawn&quot;,&quot;href&quot;:&quot;#setworldspawn&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;spectate&quot;,&quot;href&quot;:&quot;#spectate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,13 +30,13 @@ outline: [2, 2]
 class KattonPlayerList( val playerList: PlayerList ) : List<ServerPlayer> by playerList.players
 ```
 
-对所有在线玩家的类似列表的访问。
+以类似 List 的方式访问所有在线玩家。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `playerList` | 底层PlayerList |
+| `playerList` | 底层 PlayerList。 |
 
 ### KattonPlayerList.get
 
@@ -53,7 +53,7 @@ class KattonPlayerList( val playerList: PlayerList ) : List<ServerPlayer> by pla
 operator fun get(name: String): ServerPlayer?
 ```
 
-按名字查找球员。
+按名称查找玩家。
 
 </ApiMemberCard>
 
@@ -72,7 +72,7 @@ operator fun get(name: String): ServerPlayer?
 operator fun get(uuid: UUID): ServerPlayer?
 ```
 
-通过UUID查找玩家。
+按 UUID 查找玩家。
 
 </ApiMemberCard>
 
@@ -93,13 +93,13 @@ operator fun get(uuid: UUID): ServerPlayer?
 class KattonLevelPlayerCollection( val level: ServerLevel ) : List<ServerPlayer> by level.players
 ```
 
-特定世界内的玩家集合。
+指定关卡中的玩家集合。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 包含玩家的ServerLevel |
+| `level` | 包含这些玩家的 ServerLevel。 |
 
 ### KattonLevelPlayerCollection.get
 
@@ -116,7 +116,7 @@ class KattonLevelPlayerCollection( val level: ServerLevel ) : List<ServerPlayer>
 operator fun get(uuid: UUID): Player?
 ```
 
-在此世界中找到UUID的玩家。
+在当前关卡中按 UUID 查找玩家。
 
 </ApiMemberCard>
 
@@ -137,15 +137,15 @@ operator fun get(uuid: UUID): Player?
 fun Player.addItem(item: Item, amount: Int)
 ```
 
-将物品添加到玩家的库存中。
+向玩家背包添加物品。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 玩家接收物品 |
-| `item` | 要添加的物品类型 |
-| `amount` | 添加数量 |
+| `player` | 接收物品的玩家。 |
+| `item` | 要添加的物品类型。 |
+| `amount` | 要添加的数量。 |
 
 </ApiMemberCard>
 
@@ -164,13 +164,13 @@ fun Player.addItem(item: Item, amount: Int)
 fun clearInventory(player: Player)
 ```
 
-清除玩家的库存。
+清空玩家背包。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 库存将被清除的玩家 |
+| `player` | 背包将被清空的玩家。 |
 
 </ApiMemberCard>
 
@@ -189,15 +189,15 @@ fun clearInventory(player: Player)
 fun setItem(player: Player, slot: Int, itemStack: ItemStack)
 ```
 
-将物品放入玩家的物品栏中。
+将物品设置到玩家背包槽位中。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 要修改的播放器 |
-| `slot` | 库存槽位索引 |
-| `itemStack` | 要设置的物品堆栈 |
+| `player` | 要修改的玩家。 |
+| `slot` | 背包槽位索引。 |
+| `itemStack` | 要设置的物品堆栈。 |
 
 </ApiMemberCard>
 
@@ -216,18 +216,18 @@ fun setItem(player: Player, slot: Int, itemStack: ItemStack)
 fun getItem(player: Player, slot: Int): ItemStack
 ```
 
-从玩家的库存槽中获取该物品。
+从玩家背包槽位中获取物品。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 要查询的播放器 |
-| `slot` | 库存槽位索引 |
+| `player` | 要查询的玩家。 |
+| `slot` | 背包槽位索引。 |
 
 ### 返回值
 
-ItemStack 在插槽中
+返回该槽位中的物品堆。
 
 </ApiMemberCard>
 
@@ -246,18 +246,18 @@ ItemStack 在插槽中
 fun giveItem(player: Player, itemStack: ItemStack): Boolean
 ```
 
-尝试为玩家提供一个物品堆栈。
+尝试给予玩家一个 ItemStack。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 玩家接收物品 |
-| `itemStack` | 给予的ItemStack |
+| `player` | 接收物品的玩家。 |
+| `itemStack` | 要给予的 ItemStack。 |
 
 ### 返回值
 
-如果添加到库存则为 true，如果已满则为 false
+如果已添加到背包，则返回 true；如果背包已满，则返回 false。
 
 </ApiMemberCard>
 
@@ -276,18 +276,18 @@ fun giveItem(player: Player, itemStack: ItemStack): Boolean
 fun hasItem(player: Player, item: Item): Boolean
 ```
 
-检查玩家的库存中是否有特定的物品类型。
+检查玩家背包中是否有指定物品类型。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 要检查的玩家 |
-| `item` | 要搜索的物品类型 |
+| `player` | 要检查的玩家。 |
+| `item` | 要查找的物品类型。 |
 
 ### 返回值
 
-如果玩家拥有该物品，则为 true，否则为 false
+如果玩家持有该物品，则返回 true；否则返回 false。
 
 </ApiMemberCard>
 
@@ -306,18 +306,18 @@ fun hasItem(player: Player, item: Item): Boolean
 fun findItem(player: Player, item: Item): Int
 ```
 
-查找玩家库存中物品的槽位索引。
+在玩家背包中查找某种物品所在的槽位索引。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 要搜索的播放器 |
-| `item` | 要查找的物品类型 |
+| `player` | 要搜索的玩家。 |
+| `item` | 要查找的物品类型。 |
 
 ### 返回值
 
-槽索引，如果未找到则为 -1
+返回槽位索引；未找到时返回 -1。
 
 </ApiMemberCard>
 
@@ -336,19 +336,19 @@ fun findItem(player: Player, item: Item): Int
 fun removeItem(player: Player, item: Item, count: Int): Boolean
 ```
 
-从玩家的库存中删除一定数量的物品。
+从玩家背包中移除指定数量的物品。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 要修改的播放器 |
-| `item` | 要删除的物品类型 |
-| `count` | 去除量 |
+| `player` | 要修改的玩家。 |
+| `item` | 要移除的物品类型。 |
+| `count` | 要移除的数量。 |
 
 ### 返回值
 
-如果删除成功则为 true，否则为 false
+如果移除成功则返回 true，否则返回 false。
 
 </ApiMemberCard>
 
@@ -367,15 +367,15 @@ fun removeItem(player: Player, item: Item, count: Int): Boolean
 fun enchant(itemStack: ItemStack, enchantment: Holder<Enchantment>, level: Int)
 ```
 
-用结界对 ItemStack 进行附魔。
+使用附魔为 ItemStack 添加魔咒。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `itemStack` | 目标ItemStack |
-| `enchantment` | 要申请的结界持有者 |
-| `level` | 附魔等级 |
+| `itemStack` | 目标 ItemStack。 |
+| `enchantment` | 要应用的附魔 Holder。 |
+| `level` | 附魔等级。 |
 
 </ApiMemberCard>
 
@@ -394,15 +394,15 @@ fun enchant(itemStack: ItemStack, enchantment: Holder<Enchantment>, level: Int)
 fun enchantMainHand(entity: LivingEntity, enchantment: Holder<Enchantment>, level: Int)
 ```
 
-为实体的主手上的物品（如果存在）附魔。
+如果实体主手有物品，则为该物品添加魔咒。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标LivingEntity |
-| `enchantment` | 要申请的结界持有者 |
-| `level` | 附魔等级 |
+| `entity` | 目标 LivingEntity。 |
+| `enchantment` | 要应用的附魔 Holder。 |
+| `level` | 附魔等级。 |
 
 </ApiMemberCard>
 
@@ -421,14 +421,14 @@ fun enchantMainHand(entity: LivingEntity, enchantment: Holder<Enchantment>, leve
 fun addXpPoints(player: Player, points: Int)
 ```
 
-为玩家提供经验值。
+给予玩家经验点数。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标玩家 |
-| `points` | 需要添加的经验值 |
+| `player` | 目标 Player。 |
+| `points` | 要增加的经验点数。 |
 
 </ApiMemberCard>
 
@@ -447,14 +447,14 @@ fun addXpPoints(player: Player, points: Int)
 fun addXpLevels(player: Player, levels: Int)
 ```
 
-为玩家提供经验等级。
+给予玩家经验等级。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标玩家 |
-| `levels` | 要添加的世界 |
+| `player` | 目标 Player。 |
+| `levels` | 要增加的等级数。 |
 
 </ApiMemberCard>
 
@@ -479,8 +479,8 @@ fun setXpLevel(player: Player, level: Int)
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标玩家 |
-| `level` | 要设置的电平值 |
+| `player` | 目标 Player。 |
+| `level` | 要设置的等级值。 |
 
 </ApiMemberCard>
 
@@ -505,11 +505,11 @@ fun getXpLevel(player: Player): Int
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标玩家 |
+| `player` | 目标 Player。 |
 
 ### 返回值
 
-目前的经验水平
+返回经验等级。
 
 </ApiMemberCard>
 
@@ -528,17 +528,17 @@ fun getXpLevel(player: Player): Int
 fun getXpProgress(player: Player): Float
 ```
 
-获取玩家的经验进度（分数）。
+获取玩家经验进度（小数）。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 目标玩家 |
+| `player` | 目标 Player。 |
 
 ### 返回值
 
-体验浮动进度 (0..1)
+返回经验进度，范围为 0 到 1。
 
 </ApiMemberCard>
 
@@ -557,16 +557,16 @@ fun getXpProgress(player: Player): Float
 fun spawnPoint(player: MutableCollection<ServerPlayer>, level: ServerLevel, pos: BlockPos, rot: Vec2)
 ```
 
-为一组玩家设置生成点。
+为一组玩家设置重生点。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 设置ServerPlayer的集合 |
-| `level` | 维度的服务器世界 |
-| `pos` | 重生位置 |
-| `rot` | 旋转矢量（俯仰，x / 偏航，y） |
+| `player` | 要设置的 ServerPlayer 集合。 |
+| `level` | 提供维度信息的服务端关卡。 |
+| `pos` | 重生位置。 |
+| `rot` | 旋转向量（x 为 pitch，y 为 yaw）。 |
 
 </ApiMemberCard>
 
@@ -585,15 +585,15 @@ fun spawnPoint(player: MutableCollection<ServerPlayer>, level: ServerLevel, pos:
 fun setWorldSpawn(level: ServerLevel, blockPos: BlockPos, rot: Vec2)
 ```
 
-设置世界的世界生成和重生方向。
+设置关卡的世界出生点和重生朝向。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `level` | 服务器世界 |
-| `blockPos` | 产卵位置 |
-| `rot` | 旋转矢量（俯仰，x / 偏航，y） |
+| `level` | 服务端关卡。 |
+| `blockPos` | 生成位置。 |
+| `rot` | 旋转向量（x 为 pitch，y 为 yaw）。 |
 
 </ApiMemberCard>
 
@@ -612,18 +612,18 @@ fun setWorldSpawn(level: ServerLevel, blockPos: BlockPos, rot: Vec2)
 fun spectate(player: ServerPlayer, target: Entity?): Boolean
 ```
 
-让玩家观看目标实体。
+让玩家观战目标实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `player` | 旁观者ServerPlayer |
-| `target` | 要观看的实体，或 null 以停止 |
+| `player` | 作为观战者的 ServerPlayer。 |
+| `target` | 要观战的实体；传入 null 表示停止观战。 |
 
 ### 返回值
 
-如果观察成功则为 true，否则为 false
+如果观战成功则返回 true，否则返回 false。
 
 </ApiMemberCard>
 

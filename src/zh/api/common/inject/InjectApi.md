@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.inject"
   source-file="common/src/main/kotlin/top/katton/api/inject/InjectApi.kt"
 >
-已注册注入的句柄，用于回滚操作。
+注册注入的句柄，用于回滚操作。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;InjectionHandle&quot;,&quot;href&quot;:&quot;#injectionhandle&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.method&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-method&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.instance&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-instance&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.arguments&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-arguments&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.owner&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-owner&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.setArgument&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-setargument&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.cancel&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-cancel&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.cancelWith&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-cancelwith&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;InjectionInvocationContext.setReturnValue&quot;,&quot;href&quot;:&quot;#injectioninvocationcontext-setreturnvalue&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext.constructor&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext-constructor&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext.instance&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext-instance&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext.arguments&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext-arguments&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ConstructorInvocationContext.owner&quot;,&quot;href&quot;:&quot;#constructorinvocationcontext-owner&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;injectBefore&quot;,&quot;href&quot;:&quot;#injectbefore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectBefore&quot;,&quot;href&quot;:&quot;#injectbefore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectAfter&quot;,&quot;href&quot;:&quot;#injectafter&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectConstructorBefore&quot;,&quot;href&quot;:&quot;#injectconstructorbefore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectConstructorBefore&quot;,&quot;href&quot;:&quot;#injectconstructorbefore&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectConstructorAfter&quot;,&quot;href&quot;:&quot;#injectconstructorafter&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectConstructorAfter&quot;,&quot;href&quot;:&quot;#injectconstructorafter&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;injectAfter&quot;,&quot;href&quot;:&quot;#injectafter&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;replace&quot;,&quot;href&quot;:&quot;#replace&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;replace&quot;,&quot;href&quot;:&quot;#replace&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;redirect&quot;,&quot;href&quot;:&quot;#redirect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;redirect&quot;,&quot;href&quot;:&quot;#redirect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rollbackUnsafe&quot;,&quot;href&quot;:&quot;#rollbackunsafe&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rollbackUnsafeByOwner&quot;,&quot;href&quot;:&quot;#rollbackunsafebyowner&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,13 +30,13 @@ outline: [2, 2]
 class InjectionHandle internal constructor( val id: String )
 ```
 
-已注册注入的句柄，用于回滚操作。
+注册注入的句柄，用于回滚操作。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `id` | 注入注册id，用于回滚 |
+| `id` | 注入注册 ID，用于回滚。 |
 
 </ApiMemberCard>
 
@@ -55,16 +55,15 @@ class InjectionHandle internal constructor( val id: String )
 class InjectionInvocationContext internal constructor( private val delegate: InjectionManager.InjectionInvocation )
 ```
 
-传递给不安全回调的调用上下文。
+传给不安全回调的调用上下文。
 
-提供对正在调用的方法、接收者实例的访问，
-参数以及对调用流程的控制。
+可访问正在调用的方法、接收实例、参数，并控制调用流程。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `delegate` | 底层注入调用委托 |
+| `delegate` | 底层的注入调用委托。 |
 
 ### InjectionInvocationContext.method
 
@@ -100,7 +99,7 @@ val method: Method
 val instance: Any?
 ```
 
-方法接收器实例，或静态方法的 `null`。
+方法接收实例；对于静态方法则为 `null`。
 
 </ApiMemberCard>
 
@@ -138,7 +137,7 @@ val arguments: Array<Any?>
 val owner: String?
 ```
 
-此调用的绑定脚本所有者。
+这次调用绑定的脚本归属。
 
 </ApiMemberCard>
 
@@ -157,14 +156,14 @@ val owner: String?
 fun setArgument(index: Int, value: Any?)
 ```
 
-在当前调用的[index]处改变参数。
+修改当前调用中指定位置的参数。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `index` | 要修改的参数索引 |
-| `value` | 参数的新值 |
+| `index` | 要修改的参数下标。 |
+| `value` | 参数的新值。 |
 
 </ApiMemberCard>
 
@@ -183,7 +182,7 @@ fun setArgument(index: Int, value: Any?)
 fun cancel()
 ```
 
-取消当前调用。如果不被覆盖，返回值将成为默认类型。
+取消当前调用。若未覆写返回值，则使用该类型的默认值。
 
 </ApiMemberCard>
 
@@ -202,13 +201,13 @@ fun cancel()
 fun cancelWith(returnValue: Any?)
 ```
 
-取消当前调用并立即覆盖返回值。
+取消当前调用，并立即指定返回值。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `returnValue` | 返回值而不是执行方法 |
+| `returnValue` | 用来替代方法执行结果的返回值。 |
 
 </ApiMemberCard>
 
@@ -227,13 +226,13 @@ fun cancelWith(returnValue: Any?)
 fun setReturnValue(returnValue: Any?)
 ```
 
-覆盖后阶段的返回值。
+在 after 阶段覆写返回值。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `returnValue` | 要返回的值而不是原始结果 |
+| `returnValue` | 用来替代原始结果的返回值。 |
 
 </ApiMemberCard>
 
@@ -254,13 +253,13 @@ fun setReturnValue(returnValue: Any?)
 class ConstructorInvocationContext internal constructor( private val delegate: InjectionManager.ConstructorInvocation )
 ```
 
-构造函数调用上下文传递给不安全的构造函数回调。
+传给不安全构造器回调的构造器调用上下文。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `delegate` | 底层构造函数调用委托 |
+| `delegate` | 底层的构造器调用委托。 |
 
 ### ConstructorInvocationContext.constructor
 
@@ -277,7 +276,7 @@ class ConstructorInvocationContext internal constructor( private val delegate: I
 val constructor: Constructor<*>
 ```
 
-当前正在调用构造函数。
+当前正在调用的构造器。
 
 </ApiMemberCard>
 
@@ -296,7 +295,7 @@ val constructor: Constructor<*>
 val instance: Any?
 ```
 
-构造实例（`this`）（如果可用）。
+已构造的实例（`this`），如果可用。
 
 </ApiMemberCard>
 
@@ -315,7 +314,7 @@ val instance: Any?
 val arguments: Array<Any?>
 ```
 
-原始构造函数参数数组。
+Raw constructor argument array.
 
 </ApiMemberCard>
 
@@ -334,7 +333,7 @@ val arguments: Array<Any?>
 val owner: String?
 ```
 
-此调用的绑定脚本所有者。
+Bound script owner for this invocation.
 
 </ApiMemberCard>
 
@@ -355,21 +354,21 @@ val owner: String?
 fun injectBefore(targetClassName: String, methodName: String, parameterTypeNames: List<String> = emptyList(), owner: String? = null, handler: (InjectionInvocationContext) -> Unit): InjectionHandle
 ```
 
-在目标方法执行之前注入回调（基于字符串的重载）。
+Injects a callback before target method execution (string-based overload).
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `targetClassName` | 目标类的完全限定名称 |
-| `methodName` | 目标方法名称 |
-| `parameterTypeNames` | 参数类型名称，例如`int`, `java.lang.String` |
-| `owner` | 脚本所有者（可为空，如果为空，则从脚本上下文自动解析） |
-| `handler` | 回调之前 |
+| `targetClassName` | target class fully-qualified name |
+| `methodName` | target method name |
+| `parameterTypeNames` | parameter type names, e.g. `int`, `java.lang.String` |
+| `owner` | script owner (nullable, auto-resolved from script context if null) |
+| `handler` | before callback |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -388,10 +387,10 @@ fun injectBefore(targetClassName: String, methodName: String, parameterTypeNames
 fun injectBefore(method: Method, owner: String? = null, handler: (InjectionInvocationContext) -> Unit): InjectionHandle
 ```
 
-在目标方法执行之前注入回调（方法重载）。
+Injects a callback before target method execution (Method overload).
 
-当反射的 [Method] 已经可用时，更喜欢这种重载，
-以避免字符串签名汇编错误。
+Prefer this overload when a reflected [Method] is already available,
+to avoid string-signature assembly errors.
 
 </ApiMemberCard>
 
@@ -410,21 +409,21 @@ fun injectBefore(method: Method, owner: String? = null, handler: (InjectionInvoc
 fun injectAfter(targetClassName: String, methodName: String, parameterTypeNames: List<String> = emptyList(), owner: String? = null, handler: (InjectionInvocationContext, Any?, Throwable?) -> Unit): InjectionHandle
 ```
 
-在目标方法执行后注入回调（基于字符串的重载）。
+Injects a callback after target method execution (string-based overload).
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `targetClassName` | 目标类的完全限定名称 |
-| `methodName` | 目标方法名称 |
-| `parameterTypeNames` | 参数类型名称，例如`int`, `java.lang.String` |
-| `owner` | 脚本所有者（可为空，如果为空，则从脚本上下文自动解析） |
-| `handler` | 使用 `result` 和 `throwable` 回调后 |
+| `targetClassName` | target class fully-qualified name |
+| `methodName` | target method name |
+| `parameterTypeNames` | parameter type names, e.g. `int`, `java.lang.String` |
+| `owner` | script owner (nullable, auto-resolved from script context if null) |
+| `handler` | after callback with `result` and `throwable` |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -443,20 +442,20 @@ fun injectAfter(targetClassName: String, methodName: String, parameterTypeNames:
 fun injectConstructorBefore(targetClassName: String, parameterTypeNames: List<String> = emptyList(), owner: String? = null, handler: (ConstructorInvocationContext) -> Unit): InjectionHandle
 ```
 
-在构造函数执行之前注入回调（基于字符串的重载）。
+Injects a callback before constructor execution (string-based overload).
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `targetClassName` | 目标类的完全限定名称 |
-| `parameterTypeNames` | 构造函数参数类型名称，例如`int`, `java.lang.String` |
-| `owner` | 脚本所有者（可为空，如果为空，则从脚本上下文自动解析） |
-| `handler` | 构造函数 - 回调之前 |
+| `targetClassName` | target class fully-qualified name |
+| `parameterTypeNames` | constructor parameter type names, e.g. `int`, `java.lang.String` |
+| `owner` | script owner (nullable, auto-resolved from script context if null) |
+| `handler` | constructor-before callback |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -475,7 +474,7 @@ fun injectConstructorBefore(targetClassName: String, parameterTypeNames: List<St
 fun injectConstructorBefore(constructor: Constructor<*>, owner: String? = null, handler: (ConstructorInvocationContext) -> Unit): InjectionHandle
 ```
 
-在构造函数执行之前注入回调（构造函数重载）。
+Injects a callback before constructor execution (Constructor overload).
 
 </ApiMemberCard>
 
@@ -494,20 +493,20 @@ fun injectConstructorBefore(constructor: Constructor<*>, owner: String? = null, 
 fun injectConstructorAfter(targetClassName: String, parameterTypeNames: List<String> = emptyList(), owner: String? = null, handler: (ConstructorInvocationContext) -> Unit): InjectionHandle
 ```
 
-在构造函数执行后注入回调（基于字符串的重载）。
+Injects a callback after constructor execution (string-based overload).
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `targetClassName` | 目标类的完全限定名称 |
-| `parameterTypeNames` | 构造函数参数类型名称，例如`int`, `java.lang.String` |
-| `owner` | 脚本所有者（可为空，如果为空，则从脚本上下文自动解析） |
-| `handler` | 构造函数后回调 |
+| `targetClassName` | target class fully-qualified name |
+| `parameterTypeNames` | constructor parameter type names, e.g. `int`, `java.lang.String` |
+| `owner` | script owner (nullable, auto-resolved from script context if null) |
+| `handler` | constructor-after callback |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -526,7 +525,7 @@ fun injectConstructorAfter(targetClassName: String, parameterTypeNames: List<Str
 fun injectConstructorAfter(constructor: Constructor<*>, owner: String? = null, handler: (ConstructorInvocationContext) -> Unit): InjectionHandle
 ```
 
-在构造函数执行后注入回调（构造函数重载）。
+Injects a callback after constructor execution (Constructor overload).
 
 </ApiMemberCard>
 
@@ -545,21 +544,21 @@ fun injectConstructorAfter(constructor: Constructor<*>, owner: String? = null, h
 fun injectAfter(method: Method, owner: String? = null, handler: (InjectionInvocationContext, Any?, Throwable?) -> Unit): InjectionHandle
 ```
 
-在目标方法执行后注入回调（方法重载）。
+Injects a callback after target method execution (Method overload).
 
-当反射的 [Method] 已经可用时，更喜欢这种重载。
+Prefer this overload when a reflected [Method] is already available.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `method` | 要注入的目标方法 |
-| `owner` | 脚本所有者（可为空，如果为空则从脚本上下文自动解析） |
-| `handler` | 在带有结果和可抛出的回调之后 |
+| `method` | The target Method to inject into |
+| `owner` | Script owner (nullable, auto-resolved from script context if null) |
+| `handler` | After callback with result and throwable |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+Injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -578,24 +577,24 @@ fun injectAfter(method: Method, owner: String? = null, handler: (InjectionInvoca
 fun replace(targetClassName: String, methodName: String, parameterTypeNames: List<String> = emptyList(), owner: String? = null, handler: (InjectionInvocationContext) -> Any?): InjectionHandle
 ```
 
-替换整个目标方法主体（基于字符串的重载）。
+Replaces entire target method body (string-based overload).
 
-处理程序返回值成为方法返回值。
-这完全绕过了原来的方法实现。
+The handler return value becomes the method return value.
+This completely bypasses the original method implementation.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `targetClassName` | 目标类的完全限定名称 |
-| `methodName` | 目标方法名称 |
-| `parameterTypeNames` | 参数类型名称，例如`int`, `java.lang.String` |
-| `owner` | 脚本所有者（可为空，如果为空则从脚本上下文自动解析） |
-| `handler` | 返回方法结果的替换处理程序 |
+| `targetClassName` | Target class fully-qualified name |
+| `methodName` | Target method name |
+| `parameterTypeNames` | Parameter type names, e.g. `int`, `java.lang.String` |
+| `owner` | Script owner (nullable, auto-resolved from script context if null) |
+| `handler` | Replacement handler that returns the method result |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+Injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -614,19 +613,19 @@ fun replace(targetClassName: String, methodName: String, parameterTypeNames: Lis
 fun replace(method: Method, owner: String? = null, handler: (InjectionInvocationContext) -> Any?): InjectionHandle
 ```
 
-替换整个目标方法体（方法重载）。
+Replaces entire target method body (Method overload).
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `method` | 要替换的目标方法 |
-| `owner` | 脚本所有者（可为空，如果为空则从脚本上下文自动解析） |
-| `handler` | 返回方法结果的替换处理程序 |
+| `method` | The target Method to replace |
+| `owner` | Script owner (nullable, auto-resolved from script context if null) |
+| `handler` | Replacement handler that returns the method result |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+Injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -645,25 +644,25 @@ fun replace(method: Method, owner: String? = null, handler: (InjectionInvocation
 fun redirect(sourceClassName: String, sourceMethodName: String, sourceParameterTypeNames: List<String> = emptyList(), targetClassName: String, targetMethodName: String, targetParameterTypeNames: List<String> = emptyList(), owner: String? = null): InjectionHandle
 ```
 
-将源方法重定向到另一个目标方法（基于字符串的重载）。
+Redirects a source method to another target method (string-based overload).
 
-对源方法的所有调用都将重定向到目标方法。
+All calls to the source method will be redirected to the target method instead.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `sourceClassName` | 源类的完全限定名称 |
-| `sourceMethodName` | 要重定向的源方法名称 |
-| `sourceParameterTypeNames` | 源方法参数类型名称 |
-| `targetClassName` | 目标类的完全限定名称 |
-| `targetMethodName` | 重定向到的目标方法名称 |
-| `targetParameterTypeNames` | 目标方法参数类型名称 |
-| `owner` | 脚本所有者（可为空，如果为空则从脚本上下文自动解析） |
+| `sourceClassName` | Source class fully-qualified name |
+| `sourceMethodName` | Source method name to redirect from |
+| `sourceParameterTypeNames` | Source method parameter type names |
+| `targetClassName` | Target class fully-qualified name |
+| `targetMethodName` | Target method name to redirect to |
+| `targetParameterTypeNames` | Target method parameter type names |
+| `owner` | Script owner (nullable, auto-resolved from script context if null) |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+Injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -682,19 +681,19 @@ fun redirect(sourceClassName: String, sourceMethodName: String, sourceParameterT
 fun redirect(sourceMethod: Method, targetMethod: Method, owner: String? = null): InjectionHandle
 ```
 
-将源方法重定向到另一个目标方法（方法重载）。
+Redirects a source method to another target method (Method overload).
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `sourceMethod` | 重定向源方法 |
-| `targetMethod` | 重定向到的目标方法 |
-| `owner` | 脚本所有者（可为空，如果为空则从脚本上下文自动解析） |
+| `sourceMethod` | The source Method to redirect from |
+| `targetMethod` | The target Method to redirect to |
+| `owner` | Script owner (nullable, auto-resolved from script context if null) |
 
 ### 返回值
 
-注射手柄，[rollbackUnsafe]可用
+Injection handle, usable by [rollbackUnsafe]
 
 </ApiMemberCard>
 
@@ -713,17 +712,17 @@ fun redirect(sourceMethod: Method, targetMethod: Method, owner: String? = null):
 fun rollbackUnsafe(handle: InjectionHandle): Boolean
 ```
 
-通过手柄回滚一次不安全的注射。
+Rolls back one unsafe injection by handle.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `handle` | 注射手柄回滚 |
+| `handle` | The injection handle to roll back |
 
 ### 返回值
 
-如果发现并移除了注入，则为 true，否则为 false
+true if the injection was found and removed, false otherwise
 
 </ApiMemberCard>
 
@@ -742,13 +741,13 @@ fun rollbackUnsafe(handle: InjectionHandle): Boolean
 fun rollbackUnsafeByOwner(owner: String)
 ```
 
-回滚所有者的所有不安全注入。
+Rolls back all unsafe injections by owner.
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `owner` | 应删除其注入的脚本所有者 |
+| `owner` | The script owner whose injections should be removed |
 
 </ApiMemberCard>
 

@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="paper/src/main/kotlin/top/katton/api/event/LivingUseItemEvent.kt"
 >
-Paper（Bukkit）平台的生命实体物品使用事件。
+Paper (Bukkit) 平台的生物实体物品使用事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;LivingUseItemEvent&quot;,&quot;href&quot;:&quot;#livinguseitemevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}]' />
@@ -31,10 +31,9 @@ Paper（Bukkit）平台的生命实体物品使用事件。
 object LivingUseItemEvent
 ```
 
-Paper（Bukkit）平台的生命实体物品使用事件。
+Paper (Bukkit) 平台的生物实体物品使用事件。
 
-该对象提供与生命实体启动相关的事件，
-停止并完成物品的使用。
+此对象提供与生物实体开始、停止和完成使用物品相关的事件。
 
 </ApiMemberCard>
 

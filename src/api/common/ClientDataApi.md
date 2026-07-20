@@ -224,7 +224,7 @@ Returns all synced data entries (read-only snapshot).
 val clientData: KattonClientData
 ```
 
-Shorthand accessor — use `clientData["key"]` in client scripts.
+Shorthand accessor - use `clientData["key"]` in client scripts.
 
 </ApiMemberCard>
 

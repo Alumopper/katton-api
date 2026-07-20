@@ -33,11 +33,10 @@ class VillagerTradeAdditionConfig internal constructor( val tradeSet: ResourceKe
 Configuration for a single trade to be appended to an existing
 [TradeSet] via [addVillagerTrade].
 
-Fields map directly to the public `VillagerTrade(TradeCost wants,
-Optional<TradeCost> additionalWants, ItemStackTemplate gives, int
-maxUses, int xp, float priceMultiplier, ...)` constructor on MC
-26.1.2 — every value here is plain enough to keep stable across patch
-releases.
+Fields map directly to the public `VillagerTrade` constructor on supported
+MC 26.x versions: primary and optional secondary costs, result, maximum
+uses, XP, and price multiplier. These values remain stable across the
+supported versions.
 
 ### VillagerTradeAdditionConfig.costItemId
 
@@ -111,7 +110,7 @@ Item the merchant gives back.
 var maxUses: Int
 ```
 
-Maximum trade uses (vanilla farmer level 1 emerald-bread = 16).
+Maximum number of times the trade can be used.
 
 </ApiMemberCard>
 

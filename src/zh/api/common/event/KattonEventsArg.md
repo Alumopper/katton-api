@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="common/src/main/kotlin/top/katton/api/event/KattonEventsArg.kt"
 >
-服务器级事件的参数。
+Argument for server-level events.
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerArg&quot;,&quot;href&quot;:&quot;#serverarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;SyncDatapackContentsArg&quot;,&quot;href&quot;:&quot;#syncdatapackcontentsarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;StartDatapackReloadArg&quot;,&quot;href&quot;:&quot;#startdatapackreloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;EndDatapackReloadArg&quot;,&quot;href&quot;:&quot;#enddatapackreloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerSaveArg&quot;,&quot;href&quot;:&quot;#serversavearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerTickArg&quot;,&quot;href&quot;:&quot;#servertickarg&quot;,&quot;kind&quot;:&quot;Value Class&quot;,&quot;kindKey&quot;:&quot;value-class&quot;}, {&quot;label&quot;:&quot;WorldTickArg&quot;,&quot;href&quot;:&quot;#worldtickarg&quot;,&quot;kind&quot;:&quot;Value Class&quot;,&quot;kindKey&quot;:&quot;value-class&quot;}, {&quot;label&quot;:&quot;EntityLoadArg&quot;,&quot;href&quot;:&quot;#entityloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;EntityUnloadArg&quot;,&quot;href&quot;:&quot;#entityunloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;EquipmentChangeArg&quot;,&quot;href&quot;:&quot;#equipmentchangearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ChunkLoadArg&quot;,&quot;href&quot;:&quot;#chunkloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ChunkUnloadArg&quot;,&quot;href&quot;:&quot;#chunkunloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ChunkStatusChangeArg&quot;,&quot;href&quot;:&quot;#chunkstatuschangearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;BlockEntityLoadArg&quot;,&quot;href&quot;:&quot;#blockentityloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;BlockBreakArg&quot;,&quot;href&quot;:&quot;#blockbreakarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;BlockPlaceArg&quot;,&quot;href&quot;:&quot;#blockplacearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;UseItemOnArg&quot;,&quot;href&quot;:&quot;#useitemonarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;UseWithoutItemOnArg&quot;,&quot;href&quot;:&quot;#usewithoutitemonarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowEnchantingArg&quot;,&quot;href&quot;:&quot;#allowenchantingarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ModifyEnchantmentArg&quot;,&quot;href&quot;:&quot;#modifyenchantmentarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ElytraAllowArg&quot;,&quot;href&quot;:&quot;#elytraallowarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ElytraCustomArg&quot;,&quot;href&quot;:&quot;#elytracustomarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowSleepingArg&quot;,&quot;href&quot;:&quot;#allowsleepingarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;SleepingArg&quot;,&quot;href&quot;:&quot;#sleepingarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowBedArg&quot;,&quot;href&quot;:&quot;#allowbedarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowNearbyMonstersArg&quot;,&quot;href&quot;:&quot;#allownearbymonstersarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowResettingTimeArg&quot;,&quot;href&quot;:&quot;#allowresettingtimearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ModifySleepingDirectionArg&quot;,&quot;href&quot;:&quot;#modifysleepingdirectionarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowSettingSpawnArg&quot;,&quot;href&quot;:&quot;#allowsettingspawnarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;SetBedOccupationStateArg&quot;,&quot;href&quot;:&quot;#setbedoccupationstatearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ModifyWakeUpPositionArg&quot;,&quot;href&quot;:&quot;#modifywakeuppositionarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ItemUseOnArg&quot;,&quot;href&quot;:&quot;#itemuseonarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ItemUseArg&quot;,&quot;href&quot;:&quot;#itemusearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LootTableReplaceArg&quot;,&quot;href&quot;:&quot;#loottablereplacearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LootTableModifyArg&quot;,&quot;href&quot;:&quot;#loottablemodifyarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LootTableAllLoadArg&quot;,&quot;href&quot;:&quot;#loottableallloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LootTableModifyDropsArg&quot;,&quot;href&quot;:&quot;#loottablemodifydropsarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerAttackBlockArg&quot;,&quot;href&quot;:&quot;#playerattackblockarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerAttackEntityArg&quot;,&quot;href&quot;:&quot;#playerattackentityarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerUseBlockArg&quot;,&quot;href&quot;:&quot;#playeruseblockarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerUseEntityArg&quot;,&quot;href&quot;:&quot;#playeruseentityarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerUseItemArg&quot;,&quot;href&quot;:&quot;#playeruseitemarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerPickFromBlockArg&quot;,&quot;href&quot;:&quot;#playerpickfromblockarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerPickFromEntityArg&quot;,&quot;href&quot;:&quot;#playerpickfromentityarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AfterKilledOtherEntityArg&quot;,&quot;href&quot;:&quot;#afterkilledotherentityarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AfterEntityChangeLevelArg&quot;,&quot;href&quot;:&quot;#afterentitychangelevelarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AfterPlayerChangeLevelArg&quot;,&quot;href&quot;:&quot;#afterplayerchangelevelarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowDamageArg&quot;,&quot;href&quot;:&quot;#allowdamagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AfterDamageArg&quot;,&quot;href&quot;:&quot;#afterdamagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowDeathArg&quot;,&quot;href&quot;:&quot;#allowdeatharg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AfterDeathArg&quot;,&quot;href&quot;:&quot;#afterdeatharg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;MobConversionArg&quot;,&quot;href&quot;:&quot;#mobconversionarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowChatMessageArg&quot;,&quot;href&quot;:&quot;#allowchatmessagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowGameMessageArg&quot;,&quot;href&quot;:&quot;#allowgamemessagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AllowCommandMessageArg&quot;,&quot;href&quot;:&quot;#allowcommandmessagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ChatMessageArg&quot;,&quot;href&quot;:&quot;#chatmessagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;GameMessageArg&quot;,&quot;href&quot;:&quot;#gamemessagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;CommandMessageArg&quot;,&quot;href&quot;:&quot;#commandmessagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerArg&quot;,&quot;href&quot;:&quot;#playerarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerAfterRespawnArg&quot;,&quot;href&quot;:&quot;#serverplayerafterrespawnarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerAllowDeathArg&quot;,&quot;href&quot;:&quot;#serverplayerallowdeatharg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ServerPlayerCopyArg&quot;,&quot;href&quot;:&quot;#serverplayercopyarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;AnimalTameArg&quot;,&quot;href&quot;:&quot;#animaltamearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;BabySpawnArg&quot;,&quot;href&quot;:&quot;#babyspawnarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;CriticalHitArg&quot;,&quot;href&quot;:&quot;#criticalhitarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerWakeUpArg&quot;,&quot;href&quot;:&quot;#playerwakeuparg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;EntityTeleportArg&quot;,&quot;href&quot;:&quot;#entityteleportarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;EndermanAngerArg&quot;,&quot;href&quot;:&quot;#endermanangerarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ExplosionStartArg&quot;,&quot;href&quot;:&quot;#explosionstartarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ExplosionDetonateArg&quot;,&quot;href&quot;:&quot;#explosiondetonatearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ItemTossArg&quot;,&quot;href&quot;:&quot;#itemtossarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerDestroyItemArg&quot;,&quot;href&quot;:&quot;#playerdestroyitemarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LivingUseItemStartArg&quot;,&quot;href&quot;:&quot;#livinguseitemstartarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LivingUseItemTickArg&quot;,&quot;href&quot;:&quot;#livinguseitemtickarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LivingUseItemStopArg&quot;,&quot;href&quot;:&quot;#livinguseitemstoparg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LivingUseItemFinishArg&quot;,&quot;href&quot;:&quot;#livinguseitemfinisharg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;NeoPlayerAttackEntityArg&quot;,&quot;href&quot;:&quot;#neoplayerattackentityarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;NeoPlayerInteractEntityArg&quot;,&quot;href&quot;:&quot;#neoplayerinteractentityarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;NeoPlayerInteractBlockArg&quot;,&quot;href&quot;:&quot;#neoplayerinteractblockarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;NeoPlayerInteractItemArg&quot;,&quot;href&quot;:&quot;#neoplayerinteractitemarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;NeoPlayerLeftClickBlockArg&quot;,&quot;href&quot;:&quot;#neoplayerleftclickblockarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerXpChangeArg&quot;,&quot;href&quot;:&quot;#playerxpchangearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerXpLevelChangeArg&quot;,&quot;href&quot;:&quot;#playerxplevelchangearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;PlayerPickupXpArg&quot;,&quot;href&quot;:&quot;#playerpickupxparg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LivingHurtArg&quot;,&quot;href&quot;:&quot;#livinghurtarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;NeoLivingDamageArg&quot;,&quot;href&quot;:&quot;#neolivingdamagearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;NeoLivingDeathArg&quot;,&quot;href&quot;:&quot;#neolivingdeatharg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LivingDropsArg&quot;,&quot;href&quot;:&quot;#livingdropsarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LivingFallArg&quot;,&quot;href&quot;:&quot;#livingfallarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;LivingJumpArg&quot;,&quot;href&quot;:&quot;#livingjumparg&quot;,&quot;kind&quot;:&quot;Value Class&quot;,&quot;kindKey&quot;:&quot;value-class&quot;}, {&quot;label&quot;:&quot;ServerChatArg&quot;,&quot;href&quot;:&quot;#serverchatarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ShieldBlockArg&quot;,&quot;href&quot;:&quot;#shieldblockarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;MobEffectAllowAddArg&quot;,&quot;href&quot;:&quot;#mobeffectallowaddarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}]' />
@@ -30,13 +30,14 @@ outline: [2, 2]
 data class ServerArg(val server: MinecraftServer)
 ```
 
-服务器级事件的参数。
+Argument for server-level events.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `server` | MinecraftServer实例 |
+| `server` | 服务端级事件的参数。 |
+| `server` | MinecraftServer 实例。 |
 
 </ApiMemberCard>
 
@@ -55,14 +56,16 @@ data class ServerArg(val server: MinecraftServer)
 data class SyncDatapackContentsArg( val player: ServerPlayer, val joined: Boolean )
 ```
 
-数据包内容同步事件的参数。
+Argument for datapack contents synchronization event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 接收同步的播放器 |
-| `joined` | 此同步是否是由于玩家加入所致 |
+| `player` | The player receiving the sync |
+| `joined` | 数据包内容同步事件的参数。 |
+| `player` | 接收同步内容的玩家。 |
+| `joined` | 是否因为玩家加入而触发本次同步。 |
 
 </ApiMemberCard>
 
@@ -81,14 +84,16 @@ data class SyncDatapackContentsArg( val player: ServerPlayer, val joined: Boolea
 data class StartDatapackReloadArg( val server: MinecraftServer, val resourceManager: ResourceManager )
 ```
 
-数据包重载开始事件的参数。
+Argument for datapack reload start event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `server` | MinecraftServer实例 |
-| `resourceManager` | 正在重载资源管理器 |
+| `server` | The MinecraftServer instance |
+| `resourceManager` | 数据包重载开始事件的参数。 |
+| `server` | MinecraftServer 实例。 |
+| `resourceManager` | 正在重载的资源管理器。 |
 
 </ApiMemberCard>
 
@@ -107,15 +112,18 @@ data class StartDatapackReloadArg( val server: MinecraftServer, val resourceMana
 data class EndDatapackReloadArg( val server: MinecraftServer, val resourceManager: ResourceManager, val success: Boolean )
 ```
 
-数据包重载结束事件的参数。
+Argument for datapack reload end event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `server` | MinecraftServer实例 |
-| `resourceManager` | 重载的资源管理器 |
-| `success` | 重载是否成功完成 |
+| `server` | The MinecraftServer instance |
+| `resourceManager` | The resource manager that was reloaded |
+| `success` | 数据包重载结束事件的参数。 |
+| `server` | MinecraftServer 实例。 |
+| `resourceManager` | 已完成重载的资源管理器。 |
+| `success` | 重载是否成功完成。 |
 
 </ApiMemberCard>
 
@@ -134,15 +142,18 @@ data class EndDatapackReloadArg( val server: MinecraftServer, val resourceManage
 data class ServerSaveArg( val server: MinecraftServer, val flush: Boolean, val force: Boolean )
 ```
 
-服务器保存事件的参数。
+Argument for server save event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `server` | MinecraftServer实例 |
-| `flush` | 数据是否应该刷新到磁盘 |
-| `force` | 这是否是强制保存 |
+| `server` | The MinecraftServer instance |
+| `flush` | Whether data should be flushed to disk |
+| `force` | 服务端保存事件的参数。 |
+| `server` | MinecraftServer 实例。 |
+| `flush` | 是否将数据立即刷新到磁盘。 |
+| `force` | 是否为强制保存。 |
 
 </ApiMemberCard>
 
@@ -162,13 +173,13 @@ data class ServerSaveArg( val server: MinecraftServer, val flush: Boolean, val f
 value class ServerTickArg(val server: MinecraftServer)
 ```
 
-服务器tick 事件的参数。
+Argument for server tick event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `server` | MinecraftServer实例 |
+| `server` | The MinecraftServer instance |
 
 </ApiMemberCard>
 
@@ -188,13 +199,13 @@ value class ServerTickArg(val server: MinecraftServer)
 value class WorldTickArg(val world: ServerLevel)
 ```
 
-世界蜱虫事件的争论。
+Argument for world tick event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `world` | ServerLevel 被勾选 |
+| `world` | The ServerLevel being ticked |
 
 </ApiMemberCard>
 
@@ -213,17 +224,17 @@ value class WorldTickArg(val world: ServerLevel)
 data class EntityLoadArg( val entity: Entity, val world: ServerLevel ): CancellableEventArg()
 ```
 
-实体加载事件的参数。
+Argument for entity load event.
 
-当实体加载到世界中时触发。
-可以取消以防止实体加载。
+Triggered when an entity is loaded into a world.
+Can be cancelled to prevent the entity from loading.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 正在加载的实体 |
-| `world` | 实体正在加载到的ServerLevel |
+| `entity` | The entity being loaded |
+| `world` | The ServerLevel the entity is loading into |
 
 </ApiMemberCard>
 
@@ -242,16 +253,16 @@ data class EntityLoadArg( val entity: Entity, val world: ServerLevel ): Cancella
 data class EntityUnloadArg( val entity: Entity, val world: ServerLevel )
 ```
 
-实体卸载事件的参数。
+Argument for entity unload event.
 
-当实体从世界中卸载时触发。
+Triggered when an entity is unloaded from a world.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 正在卸载的实体 |
-| `world` | 实体正在卸载的ServerLevel |
+| `entity` | The entity being unloaded |
+| `world` | The ServerLevel the entity is unloading from |
 
 </ApiMemberCard>
 
@@ -270,18 +281,18 @@ data class EntityUnloadArg( val entity: Entity, val world: ServerLevel )
 data class EquipmentChangeArg( val entity: LivingEntity, val slot: EquipmentSlot, val from: ItemStack, val to: ItemStack )
 ```
 
-设备变更事件的参数。
+Argument for equipment change event.
 
-当生物体的装备发生变化时触发。
+Triggered when a living entity's equipment changes.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 设备发生变更的单位 |
-| `slot` | 改变的装备槽位 |
-| `from` | 槽中的前一个ItemStack |
-| `to` | 插槽中的新ItemStack |
+| `entity` | The entity whose equipment changed |
+| `slot` | The equipment slot that changed |
+| `from` | The previous ItemStack in the slot |
+| `to` | The new ItemStack in the slot |
 
 </ApiMemberCard>
 
@@ -300,15 +311,15 @@ data class EquipmentChangeArg( val entity: LivingEntity, val slot: EquipmentSlot
 data class ChunkLoadArg( val world: ServerLevel, val chunk: LevelChunk, val generated: Boolean
 ```
 
-块加载事件的参数。
+Argument for chunk load event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `world` | 包含块的ServerLevel |
-| `chunk` | 已加载的LevelChunk |
-| `generated` | chunk是否是新生成的 |
+| `world` | The ServerLevel containing the chunk |
+| `chunk` | The LevelChunk that was loaded |
+| `generated` | Whether the chunk was newly generated |
 
 </ApiMemberCard>
 
@@ -327,14 +338,14 @@ data class ChunkLoadArg( val world: ServerLevel, val chunk: LevelChunk, val gene
 data class ChunkUnloadArg( val world: ServerLevel, val chunk: LevelChunk )
 ```
 
-块卸载事件的参数。
+Argument for chunk unload event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `world` | 包含块的ServerLevel |
-| `chunk` | 正在卸载的LevelChunk |
+| `world` | The ServerLevel containing the chunk |
+| `chunk` | The LevelChunk being unloaded |
 
 </ApiMemberCard>
 
@@ -353,18 +364,18 @@ data class ChunkUnloadArg( val world: ServerLevel, val chunk: LevelChunk )
 data class ChunkStatusChangeArg( val world: ServerLevel, val chunk: LevelChunk, val oldStatus: FullChunkStatus, val newStatus: FullChunkStatus )
 ```
 
-方块状态更改事件的参数。
+Argument for chunk status change event.
 
-当块的加载状态发生变化时触发。
+Triggered when a chunk's loading status changes.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `world` | 包含块的ServerLevel |
-| `chunk` | 状态发生变化的LevelChunk |
-| `oldStatus` | 之前的方块状态 |
-| `newStatus` | 新方块状态 |
+| `world` | The ServerLevel containing the chunk |
+| `chunk` | The LevelChunk whose status changed |
+| `oldStatus` | The previous chunk status |
+| `newStatus` | The new chunk status |
 
 </ApiMemberCard>
 
@@ -383,14 +394,14 @@ data class ChunkStatusChangeArg( val world: ServerLevel, val chunk: LevelChunk, 
 data class BlockEntityLoadArg( val blockEntity: BlockEntity, val world: ServerLevel )
 ```
 
-方块实体加载事件的参数。
+Argument for block entity load event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `blockEntity` | 已加载的BlockEntity |
-| `world` | 包含方块实体的ServerLevel |
+| `blockEntity` | The BlockEntity that was loaded |
+| `world` | The ServerLevel containing the block entity |
 
 </ApiMemberCard>
 
@@ -409,19 +420,19 @@ data class BlockEntityLoadArg( val blockEntity: BlockEntity, val world: ServerLe
 data class BlockBreakArg( val world: Level, val player: Player, val pos: BlockPos, val state: BlockState, val blockEntity: BlockEntity?
 ```
 
-块中断事件的参数。
+Argument for block break event.
 
-可以取消以防止方块被破坏。
+Can be cancelled to prevent the block from being broken.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `world` | 包含方块的世界 |
-| `player` | 玩家打破方块 |
-| `pos` | 块的位置 |
-| `state` | BlockState 被破坏 |
-| `blockEntity` | 该位置的BlockEntity（如果有） |
+| `world` | The Level containing the block |
+| `player` | The player breaking the block |
+| `pos` | The position of the block |
+| `state` | The BlockState being broken |
+| `blockEntity` | The BlockEntity at the position, if any |
 
 </ApiMemberCard>
 
@@ -440,19 +451,19 @@ data class BlockBreakArg( val world: Level, val player: Player, val pos: BlockPo
 data class BlockPlaceArg( val world: Level, val player: Player?, val pos: BlockPos, val state: BlockState, val blockEntity: BlockEntity?
 ```
 
-块位置事件的参数。
+Argument for block place event.
 
-可以取消以防止放置方块。
+Can be cancelled to prevent the block from being placed.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `world` | 放置方块的世界 |
-| `player` | 放置方块的玩家（对于非玩家放置可能为空） |
-| `pos` | 放置方块的位置 |
-| `state` | 放置的BlockState |
-| `blockEntity` | 正在放置的BlockEntity（如果有） |
+| `world` | The Level where the block is being placed |
+| `player` | The player placing the block (may be null for non-player placement) |
+| `pos` | The position where the block is being placed |
+| `state` | The BlockState being placed |
+| `blockEntity` | The BlockEntity being placed, if any |
 
 </ApiMemberCard>
 
@@ -471,19 +482,19 @@ data class BlockPlaceArg( val world: Level, val player: Player?, val pos: BlockP
 data class UseItemOnArg( val stack: ItemStack, val state: BlockState, val world: Level, val pos: BlockPos, val player: Player, val hand: InteractionHand, val hitResult: BlockHitResult )
 ```
 
-方方块事件中物品使用的参数。
+Argument for item use on block event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `stack` | 正在使用的ItemStack |
-| `state` | 正在交互的块的BlockState |
-| `world` | 包含方块的世界 |
-| `pos` | 块的位置 |
-| `player` | 使用该物品的玩家 |
-| `hand` | 拿着物品的手 |
-| `hitResult` | 包含人脸和位置详细信息的块命中结果 |
+| `stack` | The ItemStack being used |
+| `state` | The BlockState of the block being interacted with |
+| `world` | The Level containing the block |
+| `pos` | The position of the block |
+| `player` | The player using the item |
+| `hand` | The hand holding the item |
+| `hitResult` | The block hit result containing face and position details |
 
 </ApiMemberCard>
 
@@ -502,17 +513,17 @@ data class UseItemOnArg( val stack: ItemStack, val state: BlockState, val world:
 data class UseWithoutItemOnArg( val state: BlockState, val world: Level, val pos: BlockPos, val player: Player, val hitResult: BlockHitResult )
 ```
 
-没有物品事件的块交互的参数。
+Argument for block interaction without item event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `state` | 正在交互的块的BlockState |
-| `world` | 包含方块的世界 |
-| `pos` | 块的位置 |
-| `player` | 玩家与方块互动 |
-| `hitResult` | 区块命中结果 |
+| `state` | The BlockState of the block being interacted with |
+| `world` | The Level containing the block |
+| `pos` | The position of the block |
+| `player` | The player interacting with the block |
+| `hitResult` | The block hit result |
 
 </ApiMemberCard>
 
@@ -531,17 +542,17 @@ data class UseWithoutItemOnArg( val state: BlockState, val world: Level, val pos
 data class AllowEnchantingArg( val enchantment: Holder<Enchantment>, val target: ItemStack, val context: EnchantingContext )
 ```
 
-结界津贴检查事件的参数。
+Argument for enchantment allowance check event.
 
-用于确定是否可以将附魔应用于物品。
+Used to determine if an enchantment can be applied to an item.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `enchantment` | 正在检查的结界 |
-| `target` | 目标ItemStack |
-| `context` | 迷人的背景（PRIMARY或ACCEPTABLE） |
+| `enchantment` | The enchantment being checked |
+| `target` | The target ItemStack |
+| `context` | The enchanting context (PRIMARY or ACCEPTABLE) |
 
 </ApiMemberCard>
 
@@ -560,14 +571,14 @@ data class AllowEnchantingArg( val enchantment: Holder<Enchantment>, val target:
 data class ModifyEnchantmentArg( val key: ResourceKey<Enchantment>, val builder: Enchantment.Builder )
 ```
 
-附魔修改事件的参数。
+Argument for enchantment modification event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `key` | 正在修改的结界的ResourceKey |
-| `builder` | 用于修改的 Enchantment.Builder |
+| `key` | The ResourceKey of the enchantment being modified |
+| `builder` | The Enchantment.Builder for modification |
 
 </ApiMemberCard>
 
@@ -586,13 +597,13 @@ data class ModifyEnchantmentArg( val key: ResourceKey<Enchantment>, val builder:
 data class ElytraAllowArg(val entity: LivingEntity)
 ```
 
-鞘翅飞行津贴检查的争论。
+Argument for elytra flight allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 尝试使用鞘翅飞行的实体 |
+| `entity` | The entity attempting to use elytra flight |
 
 </ApiMemberCard>
 
@@ -611,14 +622,14 @@ data class ElytraAllowArg(val entity: LivingEntity)
 data class ElytraCustomArg( val entity: LivingEntity, val tickElytra: Boolean )
 ```
 
-自定义鞘翅飞行事件的论证。
+Argument for custom elytra flight event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 使用鞘翅飞行的实体 |
-| `tickElytra` | 是否应该运行原版鞘翅蜱逻辑 |
+| `entity` | The entity using elytra flight |
+| `tickElytra` | Whether vanilla elytra tick logic should run |
 
 </ApiMemberCard>
 
@@ -637,14 +648,14 @@ data class ElytraCustomArg( val entity: LivingEntity, val tickElytra: Boolean )
 data class AllowSleepingArg( val entity: LivingEntity, val pos: BlockPos )
 ```
 
-睡眠津贴检查的论点。
+Argument for sleeping allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 试图睡觉的实体 |
-| `pos` | 床的位置 |
+| `entity` | The entity attempting to sleep |
+| `pos` | The position of the bed |
 
 </ApiMemberCard>
 
@@ -663,14 +674,14 @@ data class AllowSleepingArg( val entity: LivingEntity, val pos: BlockPos )
 data class SleepingArg( val entity: LivingEntity, val pos: BlockPos )
 ```
 
-睡眠事件的参数。
+Argument for sleeping event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 正在睡觉的实体 |
-| `pos` | 床的位置 |
+| `entity` | The entity that is sleeping |
+| `pos` | The position of the bed |
 
 </ApiMemberCard>
 
@@ -689,16 +700,16 @@ data class SleepingArg( val entity: LivingEntity, val pos: BlockPos )
 data class AllowBedArg( val entity: LivingEntity, val pos: BlockPos, val state: BlockState, val vanillaResult: Boolean )
 ```
 
-床位使用津贴检查的论据。
+Argument for bed usage allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 试图使用该床的实体 |
-| `pos` | 床的位置 |
-| `state` | 床的BlockState |
-| `vanillaResult` | 本次检查的原版游戏结果 |
+| `entity` | The entity attempting to use the bed |
+| `pos` | The position of the bed |
+| `state` | The BlockState of the bed |
+| `vanillaResult` | The vanilla game's result for this check |
 
 </ApiMemberCard>
 
@@ -717,15 +728,15 @@ data class AllowBedArg( val entity: LivingEntity, val pos: BlockPos, val state: 
 data class AllowNearbyMonstersArg( val entity: Player, val pos: BlockPos, val vanillaResult: Boolean )
 ```
 
-附近的怪物在睡觉时检查的争论。
+Argument for nearby monsters check during sleeping.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 玩家试图睡觉 |
-| `pos` | 床的位置 |
-| `vanillaResult` | 本次检查的原版游戏结果 |
+| `entity` | The player attempting to sleep |
+| `pos` | The position of the bed |
+| `vanillaResult` | The vanilla game's result for this check |
 
 </ApiMemberCard>
 
@@ -744,13 +755,13 @@ data class AllowNearbyMonstersArg( val entity: Player, val pos: BlockPos, val va
 data class AllowResettingTimeArg(val player: Player)
 ```
 
-时间重置津贴检查的参数。
+Argument for time reset allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家尝试重置时间 |
+| `player` | The player attempting to reset the time |
 
 </ApiMemberCard>
 
@@ -769,15 +780,15 @@ data class AllowResettingTimeArg(val player: Player)
 data class ModifySleepingDirectionArg( val entity: LivingEntity, val pos: BlockPos, val direction: Direction? )
 ```
 
-改变睡眠方向的争论。
+Argument for sleeping direction modification.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 实体正在睡觉 |
-| `pos` | 床的位置 |
-| `direction` | 实体睡觉时所面对的方向 |
+| `entity` | The entity sleeping |
+| `pos` | The position of the bed |
+| `direction` | The direction the entity is facing while sleeping |
 
 </ApiMemberCard>
 
@@ -796,14 +807,14 @@ data class ModifySleepingDirectionArg( val entity: LivingEntity, val pos: BlockP
 data class AllowSettingSpawnArg( val entity: LivingEntity, val pos: BlockPos )
 ```
 
-生成点设置余量的参数。
+Argument for spawn point setting allowance.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 正在设置其生成点的实体 |
-| `pos` | 生成点的位置 |
+| `entity` | The entity whose spawn point is being set |
+| `pos` | The position of the spawn point |
 
 </ApiMemberCard>
 
@@ -822,16 +833,16 @@ data class AllowSettingSpawnArg( val entity: LivingEntity, val pos: BlockPos )
 data class SetBedOccupationStateArg( val entity: LivingEntity, val pos: BlockPos, val state: BlockState, val occupied: Boolean )
 ```
 
-床位占用状态改变的争论。
+Argument for bed occupation state change.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 占据床的实体 |
-| `pos` | 床的位置 |
-| `state` | 床的BlockState |
-| `occupied` | 床位现在是否被占用 |
+| `entity` | The entity occupying the bed |
+| `pos` | The position of the bed |
+| `state` | The BlockState of the bed |
+| `occupied` | Whether the bed is now occupied |
 
 </ApiMemberCard>
 
@@ -850,16 +861,16 @@ data class SetBedOccupationStateArg( val entity: LivingEntity, val pos: BlockPos
 data class ModifyWakeUpPositionArg( val entity: LivingEntity, val sleepingPos: BlockPos, val bedState: BlockState, val wakeUpPos: Vec3? )
 ```
 
-唤醒位置修改的参数。
+Argument for wake-up position modification.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 实体苏醒 |
-| `sleepingPos` | 实体睡觉的位置 |
-| `bedState` | 床的BlockState |
-| `wakeUpPos` | 计算出的唤醒位置（可以修改） |
+| `entity` | The entity waking up |
+| `sleepingPos` | The position where the entity was sleeping |
+| `bedState` | The BlockState of the bed |
+| `wakeUpPos` | The calculated wake-up position (may be modified) |
 
 </ApiMemberCard>
 
@@ -878,13 +889,13 @@ data class ModifyWakeUpPositionArg( val entity: LivingEntity, val sleepingPos: B
 data class ItemUseOnArg(val context: UseOnContext)
 ```
 
-块上下文中物品使用的参数。
+Argument for item use on block context.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `context` | 包含所有交互细节的UseOnContext |
+| `context` | The UseOnContext containing all interaction details |
 
 </ApiMemberCard>
 
@@ -903,15 +914,15 @@ data class ItemUseOnArg(val context: UseOnContext)
 data class ItemUseArg( val world: Level, val player: Player, val hand: InteractionHand )
 ```
 
-物品使用事件的参数。
+Argument for item use event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `world` | 使用该物品的世界 |
-| `player` | 使用该物品的玩家 |
-| `hand` | 拿着物品的手 |
+| `world` | The Level where the item is being used |
+| `player` | The player using the item |
+| `hand` | The hand holding the item |
 
 </ApiMemberCard>
 
@@ -930,15 +941,15 @@ data class ItemUseArg( val world: Level, val player: Player, val hand: Interacti
 data class LootTableReplaceArg( val key: ResourceKey<LootTable>, val original: LootTable, val registries: HolderLookup.Provider )
 ```
 
-战利品表替换事件的参数。
+Argument for loot table replacement event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `key` | 战利品表的ResourceKey |
-| `original` | 原版LootTable |
-| `registries` | 注册表查找提供程序 |
+| `key` | The ResourceKey of the loot table |
+| `original` | The original LootTable |
+| `registries` | The registry lookup provider |
 
 </ApiMemberCard>
 
@@ -957,15 +968,15 @@ data class LootTableReplaceArg( val key: ResourceKey<LootTable>, val original: L
 data class LootTableModifyArg( val key: ResourceKey<LootTable>, val tableBuilder: LootTable.Builder, val registries: HolderLookup.Provider )
 ```
 
-战利品表修改事件的参数。
+Argument for loot table modification event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `key` | 战利品表的ResourceKey |
-| `tableBuilder` | LootTable.Builder 用于修改 |
-| `registries` | 注册表查找提供程序 |
+| `key` | The ResourceKey of the loot table |
+| `tableBuilder` | The LootTable.Builder for modification |
+| `registries` | The registry lookup provider |
 
 </ApiMemberCard>
 
@@ -984,14 +995,14 @@ data class LootTableModifyArg( val key: ResourceKey<LootTable>, val tableBuilder
 data class LootTableAllLoadArg( val resourceManager: ResourceManager, val lootDataManager: Registry<LootTable> )
 ```
 
-所有战利品表加载事件的参数。
+Argument for all loot tables load event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `resourceManager` | 资源管理器 |
-| `lootDataManager` | 战利品数据管理器注册表 |
+| `resourceManager` | The resource manager |
+| `lootDataManager` | The loot data manager registry |
 
 </ApiMemberCard>
 
@@ -1010,15 +1021,15 @@ data class LootTableAllLoadArg( val resourceManager: ResourceManager, val lootDa
 data class LootTableModifyDropsArg( val table: Holder<LootTable>, val context: LootContext, val drops: List<ItemStack> )
 ```
 
-战利品表的参数会删除修改。
+Argument for loot table drops modification.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `table` | 战利品桌持有者 |
-| `context` | 掉落的战利品背景 |
-| `drops` | 掉落ItemStacks列表（可能会修改） |
+| `table` | The loot table holder |
+| `context` | The loot context for the drop |
+| `drops` | The list of dropped ItemStacks (may be modified) |
 
 </ApiMemberCard>
 
@@ -1037,17 +1048,17 @@ data class LootTableModifyDropsArg( val table: Holder<LootTable>, val context: L
 data class PlayerAttackBlockArg( val player: Player, val world: Level, val hand: InteractionHand, val pos: BlockPos, val direction: Direction, )
 ```
 
-玩家攻击阻止事件的参数。
+Argument for player attack block event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 攻击方块的玩家 |
-| `world` | 包含方块的世界 |
-| `hand` | 用来攻击的手 |
-| `pos` | 被攻击方块的位置 |
-| `direction` | 被攻击的脸 |
+| `player` | The player attacking the block |
+| `world` | The Level containing the block |
+| `hand` | The hand used to attack |
+| `pos` | The position of the block being attacked |
+| `direction` | The face being attacked |
 
 </ApiMemberCard>
 
@@ -1066,17 +1077,17 @@ data class PlayerAttackBlockArg( val player: Player, val world: Level, val hand:
 data class PlayerAttackEntityArg( val player: Player, val world: Level, val hand: InteractionHand, val entity: Entity, val hitResult: EntityHitResult? )
 ```
 
-玩家攻击实体事件的参数。
+Argument for player attack entity event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家进攻 |
-| `world` | 攻击发生的世界 |
-| `hand` | 用来攻击的手 |
-| `entity` | 被攻击的实体 |
-| `hitResult` | 实体命中结果 |
+| `player` | The player attacking |
+| `world` | The Level where the attack occurs |
+| `hand` | The hand used to attack |
+| `entity` | The entity being attacked |
+| `hitResult` | The entity hit result |
 
 </ApiMemberCard>
 
@@ -1095,16 +1106,16 @@ data class PlayerAttackEntityArg( val player: Player, val world: Level, val hand
 data class PlayerUseBlockArg( val player: Player, val world: Level, val hand: InteractionHand, val hitResult: BlockHitResult )
 ```
 
-玩家使用方方块事件的参数。
+Argument for player use block event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家互动 |
-| `world` | 包含方块的世界 |
-| `hand` | 用于交互的手 |
-| `hitResult` | 区块命中结果 |
+| `player` | The player interacting |
+| `world` | The Level containing the block |
+| `hand` | The hand used for interaction |
+| `hitResult` | The block hit result |
 
 </ApiMemberCard>
 
@@ -1123,17 +1134,17 @@ data class PlayerUseBlockArg( val player: Player, val world: Level, val hand: In
 data class PlayerUseEntityArg( val player: Player, val world: Level, val hand: InteractionHand, val entity: Entity, val hitResult: EntityHitResult? )
 ```
 
-玩家使用实体事件的参数。
+Argument for player use entity event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家互动 |
-| `world` | 包含实体的世界 |
-| `hand` | 用于交互的手 |
-| `entity` | 与之交互的实体 |
-| `hitResult` | 实体命中结果 |
+| `player` | The player interacting |
+| `world` | The Level containing the entity |
+| `hand` | The hand used for interaction |
+| `entity` | The entity being interacted with |
+| `hitResult` | The entity hit result |
 
 </ApiMemberCard>
 
@@ -1152,15 +1163,15 @@ data class PlayerUseEntityArg( val player: Player, val world: Level, val hand: I
 data class PlayerUseItemArg( val player: Player, val world: Level, val hand: InteractionHand )
 ```
 
-玩家使用物品事件的参数。
+Argument for player use item event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 使用该物品的玩家 |
-| `world` | 使用该物品的等级 |
-| `hand` | 拿着物品的手 |
+| `player` | The player using the item |
+| `world` | The Level where the item is used |
+| `hand` | The hand holding the item |
 
 </ApiMemberCard>
 
@@ -1179,16 +1190,16 @@ data class PlayerUseItemArg( val player: Player, val world: Level, val hand: Int
 data class PlayerPickFromBlockArg( val player: ServerPlayer, val pos: BlockPos, val state: BlockState, val includeData: Boolean )
 ```
 
-玩家选择区方块事件的参数。
+Argument for player pick block event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家拾取方块 |
-| `pos` | 被拾取的块的位置 |
-| `state` | 区块的BlockState |
-| `includeData` | 是否应包含方块实体数据 |
+| `player` | The player picking the block |
+| `pos` | The position of the block being picked |
+| `state` | The BlockState of the block |
+| `includeData` | Whether block entity data should be included |
 
 </ApiMemberCard>
 
@@ -1207,15 +1218,15 @@ data class PlayerPickFromBlockArg( val player: ServerPlayer, val pos: BlockPos, 
 data class PlayerPickFromEntityArg( val player: ServerPlayer, val entity: Entity, val includeData: Boolean )
 ```
 
-玩家选择实体事件的参数。
+Argument for player pick entity event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家选择实体 |
-| `entity` | 被选取的实体 |
-| `includeData` | 是否应包含实体数据 |
+| `player` | The player picking the entity |
+| `entity` | The entity being picked |
+| `includeData` | Whether entity data should be included |
 
 </ApiMemberCard>
 
@@ -1234,16 +1245,16 @@ data class PlayerPickFromEntityArg( val player: ServerPlayer, val entity: Entity
 data class AfterKilledOtherEntityArg( val world: ServerLevel, val entity: Entity, val killedEntity: LivingEntity, val source: DamageSource )
 ```
 
-实体杀死另一个实体事件后的参数。
+Argument for after entity killed another entity event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `world` | 发生杀戮的ServerLevel |
-| `entity` | 杀手实体 |
-| `killedEntity` | 被杀死的实体 |
-| `source` | 造成死亡的伤害源 |
+| `world` | The ServerLevel where the kill occurred |
+| `entity` | The killer entity |
+| `killedEntity` | The entity that was killed |
+| `source` | The damage source that caused the death |
 
 </ApiMemberCard>
 
@@ -1262,16 +1273,16 @@ data class AfterKilledOtherEntityArg( val world: ServerLevel, val entity: Entity
 data class AfterEntityChangeLevelArg( val originalEntity: Entity, val destinationEntity: Entity, val originalLevel: ServerLevel, val destinationLevel: ServerLevel )
 ```
 
-实体世界更改事件的参数。
+Argument for entity level change event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `originalEntity` | 等级变更前的实体 |
-| `destinationEntity` | 等级变更后的实体 |
-| `originalLevel` | 实体所在的ServerLevel |
-| `destinationLevel` | 实体现在所在的ServerLevel |
+| `originalEntity` | The entity before level change |
+| `destinationEntity` | The entity after level change |
+| `originalLevel` | The ServerLevel the entity was in |
+| `destinationLevel` | The ServerLevel the entity is now in |
 
 </ApiMemberCard>
 
@@ -1290,15 +1301,15 @@ data class AfterEntityChangeLevelArg( val originalEntity: Entity, val destinatio
 data class AfterPlayerChangeLevelArg( val player: ServerPlayer, val originalLevel: ServerLevel, val destinationLevel: ServerLevel )
 ```
 
-玩家等级变更事件的争论。
+Argument for player level change event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 改变等级的ServerPlayer |
-| `originalLevel` | 玩家所在的ServerLevel |
-| `destinationLevel` | 玩家现在所在的ServerLevel |
+| `player` | The ServerPlayer who changed level |
+| `originalLevel` | The ServerLevel the player was in |
+| `destinationLevel` | The ServerLevel the player is now in |
 
 </ApiMemberCard>
 
@@ -1317,15 +1328,15 @@ data class AfterPlayerChangeLevelArg( val player: ServerPlayer, val originalLeve
 data class AllowDamageArg( val entity: LivingEntity, val source: DamageSource, val amount: Float )
 ```
 
-损害赔偿检查的论据。
+Argument for damage allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 可能受到损害的实体 |
-| `source` | 伤害来源 |
-| `amount` | 伤害量 |
+| `entity` | The entity potentially receiving damage |
+| `source` | The damage source |
+| `amount` | The damage amount |
 
 </ApiMemberCard>
 
@@ -1344,17 +1355,17 @@ data class AllowDamageArg( val entity: LivingEntity, val source: DamageSource, v
 data class AfterDamageArg( val entity: LivingEntity, val source: DamageSource, val initialDamage: Float, val finalDamage: Float, val handled: Boolean )
 ```
 
-损坏事件后的论证。
+Argument for after damage event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 受到伤害的实体 |
-| `source` | 伤害来源 |
-| `initialDamage` | 减少前的伤害量 |
-| `finalDamage` | 减少后的伤害量 |
-| `handled` | 损害是否得到处理 |
+| `entity` | The entity that received damage |
+| `source` | The damage source |
+| `initialDamage` | The damage amount before reductions |
+| `finalDamage` | The damage amount after reductions |
+| `handled` | Whether the damage was handled |
 
 </ApiMemberCard>
 
@@ -1373,15 +1384,15 @@ data class AfterDamageArg( val entity: LivingEntity, val source: DamageSource, v
 data class AllowDeathArg( val entity: LivingEntity, val source: DamageSource, val amount: Float )
 ```
 
-死亡津贴检查的论据。
+Argument for death allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 该实体可能死亡 |
-| `source` | 造成死亡的伤害源 |
-| `amount` | 伤害量 |
+| `entity` | The entity potentially dying |
+| `source` | The damage source causing death |
+| `amount` | The damage amount |
 
 </ApiMemberCard>
 
@@ -1400,14 +1411,14 @@ data class AllowDeathArg( val entity: LivingEntity, val source: DamageSource, va
 data class AfterDeathArg( val entity: LivingEntity, val source: DamageSource )
 ```
 
-死后事件的论证。
+Argument for after death event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 死亡的实体 |
-| `source` | 造成死亡的伤害源 |
+| `entity` | The entity that died |
+| `source` | The damage source that caused death |
 
 </ApiMemberCard>
 
@@ -1426,15 +1437,15 @@ data class AfterDeathArg( val entity: LivingEntity, val source: DamageSource )
 data class MobConversionArg( val oldEntity: Mob, val newEntity: Mob, val keepEquipment: ConversionParams? )
 ```
 
-生物转换事件的参数。
+Argument for mob conversion event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `oldEntity` | 转换前的原始 Mob |
-| `newEntity` | 转换后的新Mob |
-| `keepEquipment` | 转换期间设备保留的参数 |
+| `oldEntity` | The original Mob before conversion |
+| `newEntity` | The new Mob after conversion |
+| `keepEquipment` | Parameters for equipment retention during conversion |
 
 </ApiMemberCard>
 
@@ -1453,15 +1464,15 @@ data class MobConversionArg( val oldEntity: Mob, val newEntity: Mob, val keepEqu
 data class AllowChatMessageArg( val message: PlayerChatMessage, val sender: ServerPlayer, val params: Bound )
 ```
 
-聊天消息津贴检查的参数。
+Argument for chat message allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `message` | 正在发送的PlayerChatMessage |
-| `sender` | 发送消息的ServerPlayer |
-| `params` | 聊天类型绑定参数 |
+| `message` | The PlayerChatMessage being sent |
+| `sender` | The ServerPlayer sending the message |
+| `params` | The chat type bound parameters |
 
 </ApiMemberCard>
 
@@ -1480,15 +1491,15 @@ data class AllowChatMessageArg( val message: PlayerChatMessage, val sender: Serv
 data class AllowGameMessageArg( val server: MinecraftServer, val message: Component, val overlay: Boolean )
 ```
 
-游戏消息津贴检查的参数。
+Argument for game message allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `server` | MinecraftServer实例 |
-| `message` | 消息组件 |
-| `overlay` | 消息是否应显示为叠加层 |
+| `server` | The MinecraftServer instance |
+| `message` | The message Component |
+| `overlay` | Whether the message should show as overlay |
 
 </ApiMemberCard>
 
@@ -1507,15 +1518,15 @@ data class AllowGameMessageArg( val server: MinecraftServer, val message: Compon
 data class AllowCommandMessageArg( val message: PlayerChatMessage, val source: CommandSourceStack, val params: Bound )
 ```
 
-命令消息允许检查的参数。
+Argument for command message allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `message` | 命令中的PlayerChatMessage |
-| `source` | 执行命令的CommandSourceStack |
-| `params` | 聊天类型绑定参数 |
+| `message` | The PlayerChatMessage from command |
+| `source` | The CommandSourceStack executing the command |
+| `params` | The chat type bound parameters |
 
 </ApiMemberCard>
 
@@ -1534,15 +1545,15 @@ data class AllowCommandMessageArg( val message: PlayerChatMessage, val source: C
 data class ChatMessageArg( val message: PlayerChatMessage, val sender: ServerPlayer, val params: Bound )
 ```
 
-聊天消息事件的参数。
+Argument for chat message event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `message` | 正在发送的PlayerChatMessage |
-| `sender` | 发送消息的ServerPlayer |
-| `params` | 聊天类型绑定参数 |
+| `message` | The PlayerChatMessage being sent |
+| `sender` | The ServerPlayer sending the message |
+| `params` | The chat type bound parameters |
 
 </ApiMemberCard>
 
@@ -1561,15 +1572,15 @@ data class ChatMessageArg( val message: PlayerChatMessage, val sender: ServerPla
 data class GameMessageArg( val server: MinecraftServer, val message: Component, val overlay: Boolean )
 ```
 
-游戏消息事件的参数。
+Argument for game message event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `server` | MinecraftServer实例 |
-| `message` | 消息组件 |
-| `overlay` | 消息是否显示为叠加 |
+| `server` | The MinecraftServer instance |
+| `message` | The message Component |
+| `overlay` | Whether the message shows as overlay |
 
 </ApiMemberCard>
 
@@ -1588,15 +1599,15 @@ data class GameMessageArg( val server: MinecraftServer, val message: Component, 
 data class CommandMessageArg( val message: PlayerChatMessage, val source: CommandSourceStack, val params: Bound )
 ```
 
-命令消息事件的参数。
+Argument for command message event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `message` | 命令中的PlayerChatMessage |
-| `source` | 执行命令的CommandSourceStack |
-| `params` | 聊天类型绑定参数 |
+| `message` | The PlayerChatMessage from command |
+| `source` | The CommandSourceStack executing the command |
+| `params` | The chat type bound parameters |
 
 </ApiMemberCard>
 
@@ -1615,13 +1626,13 @@ data class CommandMessageArg( val message: PlayerChatMessage, val source: Comman
 data class PlayerArg(val player: ServerPlayer)
 ```
 
-与玩家相关的事件的参数。
+Argument for player-related events.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 参与该事件的ServerPlayer |
+| `player` | The ServerPlayer involved in the event |
 
 </ApiMemberCard>
 
@@ -1640,15 +1651,15 @@ data class PlayerArg(val player: ServerPlayer)
 data class ServerPlayerAfterRespawnArg( val oldPlayer: ServerPlayer, val newPlayer: ServerPlayer, val alive: Boolean )
 ```
 
-玩家重生事件的参数。
+Argument for player respawn event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `oldPlayer` | 重生前的ServerPlayer |
-| `newPlayer` | 重生后的ServerPlayer |
-| `alive` | 玩家重生前是否还活着 |
+| `oldPlayer` | The ServerPlayer before respawn |
+| `newPlayer` | The ServerPlayer after respawn |
+| `alive` | Whether the player was alive before respawn |
 
 </ApiMemberCard>
 
@@ -1667,15 +1678,15 @@ data class ServerPlayerAfterRespawnArg( val oldPlayer: ServerPlayer, val newPlay
 data class ServerPlayerAllowDeathArg( val player: ServerPlayer, val damageSource: DamageSource, val damageAmount: Float )
 ```
 
-玩家死亡津贴检查的论据。
+Argument for player death allowance check.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 潜在死亡的ServerPlayer |
-| `damageSource` | 造成死亡的伤害源 |
-| `damageAmount` | 伤害量 |
+| `player` | The ServerPlayer potentially dying |
+| `damageSource` | The damage source causing death |
+| `damageAmount` | The damage amount |
 
 </ApiMemberCard>
 
@@ -1694,15 +1705,15 @@ data class ServerPlayerAllowDeathArg( val player: ServerPlayer, val damageSource
 data class ServerPlayerCopyArg( val oldPlayer: ServerPlayer, val newPlayer: ServerPlayer, val alive: Boolean )
 ```
 
-玩家复制事件的参数（维度变化等）。
+Argument for player copy event (dimension change, etc.).
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `oldPlayer` | 原版ServerPlayer |
-| `newPlayer` | 新的ServerPlayer副本 |
-| `alive` | 副本期间玩家是否还活着 |
+| `oldPlayer` | The original ServerPlayer |
+| `newPlayer` | The new ServerPlayer copy |
+| `alive` | Whether the player was alive during copy |
 
 </ApiMemberCard>
 
@@ -1721,16 +1732,16 @@ data class ServerPlayerCopyArg( val oldPlayer: ServerPlayer, val newPlayer: Serv
 data class AnimalTameArg( val animal: Animal, val tamer: Player ): CancellableEventArg()
 ```
 
-动物驯服事件的论证。
+Argument for animal tame event.
 
-可以取消以防止驯服。
+Can be cancelled to prevent taming.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `animal` | 被驯服的动物 |
-| `tamer` | 玩家驯服动物 |
+| `animal` | The Animal being tamed |
+| `tamer` | The Player taming the animal |
 
 </ApiMemberCard>
 
@@ -1749,17 +1760,17 @@ data class AnimalTameArg( val animal: Animal, val tamer: Player ): CancellableEv
 data class BabySpawnArg( val parentA: LivingEntity, val parentB: LivingEntity, val child: AgeableMob? ): CancellableEventArg()
 ```
 
-婴儿出生事件的争论。
+Argument for baby spawn event.
 
-可以取消以防止婴儿产卵。
+Can be cancelled to prevent baby spawning.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `parentA` | 第一父母LivingEntity |
-| `parentB` | 第二个父母LivingEntity |
-| `child` | 婴儿AgeableMob（可能为空） |
+| `parentA` | The first parent LivingEntity |
+| `parentB` | The second parent LivingEntity |
+| `child` | The baby AgeableMob (may be null) |
 
 </ApiMemberCard>
 
@@ -1778,15 +1789,15 @@ data class BabySpawnArg( val parentA: LivingEntity, val parentB: LivingEntity, v
 data class CriticalHitArg( val player: Player, val target: Entity, val isVanillaCritical: Boolean )
 ```
 
-严重命中事件的参数。
+Argument for critical hit event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 发起攻击的玩家 |
-| `target` | 被攻击的实体 |
-| `isVanillaCritical` | 香草是否认为这是一个重击 |
+| `player` | The Player making the attack |
+| `target` | The Entity being attacked |
+| `isVanillaCritical` | Whether vanilla considers this a critical hit |
 
 </ApiMemberCard>
 
@@ -1805,15 +1816,15 @@ data class CriticalHitArg( val player: Player, val target: Entity, val isVanilla
 data class PlayerWakeUpArg( val player: Player, val wakeImmediately: Boolean, val updateLevelList: Boolean )
 ```
 
-玩家唤醒事件的参数。
+Argument for player wake up event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家醒来 |
-| `wakeImmediately` | 是否立即醒来 |
-| `updateLevelList` | 是否更新世界列表 |
+| `player` | The Player waking up |
+| `wakeImmediately` | Whether to wake immediately |
+| `updateLevelList` | Whether to update the level list |
 
 </ApiMemberCard>
 
@@ -1832,21 +1843,21 @@ data class PlayerWakeUpArg( val player: Player, val wakeImmediately: Boolean, va
 data class EntityTeleportArg( val entity: Entity, val fromX: Double, val fromY: Double, val fromZ: Double, val toX: Double, val toY: Double, val toZ: Double ): CancellableEventArg()
 ```
 
-实体传送事件的参数。
+Argument for entity teleport event.
 
-可以取消以防止传送。
+Can be cancelled to prevent teleportation.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 实体传送 |
-| `fromX` | 原始X坐标 |
-| `fromY` | 原始Y坐标 |
-| `fromZ` | 原始Z坐标 |
-| `toX` | 目标X坐标 |
-| `toY` | 目标Y坐标 |
-| `toZ` | 目标Z坐标 |
+| `entity` | The Entity teleporting |
+| `fromX` | The original X coordinate |
+| `fromY` | The original Y coordinate |
+| `fromZ` | The original Z coordinate |
+| `toX` | The destination X coordinate |
+| `toY` | The destination Y coordinate |
+| `toZ` | The destination Z coordinate |
 
 </ApiMemberCard>
 
@@ -1865,16 +1876,16 @@ data class EntityTeleportArg( val entity: Entity, val fromX: Double, val fromY: 
 data class EndermanAngerArg( val enderman: EnderMan, val player: Player ): CancellableEventArg()
 ```
 
-末影人愤怒事件的争论。
+Argument for enderman anger event.
 
-可以取消以防止末影人生气。
+Can be cancelled to prevent the enderman from becoming angry.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `enderman` | EnderMan 生气了 |
-| `player` | 末影人的目标玩家 |
+| `enderman` | The EnderMan becoming angry |
+| `player` | The Player the enderman is targeting |
 
 </ApiMemberCard>
 
@@ -1893,16 +1904,16 @@ data class EndermanAngerArg( val enderman: EnderMan, val player: Player ): Cance
 data class ExplosionStartArg( val level: Level, val explosion: Explosion ): CancellableEventArg()
 ```
 
-爆炸启动事件的参数。
+Argument for explosion start event.
 
-可以取消以防止爆炸。
+Can be cancelled to prevent the explosion.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 爆炸开始的水平 |
-| `explosion` | 爆炸实例 |
+| `level` | The Level where the explosion is starting |
+| `explosion` | The Explosion instance |
 
 </ApiMemberCard>
 
@@ -1921,15 +1932,15 @@ data class ExplosionStartArg( val level: Level, val explosion: Explosion ): Canc
 data class ExplosionDetonateArg( val level: Level, val explosion: Explosion, val affectedEntities: List<Entity> )
 ```
 
-爆炸引爆事件的争论。
+Argument for explosion detonate event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 爆炸发生的水平 |
-| `explosion` | 爆炸实例 |
-| `affectedEntities` | 受爆炸影响的实体列表 |
+| `level` | The Level where the explosion is detonating |
+| `explosion` | The Explosion instance |
+| `affectedEntities` | List of entities affected by the explosion |
 
 </ApiMemberCard>
 
@@ -1948,14 +1959,14 @@ data class ExplosionDetonateArg( val level: Level, val explosion: Explosion, val
 data class ItemTossArg( val player: Player, val item: ItemEntity )
 ```
 
-物品抛掷事件的参数。
+Argument for item toss event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家扔物品 |
-| `item` | 被抛掷的ItemEntity |
+| `player` | The Player tossing the item |
+| `item` | The ItemEntity being tossed |
 
 </ApiMemberCard>
 
@@ -1974,15 +1985,15 @@ data class ItemTossArg( val player: Player, val item: ItemEntity )
 data class PlayerDestroyItemArg( val player: Player, val item: ItemStack, val hand: InteractionHand?
 ```
 
-物品销毁事件的参数。
+Argument for item destruction event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 物品被毁坏的玩家 |
-| `item` | 被摧毁的ItemStack |
-| `hand` | 该物品所在的手（可能为空） |
+| `player` | The Player whose item was destroyed |
+| `item` | The ItemStack that was destroyed |
+| `hand` | The hand the item was in (may be null) |
 
 </ApiMemberCard>
 
@@ -2001,18 +2012,18 @@ data class PlayerDestroyItemArg( val player: Player, val item: ItemStack, val ha
 data class LivingUseItemStartArg( val entity: LivingEntity, val item: ItemStack, val hand: InteractionHand, val duration: Int ): CancellableEventArg()
 ```
 
-物品使用开始事件的参数。
+Argument for item use start event.
 
-可以取消以防止物品使用。
+Can be cancelled to prevent item use.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | LivingEntity开始使用该物品 |
-| `item` | 正在使用的ItemStack |
-| `hand` | 拿着物品的手 |
-| `duration` | 初始使用持续时间（以tick为单位） |
+| `entity` | The LivingEntity starting to use the item |
+| `item` | The ItemStack being used |
+| `hand` | The hand holding the item |
+| `duration` | The initial use duration in ticks |
 
 </ApiMemberCard>
 
@@ -2031,15 +2042,15 @@ data class LivingUseItemStartArg( val entity: LivingEntity, val item: ItemStack,
 data class LivingUseItemTickArg( val entity: LivingEntity, val item: ItemStack, var duration: Int ): CancellableEventArg()
 ```
 
-物品使用勾选事件的参数。
+Argument for item use tick event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 使用该物品的LivingEntity |
-| `item` | 正在使用的ItemStack |
-| `duration` | 剩余使用时长（可修改） |
+| `entity` | The LivingEntity using the item |
+| `item` | The ItemStack being used |
+| `duration` | The remaining use duration (modifiable) |
 
 </ApiMemberCard>
 
@@ -2058,15 +2069,15 @@ data class LivingUseItemTickArg( val entity: LivingEntity, val item: ItemStack, 
 data class LivingUseItemStopArg( val entity: LivingEntity, val item: ItemStack, val duration: Int ): CancellableEventArg()
 ```
 
-物品使用停止事件的参数。
+Argument for item use stop event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 停止使用该物品的LivingEntity |
-| `item` | 正在使用的ItemStack |
-| `duration` | 停止时剩余使用时间 |
+| `entity` | The LivingEntity that stopped using the item |
+| `item` | The ItemStack that was being used |
+| `duration` | The remaining use duration when stopped |
 
 </ApiMemberCard>
 
@@ -2085,16 +2096,16 @@ data class LivingUseItemStopArg( val entity: LivingEntity, val item: ItemStack, 
 data class LivingUseItemFinishArg( val entity: LivingEntity, val item: ItemStack, val duration: Int, var result: ItemStack )
 ```
 
-物品使用完成事件的参数。
+Argument for item use finish event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 使用完该物品的LivingEntity |
-| `item` | 使用的ItemStack |
-| `duration` | 总使用时长（以tick为单位） |
-| `result` | 结果ItemStack（可修改） |
+| `entity` | The LivingEntity that finished using the item |
+| `item` | The ItemStack that was used |
+| `duration` | The total use duration in ticks |
+| `result` | The resulting ItemStack (modifiable) |
 
 </ApiMemberCard>
 
@@ -2113,16 +2124,16 @@ data class LivingUseItemFinishArg( val entity: LivingEntity, val item: ItemStack
 data class NeoPlayerAttackEntityArg( val player: Player, val target: Entity ) : CancellableEventArg()
 ```
 
-NeoForge 玩家攻击实体事件的参数。
+Argument for NeoForge player attack entity event.
 
-可以取消以防止攻击。
+Can be cancelled to prevent the attack.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家进攻 |
-| `target` | 被攻击的实体 |
+| `player` | The Player attacking |
+| `target` | The Entity being attacked |
 
 </ApiMemberCard>
 
@@ -2141,17 +2152,17 @@ NeoForge 玩家攻击实体事件的参数。
 data class NeoPlayerInteractEntityArg( val player: Player, val entity: Entity, val hand: InteractionHand ) : CancellableEventArg()
 ```
 
-NeoForge 玩家交互实体事件的参数。
+Argument for NeoForge player interact entity event.
 
-可以取消以防止交互。
+Can be cancelled to prevent the interaction.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家互动 |
-| `entity` | 正在与之交互的实体 |
-| `hand` | 用于交互的手 |
+| `player` | The Player interacting |
+| `entity` | The Entity being interacted with |
+| `hand` | The hand used for interaction |
 
 </ApiMemberCard>
 
@@ -2170,18 +2181,18 @@ NeoForge 玩家交互实体事件的参数。
 data class NeoPlayerInteractBlockArg( val player: Player, val pos: BlockPos, val face: Direction?, val hand: InteractionHand ) : CancellableEventArg()
 ```
 
-NeoForge 玩家交互方块事件的参数。
+Argument for NeoForge player interact block event.
 
-可以取消以防止交互。
+Can be cancelled to prevent the interaction.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家互动 |
-| `pos` | 正在与之交互的BlockPos |
-| `face` | 交互的人脸方向 |
-| `hand` | 用于交互的手 |
+| `player` | The Player interacting |
+| `pos` | The BlockPos being interacted with |
+| `face` | The Direction of the face being interacted with |
+| `hand` | The hand used for interaction |
 
 </ApiMemberCard>
 
@@ -2200,16 +2211,16 @@ NeoForge 玩家交互方块事件的参数。
 data class NeoPlayerInteractItemArg( val player: Player, val hand: InteractionHand ) : CancellableEventArg()
 ```
 
-NeoForge 玩家交互物品事件的参数。
+Argument for NeoForge player interact item event.
 
-可以取消以防止交互。
+Can be cancelled to prevent the interaction.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家互动 |
-| `hand` | 拿着物品的手 |
+| `player` | The Player interacting |
+| `hand` | The hand holding the item |
 
 </ApiMemberCard>
 
@@ -2228,17 +2239,17 @@ NeoForge 玩家交互物品事件的参数。
 data class NeoPlayerLeftClickBlockArg( val player: Player, val pos: BlockPos, val face: Direction? ) : CancellableEventArg()
 ```
 
-NeoForge 玩家左键单击阻止事件的参数。
+Argument for NeoForge player left click block event.
 
-可以取消以阻止该操作。
+Can be cancelled to prevent the action.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家左键单击 |
-| `pos` | 被点击的BlockPos |
-| `face` | 被点击的面的方向 |
+| `player` | The Player left-clicking |
+| `pos` | The BlockPos being clicked |
+| `face` | The Direction of the face being clicked |
 
 </ApiMemberCard>
 
@@ -2257,16 +2268,16 @@ NeoForge 玩家左键单击阻止事件的参数。
 data class PlayerXpChangeArg( val player: Player, val amount: Int ): CancellableEventArg()
 ```
 
-玩家XP更改事件的参数。
+Argument for player XP change event.
 
-可以取消以防止 XP 更改。
+Can be cancelled to prevent the XP change.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家收到XP |
-| `amount` | 增加的XP积分数量 |
+| `player` | The Player receiving XP |
+| `amount` | The amount of XP points being added |
 
 </ApiMemberCard>
 
@@ -2285,16 +2296,16 @@ data class PlayerXpChangeArg( val player: Player, val amount: Int ): Cancellable
 data class PlayerXpLevelChangeArg( val player: Player, val levels: Int ): CancellableEventArg()
 ```
 
-玩家XP等级变更事件的参数。
+Argument for player XP level change event.
 
-可以取消以防止世界变化。
+Can be cancelled to prevent the level change.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家接收等级 |
-| `levels` | 正在添加的世界数 |
+| `player` | The Player receiving levels |
+| `levels` | The number of levels being added |
 
 </ApiMemberCard>
 
@@ -2313,16 +2324,16 @@ data class PlayerXpLevelChangeArg( val player: Player, val levels: Int ): Cancel
 data class PlayerPickupXpArg( val player: Player, val orb: ExperienceOrb ): CancellableEventArg()
 ```
 
-玩家拾取 XP 球体事件的参数。
+Argument for player pickup XP orb event.
 
-可以取消以防止取件。
+Can be cancelled to prevent the pickup.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家捡起球体 |
-| `orb` | ExperienceOrb 被拾取 |
+| `player` | The Player picking up the orb |
+| `orb` | The ExperienceOrb being picked up |
 
 </ApiMemberCard>
 
@@ -2341,17 +2352,17 @@ data class PlayerPickupXpArg( val player: Player, val orb: ExperienceOrb ): Canc
 data class LivingHurtArg( val entity: LivingEntity, val source: DamageSource, val amount: Float ): CancellableEventArg()
 ```
 
-对生物体伤害事件的争论。
+Argument for living entity hurt event.
 
-可以取消以防止损坏。
+Can be cancelled to prevent the damage.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | LivingEntity受到伤害 |
-| `source` | 造成伤害的DamageSource |
-| `amount` | 伤害量 |
+| `entity` | The LivingEntity being hurt |
+| `source` | The DamageSource causing the hurt |
+| `amount` | The damage amount |
 
 </ApiMemberCard>
 
@@ -2370,15 +2381,15 @@ data class LivingHurtArg( val entity: LivingEntity, val source: DamageSource, va
 data class NeoLivingDamageArg( val entity: LivingEntity, val source: DamageSource, val amount: Float )
 ```
 
-NeoForge 生命伤害事件的论证。
+Argument for NeoForge living damage event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | LivingEntity受到伤害 |
-| `source` | DamageSource |
-| `amount` | 伤害量 |
+| `entity` | The LivingEntity receiving damage |
+| `source` | The DamageSource |
+| `amount` | The damage amount |
 
 </ApiMemberCard>
 
@@ -2397,14 +2408,14 @@ NeoForge 生命伤害事件的论证。
 data class NeoLivingDeathArg( val entity: LivingEntity, val source: DamageSource )
 ```
 
-NeoForge 活死事件的论证。
+Argument for NeoForge living death event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 死去的LivingEntity |
-| `source` | 导致死亡的DamageSource |
+| `entity` | The LivingEntity that died |
+| `source` | The DamageSource that caused death |
 
 </ApiMemberCard>
 
@@ -2423,17 +2434,17 @@ NeoForge 活死事件的论证。
 data class LivingDropsArg( val entity: LivingEntity, val source: DamageSource, val drops: List<ItemStack> ): CancellableEventArg()
 ```
 
-生物实体掉落事件的争论。
+Argument for living entity drops event.
 
-可以取消以防止掉落。
+Can be cancelled to prevent drops.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | LivingEntity掉落物品 |
-| `source` | 导致掉落的DamageSource |
-| `drops` | ItemStacks 被删除的列表 |
+| `entity` | The LivingEntity dropping items |
+| `source` | The DamageSource that caused the drops |
+| `drops` | The list of ItemStacks being dropped |
 
 </ApiMemberCard>
 
@@ -2452,17 +2463,17 @@ data class LivingDropsArg( val entity: LivingEntity, val source: DamageSource, v
 data class LivingFallArg( val entity: LivingEntity, val distance: Double, val damageMultiplier: Float ): CancellableEventArg()
 ```
 
-生物体坠落事件的论证。
+Argument for living entity fall event.
 
-可以取消以防止坠落损坏。
+Can be cancelled to prevent fall damage.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | LivingEntity坠落 |
-| `distance` | 以方块为单位的坠落距离 |
-| `damageMultiplier` | 伤害倍数 |
+| `entity` | The LivingEntity falling |
+| `distance` | The fall distance in blocks |
+| `damageMultiplier` | The damage multiplier |
 
 </ApiMemberCard>
 
@@ -2482,13 +2493,13 @@ data class LivingFallArg( val entity: LivingEntity, val distance: Double, val da
 value class LivingJumpArg(val entity: LivingEntity)
 ```
 
-生物体跳跃事件的论证。
+Argument for living entity jump event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | LivingEntity跳跃 |
+| `entity` | The LivingEntity jumping |
 
 </ApiMemberCard>
 
@@ -2507,17 +2518,17 @@ value class LivingJumpArg(val entity: LivingEntity)
 data class ServerChatArg( val player: ServerPlayer, val message: String, val component: Component ) : CancellableEventArg()
 ```
 
-服务器聊天事件的参数。
+Argument for server chat event.
 
-可以取消以防止发送消息。
+Can be cancelled to prevent the message from being sent.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 发送消息的ServerPlayer |
-| `message` | 原始消息字符串 |
-| `component` | 消息作为组件 |
+| `player` | The ServerPlayer sending the message |
+| `message` | The raw message string |
+| `component` | The message as a Component |
 
 </ApiMemberCard>
 
@@ -2536,16 +2547,16 @@ data class ServerChatArg( val player: ServerPlayer, val message: String, val com
 data class ShieldBlockArg( val entity: LivingEntity, val source: DamageSource, val blockedDamage: Float, val originalBlockedState: Boolean )
 ```
 
-盾牌阻挡事件的参数。
+Argument for shield block event.
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 用盾牌阻挡LivingEntity |
-| `source` | DamageSource被封锁 |
-| `blockedDamage` | 格挡伤害量 |
-| `originalBlockedState` | 护盾原本是否有阻挡 |
+| `entity` | The LivingEntity blocking with a shield |
+| `source` | The DamageSource being blocked |
+| `blockedDamage` | The amount of damage blocked |
+| `originalBlockedState` | Whether the shield was originally blocking |
 
 </ApiMemberCard>
 
@@ -2564,7 +2575,7 @@ data class ShieldBlockArg( val entity: LivingEntity, val source: DamageSource, v
 data class MobEffectAllowAddArg(val entity: Any, val effect: Any)
 ```
 
-占位符生物效果参数存根
+Placeholder mob effect argument stubs
 
 </ApiMemberCard>
 

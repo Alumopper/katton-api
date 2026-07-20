@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonRecipeApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonRecipeApi.kt"
 >
 Give recipe advancements to players.

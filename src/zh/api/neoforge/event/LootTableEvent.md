@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="neoforge/src/main/kotlin/top/katton/api/event/LootTableEvent.kt"
 >
-NeoForge 平台的战利品表活动。
+NeoForge 平台的战利品表事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;LootTableEvent&quot;,&quot;href&quot;:&quot;#loottableevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;LootTableEvent.onLootTableReplace&quot;,&quot;href&quot;:&quot;#loottableevent-onloottablereplace&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LootTableEvent.onLootTableModify&quot;,&quot;href&quot;:&quot;#loottableevent-onloottablemodify&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LootTableEvent.onLootTableAllLoad&quot;,&quot;href&quot;:&quot;#loottableevent-onloottableallload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;LootTableEvent.onLootTableModifyDrops&quot;,&quot;href&quot;:&quot;#loottableevent-onloottablemodifydrops&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -30,7 +30,7 @@ NeoForge 平台的战利品表活动。
 object LootTableEvent
 ```
 
-NeoForge 平台的战利品表活动。
+NeoForge 平台的战利品表事件。
 
 ### LootTableEvent.onLootTableReplace
 
@@ -48,12 +48,13 @@ NeoForge 平台的战利品表活动。
 @JvmField val onLootTableReplace
 ```
 
-触发事件以完全替换战利品表。
+当需要整体替换战利品表时触发。
 
 ### 返回值
 
-替换 LootTable，或 null 以保留原始值。
-注意：这是 NeoForge 兼容性的占位符。
+返回替换用的 LootTable，或返回 null 以保留原表。
+
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -73,9 +74,9 @@ NeoForge 平台的战利品表活动。
 @JvmField val onLootTableModify
 ```
 
-触发事件以修改战利品表的内容。
-使用它来添加或删除战利品池条目。
-注意：这是 NeoForge 兼容性的占位符。
+当需要修改战利品表内容时触发。
+可用于添加或移除战利品池条目。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -95,9 +96,9 @@ NeoForge 平台的战利品表活动。
 @JvmField val onLootTableAllLoad
 ```
 
-当所有战利品表都已加载时触发事件。
-在所有表都可用后，使用它进行后处理。
-注意：这是 NeoForge 兼容性的占位符。
+当所有战利品表加载完成后触发。
+可用于在全部表可用后进行后处理。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -117,9 +118,9 @@ NeoForge 平台的战利品表活动。
 @JvmField val onLootTableModifyDrops
 ```
 
-触发事件以修改战利品表中的掉落物。
-使用它来自定义实际掉落的物品。
-注意：这是 NeoForge 兼容性的占位符。
+当需要修改战利品表的掉落内容时触发。
+可用于自定义实际掉落的物品。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 

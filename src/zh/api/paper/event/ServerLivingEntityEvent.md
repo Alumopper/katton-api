@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="paper/src/main/kotlin/top/katton/api/event/ServerLivingEntityEvent.kt"
 >
-Paper (Bukkit) 平台的服务器活体事件。
+Paper (Bukkit) 平台的服务端生物实体事件。 此对象提供与生物实体伤害、死亡、摔落伤害以及生物转换相关的事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerLivingEntityEvent&quot;,&quot;href&quot;:&quot;#serverlivingentityevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}]' />
@@ -31,10 +31,8 @@ Paper (Bukkit) 平台的服务器活体事件。
 object ServerLivingEntityEvent
 ```
 
-Paper (Bukkit) 平台的服务器活体事件。
-
-该对象提供与生物体损坏、死亡、
-坠落伤害和生物转换。
+Paper (Bukkit) 平台的服务端生物实体事件。
+此对象提供与生物实体伤害、死亡、摔落伤害以及生物转换相关的事件。
 
 </ApiMemberCard>
 

@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.dpcaller"
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonSlotProviderApi.kt"
 >
-从容器槽中获取物品。
+从容器槽位中获取物品。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;get&quot;,&quot;href&quot;:&quot;#get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;set&quot;,&quot;href&quot;:&quot;#set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;minusAssign&quot;,&quot;href&quot;:&quot;#minusassign&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;plusAssign&quot;,&quot;href&quot;:&quot;#plusassign&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;get&quot;,&quot;href&quot;:&quot;#get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;set&quot;,&quot;href&quot;:&quot;#set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;get&quot;,&quot;href&quot;:&quot;#get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;slots&quot;,&quot;href&quot;:&quot;#slots&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;KattonItemCollection&quot;,&quot;href&quot;:&quot;#kattonitemcollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.get&quot;,&quot;href&quot;:&quot;#kattonitemcollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.get&quot;,&quot;href&quot;:&quot;#kattonitemcollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.KattonItemSlot&quot;,&quot;href&quot;:&quot;#kattonitemcollection-kattonitemslot&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.KattonItemSlotGroup&quot;,&quot;href&quot;:&quot;#kattonitemcollection-kattonitemslotgroup&quot;,&quot;kind&quot;:&quot;Interface&quot;,&quot;kindKey&quot;:&quot;interface&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.KattonItemSlotList&quot;,&quot;href&quot;:&quot;#kattonitemcollection-kattonitemslotlist&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Contents&quot;,&quot;href&quot;:&quot;#kattonitemcollection-contents&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Container&quot;,&quot;href&quot;:&quot;#kattonitemcollection-container&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Hotbar&quot;,&quot;href&quot;:&quot;#kattonitemcollection-hotbar&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Inventory&quot;,&quot;href&quot;:&quot;#kattonitemcollection-inventory&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.EnderChest&quot;,&quot;href&quot;:&quot;#kattonitemcollection-enderchest&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.MobInventory&quot;,&quot;href&quot;:&quot;#kattonitemcollection-mobinventory&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Horse&quot;,&quot;href&quot;:&quot;#kattonitemcollection-horse&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Weapon&quot;,&quot;href&quot;:&quot;#kattonitemcollection-weapon&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Weapon.MainHand&quot;,&quot;href&quot;:&quot;#kattonitemcollection-weapon-mainhand&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Weapon.OffHand&quot;,&quot;href&quot;:&quot;#kattonitemcollection-weapon-offhand&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Armor&quot;,&quot;href&quot;:&quot;#kattonitemcollection-armor&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Armor.Head&quot;,&quot;href&quot;:&quot;#kattonitemcollection-armor-head&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Armor.Chest&quot;,&quot;href&quot;:&quot;#kattonitemcollection-armor-chest&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Armor.Legs&quot;,&quot;href&quot;:&quot;#kattonitemcollection-armor-legs&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;KattonItemCollection.Armor.Feet&quot;,&quot;href&quot;:&quot;#kattonitemcollection-armor-feet&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}]' />
@@ -30,7 +30,7 @@ outline: [2, 2]
 operator fun Container.get(slot: Int): ItemStack
 ```
 
-从容器槽中获取物品。
+从容器槽位中获取物品。
 
 </ApiMemberCard>
 
@@ -49,7 +49,7 @@ operator fun Container.get(slot: Int): ItemStack
 operator fun Container.set(slot: Int, itemStack: ItemStack)
 ```
 
-将物品放入容器槽中。
+将物品设置到容器槽位中。
 
 </ApiMemberCard>
 
@@ -68,7 +68,7 @@ operator fun Container.set(slot: Int, itemStack: ItemStack)
 operator fun Inventory.minusAssign(itemStack: ItemStack)
 ```
 
-从库存中删除一个物品。
+从背包中移除物品。
 
 </ApiMemberCard>
 
@@ -87,7 +87,7 @@ operator fun Inventory.minusAssign(itemStack: ItemStack)
 operator fun Inventory.plusAssign(itemStack: ItemStack)
 ```
 
-将物品添加到库存中。
+向背包添加物品。
 
 </ApiMemberCard>
 
@@ -106,7 +106,7 @@ operator fun Inventory.plusAssign(itemStack: ItemStack)
 operator fun SlotProvider.get(slot: KattonItemCollection.KattonItemSlot): ItemStack?
 ```
 
-从老虎机提供商处以KattonItemSlot获取物品。
+从槽位提供器的 KattonItemSlot 中获取物品。
 
 </ApiMemberCard>
 
@@ -125,7 +125,7 @@ operator fun SlotProvider.get(slot: KattonItemCollection.KattonItemSlot): ItemSt
 operator fun SlotProvider.set(slot: KattonItemCollection.KattonItemSlot, itemStack: ItemStack)
 ```
 
-将一个物品设置到位于 KattonItemSlot 的插槽提供者中。
+将物品设置到槽位提供器的 KattonItemSlot 中。
 
 </ApiMemberCard>
 
@@ -144,7 +144,7 @@ operator fun SlotProvider.set(slot: KattonItemCollection.KattonItemSlot, itemSta
 operator fun Container.get(slots: List<KattonItemCollection.KattonItemSlot>): List<ItemStack?>
 ```
 
-从容器中的多个插槽获取物品。
+从容器的多个槽位中获取物品。
 
 </ApiMemberCard>
 
@@ -163,7 +163,7 @@ operator fun Container.get(slots: List<KattonItemCollection.KattonItemSlot>): Li
 val Container.slots: KattonItemCollection
 ```
 
-用于访问容器插槽的扩展属性。
+用于访问容器槽位的扩展属性。
 
 </ApiMemberCard>
 
@@ -182,13 +182,13 @@ val Container.slots: KattonItemCollection
 class KattonItemCollection(val container: net.minecraft.world.Container)
 ```
 
-具有便捷访问模式的物品槽集合。
+提供便捷访问方式的物品槽位集合。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `container` | 底层容器 |
+| `container` | 底层 Container。 |
 
 ### KattonItemCollection.get
 
@@ -205,7 +205,7 @@ class KattonItemCollection(val container: net.minecraft.world.Container)
 operator fun get(slot: KattonItemSlot): SlotAccess?
 ```
 
-为特定插槽获取SlotAccess。
+获取指定槽位的 SlotAccess。
 
 </ApiMemberCard>
 
@@ -224,7 +224,7 @@ operator fun get(slot: KattonItemSlot): SlotAccess?
 operator fun get(slots: List<KattonItemSlot>): List<SlotAccess?>
 ```
 
-获得多个插槽的SlotAccesses。
+获取多个槽位的 SlotAccess。
 
 </ApiMemberCard>
 
@@ -243,7 +243,7 @@ operator fun get(slots: List<KattonItemSlot>): List<SlotAccess?>
 open class KattonItemSlot( val index: Int )
 ```
 
-按索引表示单个物品槽。
+通过索引表示单个物品槽位。
 
 </ApiMemberCard>
 
@@ -262,7 +262,7 @@ open class KattonItemSlot( val index: Int )
 interface KattonItemSlotGroup
 ```
 
-物品槽组的接口。
+物品槽位组接口。
 
 </ApiMemberCard>
 
@@ -281,7 +281,7 @@ interface KattonItemSlotGroup
 open class KattonItemSlotList( val offset: Int, size: Int ) : Iterable<KattonItemSlot>, KattonItemSlotGroup
 ```
 
-连续物品槽的列表。
+连续物品槽位列表。
 
 </ApiMemberCard>
 
@@ -300,7 +300,7 @@ open class KattonItemSlotList( val offset: Int, size: Int ) : Iterable<KattonIte
 object Contents : KattonItemSlot(0)
 ```
 
-第一个内容槽。
+第一个内容槽位。
 
 </ApiMemberCard>
 
@@ -319,7 +319,7 @@ object Contents : KattonItemSlot(0)
 object Container : KattonItemSlotList(0, 54)
 ```
 
-所有容器槽位 (0-53)。
+全部容器槽位（0-53）。
 
 </ApiMemberCard>
 
@@ -338,7 +338,7 @@ object Container : KattonItemSlotList(0, 54)
 object Hotbar : KattonItemSlotList(0, 9)
 ```
 
-热键槽 (0-8)。
+快捷栏槽位（0-8）。
 
 </ApiMemberCard>
 
@@ -357,7 +357,7 @@ object Hotbar : KattonItemSlotList(0, 9)
 object Inventory : KattonItemSlotList(9, 27)
 ```
 
-主要库存槽位 (9-35)。
+主背包槽位（9-35）。
 
 </ApiMemberCard>
 
@@ -376,7 +376,7 @@ object Inventory : KattonItemSlotList(9, 27)
 object EnderChest : KattonItemSlotList(200, 27)
 ```
 
-末影箱槽位 (200-226)。
+末影箱槽位（200-226）。
 
 </ApiMemberCard>
 
@@ -395,7 +395,7 @@ object EnderChest : KattonItemSlotList(200, 27)
 object MobInventory : KattonItemSlotList(300, 8)
 ```
 
-生物库存槽（300-307）。
+生物背包槽位（300-307）。
 
 </ApiMemberCard>
 
@@ -414,7 +414,7 @@ object MobInventory : KattonItemSlotList(300, 8)
 object Horse : KattonItemSlotList(500, 15)
 ```
 
-马匹库存槽位（500-514）。
+马背包槽位（500-514）。
 
 </ApiMemberCard>
 
@@ -433,7 +433,7 @@ object Horse : KattonItemSlotList(500, 15)
 object Weapon : KattonItemSlotGroup
 ```
 
-武器槽（主手和副手）。
+武器槽位（主手和副手）。
 
 #### KattonItemCollection.Weapon.MainHand
 
@@ -450,7 +450,7 @@ object Weapon : KattonItemSlotGroup
 object MainHand : KattonItemSlot(EquipmentSlot.MAINHAND.getIndex(98))
 ```
 
-主手槽。
+主手槽位。
 
 </ApiMemberCard>
 
@@ -469,7 +469,7 @@ object MainHand : KattonItemSlot(EquipmentSlot.MAINHAND.getIndex(98))
 object OffHand : KattonItemSlot(EquipmentSlot.OFFHAND.getIndex(98))
 ```
 
-副手插槽。
+副手槽位。
 
 </ApiMemberCard>
 
@@ -490,7 +490,7 @@ object OffHand : KattonItemSlot(EquipmentSlot.OFFHAND.getIndex(98))
 object Armor : KattonItemSlotGroup
 ```
 
-装甲槽（头、胸、腿、脚）。
+护甲槽位（头盔、胸甲、护腿、靴子）。
 
 #### KattonItemCollection.Armor.Head
 
@@ -507,7 +507,7 @@ object Armor : KattonItemSlotGroup
 object Head : KattonItemSlot(EquipmentSlot.HEAD.getIndex(100))
 ```
 
-头部装甲槽。
+头盔槽位。
 
 </ApiMemberCard>
 
@@ -526,7 +526,7 @@ object Head : KattonItemSlot(EquipmentSlot.HEAD.getIndex(100))
 object Chest : KattonItemSlot(EquipmentSlot.CHEST.getIndex(100))
 ```
 
-胸部装甲槽。
+胸甲槽位。
 
 </ApiMemberCard>
 
@@ -545,7 +545,7 @@ object Chest : KattonItemSlot(EquipmentSlot.CHEST.getIndex(100))
 object Legs : KattonItemSlot(EquipmentSlot.LEGS.getIndex(100))
 ```
 
-腿部装甲槽。
+护腿槽位。
 
 </ApiMemberCard>
 
@@ -564,7 +564,7 @@ object Legs : KattonItemSlot(EquipmentSlot.LEGS.getIndex(100))
 object Feet : KattonItemSlot(EquipmentSlot.FEET.getIndex(100))
 ```
 
-脚部装甲槽。
+靴子槽位。
 
 </ApiMemberCard>
 

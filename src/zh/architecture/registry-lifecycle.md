@@ -23,9 +23,9 @@ Katton 跟踪 10 个可重载注册表领域：
 
 | 模式 | 行为 |
 |---|---|
-| `RegisterMode.GLOBAL` | 注册一次，不参与重载跟踪。 |
-| `RegisterMode.RELOADABLE` | 按脚本跟踪所有权，并在重载时刷新所有权。 |
-| `RegisterMode.AUTO` | 初始化阶段为 GLOBAL，服务端启动后为 RELOADABLE。 |
+| `RegisterMode.GLOBAL` | 永久注册，只允许在初始化阶段使用，不受重载和世界切换影响。 |
+| `RegisterMode.WORLD` | 在一次世界会话内有效；会保留到 `/katton reload` 之后，并在离开世界时释放。 |
+| `RegisterMode.RELOADABLE` | 按脚本跟踪所有权，并在 `/katton reload` 时刷新所有权。 |
 
 ## 重载语义
 
@@ -38,4 +38,3 @@ stale 条目表示对象仍在 Minecraft 注册表中，但当前没有脚本拥
 ## Paper
 
 Paper 完全禁用注册表修改。连接到 Paper 服务器的原版客户端无法接收 Katton 定义的注册表条目，因此 Paper 脚本应使用原版内容、Bukkit API、数据包修改与事件逻辑。
-

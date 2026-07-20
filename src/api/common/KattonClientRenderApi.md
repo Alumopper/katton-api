@@ -160,7 +160,7 @@ fun registerHudRenderer(id: String, layer: HudRenderLayer, priority: Int = 0, re
 Register (or replace) a HUD renderer by [id], with [layer] and [priority].
 
 Lower priority values are rendered earlier within the same layer.
-Layers are rendered in order: BACKGROUND -> NORMAL -> FOREGROUND
+Layers are rendered in order: BACKGROUND -> NORMAL -> FOREGROUND.
 
 ### Parameters
 
@@ -198,7 +198,7 @@ Remove a HUD renderer by [id].
 
 ### Returns
 
-true if the renderer was found and removed, false otherwise
+if the renderer was found and removed, false otherwise
 
 </ApiMemberCard>
 
@@ -249,7 +249,7 @@ fun registerWorldRenderer(id: String, layer: WorldRenderLayer, priority: Int = 0
 Register (or replace) a world renderer by [id], with [layer] and [priority].
 
 Lower priority values are rendered earlier within the same layer.
-Layers are rendered in order: EARLY -> NORMAL -> LATE
+Layers are rendered in order: EARLY -> NORMAL -> LATE.
 
 ### Parameters
 
@@ -287,7 +287,7 @@ Remove a world-space renderer by [id].
 
 ### Returns
 
-true if the renderer was found and removed, false otherwise
+if the renderer was found and removed, false otherwise
 
 </ApiMemberCard>
 
@@ -396,7 +396,7 @@ Draws text on HUD using current [HudRenderContext].
 
 ### Returns
 
-true if drawing succeeded, false otherwise
+if drawing succeeded, false otherwise
 
 </ApiMemberCard>
 
@@ -430,7 +430,7 @@ Draws a solid rectangle on HUD using current [HudRenderContext].
 
 ### Returns
 
-true if drawing succeeded, false otherwise
+if drawing succeeded, false otherwise
 
 </ApiMemberCard>
 
@@ -468,7 +468,7 @@ Draws a texture region on HUD using current [HudRenderContext].
 
 ### Returns
 
-true if drawing succeeded, false if texture ID was invalid
+if drawing succeeded, false if texture ID was invalid
 
 </ApiMemberCard>
 
@@ -507,7 +507,7 @@ Uses real GPU mesh rendering via VertexConsumer+RenderType.
 
 ### Returns
 
-true if drawing succeeded, false otherwise
+if drawing succeeded, false otherwise
 
 </ApiMemberCard>
 

@@ -7,7 +7,7 @@ outline: [2, 2]
   title="KattonLootTableApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonLootTableApi.kt"
 >
 Get drops for a block as if it were broken with a tool.
@@ -41,7 +41,7 @@ Get drops for a block as if it were broken with a tool.
 
 ### Returns
 
-list of ItemStack drops
+of ItemStack drops
 
 </ApiMemberCard>
 
@@ -71,7 +71,7 @@ Get drops for an entity as if it were killed.
 
 ### Returns
 
-list of ItemStack drops
+of ItemStack drops
 
 </ApiMemberCard>
 
@@ -100,7 +100,7 @@ Generate chest loot from a LootTable.
 
 ### Returns
 
-list of generated ItemStack
+of generated ItemStack
 
 </ApiMemberCard>
 
@@ -131,7 +131,7 @@ Generate fishing loot from a LootTable.
 
 ### Returns
 
-list of generated ItemStack
+of generated ItemStack
 
 </ApiMemberCard>
 

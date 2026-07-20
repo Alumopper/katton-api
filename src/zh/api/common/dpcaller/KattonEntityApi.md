@@ -7,10 +7,10 @@ outline: [2, 2]
   title="KattonEntityApi"
   module="Common"
   module-key="common"
-  package-name="top.katton.api.dpcaller"
+  package-name=""
   source-file="common/src/main/kotlin/top/katton/api/dpcaller/KattonEntityApi.kt"
 >
-获取/设置实体的NBT数据。
+获取或设置 Entity 的 NBT 数据。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;nbt&quot;,&quot;href&quot;:&quot;#nbt&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.all&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-all&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonServerEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonserverentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonLevelEntityCollection.get&quot;,&quot;href&quot;:&quot;#kattonlevelentitycollection-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.contains&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-contains&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.get&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-get&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;KattonEntityAttributeValueMap.set&quot;,&quot;href&quot;:&quot;#kattonentityattributevaluemap-set&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;attributeValues&quot;,&quot;href&quot;:&quot;#attributevalues&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;getAttribute&quot;,&quot;href&quot;:&quot;#getattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;hasAttribute&quot;,&quot;href&quot;:&quot;#hasattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getBaseAttribute&quot;,&quot;href&quot;:&quot;#getbaseattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;setBaseAttribute&quot;,&quot;href&quot;:&quot;#setbaseattribute&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addAttributeModify&quot;,&quot;href&quot;:&quot;#addattributemodify&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeAttributeModify&quot;,&quot;href&quot;:&quot;#removeattributemodify&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;damage&quot;,&quot;href&quot;:&quot;#damage&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addEffect&quot;,&quot;href&quot;:&quot;#addeffect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeEffect&quot;,&quot;href&quot;:&quot;#removeeffect&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;clearEffects&quot;,&quot;href&quot;:&quot;#cleareffects&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;mount&quot;,&quot;href&quot;:&quot;#mount&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;dismount&quot;,&quot;href&quot;:&quot;#dismount&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;rotate&quot;,&quot;href&quot;:&quot;#rotate&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;spreadPlayers&quot;,&quot;href&quot;:&quot;#spreadplayers&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;summon&quot;,&quot;href&quot;:&quot;#summon&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getTags&quot;,&quot;href&quot;:&quot;#gettags&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;addTag&quot;,&quot;href&quot;:&quot;#addtag&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;removeTag&quot;,&quot;href&quot;:&quot;#removetag&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
@@ -30,7 +30,7 @@ outline: [2, 2]
 var Entity.nbt: CompoundTag
 ```
 
-获取/设置实体的NBT数据。
+获取或设置 Entity 的 NBT 数据。
 
 </ApiMemberCard>
 
@@ -49,13 +49,13 @@ var Entity.nbt: CompoundTag
 class KattonServerEntityCollection( private val server: MinecraftServer )
 ```
 
-所有服务器世界的所有实体的集合。
+跨所有服务端关卡的实体集合。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `server` | MinecraftServer实例 |
+| `server` | MinecraftServer 实例。 |
 
 ### KattonServerEntityCollection.all
 
@@ -72,7 +72,7 @@ class KattonServerEntityCollection( private val server: MinecraftServer )
 val all
 ```
 
-各级所有实体。
+所有关卡中的全部实体。
 
 </ApiMemberCard>
 
@@ -91,7 +91,7 @@ val all
 operator fun get(level: ServerLevel): KattonLevelEntityCollection
 ```
 
-获取特定世界的实体集合。
+获取指定关卡中的实体集合。
 
 </ApiMemberCard>
 
@@ -110,7 +110,7 @@ operator fun get(level: ServerLevel): KattonLevelEntityCollection
 operator fun get(uuid: UUID): Entity?
 ```
 
-在所有世界中通过UUID查找实体。
+在所有关卡中按 UUID 查找实体。
 
 </ApiMemberCard>
 
@@ -131,13 +131,13 @@ operator fun get(uuid: UUID): Entity?
 class KattonLevelEntityCollection( val level: ServerLevel ) : Iterable<Entity> by level.allEntities
 ```
 
-特定世界内实体的集合。
+指定关卡中的实体集合。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 包含实体的ServerLevel |
+| `level` | 包含这些实体的 ServerLevel。 |
 
 ### KattonLevelEntityCollection.get
 
@@ -173,7 +173,7 @@ operator fun <T : Entity> get(entityTypeTest: EntityTypeTest<Entity, T>, predica
 operator fun <T : Entity> get(entityTypeTest: EntityTypeTest<Entity, T>, aabb: AABB, predicate: (T) -> Boolean = { true }): List<T>
 ```
 
-获取 AABB 中与类型测试和谓词匹配的实体。
+获取 AABB 内与类型测试和谓词匹配的实体。
 
 </ApiMemberCard>
 
@@ -211,7 +211,7 @@ operator fun get(selector: EntitySelector): List<Entity>
 operator fun get(uuid: UUID): Entity?
 ```
 
-在此世界中找到UUID的实体。
+在当前关卡中按 UUID 查找实体。
 
 </ApiMemberCard>
 
@@ -232,13 +232,13 @@ operator fun get(uuid: UUID): Entity?
 class KattonEntityAttributeValueMap( val entity: LivingEntity )
 ```
 
-对生命实体的属性值进行类似地图的访问。
+用类似 Map 的方式访问生物实体的属性值。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `entity` | 正在访问其属性的LivingEntity |
+| `entity` | 要访问属性的 LivingEntity。 |
 
 ### KattonEntityAttributeValueMap.contains
 
@@ -255,7 +255,7 @@ class KattonEntityAttributeValueMap( val entity: LivingEntity )
 fun contains(holder: Holder<Attribute>): Boolean
 ```
 
-检查实体是否具有给定的属性。
+检查指定实体是否具有给定属性。
 
 </ApiMemberCard>
 
@@ -274,7 +274,7 @@ fun contains(holder: Holder<Attribute>): Boolean
 operator fun get(holder: Holder<Attribute>): Double?
 ```
 
-获取属性的当前值。
+获取属性的当前值
 
 </ApiMemberCard>
 
@@ -293,7 +293,7 @@ operator fun get(holder: Holder<Attribute>): Double?
 fun set(holder: Holder<Attribute>, value: Double, vararg modifiers: AttributeModifier)
 ```
 
-设置属性的基值并可以选择添加修饰符。
+设置属性的基础值，并可选添加修饰器。
 
 </ApiMemberCard>
 
@@ -314,7 +314,7 @@ fun set(holder: Holder<Attribute>, value: Double, vararg modifiers: AttributeMod
 val LivingEntity.attributeValues
 ```
 
-访问生命实体的属性值。
+访问生物实体的属性值。
 
 </ApiMemberCard>
 
@@ -333,18 +333,18 @@ val LivingEntity.attributeValues
 fun getAttribute(entity: LivingEntity, attribute: Holder<Attribute>): Double
 ```
 
-从LivingEntity获取属性值。
+从 LivingEntity 获取属性值。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
 | `entity` | 实体 |
-| `attribute` | 要读取的属性持有者 |
+| `attribute` | 要读取的属性持有者。 |
 
 ### 返回值
 
-当前属性值
+返回属性值
 
 </ApiMemberCard>
 
@@ -370,11 +370,11 @@ fun hasAttribute(entity: LivingEntity, attribute: Holder<Attribute>): Boolean
 | 参数 | 说明 |
 | --- | --- |
 | `entity` | 实体 |
-| `attribute` | 要检查的属性持有者 |
+| `attribute` | 要检查的属性持有者。 |
 
 ### 返回值
 
-true 如果属性存在
+如果属性存在则返回 true。
 
 </ApiMemberCard>
 
@@ -393,7 +393,7 @@ true 如果属性存在
 fun getBaseAttribute(entity: LivingEntity, attribute: Holder<Attribute>): Double?
 ```
 
-从 LivingEntity 获取基本属性值。
+从 LivingEntity 获取基础属性值。
 
 ### 参数
 
@@ -404,7 +404,7 @@ fun getBaseAttribute(entity: LivingEntity, attribute: Holder<Attribute>): Double
 
 ### 返回值
 
-如果属性缺失则为基值或 null
+属性值；如果属性不存在则返回 null。
 
 </ApiMemberCard>
 
@@ -423,19 +423,19 @@ fun getBaseAttribute(entity: LivingEntity, attribute: Holder<Attribute>): Double
 fun setBaseAttribute(entity: LivingEntity, attribute: Holder<Attribute>, value: Double): Boolean
 ```
 
-设置 LivingEntity 的基本属性值。
+设置 LivingEntity 的基础属性值。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 实体 |
-| `attribute` | 要设置的属性持有者 |
-| `value` | 新的基值 |
+| `entity` | 实体。 |
+| `attribute` | 要设置的属性持有者。 |
+| `value` | 新的基础值。 |
 
 ### 返回值
 
-如果更改则为 true，否则为 false
+如果发生变化则返回 true，否则返回 false。
 
 </ApiMemberCard>
 
@@ -454,15 +454,15 @@ fun setBaseAttribute(entity: LivingEntity, attribute: Holder<Attribute>, value: 
 fun addAttributeModify(entity: LivingEntity, attribute: Holder<Attribute>, modifier: AttributeModifier)
 ```
 
-向实体添加瞬态属性修饰符。
+向实体添加临时属性修饰器。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 实体 |
-| `attribute` | 要修改的属性持有者 |
-| `modifier` | AttributeModifier 添加 |
+| `entity` | 实体。 |
+| `attribute` | 要修改的属性持有者。 |
+| `modifier` | 要添加的 AttributeModifier。 |
 
 </ApiMemberCard>
 
@@ -481,15 +481,15 @@ fun addAttributeModify(entity: LivingEntity, attribute: Holder<Attribute>, modif
 fun removeAttributeModify(entity: LivingEntity, attribute: Holder<Attribute>, modifier: AttributeModifier)
 ```
 
-从实体中删除属性修饰符。
+从实体移除属性修饰器。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 实体 |
-| `attribute` | 要修改的属性持有者 |
-| `modifier` | AttributeModifier 删除 |
+| `entity` | 实体。 |
+| `attribute` | 要修改的属性持有者。 |
+| `modifier` | 要移除的 AttributeModifier。 |
 
 </ApiMemberCard>
 
@@ -508,14 +508,14 @@ fun removeAttributeModify(entity: LivingEntity, attribute: Holder<Attribute>, mo
 fun damage(entity: Entity, amount: Float)
 ```
 
-使用通用伤害对实体造成一定程度的伤害。
+使用通用伤害按指定数值伤害实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `amount` | 伤害量 |
+| `entity` | 目标实体。 |
+| `amount` | 伤害值。 |
 
 </ApiMemberCard>
 
@@ -534,16 +534,16 @@ fun damage(entity: Entity, amount: Float)
 fun damage(target: Entity, amount: Float, attacker: Entity, damageType: ResourceKey<DamageType> = DamageTypes.GENERIC)
 ```
 
-使用损坏类型键从攻击者处损坏目标实体。
+使用伤害类型键，让攻击者对目标实体造成伤害。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 要损坏的实体 |
-| `amount` | 伤害量 |
-| `attacker` | 造成损害的源实体 |
-| `damageType` | DamageType的资源键（默认GENERIC） |
+| `target` | 要伤害的实体。 |
+| `amount` | 伤害值。 |
+| `attacker` | 造成伤害的来源实体。 |
+| `damageType` | DamageType 的资源键（默认 GENERIC）。 |
 
 </ApiMemberCard>
 
@@ -562,16 +562,16 @@ fun damage(target: Entity, amount: Float, attacker: Entity, damageType: Resource
 fun damage(target: Entity, amount: Float, attacker: Entity, damageType: DamageType)
 ```
 
-使用 DamageType 实例从攻击者处损坏目标实体。
+使用 DamageType 实例，让攻击者对目标实体造成伤害。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 要损坏的实体 |
-| `amount` | 伤害量 |
-| `attacker` | 造成损害的源实体 |
-| `damageType` | DamageType 申请实例 |
+| `target` | 要伤害的实体。 |
+| `amount` | 伤害值。 |
+| `attacker` | 造成伤害的来源实体。 |
+| `damageType` | 要应用的 DamageType 实例。 |
 
 </ApiMemberCard>
 
@@ -590,16 +590,16 @@ fun damage(target: Entity, amount: Float, attacker: Entity, damageType: DamageTy
 fun damage(target: Entity, amount: Float, pos: Vec3, damageType: ResourceKey<DamageType> = DamageTypes.GENERIC)
 ```
 
-使用伤害类型键从某个位置伤害目标实体。
+使用伤害类型键，从指定位置对目标实体造成伤害。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 实体受到损害 |
-| `amount` | 伤害量 |
-| `pos` | 损伤源位置 |
-| `damageType` | DamageType的资源键（默认GENERIC） |
+| `target` | 要伤害的实体。 |
+| `amount` | 伤害值。 |
+| `pos` | 伤害来源位置。 |
+| `damageType` | DamageType 的资源键（默认 GENERIC）。 |
 
 </ApiMemberCard>
 
@@ -618,16 +618,16 @@ fun damage(target: Entity, amount: Float, pos: Vec3, damageType: ResourceKey<Dam
 fun damage(target: Entity, amount: Float, pos: Vec3, damageType: DamageType)
 ```
 
-使用DamageType实例从某个位置损坏目标实体。
+使用 DamageType 实例，从指定位置对目标实体造成伤害。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 实体受到损害 |
-| `amount` | 伤害量 |
-| `pos` | 损伤源位置 |
-| `damageType` | DamageType 申请实例 |
+| `target` | 要伤害的实体。 |
+| `amount` | 伤害值。 |
+| `pos` | 伤害来源位置。 |
+| `damageType` | 要应用的 DamageType 实例。 |
 
 </ApiMemberCard>
 
@@ -646,18 +646,18 @@ fun damage(target: Entity, amount: Float, pos: Vec3, damageType: DamageType)
 fun addEffect(entity: LivingEntity, effect: Holder<MobEffect>, duration: Int = 600, amplifier: Int = 0, showParticles: Boolean = true, ambient: Boolean = false)
 ```
 
-为LivingEntity添加生物效果。
+向 LivingEntity 添加状态效果。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `effect` | MobEffect持有人申请 |
-| `duration` | 效果持续时间（默认 600） |
-| `amplifier` | 效果放大器电平（默认0） |
-| `showParticles` | 是否显示粒子 |
-| `ambient` | 效果是否是环境光 |
+| `entity` | 目标实体。 |
+| `effect` | 要应用的 MobEffect Holder。 |
+| `duration` | 效果持续时间，单位为 tick，默认 600。 |
+| `amplifier` | 效果放大等级，默认 0。 |
+| `showParticles` | 是否显示粒子。 |
+| `ambient` | 是否为环境效果。 |
 
 </ApiMemberCard>
 
@@ -676,14 +676,14 @@ fun addEffect(entity: LivingEntity, effect: Holder<MobEffect>, duration: Int = 6
 fun removeEffect(entity: LivingEntity, effect: Holder<MobEffect>)
 ```
 
-从LivingEntity中删除特定效果。
+从 LivingEntity 移除指定效果。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `effect` | 要移除的MobEffect支架 |
+| `entity` | 目标实体。 |
+| `effect` | 要移除的 MobEffect Holder。 |
 
 </ApiMemberCard>
 
@@ -702,13 +702,13 @@ fun removeEffect(entity: LivingEntity, effect: Holder<MobEffect>)
 fun clearEffects(entity: LivingEntity)
 ```
 
-清除LivingEntity的所有效果。
+清除 LivingEntity 身上的所有效果。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
+| `entity` | 目标实体。 |
 
 </ApiMemberCard>
 
@@ -727,18 +727,18 @@ fun clearEffects(entity: LivingEntity)
 fun mount(passenger: Entity, vehicle: Entity): Boolean
 ```
 
-将乘客安装到车辆实体上。
+让乘客骑乘载具实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `passenger` | 要挂载的实体 |
-| `vehicle` | 被骑乘的实体 |
+| `passenger` | 要发起骑乘的实体。 |
+| `vehicle` | 要被骑乘的实体。 |
 
 ### 返回值
 
-如果安装成功则为 true，否则为 false
+如果骑乘成功则返回 true，否则返回 false。
 
 </ApiMemberCard>
 
@@ -757,17 +757,17 @@ fun mount(passenger: Entity, vehicle: Entity): Boolean
 fun dismount(passenger: Entity): Boolean
 ```
 
-将乘客从车上卸下。
+让乘客从载具上解除骑乘。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `passenger` | 要拆卸的实体 |
+| `passenger` | 要解除骑乘的实体。 |
 
 ### 返回值
 
-如果下马则为 true，如果不骑马则为 false
+如果已解除骑乘则返回 true，否则在未骑乘时返回 false。
 
 </ApiMemberCard>
 
@@ -786,15 +786,15 @@ fun dismount(passenger: Entity): Boolean
 fun rotate(target: Entity, rot: Vec2, relative: Boolean = false)
 ```
 
-将实体旋转Vec2（俯仰、偏航）。
+使用 Vec2（pitch, yaw）旋转实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 目标实体 |
-| `rot` | 旋转矢量（x=俯仰，y=偏航） |
-| `relative` | 旋转是否是相对的 |
+| `target` | 目标实体。 |
+| `rot` | 旋转向量（x=pitch, y=yaw）。 |
+| `relative` | 是否按相对角度旋转。 |
 
 </ApiMemberCard>
 
@@ -813,16 +813,16 @@ fun rotate(target: Entity, rot: Vec2, relative: Boolean = false)
 fun rotate(target: Entity, lookAt: Entity, targetAnchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET, lookAtAnchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET)
 ```
 
-旋转一个实体以查看另一个实体。
+旋转实体，使其看向另一个实体。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 要旋转的实体 |
-| `lookAt` | 要查看的实体 |
-| `targetAnchor` | 目标上的锚点 |
-| `lookAtAnchor` | lookAt实体上的锚点 |
+| `target` | 要旋转的实体。 |
+| `lookAt` | 要看向的实体。 |
+| `targetAnchor` | 目标实体上的锚点。 |
+| `lookAtAnchor` | 被看向实体上的锚点。 |
 
 </ApiMemberCard>
 
@@ -841,15 +841,15 @@ fun rotate(target: Entity, lookAt: Entity, targetAnchor: EntityAnchorArgument.An
 fun rotate(target: Entity, lookAt: Vec3, targetAnchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET, lookAtAnchor: EntityAnchorArgument.Anchor = EntityAnchorArgument.Anchor.FEET)
 ```
 
-旋转实体以查看位置。
+旋转实体，使其看向指定位置。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `target` | 要旋转的实体 |
-| `lookAt` | 看的位置 |
-| `targetAnchor` | 锚定在目标实体上 |
+| `target` | 要旋转的实体。 |
+| `lookAt` | 要看向的位置。 |
+| `targetAnchor` | 目标实体上的锚点。 |
 
 </ApiMemberCard>
 
@@ -868,19 +868,19 @@ fun rotate(target: Entity, lookAt: Vec3, targetAnchor: EntityAnchorArgument.Anch
 fun spreadPlayers(level: ServerLevel, center: Vec2, spreadDistance: Float, maxRange: Float, maxHeight: Int, respectTeams: Boolean, targets: Collection<Entity>)
 ```
 
-将球员分散在中心点周围。
+将玩家分散到中心点周围。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `level` | 用于上下文的服务器世界 |
-| `center` | 中心位置向量（x=z，y 被忽略） |
-| `spreadDistance` | 玩家之间的最小距离 |
-| `maxRange` | 最大传播半径 |
-| `maxHeight` | 最大高差 |
-| `respectTeams` | 是否让团队保持团结 |
-| `targets` | 要传播的实体集合 |
+| `level` | 用作上下文的服务端关卡。 |
+| `center` | 中心位置向量（使用 x/z，忽略 y）。 |
+| `spreadDistance` | 玩家之间的最小距离。 |
+| `maxRange` | 最大分散半径。 |
+| `maxHeight` | 最大高度差。 |
+| `respectTeams` | 是否保持队伍成员在一起。 |
+| `targets` | 要分散的实体集合。 |
 
 </ApiMemberCard>
 
@@ -899,20 +899,20 @@ fun spreadPlayers(level: ServerLevel, center: Vec2, spreadDistance: Float, maxRa
 fun summon(level: ServerLevel, id: String, vec3: Vec3, entityData: CompoundTag? = null): Entity?
 ```
 
-在可选的NBT位置召唤给定类型的实体。
+在指定位置召唤给定类型的实体，并可选应用 NBT。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `level` | 生成的服务器世界 |
-| `reference` | 参考EntityType进行召唤 |
-| `vec3` | 产卵位置 |
-| `entityData` | 实体的可选 NBT 覆盖 |
+| `level` | 用于生成实体的服务端关卡。 |
+| `reference` | 要召唤的 EntityType 引用。 |
+| `vec3` | 生成位置。 |
+| `entityData` | 可选的实体 NBT 覆盖数据。 |
 
 ### 返回值
 
-生成实体或失败时为 null
+返回生成的实体；失败时返回 null。
 
 </ApiMemberCard>
 
@@ -931,17 +931,17 @@ fun summon(level: ServerLevel, id: String, vec3: Vec3, entityData: CompoundTag? 
 fun getTags(entity: Entity): MutableCollection<String>
 ```
 
-获取附加到实体的标签。
+获取附加到实体上的标签。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
+| `entity` | 目标实体。 |
 
 ### 返回值
 
-标签字符串的可变集合
+返回标签字符串集合。
 
 </ApiMemberCard>
 
@@ -966,12 +966,12 @@ fun addTag(entity: Entity, string: String): Boolean
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `string` | 要添加的标签 |
+| `entity` | 目标实体。 |
+| `string` | 要添加的标签。 |
 
 ### 返回值
 
-如果添加了标签则为 true，如果已存在则为 false
+如果标签已添加则返回 true，若已存在则返回 false。
 
 </ApiMemberCard>
 
@@ -990,18 +990,18 @@ fun addTag(entity: Entity, string: String): Boolean
 fun removeTag(entity: Entity, string: String): Boolean
 ```
 
-从实体中删除标签。
+从实体移除标签。
 
 ### 参数
 
 | 参数 | 说明 |
 | --- | --- |
-| `entity` | 目标实体 |
-| `string` | 要删除的标签 |
+| `entity` | 目标实体。 |
+| `string` | 要移除的标签。 |
 
 ### 返回值
 
-true 如果标签已被删除
+如果标签已移除则返回 true。
 
 </ApiMemberCard>
 

@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="neoforge/src/main/kotlin/top/katton/api/event/ServerEvent.kt"
 >
-NeoForge 平台的服务器生命周期事件。
+NeoForge 平台的服务端生命周期事件。 此对象提供与服务端生命周期相关的事件，包括服务端启动/停止、数据包同步、维度加载/卸载和 tick 事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ServerEvent&quot;,&quot;href&quot;:&quot;#serverevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ServerEvent.onServerStarting&quot;,&quot;href&quot;:&quot;#serverevent-onserverstarting&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onServerStarted&quot;,&quot;href&quot;:&quot;#serverevent-onserverstarted&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onServerStopped&quot;,&quot;href&quot;:&quot;#serverevent-onserverstopped&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onServerStopping&quot;,&quot;href&quot;:&quot;#serverevent-onserverstopping&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onSyncDatapackContents&quot;,&quot;href&quot;:&quot;#serverevent-onsyncdatapackcontents&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onStartDatapackReload&quot;,&quot;href&quot;:&quot;#serverevent-onstartdatapackreload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onEndDatapackReload&quot;,&quot;href&quot;:&quot;#serverevent-onenddatapackreload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onBeforeSave&quot;,&quot;href&quot;:&quot;#serverevent-onbeforesave&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onAfterSave&quot;,&quot;href&quot;:&quot;#serverevent-onaftersave&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onStartServerTick&quot;,&quot;href&quot;:&quot;#serverevent-onstartservertick&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onEndServerTick&quot;,&quot;href&quot;:&quot;#serverevent-onendservertick&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onStartWorldTick&quot;,&quot;href&quot;:&quot;#serverevent-onstartworldtick&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onEndWorldTick&quot;,&quot;href&quot;:&quot;#serverevent-onendworldtick&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onLevelLoad&quot;,&quot;href&quot;:&quot;#serverevent-onlevelload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onLevelUnload&quot;,&quot;href&quot;:&quot;#serverevent-onlevelunload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.onLevelSave&quot;,&quot;href&quot;:&quot;#serverevent-onlevelsave&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ServerEvent.ServerLevelArg&quot;,&quot;href&quot;:&quot;#serverevent-serverlevelarg&quot;,&quot;kind&quot;:&quot;Value Class&quot;,&quot;kindKey&quot;:&quot;value-class&quot;}]' />
@@ -32,10 +32,8 @@ NeoForge 平台的服务器生命周期事件。
 modid
 ```
 
-NeoForge 平台的服务器生命周期事件。
-
-该对象提供与服务器生命周期相关的事件，包括
-服务器启动/停止、数据包同步、世界加载/卸载和tick 事件。
+NeoForge 平台的服务端生命周期事件。
+此对象提供与服务端生命周期相关的事件，包括服务端启动/停止、数据包同步、维度加载/卸载和 tick 事件。
 
 ### ServerEvent.onServerStarting
 
@@ -52,7 +50,7 @@ NeoForge 平台的服务器生命周期事件。
 val onServerStarting
 ```
 
-服务器启动时（加载世界之前）触发事件。
+当服务端开始启动、维度加载前触发。
 
 </ApiMemberCard>
 
@@ -71,7 +69,7 @@ val onServerStarting
 val onServerStarted
 ```
 
-服务器启动时（加载世界后）触发事件。
+当服务端启动完成、维度加载后触发。
 
 </ApiMemberCard>
 
@@ -90,7 +88,7 @@ val onServerStarted
 val onServerStopped
 ```
 
-服务器停止时触发的事件。
+当服务端停止时触发。
 
 </ApiMemberCard>
 
@@ -109,7 +107,7 @@ val onServerStopped
 val onServerStopping
 ```
 
-服务器停止时触发的事件。
+当服务端正在停止时触发。
 
 </ApiMemberCard>
 
@@ -129,7 +127,7 @@ val onServerStopping
 @JvmField val onSyncDatapackContents
 ```
 
-当数据包内容同步到玩家时触发事件。
+当向玩家同步数据包内容时触发。
 
 </ApiMemberCard>
 
@@ -149,8 +147,8 @@ val onServerStopping
 @JvmField val onStartDatapackReload
 ```
 
-数据包重载开始时触发事件。
-注意：NeoForge没有直接等价物；这是一个占位符。
+当数据包重载开始时触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -170,8 +168,8 @@ val onServerStopping
 @JvmField val onEndDatapackReload
 ```
 
-数据包重载完成时触发事件。
-注意：NeoForge没有直接等价物；这是一个占位符。
+当数据包重载完成时触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -191,8 +189,8 @@ val onServerStopping
 @JvmField val onBeforeSave
 ```
 
-服务器保存数据之前触发的事件。
-注意：NeoForge没有直接等价物；这是一个占位符。
+在服务端保存数据之前触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -212,8 +210,8 @@ val onServerStopping
 @JvmField val onAfterSave
 ```
 
-服务器保存数据后触发的事件。
-注意：NeoForge没有直接等价物；这是一个占位符。
+在服务端保存数据之后触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -232,7 +230,7 @@ val onServerStopping
 val onStartServerTick
 ```
 
-在每个服务器tick开始时触发的事件。
+每个服务端 tick 开始时触发。
 
 </ApiMemberCard>
 
@@ -251,7 +249,7 @@ val onStartServerTick
 val onEndServerTick
 ```
 
-事件在每个服务器tick结束时触发。
+每个服务端 tick 结束时触发。
 
 </ApiMemberCard>
 
@@ -270,7 +268,7 @@ val onEndServerTick
 val onStartWorldTick
 ```
 
-事件在每个世界/世界开始时触发。
+每个维度/世界 tick 开始时触发。
 
 </ApiMemberCard>
 
@@ -289,7 +287,7 @@ val onStartWorldTick
 val onEndWorldTick
 ```
 
-事件在每个世界/世界结束时触发。
+每个维度/世界 tick 结束时触发。
 
 </ApiMemberCard>
 
@@ -309,7 +307,7 @@ val onEndWorldTick
 @JvmField val onLevelLoad
 ```
 
-加载世界时触发的事件。
+当维度加载时触发。
 
 </ApiMemberCard>
 
@@ -329,7 +327,7 @@ val onEndWorldTick
 @JvmField val onLevelUnload
 ```
 
-卸载世界时触发事件。
+当维度卸载时触发。
 
 </ApiMemberCard>
 
@@ -349,7 +347,7 @@ val onEndWorldTick
 @JvmField val onLevelSave
 ```
 
-保存世界时触发的事件。
+当维度保存时触发。
 
 </ApiMemberCard>
 
@@ -369,13 +367,13 @@ val onEndWorldTick
 value class ServerLevelArg(val level: ServerLevel)
 ```
 
-服务器级参数的包装类。
+服务端维度参数封装。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 服务器世界 |
+| `level` | 服务端维度。 |
 
 </ApiMemberCard>
 

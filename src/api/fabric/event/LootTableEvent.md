@@ -51,11 +51,10 @@ replacing, modifying, and reacting to loot table loading.
 val onLootTableReplace
 ```
 
-Event triggered to replace a loot table entirely.
+Loot table events for Fabric platform.
 
-### Returns
-
-The replacement LootTable, or null to keep the original.
+This object provides events related to loot table manipulation including
+replacing, modifying, and reacting to loot table loading.
 
 </ApiMemberCard>
 
@@ -74,8 +73,10 @@ The replacement LootTable, or null to keep the original.
 val onLootTableModify
 ```
 
-Event triggered to modify a loot table's contents.
-Use this to add or remove loot pool entries.
+Loot table events for Fabric platform.
+
+This object provides events related to loot table manipulation including
+replacing, modifying, and reacting to loot table loading.
 
 </ApiMemberCard>
 
@@ -94,8 +95,10 @@ Use this to add or remove loot pool entries.
 val onLootTableAllLoad
 ```
 
-Event triggered when all loot tables have been loaded.
-Use this for post-processing after all tables are available.
+Loot table events for Fabric platform.
+
+This object provides events related to loot table manipulation including
+replacing, modifying, and reacting to loot table loading.
 
 </ApiMemberCard>
 
@@ -114,8 +117,10 @@ Use this for post-processing after all tables are available.
 val onLootTableModifyDrops
 ```
 
-Event triggered to modify the drops from a loot table.
-Use this to customize what items are actually dropped.
+Loot table events for Fabric platform.
+
+This object provides events related to loot table manipulation including
+replacing, modifying, and reacting to loot table loading.
 
 </ApiMemberCard>
 

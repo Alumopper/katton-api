@@ -48,7 +48,7 @@ hot-reload capability.
 
 ### Returns
 
-The registered KattonItemEntry
+registered KattonItemEntry
 
 </ApiMemberCard>
 
@@ -81,7 +81,7 @@ Registers a native Item with hot-reload support.
 
 ### Returns
 
-The registered KattonItemEntry
+registered KattonItemEntry
 
 </ApiMemberCard>
 
@@ -114,7 +114,7 @@ Registers a native Item with pre-configured properties.
 
 ### Returns
 
-The registered KattonItemEntry
+registered KattonItemEntry
 
 </ApiMemberCard>
 

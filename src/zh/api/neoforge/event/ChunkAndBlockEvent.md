@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="neoforge/src/main/kotlin/top/katton/api/event/ChunkAndBlockEvent.kt"
 >
-NeoForge 平台的区块、方块和爆炸事件。
+NeoForge 平台的区块、方块和爆炸事件。 此对象提供与区块加载/卸载、方块破坏/放置以及爆炸相关的事件。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;ChunkAndBlockEvent&quot;,&quot;href&quot;:&quot;#chunkandblockevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkLoad&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkUnload&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkunload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkDataLoad&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkdataload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkDataSave&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkdatasave&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkWatch&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkwatch&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkSent&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunksent&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkUnWatch&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkunwatch&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onChunkLevelTypeChange&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onchunkleveltypechange&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onBlockEntityLoad&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onblockentityload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onBlockEntityUnload&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onblockentityunload&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onBlockBreak&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onblockbreak&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onBlockPlace&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onblockplace&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onExplosionStart&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onexplosionstart&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.onExplosionDetonate&quot;,&quot;href&quot;:&quot;#chunkandblockevent-onexplosiondetonate&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.NeoChunkDataLoadArg&quot;,&quot;href&quot;:&quot;#chunkandblockevent-neochunkdataloadarg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.NeoChunkDataSaveArg&quot;,&quot;href&quot;:&quot;#chunkandblockevent-neochunkdatasavearg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.NeoChunkWatchArg&quot;,&quot;href&quot;:&quot;#chunkandblockevent-neochunkwatcharg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}, {&quot;label&quot;:&quot;ChunkAndBlockEvent.NeoChunkUnWatchArg&quot;,&quot;href&quot;:&quot;#chunkandblockevent-neochunkunwatcharg&quot;,&quot;kind&quot;:&quot;Data Class&quot;,&quot;kindKey&quot;:&quot;data-class&quot;}]' />
@@ -33,9 +33,7 @@ modid
 ```
 
 NeoForge 平台的区块、方块和爆炸事件。
-
-该对象提供与块加载/卸载相关的事件，
-方块破坏/放置和爆炸。
+此对象提供与区块加载/卸载、方块破坏/放置以及爆炸相关的事件。
 
 ### ChunkAndBlockEvent.onChunkLoad
 
@@ -52,7 +50,7 @@ NeoForge 平台的区块、方块和爆炸事件。
 val onChunkLoad
 ```
 
-加载块时触发的事件。
+当区块加载时触发。
 
 </ApiMemberCard>
 
@@ -71,7 +69,7 @@ val onChunkLoad
 val onChunkUnload
 ```
 
-卸载块时触发的事件。
+当区块卸载时触发。
 
 </ApiMemberCard>
 
@@ -90,7 +88,7 @@ val onChunkUnload
 val onChunkDataLoad
 ```
 
-从磁盘加载块数据时触发的事件。
+当区块数据从磁盘加载时触发。
 
 </ApiMemberCard>
 
@@ -109,7 +107,7 @@ val onChunkDataLoad
 val onChunkDataSave
 ```
 
-当块数据保存到磁盘时触发的事件。
+当区块数据保存到磁盘时触发。
 
 </ApiMemberCard>
 
@@ -128,7 +126,7 @@ val onChunkDataSave
 val onChunkWatch
 ```
 
-当玩家开始观看某个块时触发事件。
+当玩家开始监视某个区块时触发。
 
 </ApiMemberCard>
 
@@ -147,7 +145,7 @@ val onChunkWatch
 val onChunkSent
 ```
 
-当块发送给玩家时触发事件。
+当区块被发送给玩家时触发。
 
 </ApiMemberCard>
 
@@ -166,7 +164,7 @@ val onChunkSent
 val onChunkUnWatch
 ```
 
-当玩家停止观看某个块时触发事件。
+当玩家停止监视某个区块时触发。
 
 </ApiMemberCard>
 
@@ -186,8 +184,8 @@ val onChunkUnWatch
 @JvmField val onChunkLevelTypeChange
 ```
 
-当块的世界类型更改时触发事件。
-注意：这是 NeoForge 兼容性的占位符。
+当区块的维度类型发生变化时触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -207,8 +205,8 @@ val onChunkUnWatch
 @JvmField val onBlockEntityLoad
 ```
 
-加载方块实体时触发的事件。
-注意：这是 NeoForge 兼容性的占位符。
+当方块实体加载时触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -228,8 +226,8 @@ val onChunkUnWatch
 @JvmField val onBlockEntityUnload
 ```
 
-卸载方块实体时触发的事件。
-注意：这是 NeoForge 兼容性的占位符。
+当方块实体卸载时触发。
+这是为了 NeoForge API 兼容性保留的占位事件。
 
 </ApiMemberCard>
 
@@ -248,8 +246,8 @@ val onChunkUnWatch
 val onBlockBreak
 ```
 
-当玩家打破方块时触发事件。
-可以取消以防止中断。
+当玩家破坏方块时触发。
+可取消以阻止破坏。
 
 </ApiMemberCard>
 
@@ -268,8 +266,8 @@ val onBlockBreak
 val onBlockPlace
 ```
 
-当玩家放置方块时触发事件。
-可以取消以防止放置。
+当玩家放置方块时触发。
+可取消以阻止放置。
 
 </ApiMemberCard>
 
@@ -288,8 +286,8 @@ val onBlockPlace
 val onExplosionStart
 ```
 
-爆炸开始时触发事件。
-可以取消以防止爆炸。
+当爆炸开始时触发。
+可取消以阻止爆炸。
 
 </ApiMemberCard>
 
@@ -308,8 +306,8 @@ val onExplosionStart
 val onExplosionDetonate
 ```
 
-爆炸发生时触发事件。
-使用它来修改受影响的块/实体。
+当爆炸引爆时触发。
+可用于修改受影响的方块或实体。
 
 </ApiMemberCard>
 
@@ -328,16 +326,16 @@ val onExplosionDetonate
 data class NeoChunkDataLoadArg( val level: ServerLevel, val chunk: ChunkAccess, val data: SerializableChunkData, val type: ChunkType )
 ```
 
-NeoForge 块数据加载事件的参数类。
+NeoForge 区块数据加载事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 服务器世界 |
-| `chunk` | 正在加载的块 |
-| `data` | 可序列化的块数据 |
-| `type` | 块类型 |
+| `level` | 服务端维度。 |
+| `chunk` | 正在加载的区块。 |
+| `data` | 可序列化的区块数据。 |
+| `type` | 区块类型。 |
 
 </ApiMemberCard>
 
@@ -356,15 +354,15 @@ NeoForge 块数据加载事件的参数类。
 data class NeoChunkDataSaveArg( val level: ServerLevel, val chunk: ChunkAccess, val data: SerializableChunkData )
 ```
 
-NeoForge 块数据保存事件的参数类。
+NeoForge 区块数据保存事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `level` | 服务器世界 |
-| `chunk` | 正在保存的块 |
-| `data` | 可序列化的块数据 |
+| `level` | 服务端维度。 |
+| `chunk` | 正在保存的区块。 |
+| `data` | 可序列化的区块数据。 |
 
 </ApiMemberCard>
 
@@ -383,15 +381,15 @@ NeoForge 块数据保存事件的参数类。
 data class NeoChunkWatchArg( val player: ServerPlayer, val level: ServerLevel, val chunk: LevelChunk )
 ```
 
-NeoForge 块监视事件的参数类。
+NeoForge 区块监视事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 观看该块的玩家 |
-| `level` | 服务器世界 |
-| `chunk` | 正在观看的世界块 |
+| `player` | 正在监视该区块的玩家。 |
+| `level` | 服务端维度。 |
+| `chunk` | 正在被监视的区块。 |
 
 </ApiMemberCard>
 
@@ -410,15 +408,15 @@ NeoForge 块监视事件的参数类。
 data class NeoChunkUnWatchArg( val player: ServerPlayer, val level: ServerLevel, val pos: ChunkPos )
 ```
 
-NeoForge 块取消监视事件的参数类。
+NeoForge 区块取消监视事件的参数类。
 
 ### 属性
 
 | 属性 | 说明 |
 | --- | --- |
-| `player` | 玩家停止观看该块 |
-| `level` | 服务器世界 |
-| `pos` | 块位置 |
+| `player` | 停止监视该区块的玩家。 |
+| `level` | 服务端维度。 |
+| `pos` | 区块坐标。 |
 
 </ApiMemberCard>
 

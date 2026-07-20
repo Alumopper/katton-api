@@ -12,6 +12,11 @@ const apiSidebar: DefaultTheme.SidebarMulti = {
           collapsed: false,
           items: [
             { text: 'ClientDataApi', link: '/api/common/ClientDataApi' },
+            { text: 'ClientItemRenderAnimation', link: '/api/common/ClientItemRenderAnimation' },
+            { text: 'ClientItemRenderMarkerApi', link: '/api/common/ClientItemRenderMarkerApi' },
+            { text: 'ClientPostEffectApi', link: '/api/common/ClientPostEffectApi' },
+            { text: 'ClientPostEffectPresetsApi', link: '/api/common/ClientPostEffectPresetsApi' },
+            { text: 'ClientPostEffectServerApi', link: '/api/common/ClientPostEffectServerApi' },
             { text: 'KattonAPI', link: '/api/common/KattonAPI' },
             { text: 'KattonClientApi', link: '/api/common/KattonClientApi' },
             { text: 'KattonClientRenderApi', link: '/api/common/KattonClientRenderApi' },

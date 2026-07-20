@@ -10,7 +10,7 @@ outline: [2, 2]
   package-name="top.katton.api.event"
   source-file="fabric/src/main/kotlin/top/katton/api/event/PlayerEvent.kt"
 >
-Fabric平台的玩家互动事件。
+Fabric 平台的玩家交互事件。 此对象提供与玩家交互相关的事件，包括攻击方块/实体、使用物品，以及与方块/实体交互。
 </ApiDocPage>
 
 <ApiMembersList items-json='[{&quot;label&quot;:&quot;PlayerEvent&quot;,&quot;href&quot;:&quot;#playerevent&quot;,&quot;kind&quot;:&quot;Object&quot;,&quot;kindKey&quot;:&quot;object&quot;}, {&quot;label&quot;:&quot;PlayerEvent.onUseItemOn&quot;,&quot;href&quot;:&quot;#playerevent-onuseitemon&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;PlayerEvent.onUseWithoutItem&quot;,&quot;href&quot;:&quot;#playerevent-onusewithoutitem&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;PlayerEvent.onAttackBlock&quot;,&quot;href&quot;:&quot;#playerevent-onattackblock&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;PlayerEvent.onAttackEntity&quot;,&quot;href&quot;:&quot;#playerevent-onattackentity&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;PlayerEvent.onBlockInteract&quot;,&quot;href&quot;:&quot;#playerevent-onblockinteract&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;PlayerEvent.onEntityInteract&quot;,&quot;href&quot;:&quot;#playerevent-onentityinteract&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;PlayerEvent.onItemInteract&quot;,&quot;href&quot;:&quot;#playerevent-oniteminteract&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}, {&quot;label&quot;:&quot;PlayerEvent.onDestroyItem&quot;,&quot;href&quot;:&quot;#playerevent-ondestroyitem&quot;,&quot;kind&quot;:&quot;Property&quot;,&quot;kindKey&quot;:&quot;property&quot;}]' />
@@ -31,10 +31,8 @@ Fabric平台的玩家互动事件。
 object PlayerEvent
 ```
 
-Fabric平台的玩家互动事件。
-
-该对象提供与玩家交互相关的事件，包括
-攻击方块/实体、使用物品以及与方块/实体交互。
+Fabric 平台的玩家交互事件。
+此对象提供与玩家交互相关的事件，包括攻击方块/实体、使用物品，以及与方块/实体交互。
 
 ### PlayerEvent.onUseItemOn
 
@@ -51,11 +49,11 @@ Fabric平台的玩家互动事件。
 val onUseItemOn
 ```
 
-当玩家使用方块上的物品时触发事件。
+当玩家对方块使用物品时触发。
 
 ### 返回值
 
-InteractionResult.PASS 允许默认行为或其他结果覆盖。
+返回值允许默认行为，或使用其他结果覆盖。
 
 </ApiMemberCard>
 
@@ -74,11 +72,11 @@ InteractionResult.PASS 允许默认行为或其他结果覆盖。
 val onUseWithoutItem
 ```
 
-当玩家在不持有物品的情况下与方块交互时触发事件。
+当玩家空手与方块交互时触发。
 
 ### 返回值
 
-InteractionResult.PASS 允许默认行为或其他结果覆盖。
+返回值允许默认行为，或使用其他结果覆盖。
 
 </ApiMemberCard>
 
@@ -97,11 +95,11 @@ InteractionResult.PASS 允许默认行为或其他结果覆盖。
 val onAttackBlock
 ```
 
-当玩家攻击（左键单击）方块时触发事件。
+当玩家攻击（左键）方块时触发。
 
 ### 返回值
 
-InteractionResult.PASS 允许默认行为或其他结果取消/覆盖。
+返回值允许默认行为，或使用其他结果取消/覆盖。
 
 </ApiMemberCard>
 
@@ -120,11 +118,11 @@ InteractionResult.PASS 允许默认行为或其他结果取消/覆盖。
 val onAttackEntity
 ```
 
-当玩家攻击（左键单击）实体时触发事件。
+当玩家攻击（左键）实体时触发。
 
 ### 返回值
 
-InteractionResult.PASS 允许默认行为或其他结果取消/覆盖。
+返回值允许默认行为，或使用其他结果取消/覆盖。
 
 </ApiMemberCard>
 
@@ -143,11 +141,11 @@ InteractionResult.PASS 允许默认行为或其他结果取消/覆盖。
 val onBlockInteract
 ```
 
-当玩家与方块交互（右键单击）时触发事件。
+当玩家与方块交互（右键）时触发。
 
 ### 返回值
 
-InteractionResult.PASS 允许默认行为或其他结果覆盖。
+返回值允许默认行为，或使用其他结果覆盖。
 
 </ApiMemberCard>
 
@@ -166,11 +164,11 @@ InteractionResult.PASS 允许默认行为或其他结果覆盖。
 val onEntityInteract
 ```
 
-当玩家与实体交互（右键单击）时触发事件。
+当玩家与实体交互（右键）时触发。
 
 ### 返回值
 
-InteractionResult.PASS 允许默认行为或其他结果覆盖。
+返回值允许默认行为，或使用其他结果覆盖。
 
 </ApiMemberCard>
 
@@ -189,11 +187,11 @@ InteractionResult.PASS 允许默认行为或其他结果覆盖。
 val onItemInteract
 ```
 
-当玩家使用（右键单击）物品时触发的事件。
+当玩家使用物品（右键）时触发。
 
 ### 返回值
 
-InteractionResult.PASS 允许默认行为或其他结果覆盖。
+返回值允许默认行为，或使用其他结果覆盖。
 
 </ApiMemberCard>
 
@@ -213,7 +211,7 @@ InteractionResult.PASS 允许默认行为或其他结果覆盖。
 @JvmField val onDestroyItem
 ```
 
-当玩家的物品被破坏（例如工具损坏）时触发事件。
+当玩家的物品损坏（例如工具破坏）时触发。
 
 </ApiMemberCard>
 
