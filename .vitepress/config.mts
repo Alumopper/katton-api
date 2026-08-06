@@ -47,6 +47,8 @@ const docsSidebar = [
     items: [
       { text: "Overview", link: "/guide/" },
       { text: "Script Packs", link: "/guide/scripts" },
+      { text: "Entrypoint Lifecycle", link: "/guide/lifecycle" },
+      { text: "Mods and Plugins", link: "/guide/dependencies" },
       { text: "Events", link: "/guide/events" },
       {
         text: "Registry",
@@ -90,7 +92,7 @@ const docsSidebar = [
       { text: "Overview", link: "/architecture/" },
       { text: "Script Loading Lifecycle", link: "/architecture/script-loading" },
       { text: "Script Pack Sync and Trust", link: "/architecture/pack-sync" },
-      { text: "Manifest and Signing", link: "/architecture/manifest" },
+      { text: "Manifest and Dependencies", link: "/architecture/manifest" },
       { text: "Registry Lifecycle", link: "/architecture/registry-lifecycle" },
     ],
   },
@@ -111,6 +113,8 @@ const zhDocsSidebar = [
     items: [
       { text: "概览", link: "/zh/guide/" },
       { text: "脚本包", link: "/zh/guide/scripts" },
+      { text: "入口生命周期", link: "/zh/guide/lifecycle" },
+      { text: "模组与插件依赖", link: "/zh/guide/dependencies" },
       { text: "事件", link: "/zh/guide/events" },
       {
         text: "注册",
@@ -154,7 +158,7 @@ const zhDocsSidebar = [
       { text: "概览", link: "/zh/architecture/" },
       { text: "脚本加载生命周期", link: "/zh/architecture/script-loading" },
       { text: "脚本包同步与信任", link: "/zh/architecture/pack-sync" },
-      { text: "Manifest 与签名", link: "/zh/architecture/manifest" },
+      { text: "清单与依赖", link: "/zh/architecture/manifest" },
       { text: "注册表生命周期", link: "/zh/architecture/registry-lifecycle" },
     ],
   },

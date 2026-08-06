@@ -31,7 +31,7 @@ Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包
    figure-width="400px"
 />
 
-开始前，我们需要把 Minecraft 类引入项目以便 IDE 代码补全。模板生成器会根据选择的 Minecraft 版本配置 Katton 与平台依赖。Fabric 和 NeoForge 项目还需要把该版本的官方游戏 jar 复制到生成项目的 `lib/` 目录；若脚本引用了其他模组提供的 API，再补充对应的 `compileOnly` 依赖。
+开始前，我们需要把 Minecraft 类引入项目以便 IDE 代码补全。模板生成器会根据选择的 Minecraft 版本配置 Katton 与平台依赖。Fabric 和 NeoForge 项目还需要把该版本的官方游戏 jar 复制到生成项目的 `lib/` 目录。请在生成器的依赖区域添加外部模组或插件，再通过 Gradle `compileOnly` 或 `lib/` 中的额外 JAR 提供其 API。
 
 > [!NOTE]
 > 对于Paper端，则不需要使用这样的方法引入Minecraft源码。Paper提供了一个轻量级插件开发环境，可以直接在build.gradle.kts中添加

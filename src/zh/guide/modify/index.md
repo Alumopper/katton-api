@@ -11,6 +11,8 @@
 import top.katton.api.mod.*
 ```
 
+请像下面的示例一样，从 `ServerPhase.READY` 入口执行修改。这样依赖服务端的 API 能拿到有效服务器，世界包也能在重载时重新应用暂存修改。不要在 Kotlin 类加载阶段直接执行修改调用，否则会绕过 Katton 的阶段与所有权上下文。
+
 ## 重载行为
 
 Modify API 根据与 Minecraft 内部状态的交互方式分为两类：

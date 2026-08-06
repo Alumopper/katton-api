@@ -23,6 +23,24 @@
       <span>跨平台事件分类与参数类型。</span>
     </span>
   </a>
+  <a class="next-card" href="./lifecycle.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 3v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>入口生命周期</strong>
+      <span>选择执行阶段、使用调用上下文并控制世界脚本重放。</span>
+    </span>
+  </a>
+  <a class="next-card" href="./dependencies.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M8 12h8M5 8h4v8H5zM15 8h4v8h-4z"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>模组与插件依赖</strong>
+      <span>声明依赖并调用 Fabric、NeoForge 或 Paper API。</span>
+    </span>
+  </a>
   <a class="next-card" href="./registry/">
     <span class="next-card__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="m4 12 8 4 8-4"/><path d="m4 17 8 4 8-4"/></svg>

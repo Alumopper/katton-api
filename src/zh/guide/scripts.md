@@ -118,7 +118,9 @@ fun initMyHUD(context: ClientJoinedContext) {
 
 两个注解都有 `replay: Boolean = true`。全局入口永不重放；世界入口遵循该值；多人同步的 `SERVER_CACHE` 入口在激活后始终全部重放，即使包没有变化或写了 `replay = false`。
 
-上下文提供 `packId`、`scope`、`reason`、`cause`、`platform`，以及当前阶段保证可用的服务器、客户端、玩家或世界对象。一个文件可定义任意多个入口，每个都会被独立发现和调用。完整契约见[脚本加载生命周期](../architecture/script-loading.md)。
+上下文提供 `packId`、`scope`、`reason`、`cause`、`platform`，以及当前阶段保证可用的服务器、客户端、玩家或世界对象。一个文件可定义任意多个入口，每个都会被独立发现和调用。实践示例见[选择入口执行阶段](./lifecycle.md)，完整契约见[脚本加载生命周期](../architecture/script-loading.md)。
+
+使用外部模组或插件 API 前必须在 `dependencies` 中声明，详见[使用其他模组与插件](./dependencies.md)。
 
 > [!CAUTION]
 > Katton **不会**阻止你在 `@ClientScriptEntrypoint` 函数里调用服务端专属 API（反之亦然）。强行在客户端入口函数中调用服务端专有 API 可能会导致游戏崩溃！服务端逻辑和客户端逻辑请放在不同的入口函数里。

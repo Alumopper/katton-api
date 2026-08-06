@@ -24,6 +24,24 @@ For platform-level availability, see [Platforms](../platform/). For reload, netw
       <span>Cross-platform event categories and argument model.</span>
     </span>
   </a>
+  <a class="next-card" href="./lifecycle.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 3v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>Entrypoint Lifecycle</strong>
+      <span>Choose phases, use invocation contexts, and control world replay.</span>
+    </span>
+  </a>
+  <a class="next-card" href="./dependencies.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M8 12h8M5 8h4v8H5zM15 8h4v8h-4z"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>Mods and Plugins</strong>
+      <span>Declare dependencies and call Fabric, NeoForge, or Paper APIs.</span>
+    </span>
+  </a>
   <a class="next-card" href="./registry/">
     <span class="next-card__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="m4 12 8 4 8-4"/><path d="m4 17 8 4 8-4"/></svg>

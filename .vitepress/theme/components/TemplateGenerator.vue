@@ -4,8 +4,10 @@ import { useData } from 'vitepress'
 import {
   generateZip,
   fetchKattonVersions,
+  type DependencyEnvironment,
   type KattonVersion,
   type PackInfo,
+  type ScriptDependencyInput,
   type SupportedMinecraftVersion,
 } from '../../../src/template/generator'
 
@@ -31,6 +33,20 @@ const t = computed(() => ({
   version: isZh.value ? '版本' : 'Version',
   authors: isZh.value ? '作者' : 'Authors',
   description: isZh.value ? '描述' : 'Description',
+  dependencies: isZh.value ? '模组 / 插件依赖' : 'Mod / Plugin Dependencies',
+  dependenciesTooltip: isZh.value
+    ? '这些条目会写入 world_scripts/manifest.json；空的全局包保留 dependencies: []。运行时声明与 IDE 编译类路径是两回事。'
+    : 'These entries are written to world_scripts/manifest.json; the empty global pack keeps dependencies: []. Runtime declarations and the IDE compile classpath are separate.',
+  noDependencies: isZh.value ? '当前没有外部依赖，将生成 dependencies: []。' : 'No external dependencies; the manifests will contain dependencies: [].',
+  addDependency: isZh.value ? '添加依赖' : 'Add Dependency',
+  dependencyId: isZh.value ? '模组 ID / 插件名' : 'Mod ID / Plugin Name',
+  dependencyVersion: isZh.value ? '版本范围' : 'Version Range',
+  dependencyEnvironment: isZh.value ? '运行侧' : 'Environment',
+  dependencyRequired: isZh.value ? '必需' : 'Required',
+  removeDependency: isZh.value ? '移除依赖' : 'Remove dependency',
+  environmentServer: isZh.value ? '服务端' : 'Server',
+  environmentClient: isZh.value ? '客户端' : 'Client',
+  environmentBoth: isZh.value ? '两端' : 'Both',
   packNamePlaceholder: isZh.value ? '我的脚本包' : 'My Awesome Pack',
   authorPlaceholder: isZh.value ? '你的名字' : 'YourName',
   descPlaceholder: isZh.value ? '一个新鲜出炉的 Katton 脚本包！' : 'A cool Katton script pack!',
@@ -57,6 +73,7 @@ const packVersion = ref('1.0.0')
 const authors = ref('Dev')
 const description = ref('')
 const signingKey = ref(false)
+const dependencies = ref<ScriptDependencyInput[]>([])
 
 const versions = ref<KattonVersion[]>([])
 const versionsLoading = ref(false)
@@ -74,6 +91,7 @@ const packInfo = computed<PackInfo>(() => ({
   packVersion: packVersion.value,
   authors: authors.value,
   description: description.value,
+  dependencies: dependencies.value.map(dependency => ({ ...dependency })),
 }))
 
 const validPackId = computed(() => /^[a-zA-Z][a-zA-Z0-9_-]*$/.test(packId.value))
@@ -95,6 +113,7 @@ const availableKattonVersions = computed(() =>
 const canGenerate = computed(() =>
   validPackId.value &&
   packName.value.trim().length > 0 &&
+  dependencies.value.every(dependency => dependency.id.trim().length > 0) &&
   availableKattonVersions.value.some(version => version.mavenVersion === kattonVersion.value)
 )
 
@@ -124,6 +143,37 @@ loadVersions()
 function selectModLoader(loader: PackInfo['modLoader']) {
   modLoader.value = loader
   if (loader === 'paper') signingKey.value = false
+  if (loader === 'paper') {
+    dependencies.value.forEach(dependency => {
+      if (dependency.environment !== 'server') dependency.environment = 'server'
+    })
+  }
+}
+
+function addDependency() {
+  dependencies.value.push({
+    id: '',
+    version: '*',
+    required: true,
+    environment: modLoader.value === 'paper' ? 'server' : 'both',
+  })
+}
+
+function removeDependency(index: number) {
+  dependencies.value.splice(index, 1)
+}
+
+function environmentOptions(): Array<{ value: DependencyEnvironment; label: string }> {
+  const options: Array<{ value: DependencyEnvironment; label: string }> = [
+    { value: 'server', label: t.value.environmentServer },
+  ]
+  if (modLoader.value !== 'paper') {
+    options.push(
+      { value: 'client', label: t.value.environmentClient },
+      { value: 'both', label: t.value.environmentBoth },
+    )
+  }
+  return options
 }
 
 watch([modLoader, minecraftVersion, versions], () => {
@@ -353,6 +403,79 @@ async function doGenerate() {
         ></textarea>
       </div>
 
+      <section class="dependency-section">
+        <div class="dependency-section__header">
+          <div class="field-with-hint">
+            <span class="field-label">{{ t.dependencies }}</span>
+            <span v-tooltip="t.dependenciesTooltip" class="hint-icon" aria-label="help">?</span>
+          </div>
+          <button type="button" class="dependency-add" @click="addDependency">
+            {{ t.addDependency }}
+          </button>
+        </div>
+
+        <p v-if="dependencies.length === 0" class="dependency-empty">
+          {{ t.noDependencies }}
+        </p>
+
+        <div
+          v-for="(dependency, index) in dependencies"
+          :key="index"
+          class="dependency-card"
+        >
+          <div class="dependency-grid">
+            <label class="dependency-field">
+              <span>{{ t.dependencyId }}</span>
+              <input
+                v-model="dependency.id"
+                type="text"
+                class="field-input"
+                :class="{ invalid: dependency.id.trim().length === 0 }"
+                :placeholder="modLoader === 'paper' ? 'PlaceholderAPI' : 'create'"
+              />
+            </label>
+
+            <label class="dependency-field">
+              <span>{{ t.dependencyVersion }}</span>
+              <input
+                v-model="dependency.version"
+                type="text"
+                class="field-input"
+                placeholder=">=1.0.0"
+              />
+            </label>
+
+            <label class="dependency-field">
+              <span>{{ t.dependencyEnvironment }}</span>
+              <span class="select-wrapper">
+                <select v-model="dependency.environment" class="field-select">
+                  <option
+                    v-for="option in environmentOptions()"
+                    :key="option.value"
+                    :value="option.value"
+                  >{{ option.label }}</option>
+                </select>
+              </span>
+            </label>
+          </div>
+
+          <div class="dependency-card__footer">
+            <label class="dependency-required">
+              <input v-model="dependency.required" type="checkbox" />
+              <span>{{ t.dependencyRequired }}</span>
+            </label>
+            <button
+              type="button"
+              class="dependency-remove"
+              :aria-label="t.removeDependency"
+              @click="removeDependency(index)"
+            >
+              {{ t.removeDependency }}
+            </button>
+          </div>
+        </div>
+      </section>
+
       <!-- Error -->
       <div v-if="error" class="error-msg">{{ error }}</div>
 
@@ -380,7 +503,7 @@ async function doGenerate() {
 
 <style scoped>
 .template-generator {
-  width: min(680px, calc(100% - 32px));
+  width: min(840px, calc(100% - 32px));
   margin: 0 auto;
   padding: 40px 0 60px;
 }
@@ -540,6 +663,105 @@ async function doGenerate() {
 
 .field-row .half {
   flex: 1;
+}
+
+.dependency-section {
+  margin: 8px 0 24px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 22px;
+}
+
+.dependency-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.dependency-section__header .field-label,
+.dependency-section__header .hint-icon {
+  margin-bottom: 0;
+}
+
+.dependency-add,
+.dependency-remove {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  font: inherit;
+}
+
+.dependency-add {
+  padding: 7px 12px;
+  color: var(--vp-c-brand-1);
+}
+
+.dependency-add:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+.dependency-empty {
+  margin: 0;
+  border: 1px dashed var(--vp-c-divider);
+  border-radius: 10px;
+  padding: 14px;
+  color: var(--vp-c-text-3);
+  font-size: 13px;
+}
+
+.dependency-card {
+  margin-top: 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--vp-c-bg) 72%, var(--vp-c-bg-soft) 28%);
+}
+
+.dependency-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(130px, 0.7fr);
+  gap: 12px;
+}
+
+.dependency-field {
+  display: grid;
+  gap: 6px;
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dependency-field .select-wrapper {
+  display: block;
+}
+
+.dependency-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.dependency-required {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+}
+
+.dependency-remove {
+  padding: 5px 9px;
+  color: #f87171;
+  font-size: 12px;
+}
+
+.dependency-remove:hover {
+  border-color: #f87171;
 }
 
 /* Loader toggle */
@@ -703,6 +925,14 @@ async function doGenerate() {
   .field-row {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .dependency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dependency-section__header {
+    align-items: flex-start;
   }
 }
 </style>

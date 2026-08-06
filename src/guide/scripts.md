@@ -120,7 +120,9 @@ Valid phases are tied to folder scope:
 
 Both annotations have `replay: Boolean = true`. Global entrypoints never replay, world entrypoints honor the value, and synced `SERVER_CACHE` entrypoints always replay after activation—even if unchanged or declared with `replay = false`.
 
-Contexts expose `packId`, `scope`, `reason`, `cause`, and `platform`, plus phase-specific objects such as the server, client, player, or level. You can have as many entrypoint functions as needed; each is discovered and invoked independently. See [Script Loading Lifecycle](../architecture/script-loading.md) for the complete phase and replay contract.
+Contexts expose `packId`, `scope`, `reason`, `cause`, and `platform`, plus phase-specific objects such as the server, client, player, or level. You can have as many entrypoint functions as needed; each is discovered and invoked independently. See [Choosing an Entrypoint Phase](./lifecycle.md) for practical examples and [Script Loading Lifecycle](../architecture/script-loading.md) for the complete contract.
+
+External mod and plugin APIs must be declared in `dependencies` before use. See [Using Other Mods and Plugins](./dependencies.md).
 
 > [!CAUTION]
 > Katton does **not** prevent you from calling server-only APIs from a `@ClientScriptEntrypoint` function (or vice versa). Doing so will likely crash that side. Keep your server logic and client logic in separate entrypoint functions.

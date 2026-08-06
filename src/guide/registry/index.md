@@ -30,6 +30,12 @@ Running `/katton reload` triggers this sequence:
 3. `markManaged()` re-tracks the entry for the current script
 4. Stale entries (no longer registered by any script) remain in Minecraft's registry until restart
 
+## Run Registry Code on Both Sides
+
+For built-in content on Fabric/NeoForge, the server registers at `ServerPhase.READY` and the client registers the matching IDs at `ClientPhase.REGISTRY_SETUP`. The examples below therefore put both annotations on the same no-argument function. The client phase runs before multiplayer registry validation.
+
+Commands are server-only and use only `ServerPhase.READY`. Paper disables all registry examples on this page.
+
 ## Registry Diagnostics
 
 Use `/katton registry` to see a summary per registry: how many entries Katton tracks, how many are managed by scripts, and how many are **stale** (still in Minecraft's registry but no longer owned by any script).

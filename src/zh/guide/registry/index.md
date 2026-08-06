@@ -30,6 +30,12 @@
 3. `markManaged()` 重新标记为当前脚本所有
 4. 残留条目（不再被任何脚本注册的）保留在 Minecraft 注册表中直到重启
 
+## 两个逻辑侧都要执行注册
+
+Fabric/NeoForge 的内置内容由服务端在 `ServerPhase.READY` 注册，客户端则必须在 `ClientPhase.REGISTRY_SETUP` 注册相同 ID。因此下面的示例会在同一个无参函数上放置两个注解；客户端阶段会在多人注册表校验前执行。
+
+命令仅在服务端注册，只使用 `ServerPhase.READY`。Paper 会禁用本页全部注册表示例。
+
 ## 注册诊断
 
 用 `/katton registry` 查看每个注册表的摘要：Katton 追踪了多少条目、有多少被脚本管理、有多少是**残留**的。

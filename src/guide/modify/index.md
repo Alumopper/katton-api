@@ -11,6 +11,8 @@ Modifying vanilla (or modded) game content is just as important as adding new co
 import top.katton.api.mod.*
 ```
 
+Run modifications from a `ServerPhase.READY` entrypoint, as shown in every example below. This gives server-dependent APIs a valid server and lets world packs replay staged changes during reload. Avoid executable modification calls at Kotlin class-load time because they bypass Katton's phase and ownership context.
+
 ## Reload Behavior
 
 Modify APIs fall into two categories based on how they interact with Minecraft's internal state:

@@ -1,5 +1,14 @@
 import JSZip from 'jszip'
 
+export type DependencyEnvironment = 'server' | 'client' | 'both'
+
+export interface ScriptDependencyInput {
+  id: string
+  version: string
+  required: boolean
+  environment: DependencyEnvironment
+}
+
 export interface PackInfo {
   modLoader: 'fabric' | 'neoforge' | 'paper'
   minecraftVersion: SupportedMinecraftVersion
@@ -8,8 +17,9 @@ export interface PackInfo {
   packName: string
   packVersion: string
   authors: string
-  description: string,
+  description: string
   signing: boolean
+  dependencies: ScriptDependencyInput[]
 }
 
 const WRAPPER_JAR_URL =
@@ -314,6 +324,9 @@ repositories {
 dependencies {
     implementation("top.katton:katton-paper:\${kattonVersion}")
     paperweight.paperDevBundle("${versions.paperDevBundleVersion}")
+    compileOnly(fileTree("lib") {
+        include("*.jar")
+    })
 }
 
 kotlin {
@@ -539,7 +552,10 @@ if "%OS%"=="Windows_NT" endlocal
 `
 }
 
-function manifestJson(info: PackInfo): string {
+function manifestJson(
+  info: PackInfo,
+  dependencies: ScriptDependencyInput[] = info.dependencies
+): string {
   const authors = info.authors
     .split(',')
     .map((s) => s.trim())
@@ -553,7 +569,13 @@ function manifestJson(info: PackInfo): string {
       authors,
       enabled: true,
       clientSync: info.modLoader !== 'paper',
-      dependencies: [],
+      dependencies: dependencies.map(dependency => ({
+        id: dependency.id.trim(),
+        version: dependency.version.trim() || '*',
+        required: dependency.required,
+        platforms: [info.modLoader],
+        environment: dependency.environment,
+      })),
     },
     null,
     2
@@ -562,11 +584,24 @@ function manifestJson(info: PackInfo): string {
 
 function mainKt(info: PackInfo): string {
   return `import top.katton.api.ServerPhase
+import top.katton.api.ServerReadyContext
 import top.katton.api.ServerScriptEntrypoint
 
 @ServerScriptEntrypoint(ServerPhase.READY)
-fun init() {
-    println("Hello from ${info.packName}!")
+fun init(context: ServerReadyContext) {
+    println("Hello from ${info.packName}! Cause: \${context.cause}")
+}
+`
+}
+
+function clientMainKt(info: PackInfo): string {
+  return `import top.katton.api.ClientJoinedContext
+import top.katton.api.ClientPhase
+import top.katton.api.ClientScriptEntrypoint
+
+@ClientScriptEntrypoint(ClientPhase.JOINED)
+fun initClient(context: ClientJoinedContext) {
+    println("${info.packName} joined as \${context.player.name.string}")
 }
 `
 }
@@ -646,6 +681,10 @@ export async function generateZip(
   if (info.modLoader === 'paper' && info.signing) {
     throw new Error('Paper script packs do not support client-sync signing')
   }
+  const invalidDependency = info.dependencies.find(dependency => !dependency.id.trim())
+  if (invalidDependency) {
+    throw new Error('Every dependency must have a non-empty mod or plugin ID')
+  }
 
   const zip = new JSZip()
   const rootDir = `${info.packId}/`
@@ -691,14 +730,21 @@ export async function generateZip(
   // 6. Manifests
   onProgress?.('Generating manifest.json...')
   zip.file(`${rootDir}world_scripts/manifest.json`, manifestJson(info))
-  zip.file(`${rootDir}global_scripts/manifest.json`, manifestJson(info))
+  zip.file(`${rootDir}global_scripts/manifest.json`, manifestJson(info, []))
 
   // 7. Main.kt
   onProgress?.('Generating Main.kt...')
   zip.file(`${rootDir}world_scripts/Main.kt`, mainKt(info))
+  if (info.modLoader !== 'paper') {
+    zip.file(`${rootDir}world_scripts/ClientMain.kt`, clientMainKt(info))
+  }
 
   // 8. .gitignore
-  zip.file(`${rootDir}.gitignore`, `/.gradle/\n/build/\n/run/\n/lib/\n`)
+  zip.file(`${rootDir}.gitignore`, `/.gradle/\n/build/\n/run/\n/lib/*.jar\n`)
+  zip.file(
+    `${rootDir}lib/README.md`,
+    `# Compile-only dependency jars\n\nPlace Minecraft, mod API, or Paper plugin API jars here when they are not available from Maven. The generated Gradle build includes \`lib/*.jar\` as compile-only dependencies. Runtime availability is controlled separately by each script pack's \`manifest.json\`.\n`
+  )
 
   // 9. README
   onProgress?.('Generating README...')
@@ -725,6 +771,9 @@ function readmeTemplate(info: PackInfo): string {
       ? []
       : ['Copy the official Minecraft jar for the selected version into `lib/`']),
     'Open this project in IntelliJ IDEA',
+    ...(info.dependencies.length > 0
+      ? ['Add each declared mod or plugin API to the Gradle compile classpath or place its jar in `lib/`']
+      : []),
     'Edit `build.gradle.kts` to configure `worldScriptsTargetDir` and `globalScriptsTargetDir`',
     `Run the \`${copyTask}\` Gradle task to link your scripts into the ${info.modLoader === 'paper' ? 'server' : 'game'}`,
   ]
@@ -736,6 +785,11 @@ function readmeTemplate(info: PackInfo): string {
       ? '- `@ServerScriptEntrypoint` — runs on the Paper server'
       : `- \`@ServerScriptEntrypoint\` — runs on server
 - \`@ClientScriptEntrypoint\` — runs on client`
+  const dependencyRows = info.dependencies.length === 0
+    ? 'No external mod or plugin dependencies are declared.'
+    : `| ID | Version | Required | Environment | Platform |\n|---|---|:---:|---|---|\n${info.dependencies
+        .map(dependency => `| \`${dependency.id}\` | \`${dependency.version || '*'}\` | ${dependency.required ? 'yes' : 'no'} | \`${dependency.environment}\` | \`${info.modLoader}\` |`)
+        .join('\n')}`
 
   return `# ${info.packName}
 
@@ -758,13 +812,21 @@ ${setupSteps}
 | Katton Maven version | ${info.kattonVersion} |
 | Loader | ${loaderName} |
 
+## Declared Dependencies
+
+The generated entries below belong to \`world_scripts/manifest.json\`. The empty global pack starts with the required \`dependencies: []\` declaration; add global dependencies there only when global scripts actually use them. Paper plugin dependencies must remain world-scoped because plugin classes become available at \`ServerPhase.READY\`.
+
+${dependencyRows}
+
 ## Development
 
 Write world-scoped scripts in \`world_scripts/\`, and global-scoped scripts in \`global_scripts/\`. Use:
 
 ${entrypoints}
 
-The folder selects the pack scope and the annotation selects its phase. The generated world entrypoint uses \`ServerPhase.READY\`. Every \`manifest.json\` must keep a \`dependencies\` array; declare imported mod or plugin APIs there, or leave it as \`[]\`.
+The folder selects the pack scope and the annotation selects its phase. The generated server entrypoint uses \`ServerPhase.READY\`${info.modLoader === 'paper' ? '' : ', while the client starter uses `ClientPhase.JOINED`'}. Every \`manifest.json\` must keep a \`dependencies\` array.
+
+Manifest declarations control runtime validation and classloading. They do not download APIs for the IDE; add a Maven \`compileOnly\` dependency or place the API jar in \`lib/\`.
 
 Run \`/katton reload\` in-game to hot-reload your scripts without restarting.
 `
