@@ -9,11 +9,12 @@ Post effects are client-side resources. If the server wants to activate one for 
 Katton includes helpers for common post effects:
 
 ```kotlin
+import top.katton.api.ClientPhase
 import top.katton.api.ClientScriptEntrypoint
 import top.katton.api.registerClientGrayscalePostEffect
 import top.katton.api.setClientPostEffect
 
-@ClientScriptEntrypoint
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun registerVisionEffect() {
     registerClientGrayscalePostEffect(
         id = "example:vision/grayscale",
@@ -31,11 +32,12 @@ Preset helpers include invert, grayscale, sepia, tint, color adjustment, vignett
 Use `registerSimpleClientPostEffect` for a one-pass shader that samples `InSampler` and writes `fragColor`.
 
 ```kotlin
+import top.katton.api.ClientPhase
 import top.katton.api.ClientScriptEntrypoint
 import top.katton.api.registerSimpleClientPostEffect
 import top.katton.api.setClientPostEffect
 
-@ClientScriptEntrypoint
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun registerRedFlash() {
     registerSimpleClientPostEffect(
         id = "example:vision/red_flash",

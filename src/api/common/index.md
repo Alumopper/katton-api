@@ -25,7 +25,8 @@ Generated from module `common`.
 - [KattonComponentApi](./KattonComponentApi.md) - Combines two nullable Components into a new Component.
 - [KattonConfigApi](./KattonConfigApi.md) - Script-facing config API. Reads config values from the current script's pack manifest.
 - [KattonContextApi](./KattonContextApi.md) - Determines which position the returned [ExecutionContext] uses.
-- [ScriptEntrypoint](./ScriptEntrypoint.md) - Marks a top-level no-argument function as a client script entrypoint.
+- [KattonDependencyApi](./KattonDependencyApi.md) - Script-facing access to optional mod and plugin dependency state.
+- [ScriptEntrypoint](./ScriptEntrypoint.md) - Execution stages available to server entrypoints.
 - [Recipes](./datapack/Recipes.md)
 - [KattonBlockApi](./dpcaller/KattonBlockApi.md) - Map-like access to blocks in a level by position.
 - [KattonBlockEntityApi](./dpcaller/KattonBlockEntityApi.md) - Map-like access to block entities in a level by position.

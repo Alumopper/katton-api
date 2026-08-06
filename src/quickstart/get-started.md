@@ -20,7 +20,7 @@ Although we call them "Kotlin scripts", they are normal Kotlin files ending with
 | Folder | Purpose |
 |---|---|
 | `world_scripts/` | World-specific scripts (hot-reloadable) |
-| `global_scripts/` | Scripts loaded once at startup (no hot reload) |
+| `global_scripts/` | Process-lifetime bootstrap/ready scripts (not replayed by hot reload) |
 
 To make things simple, we'll only use `world_scripts/` in this tutorial.
 
@@ -57,9 +57,12 @@ Create a new folder inside your world's `kattonpacks/` directory (e.g. `<worldDi
   "id": "my_first_pack",
   "name": "My First Katton Pack",
   "version": "1.0.0",
-  "enabled": true
+  "enabled": true,
+  "dependencies": []
 }
 ```
+
+`dependencies` is mandatory in every pack manifest. Declare mod or plugin APIs here before importing their classes; see [Manifest, Dependencies, and Signing](../architecture/manifest.md).
 
 If the `kattonpacks/` directory doesn't exist yet, create it manually or let Katton create it on first reload.
 
@@ -95,7 +98,7 @@ Now, launch the game with the Katton mod and join your world. You should see a "
 
 Change the message in `hello.kt` to something else, save the file, and use `/katton reload` command — you should see the new message when you rejoin without restarting the game. This is the power of hot-reloadable scripts!
 
-> You can also use `/reload` (vanilla) for server-side scripts, or `F3 + T` for client scripts on Fabric/NeoForge. `/katton reload` is the normal Katton workflow and shows a visual progress bar. See [Hot Reload and Debugging](./hot-reload.md) and [Commands](commands.md) for details.
+> You can also use `/reload` (vanilla) for server-side scripts. `F3 + T` reloads Minecraft resources, not Katton scripts. `/katton reload` is the normal Katton workflow and shows a visual progress bar. See [Hot Reload and Debugging](./hot-reload.md) and [Commands](commands.md) for details.
 
 ## Debugging
 

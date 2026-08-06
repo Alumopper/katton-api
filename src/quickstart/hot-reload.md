@@ -14,7 +14,7 @@ Other reload paths still exist:
 |---|---|
 | `/katton reload` | Reloads Katton scripts and shows the progress overlay. |
 | `/reload` | Reloads datapacks; Katton hooks server script reload into that flow. |
-| `F3 + T` | Reloads client resources and client scripts on Fabric/NeoForge. |
+| `F3 + T` | Reloads Minecraft client resources only; Katton scripts are not invoked. |
 | Script Pack UI Reload button | Reloads from the in-game pack manager on Fabric/NeoForge clients. |
 
 ## What Gets Cleared
@@ -29,3 +29,9 @@ During reload, Katton clears script-owned state before running entrypoints again
 | Reloadable registries | Ownership is cleared; objects are soft-retained to avoid holder crashes. |
 | Datapack mutations | Cleared and re-applied during datapack apply. |
 | Client render callbacks | Cleared on client reload. |
+
+## Lifecycle and Replay
+
+Reloading does not mean every entrypoint runs again. Global packs never replay, world packs honor the annotation's `replay` value, and multiplayer `SERVER_CACHE` packs always replay after a server revision activates. The context's `reason` is `HOT_RELOAD`, while `cause` identifies the command, datapack reload, or server-pack sync that initiated it.
+
+For the full phase matrix and context types, see [Script Loading Lifecycle](../architecture/script-loading.md).

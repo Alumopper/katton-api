@@ -55,6 +55,6 @@ Katton 在游戏中添加了 `/katton` 命令，允许你在游戏内就管理�
 <!--@include: ../../example/quickstart/commands/01.md-->
 
 > [!TIP]
-> - **F3 + T** 重载资源包，也会自动触发客户端脚本重载。
+> - **F3 + T** 只重载 Minecraft 资源，不会调用 Katton 脚本。
 > - **`/reload`**（原版命令）重载数据包，Katton 会借此重载服务端脚本。
 > - **`/katton reload`** 客户端和服务端都会尝试重载。

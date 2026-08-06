@@ -26,12 +26,13 @@ Not all packs are editable everywhere:
 
 ## Pack Manifest
 
-Each script pack needs a `manifest.json` to be recognized by Katton. **All fields are optional** — Katton fills in sensible defaults for anything you omit:
+Each script pack needs a `manifest.json` to be recognized by Katton. The `dependencies` array is required; Katton fills in defaults for the other fields:
 
 <!--@include: ../example/quickstart/pack-ui/01.md-->
 
 | Field | Default | Description |
 |---|---|---|
+| `dependencies` | **required** | Mod/plugin dependency declarations; use `[]` when none are needed |
 | `name` | same as `id` | Human-readable pack name |
 | `id` | folder/jar filename | Unique pack identifier |
 | `version` | `"unknown"` | Semantic version |

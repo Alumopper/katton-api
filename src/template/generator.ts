@@ -553,6 +553,7 @@ function manifestJson(info: PackInfo): string {
       authors,
       enabled: true,
       clientSync: info.modLoader !== 'paper',
+      dependencies: [],
     },
     null,
     2
@@ -560,9 +561,10 @@ function manifestJson(info: PackInfo): string {
 }
 
 function mainKt(info: PackInfo): string {
-  return `import top.katton.api.ServerScriptEntrypoint
+  return `import top.katton.api.ServerPhase
+import top.katton.api.ServerScriptEntrypoint
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun init() {
     println("Hello from ${info.packName}!")
 }
@@ -761,6 +763,8 @@ ${setupSteps}
 Write world-scoped scripts in \`world_scripts/\`, and global-scoped scripts in \`global_scripts/\`. Use:
 
 ${entrypoints}
+
+The folder selects the pack scope and the annotation selects its phase. The generated world entrypoint uses \`ServerPhase.READY\`. Every \`manifest.json\` must keep a \`dependencies\` array; declare imported mod or plugin APIs there, or leave it as \`[]\`.
 
 Run \`/katton reload\` in-game to hot-reload your scripts without restarting.
 `

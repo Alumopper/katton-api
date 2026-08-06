@@ -23,6 +23,7 @@ const apiSidebar: DefaultTheme.SidebarMulti = {
             { text: 'KattonComponentApi', link: '/api/common/KattonComponentApi' },
             { text: 'KattonConfigApi', link: '/api/common/KattonConfigApi' },
             { text: 'KattonContextApi', link: '/api/common/KattonContextApi' },
+            { text: 'KattonDependencyApi', link: '/api/common/KattonDependencyApi' },
             { text: 'ScriptEntrypoint', link: '/api/common/ScriptEntrypoint' },
             { text: 'Recipes', link: '/api/common/datapack/Recipes' },
             { text: 'KattonBlockApi', link: '/api/common/dpcaller/KattonBlockApi' },

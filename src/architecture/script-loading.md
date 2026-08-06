@@ -1,49 +1,124 @@
 # Script Loading Lifecycle
 
-Katton compiles normal `.kt` and `.java` files from enabled script packs, then invokes top-level no-argument functions annotated with `@ServerScriptEntrypoint` or `@ClientScriptEntrypoint`.
+Katton compiles normal `.kt` and `.java` files from enabled script packs, then invokes annotated top-level functions at an explicit execution phase. A function may take no parameters, or one context parameter compatible with its phase.
 
-## Initialization
+The pack folder determines its **scope**; the annotation only determines its **phase**. There is no `AUTO` or mutable "active phase" API.
 
-All platforms initialize the common runtime:
+## Scopes and Phases
+
+| Scope | Location | Valid server phases | Valid client phases |
+|---|---|---|---|
+| `GLOBAL` | `<gameDir>/kattonpacks/` | `BOOTSTRAP`, `READY` | `READY` |
+| `WORLD` | `<worldDir>/kattonpacks/` | `READY` | `REGISTRY_SETUP`, `JOINED` |
+| `SERVER_CACHE` | Synced multiplayer cache | — | `REGISTRY_SETUP`, `JOINED` |
+
+An invalid scope/phase combination is rejected instead of being silently moved to another phase. This keeps timing visible in source code.
+
+## Entrypoint Annotations
 
 ```kotlin
-KattonRegistry.initialize()
-ScriptPackManager.setGameDirectory(...)
-ScriptEngine.setCacheDirectory(...)
-ScriptPackManager.refreshGlobalPacks()
+import top.katton.api.*
+
+@ServerScriptEntrypoint(
+    phase = ServerPhase.READY,
+    replay = true
+)
+fun serverReady(context: ServerReadyContext) {
+    println("${context.packId} loaded on ${context.platform}")
+}
+
+@ClientScriptEntrypoint(
+    phase = ClientPhase.JOINED,
+    replay = true
+)
+fun clientJoined(context: ClientJoinedContext) {
+    println("Joined as ${context.player.name.string}")
+}
 ```
 
-Fabric and NeoForge also register networking payloads, mixins, event bridges, renderer hooks, and lifecycle callbacks. Paper calls `Katton.paperInitialize()`, disables registry mutation/client features, registers Bukkit listeners, and installs Paper managed events.
+Defaults are deliberately simple:
 
-## Server Reload
+```kotlin
+@ServerScriptEntrypoint(
+    phase = ServerPhase.BOOTSTRAP,
+    replay = true
+)
 
-`/katton reload` and server datapack reloads follow the same broad pattern:
+@ClientScriptEntrypoint(
+    phase = ClientPhase.READY,
+    replay = true
+)
+```
 
-1. Refresh global/world script pack snapshots.
-2. Clear script-owned state: events, managed listeners, injections, registry ownership, datapack mutations.
-3. Compile and execute server entrypoints from enabled packs.
-4. Apply staged datapack mutations.
-5. On Fabric/NeoForge, sync registry/script-pack state to clients when relevant.
+Because those defaults belong to global packs, world-pack entrypoints normally specify `ServerPhase.READY` or a world/client phase explicitly.
 
-## Client Reload
+## Phase Semantics
 
-Fabric/NeoForge client reload:
+| Phase | Context | When to use it |
+|---|---|---|
+| `ServerPhase.BOOTSTRAP` | `BootstrapContext` | Process-lifetime setup that does not need a server or world. Global only. |
+| `ServerPhase.READY` | `ServerReadyContext` | Server commands, events, worlds, registries, and other server-bound work. |
+| `ClientPhase.READY` | `ClientReadyContext` | One-time client setup that does not need a connection. Global only. |
+| `ClientPhase.REGISTRY_SETUP` | `ClientRegistryContext` | Client content setup that must finish before remote registry validation. |
+| `ClientPhase.JOINED` | `ClientJoinedContext` | Work that requires a connection, local player, and client level. |
 
-1. Clears client event/render state.
-2. Refreshes local packs.
-3. Merges local packs with trusted server-cache packs.
-4. Compiles and executes client entrypoints.
-5. Re-registers HUD renderers, world renderers, and entity renderers.
+Every context exposes `packId`, `scope`, `reason`, `cause`, and `platform`. Phase-specific contexts additionally expose the objects guaranteed at that stage: `server`, `client`, `player`, or `level`.
 
-On Paper, client reload is a no-op because `hasClient = false`.
+`reason` distinguishes `INITIAL_LOAD` from `HOT_RELOAD`. `cause` explains what initiated the invocation: `SERVER_START`, `COMMAND`, `DATAPACK_RELOAD`, `SERVER_PACK_SYNC`, or `CLIENT_JOIN`.
 
-## Singleplayer and Multiplayer
+No-parameter entrypoints remain supported:
 
-Singleplayer reload is straightforward: the integrated server and local client both run in the same game process, but server and client scripts still compile into separate classloaders.
+```kotlin
+@ServerScriptEntrypoint(ServerPhase.READY)
+fun registerHandlers() {
+    // Valid when invocation metadata is not needed.
+}
+```
 
-Multiplayer adds one strict ordering requirement: remote client scripts must execute before registry validation. Katton sends hash and bundle packets during configuration, blocks the networking handler while the render thread verifies/trusts/executes packs, then lets registry validation proceed.
+## Replay Rules
 
-## Classloader Note
+The annotation's `replay` value is interpreted with the pack scope:
 
-Server and client script environments use separate classloaders. Avoid casting script-defined server classes to script-defined client classes. Use common Minecraft types or `KattonBridge` for explicit cross-classloader data sharing.
+| Scope | Hot-reload behavior |
+|---|---|
+| `GLOBAL` | Never replayed. Global entrypoints run once at their lifecycle boundary. |
+| `WORLD` | Replayed when `replay = true`; skipped when `false`. The default is `true`. |
+| `SERVER_CACHE` | Always replayed, even when unchanged or annotated with `replay = false`. |
 
+Server-cache replay is unconditional because the server owns the complete active snapshot. After a server revision is activated, every active synced pack re-registers its client state so removed or replaced handlers cannot survive.
+
+Global `ServerPhase.READY` entrypoints run once for each server instance, and their registered state is cleaned when that server stops. `ClientPhase.JOINED` waits until both the local player and client level are available.
+
+## Reload Flow
+
+`/katton reload` and server datapack reloads follow this broad server flow:
+
+1. Refresh global and world pack snapshots.
+2. Validate applicable mod or plugin dependencies.
+3. Clear replayable script-owned events, listeners, injections, registry ownership, and datapack mutations.
+4. Compile valid packs with their declared dependency classpaths.
+5. Invoke eligible `ServerPhase.READY` entrypoints with the appropriate cause.
+6. Apply staged datapack mutations.
+7. On Fabric and NeoForge, publish a new client pack revision after a successful reload.
+
+Fabric and NeoForge client activation follows this flow:
+
+1. Validate the client's applicable dependencies.
+2. Precompile the complete candidate pack snapshot.
+3. Clear client event and render state only when the candidate is ready to activate.
+4. Invoke `REGISTRY_SETUP`, then invoke or schedule `JOINED` when its objects exist.
+5. Keep the previous active revision if validation, trust, download, or compilation fails.
+
+Paper has no client lifecycle because `hasClient = false`.
+
+## Classloading
+
+Script compilation and execution include only dependencies declared in the pack manifest.
+
+- Fabric and NeoForge add the declared mod and its required transitive mod dependencies to the compiler classpath. Runtime code sees the loader's shared transformed classes.
+- Paper resolves enabled plugins at `ServerPhase.READY`, adds their plugin jar or class directory to the compiler classpath, and delegates runtime loading to the plugins' real classloaders. Katton does not load a second copy of a plugin and typed calls do not pay a reflection cost on every invocation.
+- If two declared Paper plugins export the same class name, Katton rejects the pack as ambiguous rather than choosing an order-dependent class.
+
+Server and client script environments still use separate script classloaders. Do not cast a script-defined server class to its client counterpart; exchange common Minecraft types or explicit bridge data instead.
+
+See [Manifest and Dependencies](./manifest.md) for dependency declarations and [Script Pack Sync and Trust](./pack-sync.md) for multiplayer activation ordering.

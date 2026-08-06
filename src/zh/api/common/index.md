@@ -25,7 +25,8 @@ outline: false
 - [KattonComponentApi](./KattonComponentApi.md) - 将两个可空的 Component 合并为一个新的 Component。
 - [KattonConfigApi](./KattonConfigApi.md) - 面向脚本的配置 API，会从当前脚本包的 manifest 里读取配置值。
 - [KattonContextApi](./KattonContextApi.md) - 决定返回的 [ExecutionContext] 使用哪个位置。
-- [ScriptEntrypoint](./ScriptEntrypoint.md) - 将一个顶层无参数函数标记为客户端脚本入口点。
+- [KattonDependencyApi](./KattonDependencyApi.md) - Script-facing access to optional mod and plugin dependency state.
+- [ScriptEntrypoint](./ScriptEntrypoint.md) - Execution stages available to server entrypoints.
 - [Recipes](./datapack/Recipes.md)
 - [KattonBlockApi](./dpcaller/KattonBlockApi.md) - Map-like access to blocks in a level by position.
 - [KattonBlockEntityApi](./dpcaller/KattonBlockEntityApi.md) - 以类似 Map 的方式按位置访问关卡中的方块实体。

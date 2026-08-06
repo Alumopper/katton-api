@@ -21,19 +21,20 @@ Katton 把你的 Kotlin 代码组织成**脚本包**。一个脚本包就是一�
 <世界目录>/kattonpacks/<包名>/**/*.kt
 ```
 
-- **全局**包在模组启动时加载一次，所有存档共享，适合用于整合包。
-- **世界**包每个存档独立加载——适合做地图专属脚本。
+- **全局**包提供进程级 `BOOTSTRAP`/`READY` 入口，所有存档共享，热重载时不会重放入口。
+- **世界**包在服务端/客户端世界阶段运行并可重放——适合做地图专属脚本。
 
 包内的 `.kt` 文件可以随意嵌套子目录，Katton 会递归扫描整个目录树。入口函数可以放在根目录、`src/main/`、`qwq/`等脚本包的任意位置。在常规开发中，文件夹的结构一般决定了你的代码组织方式和包的模块划分。
 
 ### 脚本配置（`manifest.json`）
 
-每个包需要在根目录放一个 `manifest.json` 以被识别。所有字段都是可选的，Katton 会为缺失的字段自动填上合理的默认值：
+每个包需要在根目录放一个 `manifest.json` 才能被识别。`dependencies` 数组为必填项；不依赖其他模组或插件时写空数组。其余字段由 Katton 提供默认值：
 
 <!--@include: ../../example/quickstart/pack-ui/01.md-->
 
 | 字段            | 默认值         | 说明                                  |
 |---------------|-------------|-------------------------------------|
+| `dependencies` | **必填** | 模组/插件依赖；没有依赖时写 `[]` |
 | `id`          | 文件夹         | 唯一包标识符——用于同步、日志和命令                  |
 | `name`        | 同 `id`      | 给人看的显示名称（在包管理界面里显示）                 |
 | `version`     | `"unknown"` | 版本号                                 |
@@ -44,7 +45,7 @@ Katton 把你的 Kotlin 代码组织成**脚本包**。一个脚本包就是一�
 | `signature`   | *自动生成*      | 无需填写。远程客户端同步包的可选 Ed25519 签名元数据      |
 | `config`      | `{}`        | 字符串/数字/布尔类型的简单包配置                   |
 
-签名细节和哈希输入见 [Manifest 与签名](../architecture/manifest.md)。
+依赖字段、平台解析、签名细节和哈希输入见[清单、依赖与签名](../architecture/manifest.md)。脚本包所在目录决定 `GLOBAL`、`WORLD` 或 `SERVER_CACHE` 作用域；入口注解只决定执行阶段。
 
 ### 如何签名脚本包
 
@@ -83,30 +84,41 @@ Katton 提供了 `top.katton.sign` Gradle 插件，用来把 Ed25519 签名元�
 
 ## 入口函数
 
-脚本是**不分端的**。同一个 `.kt` 文件可以同时包含服务端和客户端逻辑。用两个简单的注解来决定哪个环境执行哪个函数：
+脚本是**不分端的**。同一个 `.kt` 文件可以同时包含服务端和客户端逻辑。注解会选择明确的执行阶段：
 
 ```kotlin
-import top.katton.api.ServerScriptEntrypoint   // ← 在服务端运行
-import top.katton.api.ClientScriptEntrypoint   // ← 在客户端运行
+import top.katton.api.*
 ```
 
-两个注解都只能标记**顶层、无参函数**。
+入口必须是顶层函数，可以无参数，也可以接收一个与所选阶段兼容的上下文参数：
 
 ```kotlin
-@ServerScriptEntrypoint
-fun initMyCommands() {
-    // 只在服务端执行
+@ServerScriptEntrypoint(ServerPhase.READY)
+fun initMyCommands(context: ServerReadyContext) {
+    println("服务器就绪，触发原因：${context.cause}")
 }
 ```
 
 ```kotlin
-@ClientScriptEntrypoint
-fun initMyHUD() {
-    // 只在客户端执行
+@ClientScriptEntrypoint(ClientPhase.JOINED)
+fun initMyHUD(context: ClientJoinedContext) {
+    println("为 ${context.player.name.string} 初始化 HUD")
 }
 ```
 
-一个文件里可以写任意多个入口函数——每个都会被独立发现和调用。
+阶段与目录作用域的对应关系如下：
+
+| 作用域 | 服务端阶段 | 客户端阶段 |
+|---|---|---|
+| `GLOBAL` | `BOOTSTRAP`、`READY` | `READY` |
+| `WORLD` | `READY` | `REGISTRY_SETUP`、`JOINED` |
+| `SERVER_CACHE` | — | `REGISTRY_SETUP`、`JOINED` |
+
+`@ServerScriptEntrypoint` 默认使用 `BOOTSTRAP`，`@ClientScriptEntrypoint` 默认使用 `READY`，所以默认值都面向全局包。世界包应显式写出阶段。
+
+两个注解都有 `replay: Boolean = true`。全局入口永不重放；世界入口遵循该值；多人同步的 `SERVER_CACHE` 入口在激活后始终全部重放，即使包没有变化或写了 `replay = false`。
+
+上下文提供 `packId`、`scope`、`reason`、`cause`、`platform`，以及当前阶段保证可用的服务器、客户端、玩家或世界对象。一个文件可定义任意多个入口，每个都会被独立发现和调用。完整契约见[脚本加载生命周期](../architecture/script-loading.md)。
 
 > [!CAUTION]
 > Katton **不会**阻止你在 `@ClientScriptEntrypoint` 函数里调用服务端专属 API（反之亦然）。强行在客户端入口函数中调用服务端专有 API 可能会导致游戏崩溃！服务端逻辑和客户端逻辑请放在不同的入口函数里。
@@ -118,13 +130,14 @@ fun initMyHUD() {
 1. 重新扫描全局和作用域内所有已启用的包
 2. 清除事件处理器、注入和注册所有权
 3. 将所有源码包一起重新编译，然后加载 JAR 包
-4. 发现并调用所有 `@ServerScriptEntrypoint` / `@ClientScriptEntrypoint` 函数
+4. 根据作用域、阶段和重放策略调用符合条件的入口函数
 5. 在屏幕顶部显示**可视化进度条**（消息 + 百分比 + 绿色进度条）
 
 你也可以间接触发重载：
 - **`/reload`**（原版命令）→ 触发服务端 Katton 重载
-- **`F3 + T`**（重载资源）→ 触发客户端 Katton 重载
 - **包管理界面** → 按 K，点 Reload → 同时触发两端
+
+`F3 + T` 只重载 Minecraft 资源，不会重载 Katton 脚本。
 
 完整重载流程见 [热重载与调试](../quickstart/hot-reload.md)。
 
@@ -137,7 +150,7 @@ fun initMyHUD() {
 
 <!--@include: ../../example/quickstart/scripts/01.md-->
 
-客户端脚本可以和服务端脚本放在同一个包里（使用注解 `@ClientScriptEntrypoint` 加以区分）。在 Fabric/NeoForge 多人服务器上，需要客户端同步的包会自动从服务端同步到 `<游戏目录>/serverpacks/`。
+客户端脚本可以和服务端脚本放在同一个包里（使用注解 `@ClientScriptEntrypoint` 加以区分）。在 Fabric/NeoForge 多人服务器上，需要客户端同步的包会自动同步到 `<游戏目录>/serverpacks/` 下的修订目录。
 
 ## 服务端脚本
 
@@ -169,7 +182,9 @@ Katton 支持两种物理格式：
 5. 未信任的服务器或签名 key 会打开阻塞式信任界面
 6. 受信任的包会在注册表校验前执行
 
-这确保了每个玩家和服务端跑的是完全一样的脚本——不需要手动安装，不存在版本不一致。同步协议完全自动，你不需要做任何配置。
+每次服务端热重载成功后，Katton 还会发布新的游戏阶段修订。客户端只请求变化的包，暂存并预编译完整候选快照，然后重放所有活动服务器缓存包并回执结果。被移除的包会停用，空快照也受支持；候选失败时上一修订继续工作。失败回执或 30 秒超时会断开客户端。
+
+配置阶段与在线重载协议详见[脚本包同步与信任](../architecture/pack-sync.md)。
 
 > [!NOTE]
 > Paper 服务端不支持客户端同步，所有脚本均为服务端本地文件。

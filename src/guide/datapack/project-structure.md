@@ -39,15 +39,17 @@ The most important fields during migration are:
 | `name` | Display name shown in the pack UI |
 | `enabled` | Lets you disable a pack without deleting files |
 | `clientSync` | Fabric/NeoForge servers can sync client-side scripts and resources |
+| `dependencies` | Required array of mod/plugin dependencies; use `[]` when none are needed |
 
 ## Entrypoints
 
 In datapacks, `#load` decides which functions run first. In Katton, top-level functions annotated with `@ServerScriptEntrypoint` run when scripts reload.
 
 ```kotlin
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun main() {
     println("My Katton script pack loaded")
 }
@@ -61,7 +63,7 @@ Keep entrypoints small. Use them to register events, commands, and initial state
 | --- | --- |
 | `/katton reload` | Katton scripts, with a progress display |
 | `/reload` | Vanilla datapacks; Katton also hooks server script reload into this flow |
-| `F3 + T` | Client resources and client-side Katton scripts on Fabric/NeoForge |
+| `F3 + T` | Minecraft client resources only; Katton scripts are not invoked |
 
 For the complete lifecycle, see [Hot Reload and Debugging](../../quickstart/hot-reload.md) and [Script Loading Lifecycle](../../architecture/script-loading.md).
 

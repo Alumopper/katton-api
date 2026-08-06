@@ -86,8 +86,11 @@ class Zombie1Entity(type: EntityType<out Monster>, level: Level) : Monster(type,
 ## 注册实体（服务端 + 客户端）
 
 ```kotlin
-@ServerScriptEntrypoint
-@ClientScriptEntrypoint
+import top.katton.api.ClientPhase
+import top.katton.api.ServerPhase
+
+@ServerScriptEntrypoint(ServerPhase.READY)
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun initZombie() {
     registerNativeEntity("test:zombie1", RegisterMode.RELOADABLE,
         configure = {
@@ -107,7 +110,9 @@ fun initZombie() {
 使用 `registerAnimatedEntityRenderer` 能快速注册模型层、渲染器和动画：
 
 ```kotlin
-@ClientScriptEntrypoint
+import top.katton.api.ClientPhase
+
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun initZombieRenderer() {
     registerAnimatedEntityRenderer<LivingEntityRenderState, Zombie1Model<LivingEntityRenderState>>(
         entityTypeId = "test:zombie1",
@@ -192,7 +197,9 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.MobCategory
 import net.minecraft.world.entity.monster.Monster
 import net.minecraft.world.level.Level
+import top.katton.api.ClientPhase
 import top.katton.api.ClientScriptEntrypoint
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 import top.katton.api.registry.registerAnimatedEntityRenderer
 import top.katton.api.registry.registerNativeEntity
@@ -216,15 +223,15 @@ class Zombie1Entity(type: EntityType<out Monster>, level: Level) : Monster(type,
     }
 }
 
-@ServerScriptEntrypoint
-@ClientScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun initZombie() {
     registerNativeEntity("test:zombie1", RegisterMode.RELOADABLE,
         configure = { dimensions(0.6f, 1.95f); maxHealth(20.0); movementSpeed(0.23); attackDamage(3.0); withSpawnEgg(); followRange(64.0) }
     ) { p -> EntityType.Builder.of(::Zombie1Entity, MobCategory.MONSTER).sized(p.dimensions.width, p.dimensions.height).build(ResourceKey.create(Registries.ENTITY_TYPE, p.id)) }
 }
 
-@ClientScriptEntrypoint
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun initZombieRenderer() {
     registerAnimatedEntityRenderer<LivingEntityRenderState, Zombie1Model<LivingEntityRenderState>>(
         entityTypeId = "test:zombie1",

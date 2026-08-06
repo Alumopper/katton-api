@@ -42,15 +42,17 @@ kattonpacks/
 | `name` | 在脚本包 UI 中展示的名称 |
 | `enabled` | 控制是否禁用包 |
 | `clientSync` | Fabric/NeoForge 服务端可同步客户端脚本与资源 |
+| `dependencies` | 必填的模组/插件依赖数组；没有依赖时写 `[]` |
 
 ## 入口函数
 
 数据包用 `#load` 决定哪些函数先运行。Katton 使用带 `@ServerScriptEntrypoint` 的顶层函数作为脚本入口。
 
 ```kotlin
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun main() {
     println("My Katton script pack loaded")
 }
@@ -64,6 +66,6 @@ fun main() {
 | --- | --- |
 | `/katton reload` | Katton 脚本，并显示进度 |
 | `/reload` | 原版数据包；Katton 也会接入服务端脚本重载 |
-| `F3 + T` | Fabric/NeoForge 上的客户端资源和客户端脚本 |
+| `F3 + T` | 只重载 Minecraft 客户端资源，不调用 Katton 脚本 |
 
 完整流程见 [热重载与调试](../../quickstart/hot-reload.md) 和 [脚本加载生命周期](../../architecture/script-loading.md)。

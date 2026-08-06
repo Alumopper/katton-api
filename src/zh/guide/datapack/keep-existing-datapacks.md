@@ -7,7 +7,10 @@
 使用 [`runFunction`](../../../api/common/dpcaller/KattonServerApi.md#runfunction) 可以调用仍然位于数据包里的函数。
 
 ```kotlin
-@ServerScriptEntrypoint
+import top.katton.api.ServerPhase
+import top.katton.api.ServerScriptEntrypoint
+
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun main() {
     // 保留现有数据包行为，同时在外层加入 Kotlin 逻辑。
     // runFunction("my_pack:setup")

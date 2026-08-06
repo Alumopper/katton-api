@@ -55,6 +55,6 @@ Filters to only show registries that have stale entries. Handy after you've remo
 <!--@include: ../example/quickstart/commands/01.md-->
 
 > [!TIP]
-> - **F3 + T** reloads resource packs and also triggers client script reload (via LoadingOverlay hook).
+> - **F3 + T** reloads Minecraft resources only; it does not invoke Katton scripts.
 > - **`/reload`** (vanilla) reloads datapacks; Katton hooks into this for server scripts.
 > - **`/katton reload`** does both in one go.

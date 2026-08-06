@@ -9,7 +9,10 @@ Use [`runFunction`](../../api/common/dpcaller/KattonServerApi.md#runfunction) to
 That gives you a clean bridge:
 
 ```kotlin
-@ServerScriptEntrypoint
+import top.katton.api.ServerPhase
+import top.katton.api.ServerScriptEntrypoint
+
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun main() {
     // Keep existing datapack behavior while adding Kotlin around it.
     // runFunction("my_pack:setup")

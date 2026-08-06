@@ -90,8 +90,11 @@ class Zombie1Entity(type: EntityType<out Monster>, level: Level) : Monster(type,
 ## Register Entity (Server Side + Client Side)
 
 ```kotlin
-@ClientScriptEntrypoint
-@ServerScriptEntrypoint
+import top.katton.api.ClientPhase
+import top.katton.api.ServerPhase
+
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun initZombie() {
     registerNativeEntity("test:zombie1", RegisterMode.RELOADABLE,
         configure = {
@@ -115,7 +118,9 @@ fun initZombie() {
 Use the high-level `registerAnimatedEntityRenderer` — one call handles model layer, renderer construction, and animation wiring:
 
 ```kotlin
-@ClientScriptEntrypoint
+import top.katton.api.ClientPhase
+
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun initZombieRenderer() {
     registerAnimatedEntityRenderer<LivingEntityRenderState, Zombie1Model<LivingEntityRenderState>>(
         entityTypeId = "test:zombie1",
@@ -210,7 +215,9 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.MobCategory
 import net.minecraft.world.entity.monster.Monster
 import net.minecraft.world.level.Level
+import top.katton.api.ClientPhase
 import top.katton.api.ClientScriptEntrypoint
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 import top.katton.api.registry.registerAnimatedEntityRenderer
 import top.katton.api.registry.registerNativeEntity
@@ -237,8 +244,8 @@ class Zombie1Entity(type: EntityType<out Monster>, level: Level) : Monster(type,
     }
 }
 
-@ServerScriptEntrypoint
-@ClientScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun initZombie() {
     registerNativeEntity("test:zombie1", RegisterMode.RELOADABLE,
         configure = {
@@ -250,7 +257,7 @@ fun initZombie() {
         .build(ResourceKey.create(Registries.ENTITY_TYPE, p.id)) }
 }
 
-@ClientScriptEntrypoint
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun initZombieRenderer() {
     registerAnimatedEntityRenderer<LivingEntityRenderState, Zombie1Model<LivingEntityRenderState>>(
         entityTypeId = "test:zombie1",

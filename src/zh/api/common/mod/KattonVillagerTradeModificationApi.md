@@ -54,6 +54,7 @@ var costItemId: Identifier?
 商人希望玩家提供的物品。
 
 </ApiMemberCard>
+
 ### VillagerTradeAdditionConfig.costBItemId
 
 <ApiMemberCard
@@ -199,3 +200,4 @@ var priceMultiplier: Float
 `addVillagerTrade` 的 Identifier 重载。
 
 </ApiMemberCard>
+

@@ -26,12 +26,13 @@ Katton 内置了一个游戏内界面来管理你的脚本包。在游戏里按 
 
 ## 配置文件
 
-每个脚本包需要一个 `manifest.json` 才能被 Katton 识别。**所有字段都是可选的**——Katton 会为缺失的字段自动填上合理的默认值：
+每个脚本包需要一个 `manifest.json` 才能被 Katton 识别。`dependencies` 数组为必填项，其余字段由 Katton 提供默认值：
 
 <!--@include: ../../example/quickstart/pack-ui/01.md-->
 
 | 字段 | 默认值 | 说明 |
 |---|---|---|
+| `dependencies` | **必填** | 模组/插件依赖；没有依赖时写 `[]` |
 | `name` | 同 `id` | 人类可读的包名称 |
 | `id` | 文件夹/jar 文件名 | 唯一包标识符 |
 | `version` | `"unknown"` | 语义化版本 |

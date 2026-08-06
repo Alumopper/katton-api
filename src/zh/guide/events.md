@@ -20,10 +20,11 @@
 
 ```kotlin [fabric]
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 import top.katton.api.event.managed.registerFabricEvent
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun listenFabricTicks() {
     registerFabricEvent(ServerTickEvents.START_SERVER_TICK, ServerTickEvents.StartTick { server ->
         println("Tick ${server.tickCount}")
@@ -33,10 +34,11 @@ fun listenFabricTicks() {
 
 ```kotlin [neoforge]
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 import top.katton.api.event.managed.registerEvent
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun listenNeoForgeDamage() {
     registerEvent<LivingDamageEvent.Pre> { event ->
         println("${event.entity.name.string} is about to take damage")
@@ -46,10 +48,11 @@ fun listenNeoForgeDamage() {
 
 ```kotlin [paper]
 import org.bukkit.event.block.BlockExplodeEvent
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 import top.katton.api.event.managed.registerEvent
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun listenBukkitExplosions() {
     registerEvent<BlockExplodeEvent>(priority = 4, ignoreCancelled = true) { event ->
         event.blockList().forEach { block ->

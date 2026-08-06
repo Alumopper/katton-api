@@ -9,11 +9,12 @@
 Katton 提供了一组常用后处理预设：
 
 ```kotlin
+import top.katton.api.ClientPhase
 import top.katton.api.ClientScriptEntrypoint
 import top.katton.api.registerClientGrayscalePostEffect
 import top.katton.api.setClientPostEffect
 
-@ClientScriptEntrypoint
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun registerVisionEffect() {
     registerClientGrayscalePostEffect(
         id = "example:vision/grayscale",
@@ -31,11 +32,12 @@ fun registerVisionEffect() {
 使用 `registerSimpleClientPostEffect` 可以注册一个单 pass shader。shader 读取 `InSampler`，并写出 `fragColor`。
 
 ```kotlin
+import top.katton.api.ClientPhase
 import top.katton.api.ClientScriptEntrypoint
 import top.katton.api.registerSimpleClientPostEffect
 import top.katton.api.setClientPostEffect
 
-@ClientScriptEntrypoint
+@ClientScriptEntrypoint(ClientPhase.REGISTRY_SETUP)
 fun registerRedFlash() {
     registerSimpleClientPostEffect(
         id = "example:vision/red_flash",

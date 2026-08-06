@@ -4,12 +4,13 @@
 
 ## `#load`
 
-使用 `@ServerScriptEntrypoint` 做脚本初始化。它会在 Katton 重载脚本时运行。
+使用世界作用域的 `ServerPhase.READY` 入口进行可重放的脚本初始化。它会在服务器/世界首次就绪时执行，并在重载策略允许时再次执行。
 
 ```kotlin
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun load() {
     println("Loaded script logic")
 }

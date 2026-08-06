@@ -9,7 +9,7 @@ These pages are generated from Kotlin KDoc comments and are ready to copy into a
 
 ## Modules
 
-- [common](./common/index.md) (47 page(s))
+- [common](./common/index.md) (48 page(s))
 - [fabric](./fabric/index.md) (15 page(s))
 - [neoforge](./neoforge/index.md) (15 page(s))
 - [paper](./paper/index.md) (15 page(s))

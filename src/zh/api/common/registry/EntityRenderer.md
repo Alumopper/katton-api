@@ -45,6 +45,7 @@ outline: [2, 2]
 | `rendererFactory` | 创建 [EntityRenderer] 实例的工厂函数。 |
 
 </ApiMemberCard>
+
 ## registerEntityRenderer
 
 <ApiMemberCard
@@ -221,3 +222,4 @@ baked["walk"]?.apply(walkAnimState, state.ageInTicks)
 | `animations` | 名称到 AnimationDefinition 的映射。默认逻辑会在移动时播放 "walk"，否则播放 "idle"。<br><br>名称到 AnimationDefinition 的映射。默认逻辑会在移动时播放 "walk"，否则播放 "idle"。<br>动画状态从 `KattonBridge["anim:&lt;entityId&gt;:&lt;name&gt;"]` 中读取。 |
 
 </ApiMemberCard>
+

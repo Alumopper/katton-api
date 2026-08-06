@@ -44,10 +44,11 @@ Paper 上的 `/katton` 更精简：
 
 ```kotlin
 import org.bukkit.event.player.PlayerMoveEvent
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 import top.katton.api.event.managed.registerEvent
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun moves() {
     registerEvent<PlayerMoveEvent>(ignoreCancelled = true) { event ->
         println(event.player.name)
@@ -57,7 +58,28 @@ fun moves() {
 
 世界作用域脚本包注册的托管监听器会在重载时自动移除。
 
+## 插件依赖
+
+脚本包在自己的 `manifest.json` 中声明 Paper 插件依赖，不需要修改 Katton 的 `paper-plugin.yml`：
+
+```json
+{
+  "dependencies": [
+    {
+      "id": "WorldEdit",
+      "version": ">=7.3.0",
+      "required": true,
+      "platforms": ["paper"],
+      "environment": "server"
+    }
+  ]
+}
+```
+
+Paper 插件类只能在 `ServerPhase.READY` 使用。Katton 通过 `PluginManager` 解析已启用插件，以插件真实 JAR 或类目录进行编译，并在运行时委托给插件现有的 ClassLoader。Katton 不会加载插件的第二份副本，普通类型 API 调用也不会每次使用反射。
+
+脚本导入了哪个插件的类，就应声明哪个插件。如果两个声明的插件导出相同类名，Katton 会因为运行时所有者不明确而拒绝该脚本包。详见[清单、依赖与签名](../architecture/manifest.md)。
+
 ## Folia
 
 Paper manifest 声明了 `folia-supported: true`。区域感知调度工具位于 `top.katton.paper`；见 [Folia 调度器](./folia.md)。
-

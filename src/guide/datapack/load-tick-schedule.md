@@ -4,12 +4,13 @@ Datapacks use `#load`, `#tick`, and `schedule function` because everything is a 
 
 ## `#load`
 
-Use `@ServerScriptEntrypoint` for script setup. It runs when Katton reloads scripts.
+Use a world-scoped `ServerPhase.READY` entrypoint for replayable script setup. It runs on initial world/server readiness and again when its reload policy permits.
 
 ```kotlin
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun load() {
     println("Loaded script logic")
 }

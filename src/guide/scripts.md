@@ -20,19 +20,20 @@ Script packs live inside a directory named `kattonpacks`, which Katton scans aut
 `<worldDir>/kattonpacks/<packName>/**/*.kt`
 
 
-- **Global** packs load once when the mod starts and are shared across all worlds.
-- **World** packs load per save — ideal for map-specific scripts.
+- **Global** packs provide process-lifetime `BOOTSTRAP`/`READY` entrypoints and are shared across worlds. Their entrypoints do not replay during hot reload.
+- **World** packs run at server/client world phases and are replayable — ideal for map-specific scripts.
 
 Inside a pack, `.kt` files can be nested in any subdirectory structure. Katton walks the entire tree. Your entrypoint can be at the root, in `src/main/`, in `test/` — anywhere.
 
 ### Manifest (`manifest.json`)
 
-Every pack needs a `manifest.json` at its root. All fields are optional — Katton fills in sensible defaults for anything you omit:
+Every pack needs a `manifest.json` at its root. The `dependencies` array is required; use an empty array when the pack does not use another mod or plugin. Katton supplies defaults for the remaining fields:
 
 <!--@include: ../example/quickstart/pack-ui/01.md-->
 
 | Field | Default | Description |
 |---|---|---|
+| `dependencies` | **required** | Mod/plugin dependencies; use `[]` when there are none |
 | `id` | folder or jar filename | Unique pack identifier — used in sync, logs, and commands |
 | `name` | same as `id` | Human-readable display name (shown in the pack UI) |
 | `version` | `"unknown"` | Semantic version string |
@@ -44,9 +45,9 @@ Every pack needs a `manifest.json` at its root. All fields are optional — Katt
 | `config` | `{}` | Primitive string/number/boolean pack config values |
 
 > [!NOTE]
-> There is **no `targets.server` or `targets.client` field**. Katton determines whether a script runs on the server or client purely from the annotations on its entrypoint functions (see below).
+> There is **no `targets.server` or `targets.client` field**. The folder determines `GLOBAL`, `WORLD`, or `SERVER_CACHE` scope; the entrypoint annotation determines the server/client execution phase.
 
-For signing details and the exact hash input, see [Manifest and Signing](../architecture/manifest.md).
+For dependency fields, platform resolution, signing details, and the exact hash input, see [Manifest, Dependencies, and Signing](../architecture/manifest.md).
 
 ### Signing a Pack
 
@@ -85,30 +86,41 @@ This overrides the `enabled` field in `manifest.json`. Delete the state file to 
 
 ## Entrypoints
 
-Scripts are **side-agnostic** — a single `.kt` file can contain both server and client logic. Which environment executes which function is decided by two simple annotations:
+Scripts are **side-agnostic** — a single `.kt` file can contain both server and client logic. The annotation selects an explicit execution phase:
 
 ```kotlin
-import top.katton.api.ServerScriptEntrypoint   // ← runs on the server
-import top.katton.api.ClientScriptEntrypoint   // ← runs on the client
+import top.katton.api.*
 ```
 
-Both annotations mark **top-level, no-argument functions**. That's the only requirement:
+Entrypoints must be top-level functions. They may take no parameters or one context compatible with the selected phase:
 
 ```kotlin
-@ServerScriptEntrypoint
-fun initMyCommands() {
-    // This only runs on the server
+@ServerScriptEntrypoint(ServerPhase.READY)
+fun initMyCommands(context: ServerReadyContext) {
+    println("Server ready because of ${context.cause}")
 }
 ```
 
 ```kotlin
-@ClientScriptEntrypoint
-fun initMyHUD() {
-    // This only runs on the client
+@ClientScriptEntrypoint(ClientPhase.JOINED)
+fun initMyHUD(context: ClientJoinedContext) {
+    println("HUD for ${context.player.name.string}")
 }
 ```
 
-You can have as many entrypoint functions as you want in a single file — each one is discovered and invoked independently during reload.
+Valid phases are tied to folder scope:
+
+| Scope | Server phases | Client phases |
+|---|---|---|
+| `GLOBAL` | `BOOTSTRAP`, `READY` | `READY` |
+| `WORLD` | `READY` | `REGISTRY_SETUP`, `JOINED` |
+| `SERVER_CACHE` | — | `REGISTRY_SETUP`, `JOINED` |
+
+`@ServerScriptEntrypoint` defaults to `BOOTSTRAP`; `@ClientScriptEntrypoint` defaults to `READY`. Both defaults therefore target global packs. In world packs, state the phase explicitly.
+
+Both annotations have `replay: Boolean = true`. Global entrypoints never replay, world entrypoints honor the value, and synced `SERVER_CACHE` entrypoints always replay after activation—even if unchanged or declared with `replay = false`.
+
+Contexts expose `packId`, `scope`, `reason`, `cause`, and `platform`, plus phase-specific objects such as the server, client, player, or level. You can have as many entrypoint functions as needed; each is discovered and invoked independently. See [Script Loading Lifecycle](../architecture/script-loading.md) for the complete phase and replay contract.
 
 > [!CAUTION]
 > Katton does **not** prevent you from calling server-only APIs from a `@ClientScriptEntrypoint` function (or vice versa). Doing so will likely crash that side. Keep your server logic and client logic in separate entrypoint functions.
@@ -120,13 +132,14 @@ Run `/katton reload` to reload all scripts without restarting the game. This is 
 1. Re-scans all enabled packs in global and world scopes
 2. Clears event handlers, injections, and registry ownership
 3. Re-compiles all source packs together, then loads JAR packs
-4. Discovers and invokes all `@ServerScriptEntrypoint` / `@ClientScriptEntrypoint` functions
+4. Invokes entrypoints eligible for their scope, phase, and replay policy
 5. Shows a **visual progress bar** at the top of the screen (message + percentage + green bar)
 
 You can also trigger reloads indirectly:
 - **`/reload`** (vanilla) → triggers server-side Katton reload
-- **`F3 + T`** (reload resources) → triggers client-side Katton reload
 - **Pack UI** → press K, click Reload — triggers both sides (Fabric/NeoForge only; Paper has no client GUI)
+
+`F3 + T` reloads Minecraft resources only; it does not reload Katton scripts.
 
 For the full reload lifecycle, see [Hot Reload and Debugging](../quickstart/hot-reload.md).
 
@@ -139,7 +152,7 @@ Client-side scripts are great for HUD overlays, custom renderers, UI interaction
 
 <!--@include: ../example/quickstart/scripts/01.md-->
 
-Client scripts can live in the same pack as server scripts (they just need `@ClientScriptEntrypoint`). On multiplayer servers, client packs are automatically synced from the server to `<gameDir>/serverpacks/`.
+Client scripts can live in the same pack as server scripts (they just need `@ClientScriptEntrypoint`). On multiplayer servers, client packs are automatically synced from the server to revisioned storage under `<gameDir>/serverpacks/`.
 
 ## Server Scripts
 
@@ -151,7 +164,7 @@ In this example, we subscribe to the [`onPlayerJoin`](../api/fabric/event/Server
 
 ## Advanced: Server→Client Sync
 
-When a client connects to a multiplayer server, Katton automatically syncs server-authoritative script packs to the client:
+When a client connects to a multiplayer server, Katton syncs server-authoritative packs during configuration:
 
 1. Server sends a **hash list** (`ScriptPackHashListPacket`) — mapping each pack's sync ID to its SHA-256
 2. Server immediately sends the **full bundle snapshot** (`ScriptPackBundlePacket`) — manifest + all synced files
@@ -160,7 +173,9 @@ When a client connects to a multiplayer server, Katton automatically syncs serve
 5. Unknown servers or signing keys open a blocking trust screen
 6. Trusted packs execute before registry validation
 
-This ensures every player runs the exact same scripts as the server — no manual installation, no version mismatches. The sync protocol is fully automatic and requires zero configuration from you.
+After every successful server hot reload, Katton publishes a new play-phase revision. Clients request only changed packs, stage and precompile a complete candidate snapshot, replay every active server-cache pack, and acknowledge activation. Removed packs are deactivated, empty snapshots are supported, and a failed candidate leaves the previous revision active. A negative acknowledgement or 30-second timeout disconnects the client.
+
+See [Script Pack Sync and Trust](../architecture/pack-sync.md) for the configuration and live-reload protocols.
 
 > [!NOTE]
 > On Paper servers, there is no client sync — all scripts are server-local files loaded from `<serverDir>/kattonpacks/`.

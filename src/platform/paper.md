@@ -44,10 +44,11 @@ Use [Managed Events](../guide/events.md#unwrapped-native-events) to listen to an
 
 ```kotlin
 import org.bukkit.event.player.PlayerMoveEvent
+import top.katton.api.ServerPhase
 import top.katton.api.ServerScriptEntrypoint
 import top.katton.api.event.managed.registerEvent
 
-@ServerScriptEntrypoint
+@ServerScriptEntrypoint(ServerPhase.READY)
 fun moves() {
     registerEvent<PlayerMoveEvent>(ignoreCancelled = true) { event ->
         println(event.player.name)
@@ -57,7 +58,28 @@ fun moves() {
 
 Managed listeners are removed automatically on reload for world-scoped script packs.
 
+## Plugin Dependencies
+
+Script packs declare Paper plugin dependencies in their own `manifest.json`; Katton's `paper-plugin.yml` does not change:
+
+```json
+{
+  "dependencies": [
+    {
+      "id": "WorldEdit",
+      "version": ">=7.3.0",
+      "required": true,
+      "platforms": ["paper"],
+      "environment": "server"
+    }
+  ]
+}
+```
+
+Paper plugin classes are available only to `ServerPhase.READY` entrypoints. Katton resolves enabled plugins through `PluginManager`, compiles against their real jar or class directory, and delegates runtime loading to the plugins' existing classloaders. It does not create a second plugin copy, and ordinary typed API calls do not use reflection on each call.
+
+Declare every plugin whose classes are imported. Katton rejects a pack when two declared plugins export the same class name because the runtime owner would be ambiguous. See [Manifest, Dependencies, and Signing](../architecture/manifest.md).
+
 ## Folia
 
 The Paper manifest declares `folia-supported: true`. Region-aware scheduling helpers live in `top.katton.paper`; see [Folia Scheduler](./folia.md).
-

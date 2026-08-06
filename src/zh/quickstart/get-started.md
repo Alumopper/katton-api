@@ -20,7 +20,7 @@ Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包
 | 目录 | 用途 |
 |---|---|
 | `world_scripts/` | 世界专属脚本（可热重载） |
-| `global_scripts/` | 启动时一次性加载的脚本（不热重载） |
+| `global_scripts/` | 进程级启动/就绪脚本（热重载不重放） |
 
 简便起见，本教程只使用 `world_scripts/`。
 
@@ -57,9 +57,12 @@ Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包
   "id": "my_first_pack",
   "name": "我的第一个 Katton 包",
   "version": "1.0.0",
-  "enabled": true
+  "enabled": true,
+  "dependencies": []
 }
 ```
+
+每个脚本包清单都必须包含 `dependencies`。导入其他模组或插件的类之前，应在这里声明对应依赖；详见[清单、依赖与签名](../architecture/manifest.md)。
 
 如果 `kattonpacks/` 目录还不存在，可以手动创建，也可以让 Katton 在首次重载时自动创建。
 
@@ -96,7 +99,7 @@ val globalScriptsTargetDir: List<File> = listOf()
 把 `hello.kt` 里的消息改成其他内容并保存，然后执行 `/katton reload` 命令。重新进入后即可看到新消息，无需重启游戏。对啦，这就是脚本热重载的威力。
 
 > [!TIP]
-> 你也可以用 `/reload`（原版命令）重载服务端脚本，或在 Fabric/NeoForge 上用 `F3 + T` 重载客户端脚本。`/katton reload` 是推荐工作流，并带可视化进度条。详见 [热重载与调试](./hot-reload.md) 和 [命令](commands.md)。
+> 你也可以用 `/reload`（原版命令）重载服务端脚本。`F3 + T` 只重载 Minecraft 资源，不会调用 Katton 脚本。`/katton reload` 是推荐工作流，并带可视化进度条。详见[热重载与调试](./hot-reload.md)和[命令](commands.md)。
 
 ## 调试
 
