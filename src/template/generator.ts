@@ -23,28 +23,34 @@ export interface PackInfo {
 }
 
 const WRAPPER_JAR_URL =
-  'https://raw.githubusercontent.com/FabricMC/fabric-example-mod/refs/heads/master/gradle/wrapper/gradle-wrapper.jar'
+  'https://raw.githubusercontent.com/FabricMC/fabric-example-mod/refs/heads/26.2/gradle/wrapper/gradle-wrapper.jar'
 
 export type SupportedMinecraftVersion = '26.1.2' | '26.2'
 
 interface PlatformVersions {
   fabricApiVersion: string
+  neoForgeVersion: string
   paperDevBundleVersion: string
 }
 
 const PLATFORM_VERSIONS: Record<SupportedMinecraftVersion, PlatformVersions> = {
   '26.1.2': {
     fabricApiVersion: '0.144.0+26.1',
+    neoForgeVersion: '26.1.2.30-beta',
     paperDevBundleVersion: '26.1.2.build.71-stable',
   },
   '26.2': {
     fabricApiVersion: '0.154.0+26.2',
+    neoForgeVersion: '26.2.0.7-beta',
     paperDevBundleVersion: '26.2.build.41-alpha',
   },
 }
 
 const KOTLIN_PLUGIN_VERSION = '2.3.10'
 const KATTON_SIGN_PLUGIN_VERSION = '1.0.0'
+const FABRIC_LOOM_VERSION = '1.15-SNAPSHOT'
+const FABRIC_LOADER_VERSION = '0.18.4'
+const NEOFORGE_MODDEV_VERSION = '2.0.141'
 const PAPERWEIGHT_VERSION = '2.0.0-beta.21'
 
 function platformVersions(minecraftVersion: SupportedMinecraftVersion): PlatformVersions {
@@ -202,16 +208,23 @@ import java.nio.file.Path
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
+    id("net.fabricmc.fabric-loom") version "${FABRIC_LOOM_VERSION}"
     ${info.signing ? `id("top.katton.sign") version "${KATTON_SIGN_PLUGIN_VERSION}"` : ''}
 }
 
 val minecraftVersion = "${info.minecraftVersion}"
 val kattonVersion = "${info.kattonVersion}"
 val fabricApiVersion = "${versions.fabricApiVersion}"
-val worldScriptsTargetDir: List<File> = listOf(
-    file("/path/to/your/world/kattonpacks/${info.packId}/")
-)
-val globalScriptsTargetDir: List<File> = listOf()
+val fabricLoaderVersion = "${FABRIC_LOADER_VERSION}"
+fun configuredDirectories(propertyName: String): List<File> =
+    providers.gradleProperty(propertyName).orNull
+        ?.split(File.pathSeparatorChar)
+        ?.filter(String::isNotBlank)
+        ?.map(::file)
+        .orEmpty()
+
+val worldScriptsTargetDir = configuredDirectories("kattonWorldScriptsDir")
+val globalScriptsTargetDir = configuredDirectories("kattonGlobalScriptsDir")
 
 ${info.signing ? signingTasks(info): ''}
 
@@ -224,12 +237,14 @@ repositories {
 }
 
 dependencies {
+    minecraft("com.mojang:minecraft:\${minecraftVersion}")
+    implementation("net.fabricmc:fabric-loader:\${fabricLoaderVersion}")
     implementation("top.katton:katton-common:\${kattonVersion}")
     implementation("top.katton:katton-fabric:\${kattonVersion}")
     compileOnly(fileTree("lib") {
         include("*.jar")
     })
-    compileOnly("net.fabricmc.fabric-api:fabric-api:\${fabricApiVersion}")
+    implementation("net.fabricmc.fabric-api:fabric-api:\${fabricApiVersion}")
     compileOnly("com.mojang:brigadier:1.3.10")
     compileOnly("org.joml:joml:1.10.8")
     compileOnly("com.google.code.gson:gson:2.13.2")
@@ -249,20 +264,31 @@ ${info.signing ? SIGN_AND_COPY_TASK : ''}
 }
 
 function neoforgeBuildGradle(info: PackInfo): string {
+  const versions = platformVersions(info.minecraftVersion)
   return `import java.nio.file.Files
 import java.nio.file.Path
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "${KOTLIN_PLUGIN_VERSION}"
+    id("net.neoforged.moddev") version "${NEOFORGE_MODDEV_VERSION}"
     ${info.signing ? `id("top.katton.sign") version "${KATTON_SIGN_PLUGIN_VERSION}"` : ''}
 }
 
 val minecraftVersion = "${info.minecraftVersion}"
 val kattonVersion = "${info.kattonVersion}"
-val worldScriptsTargetDir: List<File> = listOf(
-    file("/path/to/your/world/kattonpacks/${info.packId}/")
-)
-val globalScriptsTargetDir: List<File> = listOf()
+fun configuredDirectories(propertyName: String): List<File> =
+    providers.gradleProperty(propertyName).orNull
+        ?.split(File.pathSeparatorChar)
+        ?.filter(String::isNotBlank)
+        ?.map(::file)
+        .orEmpty()
+
+val worldScriptsTargetDir = configuredDirectories("kattonWorldScriptsDir")
+val globalScriptsTargetDir = configuredDirectories("kattonGlobalScriptsDir")
+
+neoForge {
+    version = "${versions.neoForgeVersion}"
+}
 
 ${info.signing ? signingTasks(info): ''}
 
@@ -309,10 +335,15 @@ plugins {
 
 val minecraftVersion = "${info.minecraftVersion}"
 val kattonVersion = "${info.kattonVersion}"
-val worldScriptsTargetDir: List<File> = listOf(
-    file("/path/to/your/paper/world/kattonpacks/${info.packId}/")
-)
-val globalScriptsTargetDir: List<File> = listOf()
+fun configuredDirectories(propertyName: String): List<File> =
+    providers.gradleProperty(propertyName).orNull
+        ?.split(File.pathSeparatorChar)
+        ?.filter(String::isNotBlank)
+        ?.map(::file)
+        .orEmpty()
+
+val worldScriptsTargetDir = configuredDirectories("kattonWorldScriptsDir")
+val globalScriptsTargetDir = configuredDirectories("kattonGlobalScriptsDir")
 
 repositories {
     mavenLocal()
@@ -345,6 +376,8 @@ function settingsGradleKts(info: PackInfo): string {
         mavenLocal()
         mavenCentral()
         gradlePluginPortal()
+        maven("https://maven.fabricmc.net/")
+        maven("https://maven.neoforged.net/releases")
         maven("https://repo.papermc.io/repository/maven-public/")
         maven("https://nexus.mcfpp.top/repository/maven-public/")
     }
@@ -622,6 +655,22 @@ export interface KattonVersion {
 // deliberately keep their original unqualified versions.
 const KATTON_VERSIONS: KattonVersion[] = [
   {
+    tag: '0.4.0',
+    mavenVersion: '0.4.0+mc26.2',
+    minecraftVersion: '26.2',
+    loaders: ['fabric', 'neoforge', 'paper'],
+    prerelease: true,
+    legacyMavenCoordinate: false,
+  },
+  {
+    tag: '0.4.0',
+    mavenVersion: '0.4.0+mc26.1.2',
+    minecraftVersion: '26.1.2',
+    loaders: ['fabric', 'neoforge', 'paper'],
+    prerelease: true,
+    legacyMavenCoordinate: false,
+  },
+  {
     tag: '0.3.1b3',
     mavenVersion: '0.3.1b3+mc26.2',
     minecraftVersion: '26.2',
@@ -707,6 +756,10 @@ export async function generateZip(
     `${rootDir}gradle/wrapper/gradle-wrapper.properties`,
     gradleWrapperProperties()
   )
+  zip.file(
+    `${rootDir}gradle.properties`,
+    `# Set one target directory, or multiple directories separated by your OS path separator.\nkattonWorldScriptsDir=\nkattonGlobalScriptsDir=\n`
+  )
 
   // 4. Gradlew scripts
   zip.file(`${rootDir}gradlew`, gradlewScript())
@@ -767,14 +820,11 @@ function readmeTemplate(info: PackInfo): string {
         : 'Paper'
   const copyTask = info.signing ? 'signAndCopyGameScripts' : 'copyGameScripts'
   const setupInstructions = [
-    ...(info.modLoader === 'paper'
-      ? []
-      : ['Copy the official Minecraft jar for the selected version into `lib/`']),
     'Open this project in IntelliJ IDEA',
     ...(info.dependencies.length > 0
       ? ['Add each declared mod or plugin API to the Gradle compile classpath or place its jar in `lib/`']
       : []),
-    'Edit `build.gradle.kts` to configure `worldScriptsTargetDir` and `globalScriptsTargetDir`',
+    'Set `kattonWorldScriptsDir` and `kattonGlobalScriptsDir` in `gradle.properties`',
     `Run the \`${copyTask}\` Gradle task to link your scripts into the ${info.modLoader === 'paper' ? 'server' : 'game'}`,
   ]
   const setupSteps = setupInstructions

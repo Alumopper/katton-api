@@ -66,7 +66,7 @@ const t = computed(() => ({
 
 const modLoader = ref<PackInfo['modLoader']>('fabric')
 const minecraftVersion = ref<SupportedMinecraftVersion>('26.2')
-const kattonVersion = ref('0.3.1b3+mc26.2')
+const kattonVersion = ref('0.4.0+mc26.2')
 const packId = ref('my_pack')
 const packName = ref('My Pack')
 const packVersion = ref('1.0.0')
@@ -495,7 +495,7 @@ async function doGenerate() {
       </button>
 
       <p class="generator-footer">
-        {{ t.footerBase }}{{ loaderLabel }}{{ t.footerSetup }}<code>build.gradle.kts</code>{{ t.footerPath }}<code>copyGameScripts</code>{{ t.footerRun }}
+        {{ t.footerBase }}{{ loaderLabel }}{{ t.footerSetup }}<code>gradle.properties</code>{{ t.footerPath }}<code>copyGameScripts</code>{{ t.footerRun }}
       </p>
     </div>
   </div>

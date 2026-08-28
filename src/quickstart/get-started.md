@@ -31,7 +31,7 @@ To make things simple, we'll only use `world_scripts/` in this tutorial.
    figure-width="400px"
 />
 
-Before we start, we need to include Minecraft classes in our project for IDE code completion. The template generator selects Katton and platform dependencies for the chosen Minecraft version. For Fabric and NeoForge, copy the official game jar for that exact version into the generated project's `lib/` folder. Add external mods or plugins in the generator's dependency section, then provide their API through a Gradle `compileOnly` dependency or another jar in `lib/`.
+Before we start, we need to include Minecraft classes in our project for IDE code completion. The template generator selects Katton and platform dependencies for the chosen Minecraft version. Fabric Loom and NeoForge ModDevGradle supply the matching Minecraft compile classpath automatically. Add external mods or plugins in the generator's dependency section, then provide their API through a Gradle `compileOnly` dependency or another jar in `lib/`.
 
 > [!NOTE]
 > For Paper, you don't need to manually include Minecraft source code. Paper provides a lightweight plugin development environment, and you can simply add the following to your `build.gradle.kts` to get access to the Paper API and Minecraft source code:
