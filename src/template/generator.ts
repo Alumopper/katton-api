@@ -659,7 +659,7 @@ const KATTON_VERSIONS: KattonVersion[] = [
     mavenVersion: '0.4.0+mc26.2',
     minecraftVersion: '26.2',
     loaders: ['fabric', 'neoforge', 'paper'],
-    prerelease: true,
+    prerelease: false,
     legacyMavenCoordinate: false,
   },
   {
@@ -667,7 +667,7 @@ const KATTON_VERSIONS: KattonVersion[] = [
     mavenVersion: '0.4.0+mc26.1.2',
     minecraftVersion: '26.1.2',
     loaders: ['fabric', 'neoforge', 'paper'],
-    prerelease: true,
+    prerelease: false,
     legacyMavenCoordinate: false,
   },
   {
