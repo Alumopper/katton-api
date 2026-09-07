@@ -41,9 +41,11 @@ Generated from module `common`.
 - [KattonServerApi](./dpcaller/KattonServerApi.md) - Access to all online players.
 - [KattonSlotProviderApi](./dpcaller/KattonSlotProviderApi.md) - Get an item from a container slot.
 - [KattonWorldApi](./dpcaller/KattonWorldApi.md) - Map-like access to all server levels by ResourceKey.
+- [EventCapabilities](./event/EventCapabilities.md) - Runtime capability query for event APIs whose platform parity is not exact.
 - [KattonEventsArg](./event/KattonEventsArg.md) - Argument for server-level events.
 - [ManagedEvents](./event/managed/ManagedEvents.md) - Managed event listener handle returned to scripts when registering a native listener. 注册原生事件监听器后返回给脚本的托管监听器句柄。
 - [InjectApi](./inject/InjectApi.md) - 注册注入的句柄，用于回滚操作。
+- [InjectionCapabilities](./inject/InjectionCapabilities.md) - Current availability of Katton's unsafe runtime bytecode injection.
 - [KattonBlockModificationApi](./mod/KattonBlockModificationApi.md) - Configuration for modifying existing block properties.
 - [KattonEntityTypeModificationApi](./mod/KattonEntityTypeModificationApi.md) - Configuration for modifying default attributes of an existing [EntityType] (vanilla or modded).
 - [KattonItemModificationApi](./mod/KattonItemModificationApi.md) - Configuration for modifying existing item properties.
@@ -61,3 +63,7 @@ Generated from module `common`.
 - [Item](./registry/Item.md) - Registers a native Item with hot-reload support.
 - [ParticleType](./registry/ParticleType.md) - Registers a native ParticleType with hot-reload support.
 - [SoundEvent](./registry/SoundEvent.md) - Registers a native SoundEvent with hot-reload support.
+- [SceneClientApi](./scene/SceneClientApi.md) - Register a client definition, owned by the current script. Version defaults to the script pack's code hash.
+- [SceneServerApi](./scene/SceneServerApi.md) - Cancellation targets the original recipients; this is not a playback acknowledgement.
+- [SceneTimeline](./scene/SceneTimeline.md) - A reusable scene definition. Factories run once when their track starts.
+- [SceneTypes](./scene/SceneTypes.md) - Completion is local; cancellation does not change server gameplay.

@@ -77,7 +77,7 @@ GLOBAL 作用域需要显式注销或在全局清理时移除。
 ```
 
 Active managed-listener provider installed by the current platform.
-Paper currently initializes this from `PaperManagedEvents.initialize()`.
+Fabric, NeoForge, and Paper each install their bridge during platform startup.
 
 </ApiMemberCard>
 

@@ -13,7 +13,7 @@ outline: [2, 2]
 用于修改现有物品属性的配置对象。 这个类提供一个流式 API，用于修改已经注册到 Minecraft 物品注册表中的物品属性。 风格上类似 KubeJS 的物品修改系统。
 </ApiDocPage>
 
-<ApiMembersList items-json='[{&quot;label&quot;:&quot;ItemModificationConfig&quot;,&quot;href&quot;:&quot;#itemmodificationconfig&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;modifyItem&quot;,&quot;href&quot;:&quot;#modifyitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;modifyItem&quot;,&quot;href&quot;:&quot;#modifyitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;itemStack&quot;,&quot;href&quot;:&quot;#itemstack&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;itemStack&quot;,&quot;href&quot;:&quot;#itemstack&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
+<ApiMembersList items-json='[{&quot;label&quot;:&quot;ItemModificationConfig&quot;,&quot;href&quot;:&quot;#itemmodificationconfig&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;modifyItem&quot;,&quot;href&quot;:&quot;#modifyitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;modifyItem&quot;,&quot;href&quot;:&quot;#modifyitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;snapshotItemComponents&quot;,&quot;href&quot;:&quot;#snapshotitemcomponents&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;itemStack&quot;,&quot;href&quot;:&quot;#itemstack&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;itemStack&quot;,&quot;href&quot;:&quot;#itemstack&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
 
 ## ItemModificationConfig
 
@@ -103,6 +103,25 @@ class ItemModificationConfig( val itemId: Identifier )
 ### 返回值
 
 返回修改后的 Item 实例。
+
+</ApiMemberCard>
+
+## snapshotItemComponents
+
+<ApiMemberCard
+  id="snapshotitemcomponents"
+  name="snapshotItemComponents"
+  kind="Function"
+  kind-key="function"
+  module="Common"
+  module-key="common"
+>
+
+```kotlin
+internal fun snapshotItemComponents(): Map<Item, DataComponentMap>
+```
+
+Immutable component snapshot used by transactional script reload rollback.
 
 </ApiMemberCard>
 

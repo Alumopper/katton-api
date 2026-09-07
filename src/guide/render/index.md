@@ -3,7 +3,7 @@
 > [!WARNING]
 > Rendering is available on Fabric and NeoForge clients only. Paper is a server-only platform and does not support client-side rendering.
 
-Katton's client rendering APIs cover frame callbacks, HUD drawing, simple world-space helpers, server-driven item markers, and full-screen post effects.
+Katton's client rendering APIs cover frame callbacks, HUD drawing, world-space helpers, camera scenes, server-driven item markers, and full-screen post effects.
 
 Entity renderers are documented with registration because they belong to the custom entity pipeline. See [Registry / Entity Tutorial](../registry/entity.md) and the [EntityRenderer API](../../api/common/registry/EntityRenderer.md) for model layers, animated entity renderers, and keyframe callbacks.
 
@@ -35,8 +35,17 @@ Entity renderers are documented with registration because they belong to the cus
       <span>Register, activate, and clear full-screen shader effects.</span>
     </span>
   </a>
+  <a class="next-card" href="./client-scenes.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3 7h4l2-2h6l2 2h4v12H3Z"/><circle cx="12" cy="13" r="4"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>Camera Scenes</strong>
+      <span>Compose camera paths, particles, geometry, and server-triggered timelines.</span>
+    </span>
+  </a>
 </div>
 
 ## Choosing an API
 
-Use [HUD and World Renderers](./hud-world.md) when your client script needs to draw every frame. Use [Item Render Markers](./item-markers.md) when a server script wants clients to see a temporary item model in the world without spawning a real entity. Use [Post Effects](./post-effects.md) for screen-wide visual states such as blur, tint, grayscale, or custom shader passes.
+Use [HUD and World Renderers](./hud-world.md) when a client script must draw every frame. Use [Camera Scenes](./client-scenes.md) for camera control, particles, geometry, and timelines. Use [Item Render Markers](./item-markers.md) when a server script must show a temporary item model without a real entity. Use [Post Effects](./post-effects.md) for screen-wide blur, tint, grayscale, or custom shader passes.

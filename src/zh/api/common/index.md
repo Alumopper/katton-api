@@ -41,9 +41,11 @@ outline: false
 - [KattonServerApi](./dpcaller/KattonServerApi.md) - 访问所有在线玩家。
 - [KattonSlotProviderApi](./dpcaller/KattonSlotProviderApi.md) - 从容器槽位中获取物品。
 - [KattonWorldApi](./dpcaller/KattonWorldApi.md) - 以类似 Map 的方式按 ResourceKey 访问所有服务端关卡。
+- [EventCapabilities](./event/EventCapabilities.md) - Runtime capability query for event APIs whose platform parity is not exact.
 - [KattonEventsArg](./event/KattonEventsArg.md) - Argument for server-level events.
 - [ManagedEvents](./event/managed/ManagedEvents.md) - Managed event listener handle returned to scripts when registering a native listener. 注册原生事件监听器后返回给脚本的托管监听器句柄。
 - [InjectApi](./inject/InjectApi.md) - 注册注入的句柄，用于回滚操作。
+- [InjectionCapabilities](./inject/InjectionCapabilities.md) - Current availability of Katton's unsafe runtime bytecode injection.
 - [KattonBlockModificationApi](./mod/KattonBlockModificationApi.md) - 用于修改现有方块属性的配置对象。 这个类提供一个流式 API，用于修改已经注册到 Minecraft 方块注册表中的方块属性。 风格上类似 KubeJS 的方块修改系统。
 - [KattonEntityTypeModificationApi](./mod/KattonEntityTypeModificationApi.md) - 用于修改现有 EntityType 默认属性的配置对象（原版或模组添加的实体都适用）。 它的属性面与 [top.katton.registry.KattonEntityProperties] 对应，但作用对象是已经注册的实体类型， 并通过 [top.katton.registry.DefaultAttributesHelper] 生效。
 - [KattonItemModificationApi](./mod/KattonItemModificationApi.md) - 用于修改现有物品属性的配置对象。 这个类提供一个流式 API，用于修改已经注册到 Minecraft 物品注册表中的物品属性。 风格上类似 KubeJS 的物品修改系统。
@@ -61,3 +63,7 @@ outline: false
 - [Item](./registry/Item.md) - 注册原生 Item，并支持热重载。 这是脚本中注册自定义 Item 子类的主要 API。通过该 API 注册的 Item 会进入全局 Minecraft 注册表，并具备完整的热重载能力。
 - [ParticleType](./registry/ParticleType.md) - 注册原生 ParticleType，并支持热重载。
 - [SoundEvent](./registry/SoundEvent.md) - 注册原生 SoundEvent，并支持热重载。
+- [SceneClientApi](./scene/SceneClientApi.md) - 注册归属于当前脚本的客户端定义；版本默认使用脚本包代码哈希。
+- [SceneServerApi](./scene/SceneServerApi.md) - 取消仅发送给原接收者；此句柄不代表客户端已经播放或播放完成。
+- [SceneTimeline](./scene/SceneTimeline.md) - 可复用演出定义；每条轨道开始时只执行一次工厂。
+- [SceneTypes](./scene/SceneTypes.md) - 结束状态仅属于表现层，不修改服务端玩法。

@@ -71,6 +71,7 @@ const docsSidebar = [
           { text: "HUD and World", link: "/guide/render/hud-world" },
           { text: "Item Markers", link: "/guide/render/item-markers" },
           { text: "Post Effects", link: "/guide/render/post-effects" },
+          { text: "Camera Scenes", link: "/guide/render/client-scenes" },
         ],
       },
       { text: "Code Injection", link: "/guide/injection" },
@@ -137,6 +138,7 @@ const zhDocsSidebar = [
           { text: "HUD 与世界渲染", link: "/zh/guide/render/hud-world" },
           { text: "物品渲染标记", link: "/zh/guide/render/item-markers" },
           { text: "后处理效果", link: "/zh/guide/render/post-effects" },
+          { text: "镜头演出与世界特效", link: "/zh/guide/render/client-scenes" },
         ],
       },
       { text: "代码注入", link: "/zh/guide/injection" },
@@ -235,6 +237,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   themeConfig: {
     logo: "/logo.png",
+    siteTitle: "Katton · Alpha 0.5.0 build1",
     search: {
       provider: "local",
     },

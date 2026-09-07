@@ -18,6 +18,8 @@ hero:
       link: /api/index.html
 
 features:
+  - title: 镜头演出
+    details: 编排镜头路径、粒子、几何效果和可复用时间线。服务端可以向指定玩家触发演出。
   - title: 脚本包
     details: 用 manifest、状态文件和可选客户端同步组织 Kotlin/Java 源码。
   - title: 多平台支持

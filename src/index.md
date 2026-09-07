@@ -19,6 +19,8 @@ hero:
       link: /api/index.html
 
 features:
+  - title: Camera Scenes
+    details: Build camera paths, particle and geometry effects, and reusable timelines. A server can start scenes for selected players.
   - title: Script Packs
     details: Organize Kotlin and Java sources into local or world-specific packs with manifests, state files, and optional client sync.
   - title: Platform Aware

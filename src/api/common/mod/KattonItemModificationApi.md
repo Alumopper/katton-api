@@ -13,7 +13,7 @@ outline: [2, 2]
 Configuration for modifying existing item properties.
 </ApiDocPage>
 
-<ApiMembersList items-json='[{&quot;label&quot;:&quot;ItemModificationConfig&quot;,&quot;href&quot;:&quot;#itemmodificationconfig&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;modifyItem&quot;,&quot;href&quot;:&quot;#modifyitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;modifyItem&quot;,&quot;href&quot;:&quot;#modifyitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;itemStack&quot;,&quot;href&quot;:&quot;#itemstack&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;itemStack&quot;,&quot;href&quot;:&quot;#itemstack&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
+<ApiMembersList items-json='[{&quot;label&quot;:&quot;ItemModificationConfig&quot;,&quot;href&quot;:&quot;#itemmodificationconfig&quot;,&quot;kind&quot;:&quot;Class&quot;,&quot;kindKey&quot;:&quot;class&quot;}, {&quot;label&quot;:&quot;modifyItem&quot;,&quot;href&quot;:&quot;#modifyitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;modifyItem&quot;,&quot;href&quot;:&quot;#modifyitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;snapshotItemComponents&quot;,&quot;href&quot;:&quot;#snapshotitemcomponents&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;getItem&quot;,&quot;href&quot;:&quot;#getitem&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;itemStack&quot;,&quot;href&quot;:&quot;#itemstack&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}, {&quot;label&quot;:&quot;itemStack&quot;,&quot;href&quot;:&quot;#itemstack&quot;,&quot;kind&quot;:&quot;Function&quot;,&quot;kindKey&quot;:&quot;function&quot;}]' />
 
 ## ItemModificationConfig
 
@@ -107,6 +107,25 @@ Modifies an existing item's properties.
 ### Returns
 
 modified Item instance
+
+</ApiMemberCard>
+
+## snapshotItemComponents
+
+<ApiMemberCard
+  id="snapshotitemcomponents"
+  name="snapshotItemComponents"
+  kind="Function"
+  kind-key="function"
+  module="Common"
+  module-key="common"
+>
+
+```kotlin
+internal fun snapshotItemComponents(): Map<Item, DataComponentMap>
+```
+
+Immutable component snapshot used by transactional script reload rollback.
 
 </ApiMemberCard>
 

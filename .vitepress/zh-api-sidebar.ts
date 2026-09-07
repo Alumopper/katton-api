@@ -39,9 +39,11 @@ const apiSidebar: DefaultTheme.SidebarMulti = {
             { text: 'KattonServerApi', link: '/zh/api/common/dpcaller/KattonServerApi' },
             { text: 'KattonSlotProviderApi', link: '/zh/api/common/dpcaller/KattonSlotProviderApi' },
             { text: 'KattonWorldApi', link: '/zh/api/common/dpcaller/KattonWorldApi' },
+            { text: 'EventCapabilities', link: '/zh/api/common/event/EventCapabilities' },
             { text: 'KattonEventsArg', link: '/zh/api/common/event/KattonEventsArg' },
             { text: 'ManagedEvents', link: '/zh/api/common/event/managed/ManagedEvents' },
             { text: 'InjectApi', link: '/zh/api/common/inject/InjectApi' },
+            { text: 'InjectionCapabilities', link: '/zh/api/common/inject/InjectionCapabilities' },
             { text: 'KattonBlockModificationApi', link: '/zh/api/common/mod/KattonBlockModificationApi' },
             { text: 'KattonEntityTypeModificationApi', link: '/zh/api/common/mod/KattonEntityTypeModificationApi' },
             { text: 'KattonItemModificationApi', link: '/zh/api/common/mod/KattonItemModificationApi' },
@@ -58,7 +60,11 @@ const apiSidebar: DefaultTheme.SidebarMulti = {
             { text: 'EntityType', link: '/zh/api/common/registry/EntityType' },
             { text: 'Item', link: '/zh/api/common/registry/Item' },
             { text: 'ParticleType', link: '/zh/api/common/registry/ParticleType' },
-            { text: 'SoundEvent', link: '/zh/api/common/registry/SoundEvent' }
+            { text: 'SoundEvent', link: '/zh/api/common/registry/SoundEvent' },
+            { text: 'SceneClientApi', link: '/zh/api/common/scene/SceneClientApi' },
+            { text: 'SceneServerApi', link: '/zh/api/common/scene/SceneServerApi' },
+            { text: 'SceneTimeline', link: '/zh/api/common/scene/SceneTimeline' },
+            { text: 'SceneTypes', link: '/zh/api/common/scene/SceneTypes' }
           ]
         },
         {

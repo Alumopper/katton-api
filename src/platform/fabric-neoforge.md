@@ -10,7 +10,7 @@ Fabric and NeoForge run Katton as a client/server mod inside the Minecraft proce
 | Registry mutation | Items, blocks, entities, components, particles, sounds, tabs, and renderers can be registered. |
 | Server pack sync | Full login snapshot during configuration plus revisioned live updates after successful reloads. |
 | Runtime injection | ByteBuddy/ASM injection APIs are available. |
-| Rendering | HUD and world render callbacks are available. |
+| Rendering | HUD callbacks, camera scenes, particles, geometry, and post effects are available. |
 | Script Pack UI | Press `K` by default on the client. |
 
 ## Main Differences
