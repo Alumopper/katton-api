@@ -9,7 +9,7 @@ outline: false
 
 ## 模块
 
-- [common](./common/index.md) (54 page(s))
+- [common](./common/index.md) (57 page(s))
 - [fabric](./fabric/index.md) (15 page(s))
 - [neoforge](./neoforge/index.md) (15 page(s))
 - [paper](./paper/index.md) (15 page(s))

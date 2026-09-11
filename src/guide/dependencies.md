@@ -2,6 +2,9 @@
 
 A script pack must declare every external mod or Paper plugin whose API it uses. The declaration controls runtime validation and classloading; your development project separately needs that API on its compile classpath.
 
+> [!TIP]
+> This page covers **external** mods and plugins. To share Kotlin types and state between two Katton packs, use [`packDependencies`](./pack-dependencies.md) instead. The two declarations are independent: a pack can have both.
+
 ## Required Integration
 
 This manifest accepts Create 6.x on Fabric or NeoForge:
@@ -75,6 +78,24 @@ dependencies {
 ```
 
 The template generator always creates the `lib/*.jar` compile-only fallback and lets you add world-pack dependencies before downloading the project. Its empty global pack starts with `dependencies: []`; add dependencies to that manifest later only if global scripts use them.
+
+
+## Sharing Code Between Katton Packs
+
+`dependencies` describes installed platform software. A separate array, `packDependencies`, describes other Katton packs:
+
+```json
+{
+  "id": "my_consumer",
+  "version": "1.0.0",
+  "dependencies": [],
+  "packDependencies": [
+    { "id": "shared-behavior", "version": ">=1.0", "required": true, "export": false }
+  ]
+}
+```
+
+Both arrays coexist in one manifest. Use `dependencies` to call Create, WorldEdit, or another mod/plugin API; use `packDependencies` to import Kotlin classes from another pack and share its state across reloads.
 
 ## Platform Behavior
 

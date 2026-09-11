@@ -42,6 +42,16 @@ For platform-level availability, see [Platforms](../platform/). For reload, netw
       <span>Declare dependencies and call Fabric, NeoForge, or Paper APIs.</span>
     </span>
   </a>
+
+  <a class="next-card" href="./pack-dependencies.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 7h6v10H4zM14 7h6v10h-6z"/><path d="M10 12h4"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>Script Pack Dependencies</strong>
+      <span>Share Kotlin types and state between packs with explicit exports.</span>
+    </span>
+  </a>
   <a class="next-card" href="./registry/">
     <span class="next-card__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="m4 12 8 4 8-4"/><path d="m4 17 8 4 8-4"/></svg>
@@ -76,6 +86,16 @@ For platform-level availability, see [Platforms](../platform/). For reload, netw
     <span class="next-card__body">
       <strong>Rendering</strong>
       <span>HUD/world callbacks, item markers, and post effects.</span>
+    </span>
+  </a>
+
+  <a class="next-card" href="./audio.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>Audio</strong>
+      <span>Play pack files, resources, and sound events; basic sound everywhere.</span>
     </span>
   </a>
   <a class="next-card" href="./injection.html">

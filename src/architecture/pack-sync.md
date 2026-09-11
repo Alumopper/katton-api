@@ -2,6 +2,14 @@
 
 Fabric and NeoForge multiplayer servers keep client script packs synchronized both during login and after successful server hot reloads. Paper has no Katton client and therefore no client sync.
 
+The current wire protocol is **v4**. A peer with an incompatible protocol is rejected during the configuration handshake with `Incompatible Katton pack protocol; update client/server and rebuild the v4 cache`. The server bucket cache lives in `serverpacks-v4`, so an older `serverpacks` directory is ignored and rebuilt rather than reused.
+
+## What Travels
+
+A synchronized pack is its complete logical content: sources, `assets/**`, `data/**`, direct `libs/*.jar` files, audio files, and any other content. Only `manifest.json` is handled separately (as the manifest) and the local `.kattonpack.state.json` is never pack content. See [Manifest, Dependencies, and Signing](./manifest.md#pack-content) for the full content rules and limits.
+
+Audio files shipped in a pack therefore need no separate download channel; they are ordinary signed content, and `AudioSource.packFile` resolves them from the cached revision. A single file is limited to 16 MiB, and a bundle carries at most 16,384 files and 64 MiB.
+
 ## Login: Configuration Revision 0
 
 Login remains a configuration-phase operation because client registry setup must finish before registry validation:
@@ -30,6 +38,8 @@ Packs omitted from the new hash snapshot are deactivated. Empty snapshots are va
 
 Activation is transactional: trust rejection, invalid signatures or hashes, incomplete downloads, dependency errors, and compilation failures leave the previous active revision running. Katton does not clear working client handlers until the candidate snapshot is ready.
 
+Because pack-to-pack dependencies must live inside one synchronized set, a `SERVER_CACHE` pack can only depend on another `SERVER_CACHE` pack. A dependency that would reach outside the snapshot is rejected on the server before the revision is published.
+
 Integrated singleplayer does not transfer an in-memory bundle to itself. The local client reloads directly from the same local packs, while dedicated-server clients use the network protocol above.
 
 ## Cache Layout
@@ -37,8 +47,10 @@ Integrated singleplayer does not transfer an in-memory bundle to itself. The loc
 Configuration-time revision `0` uses the server bucket cache. Live revisions are staged under:
 
 ```text
-<gameDir>/serverpacks/<sha256(serverAddress)>/revisions/<revision>/<base64url(syncId)>/
+<gameDir>/serverpacks-v4/<sha256(serverAddress)>/revisions/<revision>/<base64url(syncId)>/
 ```
+
+Each cached pack directory contains its `manifest.json` and the same relative file layout as the source pack, so `AudioSource.packFile("audio/theme.mp3")` resolves against the cached revision.
 
 The trust store lives at:
 
@@ -48,10 +60,16 @@ The trust store lives at:
 
 The trust store records trusted servers and trusted signing keys. If a trusted `keyId` later presents a different embedded public key, Katton rejects the remote scripts.
 
+## Signatures and Hashes
+
+Signatures use Ed25519 payload **version 3**, which length-frames the sync ID, scope, manifest JSON with `signature` removed, file count, and every sorted path/content pair. The framing is unambiguous even when binary content contains zero bytes. Legacy payload versions 1 and 2 are rejected; re-sign with the current [Katton-Sign](https://github.com/Alumopper/Katton-Sign) plugin to migrate.
+
+The client verifies the signature before writing a pack to its cache, then verifies cached hashes against the announced hash list. Hashes detect cache mismatches; signatures verify pack content against a key. Neither proves that a server or script author is safe.
+
 ## Security Model
 
-Remote Katton scripts are arbitrary JVM code inside the Minecraft client. Hashes detect cache mismatches and signatures verify pack content against a key; neither proves that a server or script author is safe. The trust prompt is intentionally blocking so the player must explicitly approve remote execution.
+Remote Katton scripts are arbitrary JVM code inside the Minecraft client. The trust prompt is intentionally blocking so the player must explicitly approve remote execution.
 
 The receiving client validates its own applicable manifest dependencies. A dependency installed on the server does not imply that the matching client mod exists.
 
-Use `"clientSync": false` for server-only packs that do not contain client entrypoints, registry definitions needed by the client, resources, or rendering code.
+Use `"clientSync": false` for server-only packs that do not contain client entrypoints, registry definitions needed by the client, resources, rendering code, or audio.

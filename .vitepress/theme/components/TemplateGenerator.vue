@@ -66,7 +66,7 @@ const t = computed(() => ({
 
 const modLoader = ref<PackInfo['modLoader']>('fabric')
 const minecraftVersion = ref<SupportedMinecraftVersion>('26.2')
-const kattonVersion = ref('0.4.0+mc26.2')
+const kattonVersion = ref('0.5.0+mc26.2')
 const packId = ref('my_pack')
 const packName = ref('My Pack')
 const packVersion = ref('1.0.0')

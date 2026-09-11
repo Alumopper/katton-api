@@ -105,6 +105,9 @@ val globalScriptsTargetDir: List<File> = listOf()
 
 Katton 支持通过标准 JVM 远程调试来调试脚本包 Kotlin 脚本。
 
+> [!TIP]
+> 想要更快的开发循环，可以开启 [IDE 开发连接](./ide.md)，直接从 Katton IDEA 插件部署世界包。该桥负责部署脚本与推送诊断，它不是调试器；设置断点仍然需要下面的远程附加配置。
+
 1. 使用调试参数启动 Minecraft（或专用服务器），例如：
 
 <!--@include: ../../example/quickstart/get-started/02.md-->

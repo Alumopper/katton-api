@@ -27,6 +27,9 @@ outline: false
 - [KattonContextApi](./KattonContextApi.md) - 决定返回的 [ExecutionContext] 使用哪个位置。
 - [KattonDependencyApi](./KattonDependencyApi.md) - Script-facing access to optional mod and plugin dependency state.
 - [ScriptEntrypoint](./ScriptEntrypoint.md) - Execution stages available to server entrypoints.
+- [AudioApi](./audio/AudioApi.md) - 音频内容在客户端解析。
+- [AudioServerApi](./audio/AudioServerApi.md) - Loader-owned transport. Paper deliberately has no full-player transport.
+- [BasicSoundApi](./audio/BasicSoundApi.md) - Platform scheduling hook; Paper installs entity-region scheduling.
 - [Recipes](./datapack/Recipes.md)
 - [KattonBlockApi](./dpcaller/KattonBlockApi.md) - Map-like access to blocks in a level by position.
 - [KattonBlockEntityApi](./dpcaller/KattonBlockEntityApi.md) - 以类似 Map 的方式按位置访问关卡中的方块实体。

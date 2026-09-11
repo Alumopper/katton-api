@@ -2,6 +2,9 @@
 
 脚本包必须声明它使用 API 的每个外部模组或 Paper 插件。清单声明负责运行时校验和类加载；开发项目还需要单独把 API 放进编译类路径。
 
+> [!TIP]
+> 本文介绍**外部**模组与插件。如果要在两个 Katton 脚本包之间共享 Kotlin 类型与状态，请改用 [`packDependencies`](./pack-dependencies.md)。两者互不影响，同一个包可以同时使用。
+
 ## 必需集成
 
 下面的清单在 Fabric/NeoForge 上接受 Create 6.x：
@@ -75,6 +78,24 @@ dependencies {
 ```
 
 模板生成器始终生成 `lib/*.jar` 的 compile-only 后备配置，并允许在下载项目前添加世界包依赖。空的全局包初始使用 `dependencies: []`；只有全局脚本确实使用外部 API 时，才应在其清单中补充依赖。
+
+
+## 在脚本包之间共享代码
+
+`dependencies` 描述已安装的平台软件。另一个数组 `packDependencies` 描述其他 Katton 脚本包：
+
+```json
+{
+  "id": "my_consumer",
+  "version": "1.0.0",
+  "dependencies": [],
+  "packDependencies": [
+    { "id": "shared-behavior", "version": ">=1.0", "required": true, "export": false }
+  ]
+}
+```
+
+两个数组可以共存在同一个清单里。用 `dependencies` 调用 Create、WorldEdit 或其他模组/插件 API；用 `packDependencies` 导入另一个包的 Kotlin 类并跨重载共享其状态。
 
 ## 平台行为
 

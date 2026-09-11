@@ -12,10 +12,14 @@ import './override.css'
 import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
 
+const KATTON_VERSION_LABEL = 'Alpha 0.5.0'
+
 const theme: Theme = {
   ...VPCarbon,
   Layout: () => {
     return h(VPCarbon.Layout!, null, {
+      'nav-bar-title-after': () =>
+        h('sup', { class: 'katton-version' }, KATTON_VERSION_LABEL),
       'home-hero-after': () => h(HomeCodeShowcase),
       'not-found': () => h(KattonNotFound),
     })

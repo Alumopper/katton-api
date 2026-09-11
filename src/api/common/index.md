@@ -27,6 +27,9 @@ Generated from module `common`.
 - [KattonContextApi](./KattonContextApi.md) - Determines which position the returned [ExecutionContext] uses.
 - [KattonDependencyApi](./KattonDependencyApi.md) - Script-facing access to optional mod and plugin dependency state.
 - [ScriptEntrypoint](./ScriptEntrypoint.md) - Execution stages available to server entrypoints.
+- [AudioApi](./audio/AudioApi.md) - Audio bytes are resolved on the client.
+- [AudioServerApi](./audio/AudioServerApi.md) - Loader-owned transport. Paper deliberately has no full-player transport.
+- [BasicSoundApi](./audio/BasicSoundApi.md) - Platform scheduling hook; Paper installs entity-region scheduling.
 - [Recipes](./datapack/Recipes.md)
 - [KattonBlockApi](./dpcaller/KattonBlockApi.md) - Map-like access to blocks in a level by position.
 - [KattonBlockEntityApi](./dpcaller/KattonBlockEntityApi.md) - Map-like access to block entities in a level by position.

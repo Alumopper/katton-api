@@ -326,3 +326,27 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+/* Compact superscript version next to the navbar site title */
+.VPNavBarTitle .katton-version {
+	align-self: center;
+	transform: translateY(-7px);
+	margin-left: 4px;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: 0.02em;
+	color: var(--vp-c-text-3);
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+.VPNavBarTitle .title:hover .katton-version {
+	color: var(--vp-c-brand-1);
+}
+
+@media (max-width: 640px) {
+	.VPNavBarTitle .katton-version {
+		display: none;
+	}
+}

@@ -91,3 +91,4 @@ interface EffectHandle
 Local handle. All operations must run on the client thread.
 
 </ApiMemberCard>
+

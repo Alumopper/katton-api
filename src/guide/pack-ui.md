@@ -12,7 +12,8 @@ On this screen you can:
 - **Browse** all installed script packs (global + world)
 - **Enable / Disable** individual packs with one click
 - **Reload** all scripts with the Reload button
-- **Inspect** pack metadata: name, ID, version, authors, description, scope
+- **Inspect** pack metadata: name, ID, version, authors, description, scope, and content kind
+- **Start the IDE bridge** with the **IDE** button, so the [Katton IDEA plugin](../quickstart/ide.md) can discover this instance and deploy world packs
 
 The reload progress bar renders **on top** of this screen, so you always know what's happening.
 
@@ -33,12 +34,14 @@ Each script pack needs a `manifest.json` to be recognized by Katton. The `depend
 | Field | Default | Description |
 |---|---|---|
 | `dependencies` | **required** | Mod/plugin dependency declarations; use `[]` when none are needed |
+| `packDependencies` | `[]` | Other Katton script packs this pack depends on |
 | `name` | same as `id` | Human-readable pack name |
-| `id` | folder/jar filename | Unique pack identifier |
+| `id` | folder/ZIP filename | Unique pack identifier |
 | `version` | `"unknown"` | Semantic version |
 | `authors` | `[]` | List of author names |
 | `description` | `""` | What your pack does |
 | `enabled` | `true` | `true` = active, `false` = skipped on reload |
+| `clientSync` | `true` | Fabric/NeoForge servers include this pack in client sync |
 
 ## State File (`.kattonpack.state.json`)
 
@@ -48,16 +51,18 @@ When you toggle a pack's enabled state from the UI, Katton writes a local state 
 { "enabled": false }
 ```
 
-This **overrides** the `enabled` field in `manifest.json`. Delete the state file to revert to the manifest's default. For JAR packs, the state file is saved as `<pack>.jar.state.json` next to the jar.
+This **overrides** the `enabled` field in `manifest.json`. Delete the state file to revert to the manifest's default. For ZIP packs, the state file is saved as `<pack>.zip.state.json` next to the archive. The state file is never treated as pack content and is never hashed, signed, or synced.
 
 ## Pack Types
 
 Katton supports two pack formats:
 
-| Format        | How it appears | Editable in UI? |
-|---------------|---|---|
-| **Directory** | A folder in `kattonpacks/` with `.kt` files | Yes — enable/disable, reload triggers |
-| **JAR**(WIP)  | A `.jar` file in `kattonpacks/` with manifest at root or `META-INF/katton/` | Enable/disable only — contents are pre-compiled |
+| Format | How it appears | Editable in UI? |
+|---|---|---|
+| **Directory** | A folder in `kattonpacks/` with `manifest.json` and sources | Yes — enable/disable and reload |
+| **ZIP** | A `.zip` file in `kattonpacks/` with `manifest.json` at the archive root | Enable/disable and reload |
+
+Executable JAR packs are no longer supported. A `.jar` file is only a private library when it sits directly in a pack's `libs/` directory.
 
 ## Toggle Packs Programmatically
 
@@ -75,3 +80,7 @@ Clicking **Reload** on the pack management screen:
 4. Disables the Reload button while a reload is in progress (prevents double-triggering)
 
 The button re-enables once the reload completes. If you close the screen, the overlay remains visible on the HUD.
+
+## Deploy from the IDE
+
+The **IDE** button in the top-right corner enables the loopback development bridge. Once it is on, the [Katton IDEA plugin](../quickstart/ide.md) can list the running instance, deploy a world pack snapshot, reload through the same serialized path as the Reload button, and stream compiler diagnostics back into the IDE. The bridge is off by default and only accepts local connections with a per-session token.

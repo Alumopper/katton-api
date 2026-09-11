@@ -39,6 +39,7 @@ const docsSidebar = [
       { text: "Introduction", link: "/quickstart/" },
       { text: "Getting Started", link: "/quickstart/get-started" },
       { text: "Hot Reload and Debugging", link: "/quickstart/hot-reload" },
+      { text: "IDE Development Bridge", link: "/quickstart/ide" },
       { text: "Commands", link: "/quickstart/commands" },
     ],
   },
@@ -49,6 +50,7 @@ const docsSidebar = [
       { text: "Script Packs", link: "/guide/scripts" },
       { text: "Entrypoint Lifecycle", link: "/guide/lifecycle" },
       { text: "Mods and Plugins", link: "/guide/dependencies" },
+      { text: "Pack Dependencies", link: "/guide/pack-dependencies" },
       { text: "Events", link: "/guide/events" },
       {
         text: "Registry",
@@ -74,6 +76,7 @@ const docsSidebar = [
           { text: "Camera Scenes", link: "/guide/render/client-scenes" },
         ],
       },
+      { text: "Audio", link: "/guide/audio" },
       { text: "Code Injection", link: "/guide/injection" },
       { text: "Script Pack UI", link: "/guide/pack-ui" },
     ],
@@ -106,6 +109,7 @@ const zhDocsSidebar = [
       { text: "简介", link: "/zh/quickstart/" },
       { text: "入门指南", link: "/zh/quickstart/get-started" },
       { text: "热重载与调试", link: "/zh/quickstart/hot-reload" },
+      { text: "IDE 开发连接", link: "/zh/quickstart/ide" },
       { text: "命令", link: "/zh/quickstart/commands" },
     ],
   },
@@ -116,6 +120,7 @@ const zhDocsSidebar = [
       { text: "脚本包", link: "/zh/guide/scripts" },
       { text: "入口生命周期", link: "/zh/guide/lifecycle" },
       { text: "模组与插件依赖", link: "/zh/guide/dependencies" },
+      { text: "脚本包依赖", link: "/zh/guide/pack-dependencies" },
       { text: "事件", link: "/zh/guide/events" },
       {
         text: "注册",
@@ -141,6 +146,7 @@ const zhDocsSidebar = [
           { text: "镜头演出与世界特效", link: "/zh/guide/render/client-scenes" },
         ],
       },
+      { text: "音频", link: "/zh/guide/audio" },
       { text: "代码注入", link: "/zh/guide/injection" },
       { text: "脚本包界面", link: "/zh/guide/pack-ui" },
     ],
@@ -237,7 +243,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   themeConfig: {
     logo: "/logo.png",
-    siteTitle: "Katton · Alpha 0.5.0 build1",
+    siteTitle: "Katton",
     search: {
       provider: "local",
     },

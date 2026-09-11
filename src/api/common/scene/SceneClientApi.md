@@ -185,3 +185,4 @@ fun setClientEffectBudgets(budgets: EffectBudgets)
 Set shared client limits for active effects, emitted particles, and geometry vertices.
 
 </ApiMemberCard>
+

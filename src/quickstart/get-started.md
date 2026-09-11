@@ -104,6 +104,9 @@ Change the message in `hello.kt` to something else, save the file, and use `/kat
 
 Katton supports debugging script pack Kotlin scripts through standard JVM remote debugging.
 
+> [!TIP]
+> For a faster inner loop, enable the [IDE development bridge](./ide.md) and deploy world packs directly from the Katton IDEA plugin. The bridge deploys scripts and streams diagnostics; it is not a debugger, so keep the remote attach below for breakpoints.
+
 1. Start Minecraft (or the dedicated server) with a debug agent, for example:
 
    <!--@include: ../example/quickstart/get-started/02.md-->

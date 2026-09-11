@@ -41,6 +41,16 @@
       <span>声明依赖并调用 Fabric、NeoForge 或 Paper API。</span>
     </span>
   </a>
+
+  <a class="next-card" href="./pack-dependencies.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 7h6v10H4zM14 7h6v10h-6z"/><path d="M10 12h4"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>脚本包依赖</strong>
+      <span>在包之间共享 Kotlin 类型与状态，支持显式导出。</span>
+    </span>
+  </a>
   <a class="next-card" href="./registry/">
     <span class="next-card__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="m4 12 8 4 8-4"/><path d="m4 17 8 4 8-4"/></svg>
@@ -75,6 +85,16 @@
     <span class="next-card__body">
       <strong>渲染</strong>
       <span>HUD/世界回调、无实体物品模型渲染和后处理效果。</span>
+    </span>
+  </a>
+
+  <a class="next-card" href="./audio.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>音频</strong>
+      <span>播放包内文件、资源与声音事件；三平台通用的基础声音。</span>
     </span>
   </a>
   <a class="next-card" href="./injection.html">
