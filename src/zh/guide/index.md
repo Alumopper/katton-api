@@ -1,8 +1,8 @@
 # 使用指北
 
-这里是 Katton 使用的全面指南！对于萌新，建议先阅读[快速开始](../quickstart/)哦。然后，我们建议你先看看脚本包一章，再选择你感兴趣的主题深入了解。
+本指南介绍 Katton 的脚本功能。首次使用时，请先阅读[快速开始](../quickstart/)和[脚本包](./scripts.md)，再按需要选择主题。
 
-关于 Katton 在各个平台的支持差异见 [平台](../platform/)。重载、联网同步和注册表生命周期等技术细节见 [架构](../architecture/)。
+平台支持情况见[平台](../platform/)。重载、脚本包同步和注册表生命周期见[架构](../architecture/)。
 
 <div class="next-card-grid next-card-grid--compact">
   <a class="next-card" href="./scripts.html">
@@ -21,6 +21,15 @@
     <span class="next-card__body">
       <strong>事件</strong>
       <span>跨平台事件分类与参数类型。</span>
+    </span>
+  </a>
+  <a class="next-card" href="./play-networking.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3 7h7l3 5h8M3 17h7l3-5h8"/><circle cx="3" cy="7" r="1"/><circle cx="21" cy="12" r="1"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>游戏阶段网络通信</strong>
+      <span>Fabric 和 NeoForge 脚本通过可重载频道交换二进制消息。</span>
     </span>
   </a>
   <a class="next-card" href="./lifecycle.html">

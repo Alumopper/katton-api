@@ -27,7 +27,7 @@ globalThis.fetch = async () => new Response(new Uint8Array([0x50, 0x4b]))
 async function main() {
   const versions = await fetchKattonVersions()
   const targets = (Object.keys(platformVersions) as SupportedMinecraftVersion[]).flatMap(
-    minecraftVersion => ['0.5.0', '0.4.0'].map(releaseVersion => ({ minecraftVersion, releaseVersion })),
+    minecraftVersion => ['0.5.1', '0.5.0', '0.4.0'].map(releaseVersion => ({ minecraftVersion, releaseVersion })),
   )
   for (const { minecraftVersion, releaseVersion } of targets) {
     const mavenVersion = `${releaseVersion}+mc${minecraftVersion}`
@@ -91,7 +91,7 @@ async function main() {
     }
   }
 
-  console.log('Verified Katton 0.5.0 and 0.4.0 templates for Fabric, NeoForge, and Paper on both Minecraft targets.')
+  console.log('Verified Katton 0.5.1, 0.5.0, and 0.4.0 templates for Fabric, NeoForge, and Paper on both Minecraft targets.')
 }
 
 main().catch(error => {

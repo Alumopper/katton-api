@@ -10,9 +10,13 @@ Generated from module `fabric`.
 ## Source Roots
 
 - `fabric/src/main/kotlin/top/katton/api`
+- `fabric/src/main/kotlin/top/katton/network/ClientScriptPlayNetworking.kt`
+- `fabric/src/main/kotlin/top/katton/network/ScriptPlayNetworking.kt`
 
 ## Pages
 
+- [ClientScriptPlayNetworking](./ClientScriptPlayNetworking.md) - Send and receive script Play packets on the client. Register receivers from client entrypoints.
+- [ScriptPlayNetworking](./ScriptPlayNetworking.md) - Send and receive script Play packets on the server. Katton keeps the packet codec registered across script reloads.
 - [ChunkAndBlockEvent](./event/ChunkAndBlockEvent.md) - Chunk, block entity, and block events for Fabric platform.
 - [ItemComponentEvent](./event/ItemComponentEvent.md) - Item component and enchantment events for Fabric platform.
 - [ItemEvent](./event/ItemEvent.md) - Item interaction events for Fabric platform.

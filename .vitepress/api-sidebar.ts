@@ -75,6 +75,8 @@ const apiSidebar: DefaultTheme.SidebarMulti = {
           link: '/api/fabric/',
           collapsed: false,
           items: [
+            { text: 'ClientScriptPlayNetworking', link: '/api/fabric/ClientScriptPlayNetworking' },
+            { text: 'ScriptPlayNetworking', link: '/api/fabric/ScriptPlayNetworking' },
             { text: 'ChunkAndBlockEvent', link: '/api/fabric/event/ChunkAndBlockEvent' },
             { text: 'ItemComponentEvent', link: '/api/fabric/event/ItemComponentEvent' },
             { text: 'ItemEvent', link: '/api/fabric/event/ItemEvent' },
@@ -97,6 +99,8 @@ const apiSidebar: DefaultTheme.SidebarMulti = {
           link: '/api/neoforge/',
           collapsed: false,
           items: [
+            { text: 'ClientScriptPlayNetworking', link: '/api/neoforge/ClientScriptPlayNetworking' },
+            { text: 'ScriptPlayNetworking', link: '/api/neoforge/ScriptPlayNetworking' },
             { text: 'ChunkAndBlockEvent', link: '/api/neoforge/event/ChunkAndBlockEvent' },
             { text: 'ItemComponentEvent', link: '/api/neoforge/event/ItemComponentEvent' },
             { text: 'ItemEvent', link: '/api/neoforge/event/ItemEvent' },

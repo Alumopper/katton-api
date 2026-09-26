@@ -655,6 +655,22 @@ export interface KattonVersion {
 // deliberately keep their original unqualified versions.
 const KATTON_VERSIONS: KattonVersion[] = [
   {
+    tag: '0.5.1',
+    mavenVersion: '0.5.1+mc26.2',
+    minecraftVersion: '26.2',
+    loaders: ['fabric', 'neoforge', 'paper'],
+    prerelease: false,
+    legacyMavenCoordinate: false,
+  },
+  {
+    tag: '0.5.1',
+    mavenVersion: '0.5.1+mc26.1.2',
+    minecraftVersion: '26.1.2',
+    loaders: ['fabric', 'neoforge', 'paper'],
+    prerelease: false,
+    legacyMavenCoordinate: false,
+  },
+  {
     tag: '0.5.0',
     mavenVersion: '0.5.0+mc26.2',
     minecraftVersion: '26.2',

@@ -10,9 +10,13 @@ Generated from module `neoforge`.
 ## Source Roots
 
 - `neoforge/src/main/kotlin/top/katton/api`
+- `neoforge/src/main/kotlin/top/katton/network/ClientScriptPlayNetworking.kt`
+- `neoforge/src/main/kotlin/top/katton/network/ScriptPlayNetworking.kt`
 
 ## Pages
 
+- [ClientScriptPlayNetworking](./ClientScriptPlayNetworking.md) - Send and receive script Play packets on the client. Register receivers from client entrypoints.
+- [ScriptPlayNetworking](./ScriptPlayNetworking.md) - Send and receive script Play packets on the server. Katton keeps the packet codec registered across script reloads.
 - [ChunkAndBlockEvent](./event/ChunkAndBlockEvent.md) - Chunk, block, and explosion events for NeoForge platform.
 - [ItemComponentEvent](./event/ItemComponentEvent.md) - Item component and enchantment events for NeoForge platform.
 - [ItemEvent](./event/ItemEvent.md) - Item interaction events for NeoForge platform.

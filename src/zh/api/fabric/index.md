@@ -10,9 +10,13 @@ outline: false
 ## 源码根目录
 
 - `fabric/src/main/kotlin/top/katton/api`
+- `fabric/src/main/kotlin/top/katton/network/ClientScriptPlayNetworking.kt`
+- `fabric/src/main/kotlin/top/katton/network/ScriptPlayNetworking.kt`
 
 ## 页面
 
+- [ClientScriptPlayNetworking](./ClientScriptPlayNetworking.md) - 在客户端发送和接收脚本的游戏阶段数据包。请在客户端入口中注册接收器。
+- [ScriptPlayNetworking](./ScriptPlayNetworking.md) - 在服务端发送和接收脚本的游戏阶段数据包。脚本重载时，Katton 保持数据包编解码器的注册。
 - [ChunkAndBlockEvent](./event/ChunkAndBlockEvent.md) - Fabric 平台的区块、方块实体和方块事件。 此对象提供与区块加载/卸载、方块实体生命周期、方块破坏以及爆炸相关的事件。
 - [ItemComponentEvent](./event/ItemComponentEvent.md) - Fabric 平台的物品组件和附魔事件。
 - [ItemEvent](./event/ItemEvent.md) - Fabric 平台的物品交互事件。 此对象提供与物品使用和投掷相关的事件。 当玩家在世界中与物品交互时触发。

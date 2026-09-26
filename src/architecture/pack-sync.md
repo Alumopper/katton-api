@@ -22,6 +22,8 @@ Login remains a configuration-phase operation because client registry setup must
 
 The hash snapshot is always sent, including when empty, so a client can deactivate stale packs from an earlier connection.
 
+In 0.5.1, the server pauses its slow-login timeout while the connection waits for a script reload. A cold Kotlin compile therefore does not consume that timeout. This does not change the 30-second acknowledgement timeout for live revisions below.
+
 ## Live Reload: Play-Phase Revisions
 
 After every successful server hot reload, the server publishes a monotonically increasing play-phase revision to connected remote players:
@@ -41,6 +43,8 @@ Activation is transactional: trust rejection, invalid signatures or hashes, inco
 Because pack-to-pack dependencies must live inside one synchronized set, a `SERVER_CACHE` pack can only depend on another `SERVER_CACHE` pack. A dependency that would reach outside the snapshot is rejected on the server before the revision is published.
 
 Integrated singleplayer does not transfer an in-memory bundle to itself. The local client reloads directly from the same local packs, while dedicated-server clients use the network protocol above.
+
+For messages sent by your own scripts during Play, see [Play Networking](../guide/play-networking.md). Those logical channels do not change this script-pack sync protocol.
 
 ## Cache Layout
 

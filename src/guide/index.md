@@ -2,7 +2,7 @@
 
 These guides describe the script-facing parts of Katton. Start with script packs, then jump to the feature area you need.
 
-For platform-level availability, see [Platforms](../platform/). For reload, networking, and registry lifecycle details, see [Architecture](../architecture/).
+For platform support, see [Platforms](../platform/). For reload, pack synchronization, and registry lifecycle, see [Architecture](../architecture/).
 
 
 <div class="next-card-grid">
@@ -22,6 +22,15 @@ For platform-level availability, see [Platforms](../platform/). For reload, netw
     <span class="next-card__body">
       <strong>Events</strong>
       <span>Cross-platform event categories and argument model.</span>
+    </span>
+  </a>
+  <a class="next-card" href="./play-networking.html">
+    <span class="next-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3 7h7l3 5h8M3 17h7l3-5h8"/><circle cx="3" cy="7" r="1"/><circle cx="21" cy="12" r="1"/></svg>
+    </span>
+    <span class="next-card__body">
+      <strong>Play Networking</strong>
+      <span>Exchange binary messages through reloadable script channels on Fabric and NeoForge.</span>
     </span>
   </a>
   <a class="next-card" href="./lifecycle.html">

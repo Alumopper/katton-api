@@ -52,6 +52,7 @@ const docsSidebar = [
       { text: "Mods and Plugins", link: "/guide/dependencies" },
       { text: "Pack Dependencies", link: "/guide/pack-dependencies" },
       { text: "Events", link: "/guide/events" },
+      { text: "Play Networking", link: "/guide/play-networking" },
       {
         text: "Registry",
         link: "/guide/registry/",
@@ -122,6 +123,7 @@ const zhDocsSidebar = [
       { text: "模组与插件依赖", link: "/zh/guide/dependencies" },
       { text: "脚本包依赖", link: "/zh/guide/pack-dependencies" },
       { text: "事件", link: "/zh/guide/events" },
+      { text: "游戏阶段网络通信", link: "/zh/guide/play-networking" },
       {
         text: "注册",
         link: "/zh/guide/registry/",

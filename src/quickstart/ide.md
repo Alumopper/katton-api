@@ -25,7 +25,9 @@ Enabling prints the chosen localhost port, for example:
 Katton development connection enabled on localhost:52143. Connect from IDEA.
 ```
 
-The bridge is also disabled automatically when the game process shuts down.
+Katton 0.5.1 can enable the bridge at launch. Add `-Dkatton.dev.autoEnable=true` to the JVM arguments, or set `KATTON_DEV_AUTO_ENABLE=true` in the process environment. This is an opt-in setting; the bridge stays disabled when neither value is set. An integrated Fabric server also closes the bridge when it stops.
+
+The bridge is disabled automatically when the game process shuts down.
 
 ## How Discovery Works
 
@@ -85,7 +87,7 @@ A deployment `POST` body is limited to 96 MiB. Re-sending an `apply` request wit
 
 | Symptom | Likely cause |
 |---|---|
-| No instances appear in the IDE | The bridge is not enabled, or the IDE is watching a different user home directory. |
+| No instances appear in the IDE | The bridge is not enabled, or the IDE is watching a different user home directory. Enable it in the game, or use the 0.5.1 launch setting. |
 | `Authentication required` | The token from the discovery file is stale. Toggle the bridge off and on, then reconnect. |
 | `World changed; reconnect and select the target again` | The world was switched or reloaded after the IDE connected. Re-select the world. |
 | `Another reload is active; retry after it completes` | A manual `/katton reload` or another deployment is running. Retry when it finishes. |

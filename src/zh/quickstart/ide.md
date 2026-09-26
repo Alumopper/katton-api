@@ -25,6 +25,8 @@ Katton Alpha 0.5.0 新增了一个可选的**回环 HTTP 桥**，用于连接运
 Katton development connection enabled on localhost:52143. Connect from IDEA.
 ```
 
+Katton 0.5.1 可以在启动时开启连接桥。在 JVM 参数中加入 `-Dkatton.dev.autoEnable=true`，或为进程设置环境变量 `KATTON_DEV_AUTO_ENABLE=true`。这两个设置都需要主动配置；未配置时连接桥仍默认关闭。Fabric 的集成服务器停止时也会关闭连接桥。
+
 游戏进程关闭时，桥也会自动停用。
 
 ## 发现机制
@@ -85,7 +87,7 @@ Paper 与 Folia 会通过实例查询报告各自的能力限制。例如，不�
 
 | 现象 | 可能原因 |
 |---|---|
-| IDE 中看不到实例 | 桥未开启，或 IDE 监视的用户主目录不一致。 |
+| IDE 中看不到实例 | 桥未开启，或 IDE 监视的用户主目录不一致。可在游戏中开启，或使用 0.5.1 的启动设置。 |
 | `Authentication required` | 发现文件中的令牌已过期。关闭再开启桥后重新连接。 |
 | `World changed; reconnect and select the target again` | IDE 连接后世界被切换或重载，请重新选择世界。 |
 | `Another reload is active; retry after it completes` | 手动 `/katton reload` 或其他部署正在运行，等它结束后重试。 |

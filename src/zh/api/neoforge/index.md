@@ -10,9 +10,13 @@ outline: false
 ## 源码根目录
 
 - `neoforge/src/main/kotlin/top/katton/api`
+- `neoforge/src/main/kotlin/top/katton/network/ClientScriptPlayNetworking.kt`
+- `neoforge/src/main/kotlin/top/katton/network/ScriptPlayNetworking.kt`
 
 ## 页面
 
+- [ClientScriptPlayNetworking](./ClientScriptPlayNetworking.md) - 在客户端发送和接收脚本的游戏阶段数据包。请在客户端入口中注册接收器。
+- [ScriptPlayNetworking](./ScriptPlayNetworking.md) - 在服务端发送和接收脚本的游戏阶段数据包。脚本重载时，Katton 保持数据包编解码器的注册。
 - [ChunkAndBlockEvent](./event/ChunkAndBlockEvent.md) - NeoForge 平台的区块、方块和爆炸事件。 此对象提供与区块加载/卸载、方块破坏/放置以及爆炸相关的事件。
 - [ItemComponentEvent](./event/ItemComponentEvent.md) - NeoForge 平台的物品组件和附魔事件。 这是为了物品组件修改和附魔处理保留的占位事件。NeoForge 没有与所有 Fabric 物品组件事件一一对应的实现，因此这里只为 API 兼容性提供这些事件。
 - [ItemEvent](./event/ItemEvent.md) - NeoForge 平台的物品交互事件。 此对象提供与物品使用相关的事件，包括对方块使用物品以及一般的物品使用事件。

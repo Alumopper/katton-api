@@ -111,8 +111,8 @@ If a pack is not part of a dependency chain that failed, it still loads. One bro
 1. Refresh global and world pack snapshots.
 2. Resolve the script-pack dependency graph and validate applicable mod or plugin dependencies.
 3. Group changed packs and their affected consumers into reload transactions (see below).
-4. Clear replayable script-owned events, listeners, injections, registry ownership, and datapack mutations for the replaced components.
-5. Compile valid packs with their declared dependency classpaths.
+4. Prepare and compile valid world packs with their declared dependency classpaths. The asynchronous `/katton reload` path uses a worker thread for this step.
+5. Clear replayable script-owned events, listeners, injections, registry ownership, and datapack mutations for components ready to be replaced.
 6. Invoke eligible `ServerPhase.READY` entrypoints in dependency order with the appropriate cause.
 7. Apply staged datapack mutations.
 8. On Fabric and NeoForge, publish a new client pack revision after a successful reload.
@@ -120,12 +120,14 @@ If a pack is not part of a dependency chain that failed, it still loads. One bro
 Fabric and NeoForge client activation follows this flow:
 
 1. Validate the client's applicable dependencies.
-2. Precompile the complete candidate pack snapshot.
+2. Precompile the complete candidate pack snapshot on a preparation worker. Initial global-pack compilation also runs away from the render thread.
 3. Clear client event and render state only when the candidate is ready to activate.
-4. Invoke `REGISTRY_SETUP`, then invoke or schedule `JOINED` when its objects exist.
+4. Invoke `REGISTRY_SETUP`, then invoke or schedule `JOINED` when its objects exist. If the player and level are ready, both phases use one render-thread dispatch.
 5. Keep the previous active revision if validation, trust, download, or compilation fails.
 
 Paper has no client lifecycle because `hasClient = false`.
+
+Katton logs stage timings for compilation, classpath indexing, activation, and resource reload. The disk compilation cache can reuse an artifact when sources and bundled libraries are unchanged. A manifest-only edit does not trigger Kotlin recompilation. Source or bundled-library edits invalidate the artifact. Cold compilation can still take several seconds.
 
 ## Reload Transactions
 

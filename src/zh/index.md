@@ -15,9 +15,11 @@ hero:
       link: /zh/quickstart
     - theme: alt
       text: API 文档
-      link: /api/index.html
+      link: /zh/api/index.html
 
 features:
+  - title: 脚本游戏阶段通信
+    details: Fabric 和 NeoForge 脚本可双向交换二进制消息。脚本重载时，Katton 保持数据包编解码器稳定。
   - title: 镜头演出
     details: 编排镜头路径、粒子、几何效果和可复用时间线。服务端可以向指定玩家触发演出。
   - title: 音频

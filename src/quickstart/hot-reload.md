@@ -18,6 +18,12 @@ Other reload paths still exist:
 | Script Pack UI Reload button | Reloads from the in-game pack manager on Fabric/NeoForge clients. |
 | IDE bridge deploy | The Katton IDEA plugin stages a snapshot and reloads through the same serialized path. See [IDE Development Bridge](./ide.md). |
 
+## Compilation and Progress
+
+On `/katton reload`, Katton 0.5.1 prepares world-pack compilation on a worker thread. Initial client global-pack compilation also runs away from the render thread. The server reload progress display names the compilation stage while a cold compile runs. Client activation reuses the prepared artifact for its lifecycle phases.
+
+Katton can reuse a compiled artifact from its disk cache when script sources and libraries have not changed. Stable host classpath ordering makes cache keys repeatable across launches. A manifest-only edit does not force Kotlin recompilation. A source or bundled-library change does. Stage timing logs separate compilation, classpath indexing, activation, and resource reload time. See [Script Loading Lifecycle](../architecture/script-loading.md) for the activation order.
+
 ## What Gets Cleared
 
 During reload, Katton clears script-owned state before running entrypoints again. Only the components being replaced are cleared: an independent pack that did not change keeps running.
@@ -30,6 +36,7 @@ During reload, Katton clears script-owned state before running entrypoints again
 | Reloadable registries | Ownership is cleared; objects are soft-retained to avoid holder crashes. |
 | Datapack mutations | Cleared and re-applied during datapack apply. |
 | Client render callbacks | Cleared on client reload. |
+| Script Play packet receivers | Cleared and re-registered with their pack on Fabric/NeoForge. See [Play Networking](../guide/play-networking.md). |
 | Folia scheduled tasks | Detached; missed one-shot tasks are rescheduled when the candidate commit succeeds. |
 
 ## Dependency Transactions

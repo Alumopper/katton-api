@@ -19,6 +19,8 @@ hero:
       link: /api/index.html
 
 features:
+  - title: Script Play Networking
+    details: Exchange binary messages between Fabric or NeoForge scripts. Katton keeps the packet codec stable across reloads.
   - title: Camera Scenes
     details: Build camera paths, particle and geometry effects, and reusable timelines. A server can start scenes for selected players.
   - title: Audio
