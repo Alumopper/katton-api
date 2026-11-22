@@ -34,13 +34,7 @@ Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包
 开始前，我们需要把 Minecraft 类引入项目以便 IDE 代码补全。模板生成器会根据选择的 Minecraft 版本配置 Katton 与平台依赖；Fabric Loom 和 NeoForge ModDevGradle 会自动提供匹配的 Minecraft 编译类路径。请在生成器的依赖区域添加外部模组或插件，再通过 Gradle `compileOnly` 或 `lib/` 中的额外 JAR 提供其 API。
 
 > [!NOTE]
-> 对于Paper端，则不需要使用这样的方法引入Minecraft源码。Paper提供了一个轻量级插件开发环境，可以直接在build.gradle.kts中添加
-> ```kts
-> plugins {
->     id("io.papermc.paperweight.userdev") version "2.0.0-beta.21"
-> }
-> ```
-> 从而引入Paper API和Minecraft源码。
+> Paper 模板已配置 Paperweight Userdev 和匹配的开发包，无需再手动添加。
 
 作为第一个脚本，我们实现玩家加入游戏时发送 "Hello Katton"。在 `world_scripts/` 目录中新建 `hello.kt`，内容如下：
 
@@ -48,44 +42,23 @@ Katton 会从 `kattonpacks/` 目录中加载 Kotlin 脚本包（详见[脚本包
 
 当前我们只是在独立工程里写脚本。需要把脚本放到 Katton 能发现的地方。推荐的方式是放到世界存档的 **脚本包**（`kattonpacks/`）目录下。
 
-### 创建你的脚本包
-
-在世界存档的 `kattonpacks/` 目录下新建一个文件夹（例：`<世界目录>/kattonpacks/my_first_pack/`），并添加 `manifest.json`：
-
-```json
-{
-  "id": "my_first_pack",
-  "name": "我的第一个 Katton 包",
-  "version": "1.0.0",
-  "enabled": true,
-  "dependencies": []
-}
-```
-
-每个脚本包清单都必须包含 `dependencies`。导入其他模组或插件的类之前，应在这里声明对应依赖；详见[清单、依赖与签名](../architecture/manifest.md)。
-
-如果 `kattonpacks/` 目录还不存在，可以手动创建，也可以让 Katton 在首次重载时自动创建。
-
 ### 配置 Gradle 同步任务
 
-示例项目自带一个 `copyGameScripts` Gradle 任务，它会在你的源文件夹和目标之间创建**硬链接**——所以你在 IDE 里的任何改动都会立即反映到游戏中，不需要重复执行任务。
+模板已在 `world_scripts/manifest.json` 中生成脚本包清单，无需在游戏目录里手动创建。要修改清单，请编辑工程里的这份文件，并保留必填的 `dependencies` 数组。详见[清单、依赖与签名](../architecture/manifest.md)。
 
->[!NOTE]
-> 硬链接只能在同一磁盘上创建。
->
-> 如果你在源文件夹中创建或删除文件，可能需要重新运行 `copyGameScripts` 任务来更新链接。
+打开工程根目录的 `gradle.properties`，设置目标路径。本教程只使用 `world_scripts/`，因此将全局脚本路径留空：
 
-打开 `build.gradle.kts`，设置目标目录：
-
-```kt
-// In this tutorial we only use server scripts, so set the others to null
-val worldScriptsTargetDir: List<File> = listOf(
-   file("/path/to/your/world/kattonpacks/my_first_pack/")
-)
-val globalScriptsTargetDir: List<File> = listOf()
+```properties
+kattonWorldScriptsDir=/path/to/world/kattonpacks/my_first_pack
+kattonGlobalScriptsDir=
 ```
 
-记得把路径换成你的世界存档真实路径。然后在 IDEA 右侧 Gradle 面板（就是那个大象喵）中找到并执行 `copyGameScripts` 任务，你的脚本就会以硬链接的形式出现在脚本包里。
+将示例路径换成实际的脚本包路径；Paper 使用 `<serverDir>/kattonpacks/my_first_pack`。Windows 路径可写成 `D:/Minecraft/saves/Test World/kattonpacks/my_first_pack`，以免反斜杠被当成转义符。
+
+> [!WARNING]
+> 请选择与工程位于同一卷的新建专用脚本包目录。不要填整个 `kattonpacks` 目录，也不要填已有文件需要保留的目录。同步会删除目标中源目录没有的文件和子目录，并用硬链接替换同路径的独立文件。
+
+在 IDEA 右侧的 Gradle 面板运行 `copyGameScripts`；如果生成 Fabric 或 NeoForge 模板时启用了签名功能，则运行 `signAndCopyGameScripts`。任务会将清单和脚本以硬链接部署到目标目录。请在工程里编辑脚本；新增或删除文件后重新运行同步任务。
 
 <ImageCaptionZoom
    src="/docimg/image-3.png"

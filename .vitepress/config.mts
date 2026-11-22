@@ -208,7 +208,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       themeConfig: {
         nav: [
           { text: "Home", link: "/" },
-          { text: "Quick Start", link: "/quickstart" },
+          { text: "Quick Start", link: "/quickstart/" },
           { text: "Template", link: "/template/" },
           { text: "API", link: "/api/index.html" },
         ],
@@ -228,7 +228,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       themeConfig: {
         nav: [
           { text: "首页", link: "/zh/" },
-          { text: "快速开始", link: "/zh/quickstart" },
+          { text: "快速开始", link: "/zh/quickstart/" },
           { text: "模板生成器", link: "/zh/template/" },
           { text: "API", link: "/zh/api/index.html" },
         ],

@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /zh/quickstart
+      link: /zh/quickstart/
     - theme: alt
       text: API 文档
       link: /zh/api/index.html
