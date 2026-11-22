@@ -34,13 +34,7 @@ To make things simple, we'll only use `world_scripts/` in this tutorial.
 Before we start, we need to include Minecraft classes in our project for IDE code completion. The template generator selects Katton and platform dependencies for the chosen Minecraft version. Fabric Loom and NeoForge ModDevGradle supply the matching Minecraft compile classpath automatically. Add external mods or plugins in the generator's dependency section, then provide their API through a Gradle `compileOnly` dependency or another jar in `lib/`.
 
 > [!NOTE]
-> For Paper, you don't need to manually include Minecraft source code. Paper provides a lightweight plugin development environment, and you can simply add the following to your `build.gradle.kts` to get access to the Paper API and Minecraft source code:
-> ```kts
-> plugins {
->     id("io.papermc.paperweight.userdev") version "2.0.0-beta.21"
-> }
-> ```
-> This will set up the necessary dependencies for Paper plugin development.
+> The Paper template already configures Paperweight Userdev and the matching development bundle. You do not need to add them manually.
 
 As your first script, we'll send a "Hello Katton" message to the player when they join the game. Create a new file named `hello.kt` in the `world_scripts/` directory with the following content:
 
@@ -48,44 +42,23 @@ As your first script, we'll send a "Hello Katton" message to the player when the
 
 Right now we're just writing scripts in a standalone project. We need to get these scripts into a location Katton can find. The recommended way is to place them in a **script pack** under your world's `kattonpacks/` directory.
 
-### Create your script pack
-
-Create a new folder inside your world's `kattonpacks/` directory (e.g. `<worldDir>/kattonpacks/my_first_pack/`), and add a `manifest.json`:
-
-```json
-{
-  "id": "my_first_pack",
-  "name": "My First Katton Pack",
-  "version": "1.0.0",
-  "enabled": true,
-  "dependencies": []
-}
-```
-
-`dependencies` is mandatory in every pack manifest. Declare mod or plugin APIs here before importing their classes; see [Manifest, Dependencies, and Signing](../architecture/manifest.md).
-
-If the `kattonpacks/` directory doesn't exist yet, create it manually or let Katton create it on first reload.
-
 ### Configure the Gradle sync task
 
-The example project includes a `copyGameScripts` Gradle task that creates **hard links** from your source folders to your game directory — so any changes you make in the IDE are instantly reflected in the game without running the task again.
+The template already includes the pack manifest at `world_scripts/manifest.json`. Edit that copy if needed and keep its required `dependencies` array. You do not need to create a separate manifest in the game directory. See [Manifest, Dependencies, and Signing](../architecture/manifest.md).
 
->[!NOTE]
-> Hard links can only be created on the same drive.
->
-> If you create or delete files in the source folders, you may need to run the `copyGameScripts` task again to update the links.
+Set the destination in `gradle.properties` at the project root. This tutorial only uses `world_scripts/`, so leave the global destination blank:
 
-Open `build.gradle.kts` and set the target directories:
-
-```kt
-// In this tutorial we only use server scripts, so set the others to null
-val worldScriptsTargetDir: List<File> = listOf(
-   file("/path/to/your/world/kattonpacks/my_first_pack/")
-)
-val globalScriptsTargetDir: List<File> = listOf()
+```properties
+kattonWorldScriptsDir=/path/to/world/kattonpacks/my_first_pack
+kattonGlobalScriptsDir=
 ```
 
-Make sure to replace the path with the actual path to your world save. Then click the Gradle button on the right side of IntelliJ IDEA (the elephant icon!), find the `copyGameScripts` task, and run it. Your scripts now appear inside your pack as hard links.
+Replace the example with the actual pack path. For Paper, use `<serverDir>/kattonpacks/my_first_pack`. On Windows, use forward slashes, as in `D:/Minecraft/saves/Test World/kattonpacks/my_first_pack`, so the properties file does not interpret backslashes as escapes.
+
+> [!WARNING]
+> Choose a new, dedicated pack folder on the same volume as the project. Do not target the entire `kattonpacks` directory or a folder containing files you want to keep. Sync deletes destination files and subfolders that are missing from the source and replaces independent files at matching paths with hard links.
+
+Run `copyGameScripts` from IntelliJ IDEA's Gradle panel, or `signAndCopyGameScripts` if you enabled signing when generating a Fabric or NeoForge template. This links the manifest and scripts into the target. Edit the script in your project and run the sync task again after adding or removing files.
 
 <ImageCaptionZoom
    src="/docimg/image-3.png"

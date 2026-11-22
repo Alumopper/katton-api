@@ -13,7 +13,7 @@ hero:
   actions:
     - theme: brand
       text: Quick Start
-      link: /quickstart
+      link: /quickstart/
     - theme: alt
       text: API Docs
       link: /api/index.html
